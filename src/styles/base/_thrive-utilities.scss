@@ -1,0 +1,158 @@
+/*------------------*
+# Utilities
+*------------------*/
+$utilities: map-merge(
+  $utilities,
+  (
+    // existing utilities
+    "rounded":
+      map-merge(
+        map-get($utilities, "rounded"),
+        (
+          values:
+            map-merge(
+              map-get(map-get($utilities, "rounded"), "values"),
+              (
+                8px: 8px,
+              )
+            ),
+        )
+      ),
+    // custom utilities
+    "rotate":
+      (
+        property: transform,
+        class: rotate,
+        values: (
+          45: rotate(45deg),
+          90: rotate(90deg),
+          180: rotate(180deg),
+          270: rotate(270deg),
+        ),
+      ),
+    "fs": (
+      property: font-size,
+      class: fs,
+      values: (
+        12: 12px,
+        14: 14px,
+        16: 16px,
+        18: 18px,
+        20: 20px,
+        22: 22px,
+        24: 24px,
+        25: 25px,
+        28: 28px,
+        30: 30px,
+        34: 34px,
+        35: 35px,
+        36: 36px,
+        40: 40px,
+        45: 45px,
+        50: 50px,
+        55: 55px,
+        60: 60px,
+        124: 124px,
+        200: 200px,
+      ),
+      responsive: true,
+    ),
+    "fw": (
+      property: font-weight,
+      class: fw,
+      values: (
+        100: 100,
+        300: 300,
+        400: 400,
+        500: 500,
+        600: 600,
+        700: 700,
+        800: 800,
+      ),
+    ),
+    "mw": (
+      property: min-width,
+      class: mw,
+      values: (
+        290: 290px,
+      ),
+    ),
+    "mxw": (
+      property: max-width,
+      class: mxw,
+      values: (
+        150: 150px,
+        290: 290px,
+        280: 280px,
+      ),
+    ),
+    "mxh": (
+      property: max-height,
+      class: mxh,
+      values: (
+        290: 290px,
+        148: 148px,
+        280: 280px,
+      ),
+    ),
+    "mh": (
+      property: min-height,
+      class: mh,
+      values: (
+        0: 0px,
+      ),
+    ),
+    "w": (
+      property: width,
+      class: w,
+      values: (
+        full: 100%,
+        16: 16px,
+        21: 21px,
+        25: 25px,
+        44: 44px,
+        45: 45px,
+        50: 50px,
+        60: 60px,
+        70: 70px,
+        75: 75px,
+        120: 120px,
+        128: 128px,
+        200: 200px,
+      ),
+    ),
+    "h": (
+      property: height,
+      class: h,
+      values: (
+        "auto": auto,
+        full: 100%,
+        16: 16px,
+        21: 21px,
+        25: 25px,
+        40: 40px,
+        44: 44px,
+        50: 50px,
+        52: 52px,
+        60: 60px,
+        70: 70px,
+        120: 120px,
+        128: 128px,
+        240: 240px,
+        310: 310px,
+      ),
+    ),
+    "lh": (
+      property: line-height,
+      class: lh,
+      values: (
+        1: 1,
+        24: 24px,
+        28: 28px,
+        48: 48px,
+        19: 19px,
+        10: 10px,
+      ),
+    )
+  )
+);
