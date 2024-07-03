@@ -1,3 +1,22 @@
+*,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.cta-btn {
+  @extend .btn,
+    .btn-primary,
+    .fs-18,
+    .text-white,
+    .py-12,
+    .px-30,
+    .rounded-pill;
+  border: 3px solid $secondary;
+}
+
 body {
   background-color: $body;
   overflow-x: hidden;

@@ -21,7 +21,7 @@ $royalBlue: #4542dd;
 $white: #ffffff;
 //New colors
 $secondary-light: #fffbdd;
-$body: #f0f3f5;
+$body: #ffffff;
 
 $primary: #275dad;
 $secondary: #ffc625;
@@ -59,7 +59,7 @@ $container-max-widths: (
   md: 720px,
   lg: 960px,
   xl: 1200px,
-  xxl: 1201px,
+  xxl: 1200px,
 );
 
 $enable-negative-margins: true;
@@ -84,6 +84,7 @@ $spacers: (
   10: 10px,
   12: 12px,
   14: 14px,
+  16: 16px,
   17: 17px,
   20: 20px,
   22: 22px,
@@ -104,6 +105,7 @@ $spacers: (
   90: 90px,
   96: 96px,
   100: 100px,
+  120: 120px,
 );
 
 $table-color: #777171;

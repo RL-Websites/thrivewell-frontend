@@ -1,1 +1,12 @@
 // Home page styles
+.home-banner {
+  position: relative;
+  z-index: -1;
+  margin-top: -140px;
+  padding-top: 160px;
+  padding-bottom: 30px;
+  background-image: url(../../../public/images/home/home-banner.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
