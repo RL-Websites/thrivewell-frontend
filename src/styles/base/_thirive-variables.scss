@@ -19,18 +19,19 @@ $cyan: #44b4db;
 $periwink: #cbcaff;
 $royalBlue: #4542dd;
 $white: #ffffff;
-
+//New colors
+$secondary-light: #fffbdd;
 $body: #f0f3f5;
 
-$primary: orangered;
-$secondary: #f38e1c;
+$primary: #275dad;
+$secondary: #ffc625;
+$dark: #2b2b2b;
 $light: #f5f4f0;
-$dark: #2e2e2b;
 
 $success: $green;
 $info: $cyan;
 $warning: $yellow;
-$danger: #ff5449;
+$danger: #ff5a43;
 
 // scss-docs-start theme-colors-map
 $theme-colors: (
@@ -47,6 +48,7 @@ $theme-colors: (
 
 $new-colors: (
   "body": $body,
+  "secondary-light": $secondary-light,
 );
 
 $theme-colors: map-merge($theme-colors, $new-colors);
