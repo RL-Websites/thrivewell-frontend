@@ -5,19 +5,27 @@ li {
   padding: 0;
   box-sizing: border-box;
 }
-
-.cta-btn {
-  @extend .btn,
-    .btn-primary,
-    .fs-18,
-    .text-white,
-    .py-12,
-    .px-30,
-    .rounded-pill;
-  border: 3px solid $secondary;
-}
-
 body {
   background-color: $body;
   overflow-x: hidden;
+}
+body,
+p {
+  color: $dark;
+}
+ul li {
+  list-style: none;
+}
+
+.common-border {
+  width: 100%;
+  height: 1.5px;
+  background-color: $primary;
+}
+.section {
+  padding: 80px 0;
+}
+.icon-tick {
+  color: $primary;
+  margin-right: 8px;
 }

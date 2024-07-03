@@ -1,0 +1,22 @@
+.btn-cta {
+  @extend .btn,
+    .btn-primary,
+    .fs-18,
+    .text-white,
+    .py-12,
+    .px-30,
+    .rounded-pill;
+  border: 3px solid $secondary;
+}
+.btn-cta-outline {
+  @extend .btn,
+    .bg-transparent,
+    .text-primary,
+    .fs-18,
+    .fw-semibold,
+    .py-16,
+    .px-60,
+    .rounded-pill;
+  border: 1px solid $primary;
+  max-width: 228px;
+}

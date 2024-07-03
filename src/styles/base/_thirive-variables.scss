@@ -21,6 +21,7 @@ $royalBlue: #4542dd;
 $white: #ffffff;
 //New colors
 $secondary-light: #fffbdd;
+$secondary-yellow: #ffefa3;
 $body: #ffffff;
 
 $primary: #275dad;
@@ -49,6 +50,7 @@ $theme-colors: (
 $new-colors: (
   "body": $body,
   "secondary-light": $secondary-light,
+  "secondary-yellow": $secondary-yellow,
 );
 
 $theme-colors: map-merge($theme-colors, $new-colors);

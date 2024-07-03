@@ -1,4 +1,10 @@
 // Global font-family classes
+.ff-noto-serif {
+  font-family: "Noto Serif", serif;
+}
+.ff-urbanist {
+  font-family: "Urbanist", sans-serif;
+}
 
 /*== Common font family integration start ==*/
 body,
@@ -27,7 +33,6 @@ h1 {
 }
 h2 {
   font-size: 53px;
-  font-weight: 700;
 }
 h3 {
   font-size: 43px;

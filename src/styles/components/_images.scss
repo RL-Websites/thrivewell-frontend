@@ -1,0 +1,17 @@
+.section-img {
+  background-color: $secondary-yellow;
+  border-radius: 30px;
+  margin-top: 20px;
+  margin-right: 20px;
+  img {
+    position: relative;
+    left: 20px;
+    bottom: 20px;
+    border-radius: 30px;
+    transition: 0.4s;
+    &:hover {
+      left: 0;
+      bottom: 0;
+    }
+  }
+}
