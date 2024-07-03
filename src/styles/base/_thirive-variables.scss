@@ -13,7 +13,7 @@
 
 $red: #ff0000;
 $blue: #0d6efd;
-$yellow: #ffc107;
+$yellow: #fde25f;
 $green: #34a852;
 $cyan: #44b4db;
 $periwink: #cbcaff;
@@ -22,6 +22,7 @@ $white: #ffffff;
 //New colors
 $secondary-light: #fffbdd;
 $secondary-yellow: #ffefa3;
+$normal-yellow: #fffdf2;
 $body: #ffffff;
 
 $primary: #275dad;
@@ -50,6 +51,7 @@ $theme-colors: (
 $new-colors: (
   "body": $body,
   "secondary-light": $secondary-light,
+  "yellow": $yellow,
   "secondary-yellow": $secondary-yellow,
 );
 

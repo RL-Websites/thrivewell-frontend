@@ -1,0 +1,18 @@
+.infographic-card {
+  background-color: $normal-yellow;
+  border-radius: 20px;
+  padding: 24px;
+  border: 1px solid #decc42;
+  i {
+    @extend .bg-primary,
+      .fs-20,
+      .text-white,
+      .d-inline-block,
+      .rounded-circle,
+      .d-flex,
+      .justify-content-center,
+      .align-items-center;
+    width: 56px;
+    height: 56px;
+  }
+}
