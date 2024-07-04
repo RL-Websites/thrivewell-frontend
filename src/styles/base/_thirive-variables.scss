@@ -20,14 +20,19 @@ $periwink: #cbcaff;
 $royalBlue: #4542dd;
 $white: #ffffff;
 //New colors
+$primary-light-one: #406fb6;
+$primary-light-two: #d6e6ff;
+$primary-light-three: #e8f1ff;
 $secondary-light: #fffbdd;
 $secondary-yellow: #ffefa3;
-$normal-yellow: #fffdf2;
+$secondary-yellow-two: #fffdf2;
+$gray-light: #fafafa;
 $body: #ffffff;
 
 $primary: #275dad;
 $secondary: #ffc625;
 $dark: #2b2b2b;
+$gray: #8d8d8d;
 $light: #f5f4f0;
 
 $success: $green;
@@ -52,7 +57,13 @@ $new-colors: (
   "body": $body,
   "secondary-light": $secondary-light,
   "yellow": $yellow,
+  "gray": $gray,
+  "gray-light": $gray-light,
   "secondary-yellow": $secondary-yellow,
+  "secondary-yellow-two": $secondary-yellow-two,
+  "primary-light-one": $primary-light-one,
+  "primary-light-two": $primary-light-two,
+  "primary-light-three": $primary-light-three,
 );
 
 $theme-colors: map-merge($theme-colors, $new-colors);
