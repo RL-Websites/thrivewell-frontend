@@ -1,11 +1,143 @@
 // Home page styles
 .home-banner {
+  overflow: hidden;
   position: relative;
+  z-index: 1;
   margin-top: -140px;
   padding-top: 160px;
   padding-bottom: 30px;
-  background-image: url(../../../public/images/home/home-banner.png);
+  background-color: #ffdc32;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
+
+  .frame-img {
+    .top-left-frame {
+      position: absolute;
+      z-index: -1;
+      top: -210px;
+      left: -40px;
+    }
+    .top-right-frame {
+      position: absolute;
+      z-index: -1;
+      top: -150px;
+      right: -150px;
+    }
+    .bottom-left-frame {
+      position: absolute;
+      z-index: -1;
+      bottom: -90px;
+      left: -70px;
+    }
+    .bottom-right-frame {
+      position: absolute;
+      z-index: -1;
+      bottom: -144px;
+      right: -20px;
+    }
+  }
 }
+/*==== Home Banner End ==== */
+
+.counter-section {
+  position: relative;
+  overflow: hidden;
+
+  .counter-frame {
+    .left-frame {
+      position: absolute;
+      z-index: -1;
+      bottom: 5%;
+      left: -150px;
+    }
+    .right-frame {
+      position: absolute;
+      z-index: -1;
+      top: 15%;
+      right: -100px;
+    }
+  }
+}
+
+/*==== Counter Section End ==== */
+
+.toolbox-section {
+  overflow: hidden;
+  .toolbox-header {
+    position: relative;
+    .toolbox-header-frame {
+      .top-frame {
+        position: absolute;
+        z-index: 0;
+        top: -80px;
+        right: 0;
+      }
+    }
+  }
+
+  .ecommerce-service {
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    .ecommerce-wrapper {
+      position: relative;
+      z-index: 1;
+      .ecommerce-service-frame {
+        .top-right-frame {
+          position: absolute;
+          z-index: -1;
+          top: -50px;
+          right: 0;
+        }
+      }
+    }
+    .ecommerce-left-service-frame {
+      .top-left-frame {
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: -100px;
+      }
+    }
+
+    .telehealth-frame {
+      position: relative;
+      z-index: 1;
+      .telehealth-left-frame {
+        position: absolute;
+        // z-index: -1;
+        bottom: 0;
+        left: -100px;
+      }
+      .telehealth-right-frame {
+        position: absolute;
+        // z-index: -1;
+        bottom: 150px;
+        right: -50px;
+      }
+    }
+  }
+}
+/*==== Toolbox Section End ==== */
+
+.legitscript-section {
+  position: relative;
+  z-index: 1;
+  .legitscript-frame {
+    .legitscript-left-frame {
+      position: absolute;
+      z-index: -1;
+      left: 0;
+      bottom: 0;
+    }
+    .legitscript-right-frame {
+      position: absolute;
+      z-index: -1;
+      right: 0;
+      bottom: 0;
+    }
+  }
+}
+
+/*==== LegitScript Section End ==== */
