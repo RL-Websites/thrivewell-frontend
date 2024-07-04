@@ -1,0 +1,15 @@
+.work-card {
+  @extend .px-50, .pt-50, .bg-secondary-yellow-two;
+  border-radius: 20px;
+  border: 1px solid #decc42;
+  &.bg-alt {
+    @extend .bg-primary-light-one, .text-white;
+    border: 0;
+    img {
+      &.special-img {
+        margin-top: 20px;
+        border-radius: 0 0 18px 0;
+      }
+    }
+  }
+}
