@@ -3,7 +3,7 @@
   border-radius: 20px;
   border: 1px solid #decc42;
   &.bg-alt {
-    @extend .bg-primary-light-one, .text-white;
+    @extend .bg-primary, .text-white;
     border: 0;
     img {
       &.special-img {

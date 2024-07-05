@@ -141,3 +141,133 @@
 }
 
 /*==== LegitScript Section End ==== */
+
+.security-section {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  .security-frame {
+    .security-left-frame {
+      position: absolute;
+      z-index: -1;
+      bottom: 100px;
+      left: 200px;
+    }
+    .security-left-frame-2 {
+      position: absolute;
+      z-index: -1;
+      top: 40%;
+      left: -120px;
+    }
+    .security-right-frame {
+      position: absolute;
+      z-index: -1;
+      bottom: -100px;
+      right: -80px;
+    }
+  }
+}
+/*==== Security Section End ==== */
+
+.cta-section {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  .cta-frame {
+    .cta-left {
+      position: absolute;
+      z-index: -1;
+      left: 0;
+      bottom: 0;
+    }
+    .cta-right {
+      position: absolute;
+      z-index: -1;
+      right: 0;
+      bottom: 0;
+    }
+    .cta-bg {
+      position: absolute;
+      z-index: -1;
+      right: 25%;
+      top: -70px;
+    }
+  }
+}
+/*==== CTA Section End ==== */
+
+.how-to-section {
+  &.frame {
+    position: relative;
+    z-index: 1;
+    .ht-frame {
+      .frame-left {
+        position: absolute;
+        z-index: -1;
+        left: -60px;
+        bottom: 200px;
+      }
+      .frame-right {
+        position: absolute;
+        z-index: -1;
+        right: 13%;
+        bottom: 300px;
+      }
+    }
+  }
+  .work-card-col {
+    position: relative;
+    z-index: 1;
+    .work-card-frame-1 {
+      .card-left {
+        position: absolute;
+        z-index: 0;
+        left: 15px;
+        bottom: 1px;
+        img {
+          border-radius: 0 0 0 20px;
+        }
+      }
+      .card-right {
+        position: absolute;
+        z-index: 0;
+        right: 15px;
+        bottom: 1px;
+        img {
+          border-radius: 0 0 20px 0;
+        }
+      }
+      .card-top {
+        position: absolute;
+        z-index: 0;
+        right: 15px;
+        top: 1px;
+        img {
+          border-radius: 0 20px 0 0;
+        }
+      }
+    }
+  }
+}
+/*==== How to Work Section End ==== */
+
+.telehealth-section {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  .telehealth-frame {
+    .frame-top {
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      right: 0;
+    }
+    .frame-bg {
+      position: absolute;
+      z-index: -1;
+      top: 30px;
+      right: 0;
+    }
+  }
+}
+/*==== Telehealth Section End ==== */
