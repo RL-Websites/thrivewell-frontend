@@ -1,23 +1,18 @@
 // Global font-family classes
-.ff-poppins {
-  font-family: "Poppins", sans-serif;
+.ff-noto-serif {
+  font-family: "Noto Serif", serif;
 }
-
-.ff-dg {
-  font-family: "Darker Grotesque", sans-serif;
-}
-
-.ff-syne {
-  font-family: "Syne", sans-serif;
+.ff-urbanist {
+  font-family: "Urbanist", sans-serif;
 }
 
 /*== Common font family integration start ==*/
-
 body,
 p,
 a {
   font-family: "Urbanist", sans-serif;
   font-optical-sizing: auto;
+  font-size: 18px;
   font-style: normal;
 }
 
@@ -30,5 +25,19 @@ h6 {
   font-family: "Noto Serif", serif;
   font-optical-sizing: auto;
   font-style: normal;
+}
+
+h1 {
+  font-size: 80px;
+  font-weight: 700;
+}
+h2 {
+  font-size: 53px;
+}
+h3 {
+  font-size: 43px;
+}
+h4 {
+  font-size: 35px;
 }
 /*== Common font family integration end ==*/
