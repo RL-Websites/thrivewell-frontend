@@ -1,0 +1,28 @@
+input,
+select {
+  height: 46px;
+  font-size: 18px;
+  border: 1px solid #e1e1e1;
+  width: 100%;
+
+  &.form-control,
+  &.form-select {
+    padding: 13px 15px;
+    border-radius: 8px;
+    &:focus-visible {
+      border: 1px solid #e1e1e1;
+      outline: none;
+    }
+  }
+}
+
+textarea {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #e1e1e1;
+  border-radius: 8px;
+  &:focus-visible {
+    border: 1px solid #e1e1e1;
+    outline: none;
+  }
+}
