@@ -197,6 +197,24 @@
 /*==== CTA Section End ==== */
 
 .how-to-section {
+  &.frame {
+    position: relative;
+    z-index: 1;
+    .ht-frame {
+      .frame-left {
+        position: absolute;
+        z-index: -1;
+        left: -60px;
+        bottom: 200px;
+      }
+      .frame-right {
+        position: absolute;
+        z-index: -1;
+        right: 13%;
+        bottom: 300px;
+      }
+    }
+  }
   .work-card-col {
     position: relative;
     z-index: 1;
@@ -206,6 +224,9 @@
         z-index: 0;
         left: 15px;
         bottom: 1px;
+        img {
+          border-radius: 0 0 0 20px;
+        }
       }
       .card-right {
         position: absolute;
@@ -229,3 +250,24 @@
   }
 }
 /*==== How to Work Section End ==== */
+
+.telehealth-section {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  .telehealth-frame {
+    .frame-top {
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      right: 0;
+    }
+    .frame-bg {
+      position: absolute;
+      z-index: -1;
+      top: 30px;
+      right: 0;
+    }
+  }
+}
+/*==== Telehealth Section End ==== */
