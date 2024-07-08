@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { BookNowComponent } from './book-now/book-now.component';
 import { HomeComponent } from './home/home.component';
+import { LegitScriptComponent } from './legit-script/legit-script.component';
 import { SiteComponent } from './site.component';
 
 export const siteRoutes: Routes = [
@@ -20,6 +21,10 @@ export const siteRoutes: Routes = [
       {
         path: 'about',
         component: AboutUsComponent,
+      },
+      {
+        path: 'legitscript',
+        component: LegitScriptComponent,
       },
     ],
   },
