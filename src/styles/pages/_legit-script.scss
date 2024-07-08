@@ -1,0 +1,29 @@
+.certification-section {
+  position: relative;
+  z-index: 1;
+  .certification-frame {
+    .left-frame {
+      position: absolute;
+      z-index: -1;
+      top: 120px;
+      left: 200px;
+    }
+    .right-frame {
+      position: absolute;
+      z-index: -1;
+      top: 120px;
+      right: -180px;
+    }
+  }
+}
+
+.client-section {
+  padding: 156px 0;
+  .client-card {
+    padding: 40px;
+    background-color: rgba(255, 253, 242, 1);
+    border: 1px solid rgba(222, 204, 66, 1);
+    border-radius: 20px;
+    box-shadow: 0px 8px 26.1px 0px rgba(223, 208, 99, 0.3);
+  }
+}
