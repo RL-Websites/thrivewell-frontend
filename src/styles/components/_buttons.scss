@@ -7,6 +7,9 @@
     .px-30,
     .rounded-pill;
   border: 3px solid $secondary;
+  &:hover {
+    border: 3px solid $secondary;
+  }
 }
 .btn-cta-outline {
   @extend .btn,

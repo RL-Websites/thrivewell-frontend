@@ -12,6 +12,14 @@
     bottom: 20px;
     border-radius: 30px;
     transition: 0.4s;
+    &.left-sec-img {
+      left: unset;
+      right: 20px;
+      &:hover {
+        left: unset;
+        right: 0;
+      }
+    }
     &:hover {
       left: 0;
       bottom: 0;

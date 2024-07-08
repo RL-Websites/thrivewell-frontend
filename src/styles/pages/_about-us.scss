@@ -1,8 +1,48 @@
-.about-us-section {
+.telehealth-platform-section {
+  position: relative;
+  z-index: 1;
   ul {
     margin-left: 25px;
     li {
       list-style: disc !important;
+    }
+  }
+
+  .telehealth-frame {
+    .bottom-left-frame {
+      position: absolute;
+      z-index: -1;
+      bottom: -20px;
+      left: -80px;
+    }
+    .bottom-right-frame {
+      position: absolute;
+      z-index: -1;
+      top: 30%;
+      right: -170px;
+    }
+  }
+}
+
+.healthcare-section {
+  ul {
+    margin-left: 25px;
+    li {
+      list-style: disc !important;
+    }
+  }
+  .healthcare-frame {
+    .top-right-frame {
+      position: absolute;
+      z-index: -1;
+      top: -35px;
+      right: -150px;
+    }
+    .bottom-right-frame {
+      position: absolute;
+      z-index: -1;
+      bottom: -37px;
+      right: -55px;
     }
   }
 }
