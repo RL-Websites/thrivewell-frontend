@@ -11,6 +11,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { SwiperContainer } from 'swiper/element';
 import { register as swiperRegister } from 'swiper/element/bundle';
+import { ContactFormComponent } from '../components/contact-form/contact-form.component';
 import { FooterComponent } from '../components/footer/footer.component';
 import { HeaderComponent } from '../components/header/header.component';
 import { OtherBannerFrameComponent } from '../components/other-banner-frame/other-banner-frame.component';
@@ -25,6 +26,7 @@ swiperRegister();
     HeaderComponent,
     FooterComponent,
     OtherBannerFrameComponent,
+    ContactFormComponent,
     CommonModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -42,12 +44,10 @@ export class LegitScriptComponent implements AfterViewInit {
       slidesPerView: 2,
     },
     1200: {
-      slidesPerView: 3,
-    },
-    1652: {
-      slidesPerView: 4,
+      slidesPerView: 3.5,
     },
   };
+  centeredSlides: true;
 
   prevSlide() {
     this.clientSlider?.nativeElement?.swiper?.slidePrev();

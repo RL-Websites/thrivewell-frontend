@@ -153,14 +153,13 @@
 
   <!--====| Client Section Start |====-->
   <section class="client-section bg-secondary-light overflow-hidden">
-    <div class="client-slider">
+    <div class="client-slider ">
       <swiper-container
         navigation="false"
         loop="true"
         pagination="false"
         scrollbar="false"
-        slides-per-view="3"
-        space-between="30"
+        space-between="60"
         [breakpoints]="breakpoints"
         #clientSlider
       >
@@ -227,7 +226,18 @@
             </div>
           </div>
         </swiper-slide>
-
+        <swiper-slide>
+          <div class="client-card d-flex flex-column">
+            <p>“I would definitely recommend partnering with Thrive Well in getting LegitScript certification. They were very easy to work with and
+              very helpful in
+              answering questions for LegitScript and significantly reduced the time in processing our application.”</p>
+            <div class="mt-auto">
+              <p class="fw-bold">Linda</p>
+              <p>President & Co-Founder,</p>
+              <p>Telehealth Brand</p>
+            </div>
+          </div>
+        </swiper-slide>
       </swiper-container>
     </div>
 
@@ -239,10 +249,89 @@
       class="swiper-button-prev"
       (click)="prevSlide()"
     ></div>
-
-    <div class=""></div>
   </section>
   <!--====| Client Section End |====-->
+
+  <!--====| Contact Us Section Start |====-->
+  <section class="legitscript-contact section position-relative overflow-hidden">
+    <div class="container">
+      <h4 class="text-center">Ensure compliance doesn't impede your healthcare <br> business's growth.</h4>
+      <div class="row mt-70">
+        <div class="col-md-7 mx-auto">
+          <contact-form></contact-form>
+          <div class="text-center px-md-70 px-0 mt-md-100 mt-50">
+            <p class="fs-20">Partner with Thrive Well for expert LegitScript certification and superior marketing solutions.</p>
+            <p class="fs-20">Begin your journey to creating a trustworthy online presence that resonates with your customers. </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="legit-contact-frame">
+      <div class="frame-left position-absolute bottom-0 start-0">
+        <img
+          src="images/legit-script/frame/contact-left.svg"
+          alt="Contact Left"
+        >
+      </div>
+      <div class="frame-right position-absolute ">
+        <img
+          src="images/legit-script/frame/contact-right.svg"
+          alt="Contact right"
+        >
+      </div>
+      <div class="frame-center position-absolute ">
+        <img
+          src="images/legit-script/frame/contact-center.svg"
+          alt="Contact center"
+        >
+      </div>
+    </div>
+  </section>
+  <!--====| Contact Us Section End |====-->
+
+  <!--====| CTA Section Section |====-->
+  <section class="cta-section section bg-primary-light-three py-50">
+    <div class="container">
+      <div class="row">
+        <div class="cta-content d-flex justify-content-between align-items-center">
+          <div>
+            <h3 class="fw-normal">
+              Ready to elevate your brand online? <br />
+              Let’s build something extraordinary together!
+            </h3>
+          </div>
+          <div>
+            <a
+              href="#"
+              class="btn-cta"
+            >Request A Demo</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cta-frame">
+      <div class="cta-left">
+        <img
+          src="images/home/frame/cta/cta-left.svg"
+          alt="cta left"
+        >
+      </div>
+      <div class="cta-right">
+        <img
+          src="images/home/frame/cta/cta-right.svg"
+          alt="cta right"
+        >
+      </div>
+      <div class="cta-bg">
+        <img
+          src="images/home/frame/cta/cta-bg.svg"
+          alt="cta right"
+        >
+      </div>
+    </div>
+  </section>
+  <!--====| CTA Section End |====-->
+
 </main>
 <!--====|| Main Section End ||====-->
 

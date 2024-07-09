@@ -29,6 +29,9 @@
     box-shadow: 0px 8px 26.1px 0px rgba(223, 208, 99, 0.3);
   }
 
+  .client-slider {
+    margin-left: -17%;
+  }
   .swiper-button-next {
     width: 220px;
     height: 100%;
@@ -51,5 +54,23 @@
 
     top: 20px;
     left: 0;
+  }
+}
+
+.legitscript-contact {
+  z-index: 1;
+  .legit-contact-frame {
+    .frame-right {
+      position: absolute;
+      z-index: -1;
+      bottom: 190px;
+      right: 70px;
+    }
+    .frame-center {
+      position: absolute;
+      z-index: -1;
+      top: 220px;
+      right: -50px;
+    }
   }
 }
