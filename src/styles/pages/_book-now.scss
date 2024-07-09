@@ -1,0 +1,23 @@
+.ht-connect-section {
+  z-index: 1;
+  .contact-frame {
+    .left-frame {
+      position: absolute;
+      z-index: -1;
+      bottom: 40px;
+      left: -70px;
+    }
+    .right-frame {
+      position: absolute;
+      z-index: -1;
+      top: 120px;
+      right: -63px;
+    }
+    .bottom-left-frame {
+      position: absolute;
+      z-index: -1;
+      left: -160px;
+      bottom: 40px;
+    }
+  }
+}
