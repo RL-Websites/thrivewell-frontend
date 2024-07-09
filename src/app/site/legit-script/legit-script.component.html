@@ -153,9 +153,18 @@
 
   <!--====| Client Section Start |====-->
   <section class="client-section bg-secondary-light overflow-hidden">
-    <div class="swiper client-slide">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
+    <div class="client-slider">
+      <swiper-container
+        navigation="false"
+        loop="true"
+        pagination="false"
+        scrollbar="false"
+        slides-per-view="3"
+        space-between="30"
+        [breakpoints]="breakpoints"
+        #clientSlider
+      >
+        <swiper-slide>
           <div class="client-card d-flex flex-column">
             <p>“We highly recommend Thrive Well for LegitScript services and partnership. Their commitment to accuracy and efficiency saved us time
               and made
@@ -167,8 +176,8 @@
               <p>Telehealth Brand</p>
             </div>
           </div>
-        </div>
-        <div class="swiper-slide">
+        </swiper-slide>
+        <swiper-slide>
           <div class="client-card d-flex flex-column">
             <p>“I would definitely recommend partnering with Thrive Well in getting LegitScript certification. They were very easy to work with and
               very helpful in
@@ -179,21 +188,21 @@
               <p>Telehealth Brand</p>
             </div>
           </div>
-        </div>
-        <div class="swiper-slide">
+        </swiper-slide>
+        <swiper-slide>
           <div class="client-card d-flex flex-column">
             <p>“We highly recommend Thrive Well for LegitScript services and partnership. Their commitment to accuracy and efficiency saved us time
               and made
               them the
               best choice for our certification needs.”</p>
             <div class="mt-auto">
-              <p class="fw-bold mt-100">Reilly</p>
+              <p class="fw-bold mt-auto">Reilly</p>
               <p>President & Co-Founder,</p>
               <p>Telehealth Brand</p>
             </div>
           </div>
-        </div>
-        <div class="swiper-slide">
+        </swiper-slide>
+        <swiper-slide>
           <div class="client-card d-flex flex-column">
             <p>“I would definitely recommend partnering with Thrive Well in getting LegitScript certification. They were very easy to work with and
               very helpful in
@@ -204,37 +213,34 @@
               <p>Telehealth Brand</p>
             </div>
           </div>
-        </div>
-        <div class="swiper-slide">
+        </swiper-slide>
+        <swiper-slide>
           <div class="client-card d-flex flex-column">
             <p>“We highly recommend Thrive Well for LegitScript services and partnership. Their commitment to accuracy and efficiency saved us time
               and made
               them the
               best choice for our certification needs.”</p>
             <div class="mt-auto">
-              <p class="fw-bold mt-100">Reilly</p>
+              <p class="fw-bold mt-auto">Reilly</p>
               <p>President & Co-Founder,</p>
               <p>Telehealth Brand</p>
             </div>
           </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="client-card d-flex flex-column">
-            <p>“I would definitely recommend partnering with Thrive Well in getting LegitScript certification. They were very easy to work with and
-              very helpful in
-              answering questions for LegitScript and significantly reduced the time in processing our application.”</p>
-            <div class="mt-auto">
-              <p class="fw-bold">Linda</p>
-              <p>President & Co-Founder,</p>
-              <p>Telehealth Brand</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
+        </swiper-slide>
+
+      </swiper-container>
     </div>
 
+    <div
+      class="swiper-button-next"
+      (click)="nextSlide()"
+    ></div>
+    <div
+      class="swiper-button-prev"
+      (click)="prevSlide()"
+    ></div>
+
+    <div class=""></div>
   </section>
   <!--====| Client Section End |====-->
 </main>
