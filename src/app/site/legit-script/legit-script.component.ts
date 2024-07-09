@@ -14,14 +14,14 @@ Swiper.use([Autoplay, Navigation]);
 @Component({
   selector: 'app-legit-script',
   standalone: true,
-  templateUrl: './legit-script.component.html',
-  styles: ``,
   imports: [
     HeaderComponent,
     FooterComponent,
     OtherBannerFrameComponent,
     ContactFormComponent,
   ],
+  templateUrl: './legit-script.component.html',
+  styles: ``,
 })
 export class LegitScriptComponent {
   ngAfterViewInit(): void {
