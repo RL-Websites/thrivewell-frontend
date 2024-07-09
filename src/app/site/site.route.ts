@@ -2,6 +2,10 @@ import { Routes } from '@angular/router';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { BookNowComponent } from './book-now/book-now.component';
 import { HomeComponent } from './home/home.component';
+import { RevolutionTelehealthComponent } from './learn-more/revolution-telehealth/revolution-telehealth.component';
+import { SimplifyEcommerceComponent } from './learn-more/simplify-ecommerce/simplify-ecommerce.component';
+import { TelehealthSuccessPartnerComponent } from './learn-more/telehealth-success-partner/telehealth-success-partner.component';
+import { TelehealthVentureComponent } from './learn-more/telehealth-venture/telehealth-venture.component';
 import { LegitScriptComponent } from './legit-script/legit-script.component';
 import { SiteComponent } from './site.component';
 
@@ -25,6 +29,22 @@ export const siteRoutes: Routes = [
       {
         path: 'legitscript',
         component: LegitScriptComponent,
+      },
+      {
+        path: 'simplify-your-e-commerce-experience',
+        component: SimplifyEcommerceComponent,
+      },
+      {
+        path: 'revolutionizing-telehealth-seamless-integration',
+        component: RevolutionTelehealthComponent,
+      },
+      {
+        path: 'efficient-fulfillment-for-your-telehealth-venture',
+        component: TelehealthVentureComponent,
+      },
+      {
+        path: 'your-telehealth-success-partner',
+        component: TelehealthSuccessPartnerComponent,
       },
     ],
   },
