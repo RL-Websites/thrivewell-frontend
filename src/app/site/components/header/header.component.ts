@@ -8,4 +8,6 @@ import { RouterLink, RouterModule } from '@angular/router';
   templateUrl: './header.component.html',
   styles: ``,
 })
-export class HeaderComponent {}
+export class HeaderComponent {
+  routerLink: any;
+}

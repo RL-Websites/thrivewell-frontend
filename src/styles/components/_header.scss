@@ -14,7 +14,7 @@ header {
               content: "";
               position: absolute;
               left: 0;
-              bottom: 0;
+              bottom: -7px;
               width: 20px;
               height: 2px;
               background-color: $primary;
@@ -29,10 +29,28 @@ header {
               content: "";
               position: absolute;
               left: 0;
-              bottom: 0;
+              bottom: -7px;
               width: 20px;
               height: 2px;
               background-color: $primary;
+            }
+          }
+        }
+        &:last-child {
+          a {
+            &.active {
+              &::after {
+                content: unset;
+                background-color: unset;
+              }
+            }
+            &:focus {
+              color: inherit;
+            }
+            &:hover {
+              &::after {
+                background-color: unset;
+              }
             }
           }
         }
