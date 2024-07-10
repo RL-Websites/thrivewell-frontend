@@ -4,9 +4,9 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Autoplay, Navigation } from 'swiper/modules';
-import { ContactFormComponent } from '../components/contact-form/contact-form.component';
 import { FooterComponent } from '../components/footer/footer.component';
 import { HeaderComponent } from '../components/header/header.component';
+import { LegitscriptContactComponent } from '../components/legitscript-contact/legitscript-contact.component';
 import { OtherBannerFrameComponent } from '../components/other-banner-frame/other-banner-frame.component';
 
 Swiper.use([Autoplay, Navigation]);
@@ -18,7 +18,7 @@ Swiper.use([Autoplay, Navigation]);
     HeaderComponent,
     FooterComponent,
     OtherBannerFrameComponent,
-    ContactFormComponent,
+    LegitscriptContactComponent,
   ],
   templateUrl: './legit-script.component.html',
   styles: ``,
