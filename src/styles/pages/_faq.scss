@@ -32,17 +32,38 @@
     .top-left-frame {
       position: absolute;
       z-index: -1;
-      top: 390px;
+      top: 200px;
       left: -70px;
     }
     .top-right-frame {
       position: absolute;
       z-index: -1;
-      top: 390px;
-      left: -70px;
+      top: 90px;
+      right: -160px;
     }
+    .bottom-left-frame {
+      position: absolute;
+      z-index: -1;
+      bottom: 80px;
+      left: -100px;
+    }
+  }
+  .accordion-button::after {
+    background-image: none;
+    content: "\e918";
+    font-family: "IcoMoon";
+    font-size: 40px;
+    font-weight: 400;
+    width: unset;
+    height: unset;
+    color: $primary;
   }
   .accordion-button:not(.collapsed)::after {
     background-image: none;
+    content: "\e919";
+    font-family: "IcoMoon";
+    font-size: 40px;
+    font-weight: 400;
+    color: $primary;
   }
 }
