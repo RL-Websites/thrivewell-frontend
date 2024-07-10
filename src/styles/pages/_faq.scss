@@ -1,0 +1,69 @@
+.faq-banner {
+  .search-box {
+    border: 3px solid #fbeeaa;
+    max-width: 470px;
+    padding: 15px 24px;
+    border-radius: 8px;
+    background-color: #fff;
+    i {
+      font-size: 22px;
+    }
+    input {
+      font-size: 18px;
+      height: unset;
+      border: 0;
+      border-radius: 0;
+      padding: 0;
+      outline: none;
+      &::placeholder {
+        color: $dark;
+        opacity: 1;
+      }
+
+      &::-ms-input-placeholder {
+        color: $dark;
+      }
+    }
+  }
+}
+
+.faq-section {
+  .faq-frame {
+    .top-left-frame {
+      position: absolute;
+      z-index: -1;
+      top: 200px;
+      left: -70px;
+    }
+    .top-right-frame {
+      position: absolute;
+      z-index: -1;
+      top: 90px;
+      right: -160px;
+    }
+    .bottom-left-frame {
+      position: absolute;
+      z-index: -1;
+      bottom: 80px;
+      left: -100px;
+    }
+  }
+  .accordion-button::after {
+    background-image: none;
+    content: "\e918";
+    font-family: "IcoMoon";
+    font-size: 40px;
+    font-weight: 400;
+    width: unset;
+    height: unset;
+    color: $primary;
+  }
+  .accordion-button:not(.collapsed)::after {
+    background-image: none;
+    content: "\e919";
+    font-family: "IcoMoon";
+    font-size: 40px;
+    font-weight: 400;
+    color: $primary;
+  }
+}

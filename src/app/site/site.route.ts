@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { BookNowComponent } from './book-now/book-now.component';
+import { FaqComponent } from './faq/faq.component';
 import { HomeComponent } from './home/home.component';
 import { RevolutionTelehealthComponent } from './learn-more/revolution-telehealth/revolution-telehealth.component';
 import { SimplifyEcommerceComponent } from './learn-more/simplify-ecommerce/simplify-ecommerce.component';
@@ -25,6 +26,10 @@ export const siteRoutes: Routes = [
       {
         path: 'about',
         component: AboutUsComponent,
+      },
+      {
+        path: 'faq',
+        component: FaqComponent,
       },
       {
         path: 'legitscript',
