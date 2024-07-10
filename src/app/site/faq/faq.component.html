@@ -1,0 +1,128 @@
+<!--====| Header CSS Start |====-->
+<app-header></app-header>
+<!--====| Header Section End |====-->
+
+<!--====|| Book Now Banner Start ||====-->
+<section class="other-page-banner faq-banner bg-yellow position-relative">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 ">
+        <h6 class="ff-urbanist fs-28 fw-medium text-primary text-uppercase mt-40">
+          FAQ
+        </h6>
+        <h2 class="fw-bold">Frequently Asked Questions</h2>
+        <div class="search-box d-flex align-items-center rounded-pill mt-30">
+          <i class="icon-search me-3"></i>
+          <input
+            type="text"
+            name="search"
+            placeholder="Search Here.."
+          >
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="text-center">
+          <img
+            src="images/faq/frame/faq-banner.png"
+            alt="FAQ"
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <other-banner-frame></other-banner-frame>
+</section>
+<!--====|| Book Now Banner End ||====-->
+
+<!--====|| Main Section Start ||====-->
+<main>
+  <!--====|| FAQ Content Start ||====-->
+  <section class="faq-section section position-relative z-1">
+    <div class="container">
+      <div
+        ngbAccordion
+        [closeOthers]="true"
+        style="max-width: 957px; margin: 0 auto;"
+      >
+        <div
+          *ngFor="let item of items; let i = index"
+          ngbAccordionItem
+          [collapsed]="i !== 0"
+          class="border-top-0 border-start-0 border-end-0"
+          style="border-color: #afafaf;"
+        >
+          <h2 ngbAccordionHeader>
+            <button
+              class="bg-transparent fs-26 fw-semibold shadow-none px-0 py-30"
+              ngbAccordionButton
+            >{{ item.question }}</button>
+          </h2>
+          <div ngbAccordionCollapse>
+            <div
+              ngbAccordionBody
+              class="px-0 pt-0 pb-30"
+            >
+              <div class="row">
+                <div class="col-md-6 pe-md-30 pe-auto">
+                  <p>{{ item.answer1 }}</p>
+                </div>
+                <div class="col-md-6 text-center">
+                  <img
+                    src="images/faq/frame/youtube.webp"
+                    alt="Youtube"
+                    class="w-100 rounded-20"
+                  >
+                  <a
+                    class="text-blue text-decoration-underline fs-bold  d-inline-block mt-20"
+                    href=""
+                  >Play Video</a>
+
+                </div>
+              </div>
+              <div class="row mt-20">
+                <p class="mb-0">{{ item.answer2 }}</p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+    <div class="faq-frame">
+      <div class="top-left-frame ">
+        <img
+          src="images/faq/frame/top-left.svg"
+          alt="Top Left Frame"
+        >
+      </div>
+      <div class="top-right-frame ">
+        <img
+          src="images/faq/frame/top-right.svg"
+          alt="Top Right Frame"
+        >
+      </div>
+      <div class="bottom-left-frame ">
+        <img
+          src="images/faq/frame/bottom-left.svg"
+          alt="Bottom Left Frame"
+        >
+      </div>
+      <div class="bottom-right-frame position-absolute z-n1 bottom-0 end-0">
+        <img
+          src="images/faq/frame/bottom-right.svg"
+          alt="Bottom Right Frame"
+        >
+      </div>
+    </div>
+  </section>
+  <!--====|| FAQ Content End ||====-->
+
+</main>
+<!--====|| Main Section End ||====-->
+
+<!--====| Footer Section Start |====-->
+<app-footer></app-footer>
+<!--====| Footer Section End |====-->

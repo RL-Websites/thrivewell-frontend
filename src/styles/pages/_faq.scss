@@ -1,0 +1,48 @@
+.faq-banner {
+  .search-box {
+    border: 3px solid #fbeeaa;
+    max-width: 470px;
+    padding: 15px 24px;
+    border-radius: 8px;
+    background-color: #fff;
+    i {
+      font-size: 22px;
+    }
+    input {
+      font-size: 18px;
+      height: unset;
+      border: 0;
+      border-radius: 0;
+      padding: 0;
+      outline: none;
+      &::placeholder {
+        color: $dark;
+        opacity: 1;
+      }
+
+      &::-ms-input-placeholder {
+        color: $dark;
+      }
+    }
+  }
+}
+
+.faq-section {
+  .faq-frame {
+    .top-left-frame {
+      position: absolute;
+      z-index: -1;
+      top: 390px;
+      left: -70px;
+    }
+    .top-right-frame {
+      position: absolute;
+      z-index: -1;
+      top: 390px;
+      left: -70px;
+    }
+  }
+  .accordion-button:not(.collapsed)::after {
+    background-image: none;
+  }
+}
