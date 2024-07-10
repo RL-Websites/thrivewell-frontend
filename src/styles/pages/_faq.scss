@@ -66,4 +66,8 @@
     font-weight: 400;
     color: $primary;
   }
+  .accordion-item:last-of-type {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
 }
