@@ -8,4 +8,14 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './site.component.html',
   styles: ``,
 })
-export class SiteComponent {}
+export class SiteComponent {
+  onActive() {
+    if (typeof window !== 'undefined') {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'instant',
+      });
+    }
+  }
+}
