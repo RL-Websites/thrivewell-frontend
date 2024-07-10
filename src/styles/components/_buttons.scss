@@ -2,13 +2,17 @@
   @extend .btn,
     .btn-primary,
     .fs-18,
+    .fw-medium,
     .text-white,
     .py-10,
     .px-30,
     .rounded-pill;
   border: 3px solid $secondary;
+  transition: 0.3s;
   &:hover {
-    border: 3px solid $secondary;
+    @extend .btn-secondary, .text-dark;
+    border: 3px solid $primary;
+    background-color: $secondary;
   }
 }
 .btn-cta-outline {
@@ -22,4 +26,8 @@
     .rounded-pill;
   border: 1px solid $primary;
   max-width: 228px;
+  transition: 0.3s;
+  &:hover {
+    @extend .bg-primary, .text-white;
+  }
 }
