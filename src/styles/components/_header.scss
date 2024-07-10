@@ -3,6 +3,42 @@ header {
   box-shadow: 0px 3px 21px 0px #eccd38;
   position: relative;
   z-index: 10;
+  nav {
+    ul {
+      li {
+        a {
+          &.active {
+            position: relative;
+            color: $dark;
+            &::after {
+              content: "";
+              position: absolute;
+              left: 0;
+              bottom: 0;
+              width: 20px;
+              height: 2px;
+              background-color: $primary;
+            }
+          }
+          &:focus {
+            color: $dark;
+          }
+          &:hover {
+            position: relative;
+            &::after {
+              content: "";
+              position: absolute;
+              left: 0;
+              bottom: 0;
+              width: 20px;
+              height: 2px;
+              background-color: $primary;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 @media screen and (min-width: 0px) and (max-width: 768px) {
 }
