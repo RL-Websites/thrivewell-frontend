@@ -1,5 +1,6 @@
 // Header styled
 header {
+  padding: 18px 40px;
   box-shadow: 0px 3px 21px 0px #eccd38;
   position: relative;
   z-index: 10;
@@ -58,5 +59,27 @@ header {
     }
   }
 }
-@media screen and (min-width: 0px) and (max-width: 768px) {
+@media screen and (min-width: 0px) and (max-width: 992px) {
+  header {
+    padding: 10px 25px;
+    nav {
+      ul {
+        li {
+          a {
+            font-size: 16px;
+            &.active {
+              &::after {
+                bottom: -3px;
+              }
+            }
+            &:hover {
+              &::after {
+                bottom: -3px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }

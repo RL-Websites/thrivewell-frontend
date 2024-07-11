@@ -1,14 +1,63 @@
 .work-card {
-  @extend .px-50, .pt-50, .bg-secondary-yellow-two;
+  @extend .bg-secondary-yellow-two;
   border-radius: 20px;
   border: 1px solid #decc42;
+  padding: 50px 50px 0;
+  position: relative;
+  z-index: 1;
   &.bg-alt {
     @extend .bg-primary, .text-white;
     border: 0;
+
     img {
       &.special-img {
-        margin-top: 20px;
+        bottom: -18px;
         border-radius: 0 0 18px 0;
+      }
+    }
+  }
+  .work-card-frame-1 {
+    .card-left {
+      position: absolute;
+      z-index: -1;
+      left: 0;
+      bottom: 0;
+      img {
+        width: 50px;
+        border-radius: 0 0 0 20px;
+      }
+    }
+    .card-right {
+      position: absolute;
+      z-index: -1;
+      right: 0;
+      bottom: 0;
+      img {
+        width: 50px;
+        border-radius: 0 0 20px 0;
+      }
+    }
+    .card-top {
+      position: absolute;
+      z-index: -1;
+      right: 0px;
+      top: 0;
+      img {
+        width: 100px;
+        border-radius: 0 20px 0 0;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 0px) and (max-width: 1200px) {
+  .work-card {
+    padding: 30px 30px 0;
+    &.bg-alt {
+      img {
+        &.special-img {
+          border-radius: 0 0 18px 18px;
+        }
       }
     }
   }

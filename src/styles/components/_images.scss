@@ -3,6 +3,10 @@
   border-radius: 30px;
   margin-top: 20px;
   margin-right: 20px;
+  &.left-img {
+    margin-right: 0;
+    margin-left: 20px;
+  }
   &.deep-yellow {
     background-color: #eac71b;
   }
@@ -23,6 +27,26 @@
     &:hover {
       left: 0;
       bottom: 0;
+    }
+  }
+}
+
+@media screen and (min-width: 0px) and (max-width: 992px) {
+  .section-img {
+    margin-top: 15px;
+    margin-right: 15px;
+    border-radius: 20px;
+    &.left-img {
+      margin-left: 15px;
+    }
+
+    img {
+      left: 15px;
+      bottom: 15px;
+      border-radius: 20px;
+      &.left-sec-img {
+        right: 15px;
+      }
     }
   }
 }
