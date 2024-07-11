@@ -41,3 +41,45 @@ h4 {
   font-size: 35px;
 }
 /*== Common font family integration end ==*/
+
+//Medium Device
+@media screen and (min-width: 0px) and (max-width: 992px) {
+  body,
+  p,
+  a {
+    font-size: 16px;
+  }
+  h1 {
+    font-size: 50px;
+  }
+  h2 {
+    font-size: 40px;
+  }
+  h3 {
+    font-size: 32px;
+  }
+  h4 {
+    font-size: 24px;
+  }
+}
+
+//Small Device
+@media screen and (min-width: 0px) and (max-width: 768px) {
+  body,
+  p,
+  a {
+    font-size: 14px;
+  }
+  h1 {
+    font-size: 32px;
+  }
+  h2 {
+    font-size: 32px;
+  }
+  h3 {
+    font-size: 28px;
+  }
+  h4 {
+    font-size: 24px;
+  }
+}

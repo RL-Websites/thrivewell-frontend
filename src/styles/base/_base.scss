@@ -29,3 +29,24 @@ ul li {
   color: $primary;
   margin-right: 8px;
 }
+
+@media screen and (min-width: 0px) and (max-width: 1200px) {
+  br {
+    display: none;
+  }
+  .section {
+    padding: 60px 0;
+  }
+  .common-border {
+    height: 1px;
+  }
+}
+
+@media screen and (min-width: 0px) and (max-width: 768px) {
+  .section {
+    padding: 50px 0;
+  }
+  .common-border {
+    height: 0.5px;
+  }
+}

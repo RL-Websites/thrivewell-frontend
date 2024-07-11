@@ -1,11 +1,14 @@
 .btn-cta {
   @extend .btn,
     .btn-primary,
-    .fs-18,
+    .fs-lg-18,
+    .fs-md-16,
+    .fs-14,
     .fw-medium,
     .text-white,
     .py-10,
     .px-30,
+    .text-nowrap,
     .rounded-pill;
   border: 3px solid $secondary;
   transition: 0.3s;
@@ -19,15 +22,23 @@
   @extend .btn,
     .bg-transparent,
     .text-primary,
-    .fs-18,
+    .fs-lg-18,
+    .fs-md-16,
     .fw-semibold,
-    .py-16,
-    .px-60,
+    .text-nowrap,
     .rounded-pill;
+  padding: 16px 60px;
   border: 1px solid $primary;
   max-width: 228px;
   transition: 0.3s;
   &:hover {
     @extend .bg-primary, .text-white;
+  }
+}
+
+@media screen and (min-width: 0px) and (max-width: 992px) {
+  .btn-cta-outline {
+    padding: 10px 40px;
+    max-width: 164px;
   }
 }
