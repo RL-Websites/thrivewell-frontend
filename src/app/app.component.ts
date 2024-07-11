@@ -9,7 +9,6 @@ import { RouterOutlet } from '@angular/router';
   styles: ``,
 })
 export class AppComponent {
-  title = 'thrivewell-frontend';
   onActive() {
     if (typeof window !== 'undefined') {
       window.scrollTo({

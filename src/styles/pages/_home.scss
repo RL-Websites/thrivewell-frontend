@@ -60,13 +60,15 @@
 /*==== Counter Section End ==== */
 
 .toolbox-section {
+  position: relative;
+  z-index: 1;
   overflow: hidden;
   .toolbox-header {
     position: relative;
     .toolbox-header-frame {
       .top-frame {
         position: absolute;
-        z-index: 0;
+        z-index: -1;
         top: -80px;
         right: 0;
       }
@@ -97,22 +99,19 @@
         left: -100px;
       }
     }
-
-    .telehealth-frame {
-      position: relative;
-      z-index: 1;
-      .telehealth-left-frame {
-        position: absolute;
-        // z-index: -1;
-        bottom: 0;
-        left: -100px;
-      }
-      .telehealth-right-frame {
-        position: absolute;
-        // z-index: -1;
-        bottom: 150px;
-        right: -50px;
-      }
+  }
+  .telehealth-frame {
+    .telehealth-left-frame {
+      position: absolute;
+      z-index: -1;
+      bottom: 80px;
+      left: -100px;
+    }
+    .telehealth-right-frame {
+      position: absolute;
+      z-index: -1;
+      bottom: 250px;
+      right: -50px;
     }
   }
 }
@@ -212,39 +211,6 @@
       }
     }
   }
-  .work-card-col {
-    position: relative;
-    z-index: 1;
-    .work-card-frame-1 {
-      .card-left {
-        position: absolute;
-        z-index: 0;
-        left: 15px;
-        bottom: 1px;
-        img {
-          border-radius: 0 0 0 20px;
-        }
-      }
-      .card-right {
-        position: absolute;
-        z-index: 0;
-        right: 15px;
-        bottom: 1px;
-        img {
-          border-radius: 0 0 20px 0;
-        }
-      }
-      .card-top {
-        position: absolute;
-        z-index: 0;
-        right: 15px;
-        top: 1px;
-        img {
-          border-radius: 0 20px 0 0;
-        }
-      }
-    }
-  }
 }
 /*==== How to Work Section End ==== */
 
@@ -268,3 +234,90 @@
   }
 }
 /*==== Telehealth Section End ==== */
+
+@media screen and (min-width: 0px) and (max-width: 992px) {
+  // Home page styles
+  .home-banner {
+    padding-bottom: 50px;
+  }
+  .counter-section {
+    .counter-frame {
+      .left-frame {
+        top: unset;
+        bottom: -100px;
+        left: -180px;
+        img {
+          transform: rotate(-60deg);
+        }
+      }
+      .right-frame {
+        top: -40px;
+        right: -100px;
+      }
+    }
+  }
+
+  .toolbox-section {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    .toolbox-header {
+      position: relative;
+      .toolbox-header-frame {
+        .top-frame {
+          position: absolute;
+          z-index: -1;
+          top: -80px;
+          right: 0;
+        }
+      }
+    }
+
+    .ecommerce-service {
+      .ecommerce-wrapper {
+        .ecommerce-service-frame {
+          .top-right-frame {
+            top: unset;
+            bottom: 300px;
+            right: -70px;
+          }
+        }
+      }
+    }
+
+    .telehealth-frame {
+      .telehealth-left-frame {
+        bottom: -100px;
+        left: -120px;
+        img {
+          transform: rotate(-25deg);
+        }
+      }
+      .telehealth-right-frame {
+        bottom: 150px;
+        right: -50px;
+      }
+    }
+  }
+
+  .how-to-section {
+    &.frame {
+      position: relative;
+      z-index: 1;
+      .ht-frame {
+        .frame-left {
+          position: absolute;
+          z-index: -1;
+          left: -60px;
+          bottom: 200px;
+        }
+        .frame-right {
+          position: absolute;
+          z-index: -1;
+          right: 13%;
+          bottom: 300px;
+        }
+      }
+    }
+  }
+}
