@@ -10,4 +10,12 @@
     margin-top: unset;
     padding-top: 100px;
   }
+  .book-now-frame {
+    .bottom-left-frame,
+    .bottom-right-frame {
+      img {
+        width: 80px;
+      }
+    }
+  }
 }
