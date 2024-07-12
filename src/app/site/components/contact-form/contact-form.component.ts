@@ -1,12 +1,18 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { Locations } from '@app/constants/locations 1';
+import { ContactService } from '@app/services/contact.service';
 
 @Component({
   selector: 'contact-form',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './contact-form.component.html',
   styles: ``,
 })
@@ -15,7 +21,10 @@ export class ContactFormComponent implements OnInit {
   states: any;
   bookingForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    private contactService: ContactService
+  ) {}
 
   ngOnInit(): void {
     //Get state
@@ -34,6 +43,23 @@ export class ContactFormComponent implements OnInit {
       city_id: [''],
       state_id: [''],
       notes: [''],
+    });
+  }
+
+  get f() {
+    return this.bookingForm.controls;
+  }
+
+  onSubmit() {
+    if (this.bookingForm.invalid) return;
+    console.log(this.bookingForm.value);
+    this.contactService.createBooking(this.bookingForm.value).subscribe({
+      next: (res) => {
+        alert('Booking Created Successfully');
+      },
+      error: (error) => {
+        alert(error.message);
+      },
     });
   }
 }
