@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { Locations } from '@app/constants/locations 1';
 
 @Component({
@@ -12,6 +13,7 @@ import { Locations } from '@app/constants/locations 1';
 export class ContactFormComponent implements OnInit {
   locations: any[] = [...Locations];
   states: any;
+  participantForm: FormGroup;
 
   ngOnInit(): void {
     this.states = this.locations.filter(
