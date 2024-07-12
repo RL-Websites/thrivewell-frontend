@@ -1,7 +1,12 @@
 .other-page-banner {
   overflow: hidden;
   position: relative;
-  margin-top: -140px;
+  margin-top: -150px;
   padding-top: 160px;
   padding-bottom: 50px;
+}
+@media screen and (min-width: 0px) and (max-width: 768px) {
+  .other-page-banner {
+    margin-top: unset;
+  }
 }

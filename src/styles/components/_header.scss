@@ -1,10 +1,10 @@
 // Header styled
 header {
-  padding: 18px 40px;
-  box-shadow: 0px 3px 21px 0px #eccd38;
   position: relative;
   z-index: 10;
   nav {
+    padding: 18px 40px !important;
+    box-shadow: 0px 3px 21px 0px #eccd38;
     ul {
       li {
         a {
@@ -61,8 +61,8 @@ header {
 }
 @media screen and (min-width: 0px) and (max-width: 992px) {
   header {
-    padding: 10px 25px;
     nav {
+      padding: 15px 25px !important;
       ul {
         li {
           a {
@@ -78,6 +78,53 @@ header {
               }
             }
           }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 0px) and (max-width: 768px) {
+  header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+
+    nav {
+      button {
+        &.navbar-toggler {
+          i {
+            font-weight: 600;
+            color: $primary;
+          }
+        }
+      }
+      ul {
+        li {
+          margin-top: 40px;
+          a {
+            font-size: 18px;
+          }
+        }
+      }
+
+      .navbar-collapse {
+        &.show {
+          height: calc(100vh - 115px);
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 0px) and (max-width: 576px) {
+  header {
+    nav {
+      .navbar-collapse {
+        &.show {
+          height: calc(100vh - 115px);
         }
       }
     }
