@@ -3,7 +3,7 @@
   overflow: hidden;
   position: relative;
   z-index: 1;
-  margin-top: -140px;
+  margin-top: -150px;
   padding-top: 160px;
   padding-bottom: 30px;
   background-color: #ffdc32;
@@ -235,6 +235,42 @@
 }
 /*==== Telehealth Section End ==== */
 
+@media screen and (min-width: 0px) and (max-width: 1200px) {
+  // Home page styles
+  .home-banner {
+    .frame-img {
+      .top-left-frame {
+        top: -40px;
+        left: -130px;
+        img {
+          width: 311px;
+        }
+      }
+      .top-right-frame {
+        top: -20px;
+        right: -150px;
+        img {
+          width: 361px;
+        }
+      }
+      .bottom-left-frame {
+        bottom: -50px;
+        left: -50px;
+        img {
+          width: 296px;
+        }
+      }
+      .bottom-right-frame {
+        bottom: -80px;
+        right: -70px;
+        img {
+          width: 320px;
+        }
+      }
+    }
+  }
+}
+
 @media screen and (min-width: 0px) and (max-width: 992px) {
   // Home page styles
   .home-banner {
@@ -317,6 +353,39 @@
           right: 13%;
           bottom: 300px;
         }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 0px) and (max-width: 768px) {
+  .home-banner {
+    margin-top: unset;
+    padding-top: 120px;
+    .frame-img {
+      .top-left-frame {
+        top: -80px;
+        left: -130px;
+        img {
+          width: 311px;
+        }
+      }
+      .top-right-frame {
+        top: -80px;
+        right: -180px;
+        img {
+          width: 361px;
+        }
+      }
+      .bottom-left-frame {
+        bottom: -130px;
+        left: 50px;
+        img {
+          width: 296px;
+        }
+      }
+      .bottom-right-frame {
+        display: none;
       }
     }
   }
