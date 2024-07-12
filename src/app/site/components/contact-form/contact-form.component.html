@@ -1,5 +1,9 @@
 <div class="contact-form p-30 bg-white">
-  <form action="">
+  <form
+    [formGroup]="bookingForm"
+    #formRef="ngForm"
+    (ngSubmit)="onSubmit()"
+  >
     <div class="row  gx-lg-4 gx-3 gy-lg-3 gy-1">
       <div class="col-md-6">
         <div class="signle-input mb-3">
@@ -11,7 +15,12 @@
             type="text"
             class="form-control"
             id="firstName"
+            formControlName="first_name"
           >
+          <span
+            *ngIf="f['first_name'].errors && (formRef.submitted || f['first_name'].touched)"
+            class="fs-14 fw-medium text-danger mt-1"
+          >First name is required</span>
         </div>
       </div>
       <div class="col-md-6">
@@ -24,7 +33,12 @@
             type="text"
             class="form-control"
             id="lastName"
+            formControlName="last_name"
           >
+          <span
+            *ngIf="f['last_name'].errors && (formRef.submitted || f['last_name'].touched)"
+            class="fs-14 fw-medium text-danger mt-1"
+          >Last name is required</span>
         </div>
       </div>
 
@@ -38,7 +52,18 @@
             type="email"
             class="form-control"
             id="email"
+            formControlName="email"
           >
+          <div *ngIf="f['email'].errors && (formRef.submitted || f['email'].touched)">
+            <p
+              *ngIf="f['email'].errors['required']"
+              class="fs-14 fw-medium text-danger mt-1"
+            >Email name is required</p>
+            <p
+              *ngIf="f['email'].errors['email']"
+              class="fs-14 fw-medium text-danger mt-1"
+            >Invalid Email</p>
+          </div>
         </div>
       </div>
 
@@ -52,7 +77,18 @@
             type="text"
             class="form-control"
             id="phoneNumber"
+            formControlName="phone_number"
           >
+          <div *ngIf="f['phone_number'].errors && (formRef.submitted || f['phone_number'].touched)">
+            <p
+              *ngIf="f['phone_number'].errors['required']"
+              class="fs-14 fw-medium text-danger mt-1"
+            >Phone number is required</p>
+            <p
+              *ngIf="f['phone_number'].errors['minlength']"
+              class="fs-14 fw-medium text-danger mt-1"
+            > Phone Number should be at least 10</p>
+          </div>
         </div>
       </div>
 
@@ -66,6 +102,7 @@
             type="text"
             class="form-control"
             id="company"
+            formControlName="company"
           >
         </div>
       </div>
@@ -80,6 +117,7 @@
             type="text"
             class="form-control"
             id="product"
+            formControlName="product"
           >
         </div>
       </div>
@@ -107,11 +145,12 @@
           <select
             class="form-select"
             aria-label="Default select example"
+            formControlName="state_id"
           >
             <option selected>Select State</option>
             <option
-              value="1"
               *ngFor="let state of states"
+              [value]="state.id"
             >{{state.name}}</option>
 
           </select>
@@ -128,15 +167,16 @@
             name="notes"
             id="notes"
             rows="3"
+            formControlName="notes"
           ></textarea>
         </div>
       </div>
       <div class="col-12">
-        <a
-          href="#"
+        <button
+          type="submit"
           class="btn-cta mt-10 d-inline-block"
           style="max-width: 118px;"
-        >Submit</a>
+        >Submit</button>
       </div>
     </div>
   </form>
