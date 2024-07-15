@@ -7,6 +7,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { ContactService } from '@app/services/contact.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'legitscript-contact',
@@ -28,7 +29,7 @@ export class LegitscriptContactComponent implements OnInit {
       first_name: ['', [Validators.required]],
       last_name: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
-      country_id: [''],
+      country_id: ['1'],
       phone_number: ['', [Validators.required, Validators.minLength(10)]],
       company: ['', [Validators.required]],
       message: ['', Validators.required],
@@ -44,11 +45,21 @@ export class LegitscriptContactComponent implements OnInit {
       .createLegitScriptContact(this.legitScriptContactForm.value)
       .subscribe({
         next: (res) => {
-          alert('Compliance Send Successfully');
-          console.log(res);
+          Swal.fire({
+            customClass: {
+              confirmButton: 'btn-cta',
+            },
+            html: ' <h3 class="fs-43 fw-normal text-dark">Thank You</h3> <p class="fs-28 fw-medium text-gray">Your details has been successfully submitted. Thanks!</p> ',
+            icon: 'success',
+            confirmButtonText: 'Okay',
+          });
         },
         error: (error) => {
-          alert(error.message);
+          Swal.fire({
+            icon: 'error',
+            title: 'There is some error to submit your data',
+            text: error,
+          });
         },
       });
   }
