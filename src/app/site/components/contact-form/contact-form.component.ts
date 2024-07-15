@@ -42,7 +42,7 @@ export class ContactFormComponent implements OnInit {
       product: [''],
       city_id: [''],
       state_id: [''],
-      notes: [''],
+      notes: ['', [Validators.required]],
     });
   }
 

@@ -169,6 +169,10 @@
             rows="3"
             formControlName="notes"
           ></textarea>
+          <span
+            *ngIf="f['notes'].errors && (formRef.submitted || f['notes'].touched)"
+            class="fs-14 fw-medium text-danger mt-1"
+          >Notes is required</span>
         </div>
       </div>
       <div class="col-12">
