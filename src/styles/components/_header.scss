@@ -8,39 +8,43 @@ header {
     ul {
       li {
         a {
+          position: relative;
           &::after {
             content: "";
             position: absolute;
             left: 0;
             bottom: -7px;
-            width: 0; // Start width at 0
-            height: 2px;
+            width: 0;
+            height: 0;
             background-color: $primary;
-            transition: width 0.4s ease 0.4s; // Delay before applying the transition
+            transition: 0.3s;
           }
           &.active {
-            position: relative;
-            color: $dark;
             &::after {
-              width: 20px; // Ensure active state also has full width
+              width: 20px;
+              height: 2px;
             }
           }
           &:focus {
             color: $dark;
           }
           &:hover {
-            position: relative;
             &::after {
-              width: 20px; // Target width on hover
+              width: 20px;
+              height: 2px;
             }
           }
         }
         &:last-child {
+          &::after {
+            position: unset;
+            background-color: transparent;
+          }
           a {
             &.active {
               &::after {
-                content: unset;
-                background-color: unset;
+                width: 0;
+                height: 0;
               }
             }
             &:focus {
@@ -48,7 +52,8 @@ header {
             }
             &:hover {
               &::after {
-                background-color: unset;
+                width: 0;
+                height: 0;
               }
             }
           }
