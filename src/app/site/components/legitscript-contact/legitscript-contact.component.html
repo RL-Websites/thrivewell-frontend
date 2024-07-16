@@ -1,5 +1,9 @@
 <div class="contact-form p-30 bg-white">
-  <form action="">
+  <form
+    [formGroup]="legitScriptContactForm"
+    #formRef="ngForm"
+    (ngSubmit)="onSubmit()"
+  >
     <div class="row gx-lg-4 gx-3 gy-lg-3 gy-1">
       <div class="col-md-6">
         <div class="signle-input mb-3">
@@ -11,7 +15,12 @@
             type="text"
             class="form-control"
             id="firstName"
+            formControlName="first_name"
           >
+          <span
+            *ngIf="f['first_name'].errors && (formRef.submitted || f['first_name'].touched)"
+            class="fs-14 fw-medium text-danger mt-1"
+          >First name is required</span>
         </div>
       </div>
       <div class="col-md-6">
@@ -24,7 +33,12 @@
             type="text"
             class="form-control"
             id="lastName"
+            formControlName="last_name"
           >
+          <span
+            *ngIf="f['last_name'].errors && (formRef.submitted || f['last_name'].touched)"
+            class="fs-14 fw-medium text-danger mt-1"
+          >Last name is required</span>
         </div>
       </div>
       <div class="col-md-6">
@@ -37,7 +51,18 @@
             type="email"
             class="form-control"
             id="email"
+            formControlName="email"
           >
+          <div *ngIf="f['email'].errors && (formRef.submitted || f['email'].touched)">
+            <p
+              *ngIf="f['email'].errors['required']"
+              class="fs-14 fw-medium text-danger mt-1"
+            >Email name is required</p>
+            <p
+              *ngIf="f['email'].errors['email']"
+              class="fs-14 fw-medium text-danger mt-1"
+            >Invalid Email</p>
+          </div>
         </div>
       </div>
       <div class="col-md-6">
@@ -49,12 +74,14 @@
           <select
             class="form-select"
             aria-label="Default select example"
+            formControlName="country_id"
           >
-            <option selected>Select Country</option>
-            <option value="1">United States</option>
-            <option value="2">United Kingdom</option>
-            <option value="3">Canada</option>
+            <option
+              value="1"
+              selected
+            >United States</option>
           </select>
+
         </div>
       </div>
       <div class="col-md-6">
@@ -67,7 +94,18 @@
             type="text"
             class="form-control"
             id="phoneNumber"
+            formControlName="phone_number"
           >
+          <div *ngIf="f['phone_number'].errors && (formRef.submitted || f['phone_number'].touched)">
+            <p
+              *ngIf="f['phone_number'].errors['required']"
+              class="fs-14 fw-medium text-danger mt-1"
+            >Phone number is required</p>
+            <p
+              *ngIf="f['phone_number'].errors['minlength']"
+              class="fs-14 fw-medium text-danger mt-1"
+            > Phone Number should be at least 10</p>
+          </div>
         </div>
       </div>
       <div class="col-md-6">
@@ -80,7 +118,12 @@
             type="text"
             class="form-control"
             id="company"
+            formControlName="company"
           >
+          <span
+            *ngIf="f['company'].errors && (formRef.submitted || f['company'].touched)"
+            class="fs-14 fw-medium text-danger mt-1"
+          >Company is required</span>
         </div>
       </div>
       <div class="col-md-12">
@@ -93,17 +136,22 @@
             name="message"
             id="message"
             rows="3"
+            formControlName="message"
           ></textarea>
+          <span
+            *ngIf="f['message'].errors && (formRef.submitted || f['message'].touched)"
+            class="fs-14 fw-medium text-danger mt-1"
+          >Message field is required</span>
         </div>
       </div>
 
 
       <div class="col-12">
-        <a
-          href="#"
+        <button
+          type="submit"
           class="btn-cta mt-10 d-inline-block"
           style="max-width: 118px;"
-        >Submit</a>
+        >Submit</button>
       </div>
     </div>
   </form>
