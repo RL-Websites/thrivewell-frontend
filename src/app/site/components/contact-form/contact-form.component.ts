@@ -8,7 +8,7 @@ import {
 } from '@angular/forms';
 import { Locations } from '@app/constants/locations 1';
 import { ContactService } from '@app/services/contact.service';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'contact-form',
   standalone: true,
@@ -42,7 +42,7 @@ export class ContactFormComponent implements OnInit {
       product: [''],
       city_id: [''],
       state_id: [''],
-      notes: [''],
+      notes: ['', [Validators.required]],
     });
   }
 
@@ -52,13 +52,23 @@ export class ContactFormComponent implements OnInit {
 
   onSubmit() {
     if (this.bookingForm.invalid) return;
-    console.log(this.bookingForm.value);
     this.contactService.createBooking(this.bookingForm.value).subscribe({
       next: (res) => {
-        alert('Booking Created Successfully');
+        Swal.fire({
+          customClass: {
+            confirmButton: 'btn-cta',
+          },
+          html: ' <h3 class="fs-43 fw-normal text-dark">Thank You</h3> <p class="fs-28 fw-medium text-gray">Your details has been successfully submitted. Thanks!</p> ',
+          icon: 'success',
+          confirmButtonText: 'Okay',
+        });
       },
       error: (error) => {
-        alert(error.message);
+        Swal.fire({
+          icon: 'error',
+          title: 'There is some error to submit your data',
+          text: error,
+        });
       },
     });
   }
