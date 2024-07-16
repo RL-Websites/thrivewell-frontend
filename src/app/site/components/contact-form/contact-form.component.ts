@@ -56,18 +56,21 @@ export class ContactFormComponent implements OnInit {
       next: (res) => {
         Swal.fire({
           customClass: {
-            confirmButton: 'btn-cta',
+            confirmButton: 'btn-cta ',
           },
-          html: ' <h3 class="fs-43 fw-normal text-dark">Thank You</h3> <p class="fs-28 fw-medium text-gray">Your details has been successfully submitted. Thanks!</p> ',
-          icon: 'success',
+          html: ' <div class="mt-20"><i class="icon-tick fs-md-30 fs-20 rounded-pill text-white bg-primary p-14 "></i></div> <h3 class="fs-43 fw-normal text-dark mt-20">Thank You</h3> <p class="fs-28 fw-medium text-gray  mb-0">Your details has been successfully submitted. Thanks!</p> ',
           confirmButtonText: 'Okay',
         });
       },
       error: (error) => {
         Swal.fire({
-          icon: 'error',
-          title: 'There is some error to submit your data',
+          customClass: {
+            confirmButton: 'btn-cta ',
+          },
+
+          html: ' <div class="mt-20"><i class="icon-close fs-md-30 fs-20 rounded-pill text-white bg-danger p-14 "></i></div> <p class="fs-28 fw-medium text-gray mb-0 mt-20">There is some error to submit your data</p> ',
           text: error,
+          confirmButtonText: 'Okay',
         });
       },
     });
