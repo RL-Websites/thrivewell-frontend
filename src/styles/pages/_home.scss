@@ -40,64 +40,84 @@
 
   .box {
     position: absolute;
-    left: 300px;
-    bottom: 500px;
-    transform: rotate(80deg);
-
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
     .wave {
-      position: absolute;
-      z-index: -1;
       opacity: 0.4;
-      width: 400px;
-      height: 430px;
       border-radius: 43%;
-
       &.one {
-        animation: rotate 20000ms infinite linear;
+        animation: rotate 30000ms infinite linear;
         opacity: 100%;
         background: #ffea86;
-        left: 200px;
-        bottom: -500px;
+        position: absolute;
+        z-index: 0;
+        width: 600px;
+        height: 530px;
+        left: -150px;
+        bottom: -250px;
       }
 
       &.two {
-        animation: rotate 20000ms infinite linear;
+        animation: rotate 30000ms infinite linear;
         opacity: 100%;
         background: #ffea86;
-        width: 500px;
-        height: 540px;
-        left: 490px;
-        bottom: 1260px;
+        position: absolute;
+        z-index: 0;
+        width: 550px;
+        height: 620px;
+        right: -150px;
+        bottom: -300px;
       }
 
       &.three {
-        animation: rotate 22000ms infinite linear;
+        animation: rotate 32000ms infinite linear;
         opacity: 100%;
         background: #ffea86;
-        width: 430px;
-        height: 480px;
-        left: -200px;
-        bottom: 1300px;
+        position: absolute;
+        z-index: 0;
+        width: 530px;
+        height: 580px;
+        right: -100px;
+        top: -300px;
       }
 
       &.four {
-        animation: rotate 25000ms infinite linear;
+        animation: rotate 35000ms infinite linear;
         opacity: 100%;
         background: #ffea86;
-        width: 430px;
+        position: absolute;
+        z-index: 0;
+        width: 560px;
         height: 480px;
-        left: -500px;
-        bottom: -400px;
+        left: -180px;
+        top: -200px;
       }
 
-      &.five {
+      &.lineFour {
         animation: rotate 30000ms infinite linear;
         opacity: 100%;
         border: 1px solid #ada03d;
+        position: absolute;
+        z-index: 0;
         width: 430px;
-        height: 480px;
-        left: -550px;
-        bottom: -400px;
+        height: 380px;
+        left: -150px;
+        top: -100px;
+      }
+      &.lineThree {
+        animation: rotate 30000ms infinite linear;
+        opacity: 100%;
+        border: 1px solid #ada03d;
+        position: absolute;
+        z-index: 0;
+        width: 430px;
+        height: 380px;
+        right: -100px;
+        top: -150px;
       }
     }
   }
