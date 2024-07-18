@@ -1,17 +1,18 @@
 import { isPlatformBrowser } from '@angular/common';
 import { Component, Inject, PLATFORM_ID } from '@angular/core';
-import { RouterLink, RouterModule } from '@angular/router';
 import AOS from 'aos';
+
 @Component({
-  selector: 'app-footer',
+  selector: 'cta',
   standalone: true,
-  imports: [RouterModule, RouterLink],
-  templateUrl: './footer.component.html',
+  imports: [],
+  templateUrl: './cta.component.html',
   styles: ``,
 })
-export class FooterComponent {
+export class CtaComponent {
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
-  ngAfterViewInit(): void {
+
+  ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) {
       AOS.init();
     }
