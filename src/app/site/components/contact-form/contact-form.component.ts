@@ -60,7 +60,16 @@ export class ContactFormComponent implements OnInit {
           },
           imageUrl: 'images/thumbs-up.svg',
 
-          html: '  <h3 class="fs-43 fw-normal text-dark mt-20">Thank You</h3> <p class="fs-28 fw-medium text-gray  mb-0">Your details has been successfully submitted. Thanks!</p> ',
+          html: `  
+          <div >
+            <h3 class="fs-43 fw-normal text-dark mt-20">Thank You</h3>
+            <p class="fs-28 fw-medium text-gray  mb-0">Your details has been successfully submitted. Thanks!</p>
+            <div>
+              <div class= "frame-top-left">
+              <img src="images/thumbs-up.svg" />
+              </div>
+            </div>
+          </div> `,
           confirmButtonText: 'Okay',
         });
       },
