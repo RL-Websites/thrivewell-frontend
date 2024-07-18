@@ -13,12 +13,13 @@
   content: "";
   display: block;
   position: absolute;
+  z-index: 9;
   left: 48%;
   top: 45%;
   width: 63px;
   height: 63px;
   margin: 0 auto;
-  border: 6px solid $primary;
+  border: 8px solid $primary;
   border-radius: 50%;
   border-left-color: transparent;
   border-right-color: transparent;
