@@ -8,6 +8,7 @@ import {
 } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import AOS from 'aos';
+import { CtaComponent } from '../components/cta/cta.component';
 import { FooterComponent } from '../components/footer/footer.component';
 import { HeaderComponent } from '../components/header/header.component';
 
@@ -16,7 +17,13 @@ import { HeaderComponent } from '../components/header/header.component';
   standalone: true,
   templateUrl: './home.component.html',
   styles: ``,
-  imports: [HeaderComponent, FooterComponent, RouterLink, CommonModule],
+  imports: [
+    HeaderComponent,
+    FooterComponent,
+    RouterLink,
+    CommonModule,
+    CtaComponent,
+  ],
 })
 export class HomeComponent implements OnInit {
   counters = [
