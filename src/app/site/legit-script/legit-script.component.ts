@@ -4,6 +4,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Autoplay, Navigation } from 'swiper/modules';
+import { CtaComponent } from '../components/cta/cta.component';
 import { FooterComponent } from '../components/footer/footer.component';
 import { HeaderComponent } from '../components/header/header.component';
 import { LegitscriptContactComponent } from '../components/legitscript-contact/legitscript-contact.component';
@@ -19,6 +20,7 @@ Swiper.use([Autoplay, Navigation]);
     FooterComponent,
     OtherBannerFrameComponent,
     LegitscriptContactComponent,
+    CtaComponent,
   ],
   templateUrl: './legit-script.component.html',
   styles: ``,
