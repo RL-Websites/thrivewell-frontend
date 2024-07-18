@@ -11,7 +11,6 @@ import AOS from 'aos';
 import { CtaComponent } from '../components/cta/cta.component';
 import { FooterComponent } from '../components/footer/footer.component';
 import { HeaderComponent } from '../components/header/header.component';
-import { LoaderComponent } from '../components/loader/loader.component';
 
 @Component({
   selector: 'app-home',
@@ -24,7 +23,6 @@ import { LoaderComponent } from '../components/loader/loader.component';
     RouterLink,
     CommonModule,
     CtaComponent,
-    LoaderComponent,
   ],
 })
 export class HomeComponent implements OnInit {
