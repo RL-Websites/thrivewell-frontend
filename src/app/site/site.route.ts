@@ -9,6 +9,7 @@ import { TelehealthSuccessPartnerComponent } from './learn-more/telehealth-succe
 import { TelehealthVentureComponent } from './learn-more/telehealth-venture/telehealth-venture.component';
 import { LegitScriptComponent } from './legit-script/legit-script.component';
 import { SiteComponent } from './site.component';
+import { SolutionsComponent } from './solutions/solutions.component';
 
 export const siteRoutes: Routes = [
   {
@@ -34,6 +35,10 @@ export const siteRoutes: Routes = [
       {
         path: 'legitscript',
         component: LegitScriptComponent,
+      },
+      {
+        path: 'solutions',
+        component: SolutionsComponent,
       },
       {
         path: 'simplify-your-e-commerce-experience',
