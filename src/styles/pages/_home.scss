@@ -3,7 +3,7 @@
   overflow: hidden;
   position: relative;
   margin-top: -150px;
-  padding-top: 170px;
+  padding-top: 190px;
   padding-bottom: 30px;
   background-color: #ffdc32;
   .container {
@@ -263,33 +263,6 @@
 }
 /*==== Security Section End ==== */
 
-.cta-section {
-  position: relative;
-  z-index: 1;
-  overflow: hidden;
-  .cta-frame {
-    .cta-left {
-      position: absolute;
-      z-index: -1;
-      left: 0;
-      bottom: 0;
-    }
-    .cta-right {
-      position: absolute;
-      z-index: -1;
-      right: 0;
-      bottom: 0;
-    }
-    .cta-bg {
-      position: absolute;
-      z-index: -1;
-      right: 25%;
-      top: -70px;
-    }
-  }
-}
-/*==== CTA Section End ==== */
-
 .how-to-section {
   &.frame {
     position: relative;
@@ -419,6 +392,7 @@
 @media screen and (min-width: 0px) and (max-width: 992px) {
   // Home page styles
   .home-banner {
+    padding-top: 170px;
     padding-bottom: 50px;
   }
   .counter-section {
@@ -506,7 +480,7 @@
 @media screen and (min-width: 0px) and (max-width: 768px) {
   .home-banner {
     margin-top: unset;
-    padding-top: 120px;
+    padding-top: 100px;
 
     //Old Frame
     /*

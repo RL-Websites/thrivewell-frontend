@@ -70,4 +70,59 @@
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
   }
+  .special-4 {
+    border-bottom: 0;
+  }
+}
+
+@media screen and (min-width: 0px) and (max-width: 768px) {
+  .faq-banner {
+    .search-box {
+      padding: 8px 20px;
+      i {
+        font-size: 18px;
+      }
+      input {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .faq-section {
+    .accordion-button::after {
+      font-size: 28px;
+    }
+    .accordion-button:not(.collapsed)::after {
+      font-size: 28px;
+    }
+
+    .faq-frame {
+      .top-left-frame {
+        top: 100px;
+        left: -20px;
+        img {
+          width: 100px;
+        }
+      }
+      .top-right-frame {
+        top: 90px;
+        right: -60px;
+        img {
+          width: 150px;
+        }
+      }
+      .bottom-left-frame {
+        bottom: 80px;
+        left: -50px;
+        img {
+          width: 100px;
+        }
+      }
+      .bottom-right-frame {
+        img {
+          width: 70px;
+        }
+      }
+    }
+  }
 }

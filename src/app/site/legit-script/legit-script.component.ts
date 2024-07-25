@@ -1,4 +1,12 @@
-import { Component } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import {
+  AfterViewInit,
+  Component,
+  Inject,
+  OnInit,
+  PLATFORM_ID,
+} from '@angular/core';
+import AOS from 'aos';
 import Swiper from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -25,7 +33,14 @@ Swiper.use([Autoplay, Navigation]);
   templateUrl: './legit-script.component.html',
   styles: ``,
 })
-export class LegitScriptComponent {
+export class LegitScriptComponent implements AfterViewInit, OnInit {
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+  ngOnInit(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      AOS.init();
+    }
+  }
+
   ngAfterViewInit(): void {
     new Swiper('.client-slider', {
       spaceBetween: 60,
@@ -37,15 +52,17 @@ export class LegitScriptComponent {
       },
       breakpoints: {
         0: {
-          slidesPerView: 1.3,
+          slidesPerView: 1,
           spaceBetween: 15,
         },
         576: {
-          slidesPerView: 2,
-          spaceBetween: 50,
+          slidesPerView: 1.4,
+          spaceBetween: 20,
+          centeredSlides: false,
         },
         1024: {
           slidesPerView: 3.2,
+          spaceBetween: 50,
         },
       },
     });

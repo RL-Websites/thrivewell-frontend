@@ -3,12 +3,12 @@
 <!--====| Header Section End |====-->
 
 <!--====|| Book Now Banner Start ||====-->
-<section class="other-page-banner faq-banner bg-yellow position-relative overflow-hidden">
+<section class="other-page-banner faq-banner bg-yellow position-relative z-1 overflow-hidden">
   <div class="container">
     <div class="row">
       <div class="col-md-8 ">
         <h6
-          class="ff-urbanist fs-28 fw-medium text-primary text-uppercase mt-40"
+          class="ff-urbanist fs-md-28 fs-18 fw-medium text-primary text-uppercase text-md-start text-center"
           data-aos="fade-up-right"
           data-aos-duration="700"
           data-aos-easing="ease-in-out-cubic"
@@ -16,18 +16,27 @@
           FAQ
         </h6>
         <h2
-          class="fw-bold"
+          class="fw-bold text-md-start text-center"
           data-aos="fade-up"
           data-aos-duration="900"
           data-aos-easing="ease-in-out-cubic"
         >Frequently Asked Questions</h2>
+        <div class="text-center d-md-none d-block">
+          <img
+            src="images/faq/faq-banner.png"
+            alt="FAQ"
+            data-aos="zoom-in-up"
+            data-aos-duration="1100"
+            data-aos-easing="ease-in-out-cubic"
+          >
+        </div>
         <div
           class="search-box d-flex align-items-center rounded-pill mt-30"
           data-aos="fade-left"
           data-aos-duration="1100"
           data-aos-easing="ease-in-out-cubic"
         >
-          <i class="icon-search me-3"></i>
+          <i class="icon-search me-md-3 me-2"></i>
           <input
             type="text"
             name="search"
@@ -35,7 +44,7 @@
           >
         </div>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-4 d-md-block d-none">
         <div class="text-center">
           <img
             src="images/faq/faq-banner.png"
@@ -68,7 +77,8 @@
           *ngFor="let item of items; let i = index"
           ngbAccordionItem
           [collapsed]="i !== 0"
-          class="border-top-0 border-start-0 border-end-0"
+          class="border-top-0 border-start-0 border-end-0 "
+          [ngClass]="'special-' + i"
           style="border-color: #afafaf;"
           data-aos="fade-up"
           data-aos-duration="900"
@@ -81,7 +91,7 @@
             data-aos-easing="ease-in-out-cubic"
           >
             <button
-              class="bg-transparent fs-26 fw-semibold shadow-none px-0 py-30"
+              class="bg-transparent fs-md-26 fs-sm-22 fs-20 fw-semibold shadow-none px-0 py-md-30  py-20"
               ngbAccordionButton
             >{{ item.question }}</button>
           </h2>

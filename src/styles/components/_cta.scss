@@ -1,0 +1,47 @@
+.cta-section {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  .cta-frame {
+    .cta-left {
+      position: absolute;
+      z-index: -1;
+      left: 0;
+      bottom: 0;
+    }
+    .cta-right {
+      position: absolute;
+      z-index: -1;
+      right: 0;
+      bottom: 0;
+    }
+    .cta-bg {
+      position: absolute;
+      z-index: -1;
+      right: 25%;
+      top: -70px;
+    }
+  }
+}
+/*==== CTA Section End ==== */
+
+@media screen and (min-width: 0px) and (max-width: 768px) {
+  .cta-section {
+    .cta-frame {
+      .cta-left,
+      .cta-right {
+        img {
+          width: 70px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 0px) and (max-width: 576px) {
+  .cta-section {
+    h3 {
+      font-size: 22px;
+    }
+  }
+}

@@ -16,3 +16,22 @@ footer {
     }
   }
 }
+
+@media screen and (min-width: 0px) and (max-width: 768px) {
+  footer {
+    .footer-frame {
+      .footer-left {
+        bottom: 90px;
+        img {
+          width: 70px;
+        }
+      }
+      .footer-right {
+        bottom: 90px;
+        img {
+          width: 70px;
+        }
+      }
+    }
+  }
+}
