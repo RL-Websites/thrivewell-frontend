@@ -21,3 +21,22 @@
     }
   }
 }
+
+@media screen and (min-width: 0px) and (max-width: 992px) {
+  .ht-connect-section {
+    .contact-frame {
+      .top-right-frame {
+        img {
+          width: 130px;
+        }
+      }
+      .bottom-left-frame {
+        left: -80px;
+        bottom: 130px;
+        img {
+          width: 150px;
+        }
+      }
+    }
+  }
+}
