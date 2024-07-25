@@ -14,3 +14,24 @@
     }
   }
 }
+
+@media screen and (min-width: 0px) and (max-width: 768px) {
+  .simplify-section {
+    .simplify-frame {
+      .right-frame {
+        right: -30px;
+        top: 140px;
+        img {
+          width: 100px;
+        }
+      }
+      .left-frame {
+        left: -30px;
+        bottom: 20px;
+        img {
+          width: 100px;
+        }
+      }
+    }
+  }
+}
