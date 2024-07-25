@@ -2,14 +2,21 @@
   overflow: hidden;
   position: relative;
   margin-top: -150px;
-  padding-top: 160px;
-  padding-bottom: 50px;
+  padding-top: 190px;
+  padding-bottom: 80px;
 }
+
+@media screen and (min-width: 0px) and (max-width: 992px) {
+  .other-page-banner {
+    padding-top: 170px;
+    padding-bottom: 50px;
+  }
+}
+
 @media screen and (min-width: 0px) and (max-width: 768px) {
   .other-page-banner {
+    padding-top: 100px;
     margin-top: unset;
-    padding-top: 120px;
-    padding-bottom: 50px;
   }
   .book-now-frame {
     .bottom-left-frame,

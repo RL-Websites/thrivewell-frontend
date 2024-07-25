@@ -30,3 +30,61 @@
     }
   }
 }
+
+@media screen and (min-width: 0px) and (max-width: 768px) {
+  .solution-sec-one {
+    .sec-one-frame {
+      .left-frame {
+        bottom: -30px;
+        left: -70px;
+        img {
+          width: 120px;
+          transform: rotate(-30deg);
+        }
+      }
+      .right-frame {
+        top: 20px;
+        right: -50px;
+        img {
+          width: 150px;
+        }
+      }
+    }
+  }
+  .solution-sec-two {
+    .sec-two-frame {
+      .top-right-frame {
+        img {
+          width: 80px !important;
+        }
+      }
+      .left-frame {
+        display: none;
+      }
+      .right-frame {
+        bottom: -30px;
+        right: -50px;
+        transform: rotate(20deg);
+        img {
+          width: 150px;
+        }
+      }
+    }
+  }
+  .solution-sec-three {
+    .sec-three-frame {
+      .left-frame {
+        top: 0px;
+        left: -100px;
+        img {
+          width: 150px;
+        }
+      }
+      .right-frame {
+        img {
+          width: 80px;
+        }
+      }
+    }
+  }
+}

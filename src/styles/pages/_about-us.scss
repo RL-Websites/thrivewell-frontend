@@ -46,3 +46,51 @@
     }
   }
 }
+
+@media screen and (min-width: 0px) and (max-width: 992px) {
+  .telehealth-platform-section {
+    .telehealth-frame {
+      .bottom-left-frame {
+        bottom: -10px;
+        left: -30px;
+        img {
+          width: 120px;
+        }
+      }
+      .bottom-right-frame {
+        top: 20%;
+        right: -70px;
+        img {
+          width: 200px;
+        }
+      }
+    }
+  }
+  .it-section {
+    .it-frame {
+      .top-right-frame {
+        img {
+          width: 100px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 0px) and (max-width: 768px) {
+  .telehealth-platform-section {
+    .telehealth-frame {
+      display: none;
+    }
+  }
+  .it-section {
+    .it-frame {
+      display: none;
+    }
+  }
+  .healthcare-section {
+    .healthcare-frame {
+      display: none;
+    }
+  }
+}
