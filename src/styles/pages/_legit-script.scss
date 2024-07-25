@@ -74,3 +74,157 @@
     }
   }
 }
+
+@media screen and (min-width: 0px) and (max-width: 992px) {
+  .certification-section {
+    .certification-frame {
+      .left-frame {
+        top: 120px;
+        left: 20px;
+        img {
+          width: 120px;
+        }
+      }
+      .right-frame {
+        top: 150px;
+        right: -80px;
+        img {
+          width: 200px;
+        }
+      }
+    }
+  }
+
+  .client-section {
+    padding: 50px 15px;
+    .client-card {
+      height: 300px;
+      padding: 20px;
+    }
+
+    .swiper-wrapper {
+      margin-left: 0;
+    }
+    .swiper-button-next {
+      width: 50px;
+      height: 100%;
+      background: unset;
+      top: 20px;
+
+      &::after {
+        font-size: 30px;
+      }
+    }
+    .swiper-button-prev {
+      width: 50px;
+      height: 100%;
+      font-size: 30px;
+      background: unset;
+      top: 20px;
+      &::after {
+        font-size: 30px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 0px) and (max-width: 768px) {
+  .certification-section {
+    .certification-frame {
+      .left-frame {
+        top: 120px;
+        left: 20px;
+        img {
+          width: 60px;
+        }
+      }
+      .right-frame {
+        top: 150px;
+        right: -30px;
+        img {
+          width: 120px;
+        }
+      }
+    }
+  }
+
+  .client-section {
+    padding: 50px 15px;
+    .client-card {
+      height: 300px;
+      padding: 20px;
+    }
+
+    .swiper-wrapper {
+      margin-left: 0;
+      padding-bottom: 80px;
+    }
+    .swiper-button-next {
+      width: 48px;
+      height: 48px;
+      border: 1px solid $primary;
+      border-radius: 50%;
+      background: unset;
+      top: unset;
+      position: absolute;
+      right: 40%;
+      bottom: 0;
+      &::after {
+        font-size: 20px;
+        color: $primary;
+      }
+    }
+    .swiper-button-prev {
+      width: 48px;
+      height: 48px;
+      border: 1px solid $primary;
+      border-radius: 50%;
+      background: unset;
+      top: unset;
+      position: absolute;
+      bottom: 0;
+      left: 40%;
+      &::after {
+        font-size: 20px;
+        color: $primary;
+      }
+    }
+  }
+
+  .legitscript-contact {
+    .legit-contact-frame {
+      .frame-center {
+        right: -30px;
+        top: 100px;
+
+        img {
+          width: 120px;
+        }
+      }
+      .frame-left {
+        img {
+          width: 50px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 0px) and (max-width: 576px) {
+  .client-section {
+    .swiper-wrapper {
+      margin-left: 0;
+      padding-bottom: 80px;
+    }
+    .swiper-button-next {
+      width: 40px;
+      height: 40px;
+      right: 35%;
+    }
+    .swiper-button-prev {
+      width: 40px;
+      height: 40px;
+      left: 35%;
+    }
+  }
+}
