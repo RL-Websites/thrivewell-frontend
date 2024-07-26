@@ -6,6 +6,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { phoneNumberValidator } from '@app/constants/phoneValidator';
 import { ContactService } from '@app/services/contact.service';
 import Swal from 'sweetalert2';
 
@@ -30,7 +31,10 @@ export class LegitscriptContactComponent implements OnInit {
       last_name: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       country_id: ['1'],
-      phone_number: ['', [Validators.required, Validators.minLength(10)]],
+      phone_number: [
+        '',
+        [Validators.required, Validators.minLength(10), phoneNumberValidator],
+      ],
       company: ['', [Validators.required]],
       message: ['', Validators.required],
     });
@@ -65,5 +69,19 @@ export class LegitscriptContactComponent implements OnInit {
           });
         },
       });
+  }
+
+  restrictInput(event: KeyboardEvent) {
+    const inputElement = event.target as HTMLInputElement;
+    const currentValue = inputElement.value;
+    const inputChar = String.fromCharCode(event.charCode);
+
+    if (!/[0-9]/.test(inputChar)) {
+      event.preventDefault();
+      return;
+    }
+    if (currentValue.length >= 10) {
+      event.preventDefault();
+    }
   }
 }
