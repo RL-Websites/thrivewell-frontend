@@ -7,7 +7,6 @@ import {
   Validators,
 } from '@angular/forms';
 import { Locations } from '@app/constants/locations 1';
-import { phoneNumberValidator } from '@app/constants/phoneValidator';
 import { ContactService } from '@app/services/contact.service';
 import Swal from 'sweetalert2';
 @Component({
@@ -38,15 +37,12 @@ export class ContactFormComponent implements OnInit {
       first_name: ['', [Validators.required]],
       last_name: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
-      phone_number: [
-        '',
-        [Validators.required, Validators.minLength(10), phoneNumberValidator],
-      ],
+      phone_number: ['', [Validators.required, Validators.minLength(10)]],
       company: [''],
       product: [''],
       city_id: [''],
       state_id: [''],
-      notes: ['', [Validators.required]],
+      notes: ['', [Validators.required, Validators.minLength(100)]],
     });
   }
 
@@ -62,15 +58,17 @@ export class ContactFormComponent implements OnInit {
           customClass: {
             confirmButton: 'btn-cta ',
           },
-          imageUrl: 'images/thumbs-up.svg',
-
           html: `  
-          <div >
-            <h3 class="fs-43 fw-normal text-dark mt-20">Thank You</h3>
-            <p class="fs-28 fw-medium text-gray  mb-0">Your details has been successfully submitted. Thanks!</p>
-            <div>
+          <div class=" pt-30 px-30">
+            <img src="images/modal/thumbs-up.svg">
+            <h3 class="fs-md-43 fs-30 fw-normal text-dark mt-20">Thank You</h3>
+            <p class="fs-md-18 fs-16 fw-medium text-gray  mb-0">Your details has been successfully submitted.</p>
+            <div class="modal-frame">
               <div class= "frame-top-left">
-              <img src="images/thumbs-up.svg" />
+                  <img class="position-absolute start-0 top-0"  src ="images/modal/top-left.svg">
+              </div>
+              <div class= "frame-bottom-right">
+                  <img class="position-absolute end-0 bottom-0" src ="images/modal/bottom-right.svg">
               </div>
             </div>
           </div> `,
@@ -82,9 +80,22 @@ export class ContactFormComponent implements OnInit {
           customClass: {
             confirmButton: 'btn-cta ',
           },
-          imageUrl: 'images/error.svg',
 
-          html: '  <p class="fs-28 fw-medium text-gray mb-0 mt-20">There is some error to submit your data</p> ',
+          html: ` 
+          <div class=" pt-30 px-30">
+            <img src="images/modal/error.svg">
+             <h3 class="fs-md-43 fs-30 fw-normal text-dark mt-20">Sorry</h3>
+            <p class="fs-md-18 fs-16 fw-medium text-gray mb-0 mt-20">Your details could not be submitted.</p> 
+             <div class="modal-frame">
+              <div class= "frame-top-left">
+                  <img class="position-absolute start-0 top-0"  src ="images/modal/top-left.svg">
+              </div>
+              <div class= "frame-bottom-right">
+                  <img class="position-absolute end-0 bottom-0" src ="images/modal/bottom-right.svg">
+              </div>
+            </div>
+          </div>
+           `,
           text: error,
           confirmButtonText: 'Okay',
         });

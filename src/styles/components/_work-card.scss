@@ -4,6 +4,7 @@
   border: 1px solid #decc42;
   padding: 50px 50px 0;
   position: relative;
+  overflow: hidden;
   z-index: 1;
   &.bg-alt {
     @extend .bg-primary, .text-white;
@@ -23,17 +24,15 @@
       left: 0;
       bottom: 0;
       img {
-        width: 50px;
         border-radius: 0 0 0 20px;
       }
     }
     .card-right {
       position: absolute;
       z-index: -1;
-      right: 0;
-      bottom: 0;
+      right: -7px;
+      bottom: -30px;
       img {
-        width: 50px;
         border-radius: 0 0 20px 0;
       }
     }
@@ -43,7 +42,6 @@
       right: 0px;
       top: 0;
       img {
-        width: 100px;
         border-radius: 0 20px 0 0;
       }
     }
@@ -60,5 +58,40 @@
         }
       }
     }
+    .work-card-frame-1 {
+      .card-left {
+        position: absolute;
+        z-index: -1;
+        left: 0;
+        bottom: 0;
+        img {
+          width: 50px;
+          border-radius: 0 0 0 20px;
+        }
+      }
+      .card-right {
+        position: absolute;
+        z-index: -1;
+        right: 0;
+        bottom: 0;
+        img {
+          width: 50px;
+          border-radius: 0 0 20px 0;
+        }
+      }
+      .card-top {
+        position: absolute;
+        z-index: -1;
+        right: 0px;
+        top: 0;
+        img {
+          width: 100px;
+          border-radius: 0 20px 0 0;
+        }
+      }
+    }
   }
+}
+
+@media screen and (min-width: 0px) and (max-width: 768px) {
 }
