@@ -163,17 +163,26 @@
           <label
             for="notes"
             class="form-label fw-semibold d-block"
-          >Notes</label>
+          >Notes <span class="text-danger fs-11">(Required)</span></label>
           <textarea
             name="notes"
             id="notes"
             rows="3"
             formControlName="notes"
           ></textarea>
-          <span
+          <div
             *ngIf="f['notes'].errors && (formRef.submitted || f['notes'].touched)"
             class="fs-14 fw-medium text-danger mt-1"
-          >Notes is required</span>
+          >
+            <p
+              *ngIf="f['notes'].errors['required']"
+              class="fs-14 fw-medium text-danger mt-1"
+            >Notes is required</p>
+            <p
+              *ngIf="f['notes'].errors['minlength']"
+              class="fs-14 fw-medium text-danger mt-1"
+            >Notes should be at least 100 characters</p>
+          </div>
         </div>
       </div>
       <div class="col-12 text-md-start text-center">
