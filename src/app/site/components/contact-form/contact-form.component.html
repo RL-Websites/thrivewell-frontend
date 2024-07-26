@@ -78,6 +78,7 @@
             class="form-control"
             id="phoneNumber"
             formControlName="phone_number"
+            (keypress)="restrictInput($event)"
           >
           <div *ngIf="f['phone_number'].errors && (formRef.submitted || f['phone_number'].touched)">
             <p
