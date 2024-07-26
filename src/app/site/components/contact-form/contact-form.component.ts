@@ -7,6 +7,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Locations } from '@app/constants/locations 1';
+import { phoneNumberValidator } from '@app/constants/phoneValidator';
 import { ContactService } from '@app/services/contact.service';
 import Swal from 'sweetalert2';
 @Component({
@@ -37,7 +38,10 @@ export class ContactFormComponent implements OnInit {
       first_name: ['', [Validators.required]],
       last_name: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
-      phone_number: ['', [Validators.required, Validators.minLength(10)]],
+      phone_number: [
+        '',
+        [Validators.required, Validators.minLength(10), phoneNumberValidator],
+      ],
       company: [''],
       product: [''],
       city_id: [''],
@@ -86,5 +90,19 @@ export class ContactFormComponent implements OnInit {
         });
       },
     });
+  }
+
+  restrictInput(event: KeyboardEvent) {
+    const inputElement = event.target as HTMLInputElement;
+    const currentValue = inputElement.value;
+    const inputChar = String.fromCharCode(event.charCode);
+
+    if (!/[0-9]/.test(inputChar)) {
+      event.preventDefault();
+      return;
+    }
+    if (currentValue.length >= 10) {
+      event.preventDefault();
+    }
   }
 }
