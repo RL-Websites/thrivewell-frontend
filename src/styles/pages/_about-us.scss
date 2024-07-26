@@ -5,6 +5,9 @@
     margin-left: 25px;
     li {
       list-style: disc !important;
+      &::marker {
+        color: $primary;
+      }
     }
   }
 
@@ -29,6 +32,9 @@
     margin-left: 25px;
     li {
       list-style: disc !important;
+      &::marker {
+        color: $primary;
+      }
     }
   }
   .healthcare-frame {

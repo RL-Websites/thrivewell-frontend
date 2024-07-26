@@ -96,7 +96,6 @@
             id="phoneNumber"
             formControlName="phone_number"
             (keypress)="restrictInput($event)"
-            maxlength="10"
           >
           <div *ngIf="f['phone_number'].errors && (formRef.submitted || f['phone_number'].touched)">
             <p
@@ -106,7 +105,7 @@
             <p
               *ngIf="f['phone_number'].errors['minlength']"
               class="fs-14 fw-medium text-danger mt-1"
-            > Phone Number should be at least 10</p>
+            > Phone number should be at least 10</p>
           </div>
         </div>
       </div>
@@ -140,11 +139,21 @@
             rows="3"
             formControlName="message"
           ></textarea>
-          <span
+          <div
             *ngIf="f['message'].errors && (formRef.submitted || f['message'].touched)"
             class="fs-14 fw-medium text-danger mt-1"
-          >Message field is required</span>
+          >
+            <p
+              *ngIf="f['message'].errors['required']"
+              class="fs-14 fw-medium text-danger mt-1"
+            >Message is required</p>
+            <p
+              *ngIf="f['message'].errors['minlength']"
+              class="fs-14 fw-medium text-danger mt-1"
+            >Message should be at least 100 characters</p>
+          </div>
         </div>
+
       </div>
 
 
