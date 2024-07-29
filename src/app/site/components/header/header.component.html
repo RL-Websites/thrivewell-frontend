@@ -20,7 +20,7 @@
       aria-controls="navbarColor03"
       aria-expanded="false"
       aria-label="Toggle navigation"
-      (click)="isCollapsed = !isCollapsed"
+      (click)="toggleNavbar()"
     >
       <i [ngClass]="{'icon-hamburger': isCollapsed, 'icon-close': !isCollapsed}"></i>
     </button>
