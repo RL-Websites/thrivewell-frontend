@@ -8,6 +8,7 @@ select {
   &.form-control,
   &.form-select {
     padding: 13px 15px;
+    font-size: 16px;
     border-radius: 8px;
     &:focus-visible {
       border: 1px solid #e1e1e1;
@@ -19,6 +20,7 @@ select {
 textarea {
   width: 100%;
   padding: 15px;
+  font-size: 16px;
   border: 1px solid #e1e1e1;
   border-radius: 8px;
   &:focus-visible {

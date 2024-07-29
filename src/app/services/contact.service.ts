@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-const url: string = 'http://thrivewell.aligndentalcare.com/api/create-booking';
+const url: string = 'https://thrivewell.aligndentalcare.com/api/create-booking';
 const legitUrl: string =
-  'http://thrivewell.aligndentalcare.com/api/create-contact';
+  'https://thrivewell.aligndentalcare.com/api/create-contact';
 @Injectable({
   providedIn: 'root',
 })
