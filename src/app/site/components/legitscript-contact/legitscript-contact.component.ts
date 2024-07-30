@@ -18,6 +18,7 @@ import Swal from 'sweetalert2';
 })
 export class LegitscriptContactComponent implements OnInit {
   legitScriptContactForm: FormGroup;
+  isSubmitted: boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -65,6 +66,8 @@ export class LegitscriptContactComponent implements OnInit {
           </div> `,
             confirmButtonText: 'Okay',
           });
+
+          this.legitScriptContactForm.reset();
         },
         error: (error) => {
           Swal.fire({

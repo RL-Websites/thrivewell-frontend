@@ -74,6 +74,7 @@ export class ContactFormComponent implements OnInit {
           </div> `,
           confirmButtonText: 'Okay',
         });
+        this.bookingForm.reset();
       },
       error: (error) => {
         Swal.fire({
