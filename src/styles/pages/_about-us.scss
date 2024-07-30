@@ -87,16 +87,25 @@
   .telehealth-platform-section {
     .telehealth-frame {
       display: none;
+      h4 {
+        font-size: 32px;
+      }
     }
   }
   .it-section {
     .it-frame {
       display: none;
     }
+    h4 {
+      font-size: 32px;
+    }
   }
   .healthcare-section {
     .healthcare-frame {
       display: none;
+    }
+    h4 {
+      font-size: 32px;
     }
   }
 }
