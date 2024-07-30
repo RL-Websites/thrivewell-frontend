@@ -65,6 +65,8 @@ export class LegitscriptContactComponent implements OnInit {
           </div> `,
             confirmButtonText: 'Okay',
           });
+
+          this.legitScriptContactForm.reset();
         },
         error: (error) => {
           Swal.fire({
