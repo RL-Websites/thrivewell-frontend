@@ -1,5 +1,6 @@
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import {
+  AfterViewInit,
   Component,
   HostListener,
   Inject,
@@ -8,9 +9,16 @@ import {
 } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import AOS from 'aos';
+import Swiper from 'swiper';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import { Autoplay, Navigation } from 'swiper/modules';
 import { CtaComponent } from '../components/cta/cta.component';
 import { FooterComponent } from '../components/footer/footer.component';
 import { HeaderComponent } from '../components/header/header.component';
+
+Swiper.use([Autoplay, Navigation]);
 
 @Component({
   selector: 'app-home',
@@ -25,7 +33,7 @@ import { HeaderComponent } from '../components/header/header.component';
     CtaComponent,
   ],
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, AfterViewInit {
   counters = [
     {
       id: '1',
@@ -60,6 +68,33 @@ export class HomeComponent implements OnInit {
       AOS.init();
     }
     this.counters.forEach((counter) => this.animateCounter(counter));
+  }
+
+  ngAfterViewInit(): void {
+    new Swiper('.work-slider', {
+      spaceBetween: 60,
+      loop: true,
+      centeredSlides: true,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      breakpoints: {
+        0: {
+          slidesPerView: 1,
+          spaceBetween: 15,
+        },
+        576: {
+          slidesPerView: 1.4,
+          spaceBetween: 20,
+          centeredSlides: false,
+        },
+        1024: {
+          slidesPerView: 3.2,
+          spaceBetween: 50,
+        },
+      },
+    });
   }
 
   @HostListener('window:scroll', [])
