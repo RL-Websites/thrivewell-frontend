@@ -18,7 +18,7 @@
             formControlName="first_name"
           >
           <span
-            *ngIf="f['first_name'].errors && (formRef.submitted || f['first_name'].touched)"
+            *ngIf=" f['first_name'].errors && (formRef.submitted || f['first_name'].touched)"
             class="fs-14 fw-medium text-danger mt-1"
           >First name is required</span>
         </div>
@@ -36,7 +36,7 @@
             formControlName="last_name"
           >
           <span
-            *ngIf="f['last_name'].errors && (formRef.submitted || f['last_name'].touched)"
+            *ngIf=" f['last_name'].errors && (formRef.submitted || f['last_name'].touched)"
             class="fs-14 fw-medium text-danger mt-1"
           >Last name is required</span>
         </div>
@@ -157,7 +157,7 @@
       </div>
 
 
-      <div class="col-12">
+      <div class="col-12 text-md-start text-center">
         <button
           type="submit"
           class="btn-cta mt-10 d-inline-block"

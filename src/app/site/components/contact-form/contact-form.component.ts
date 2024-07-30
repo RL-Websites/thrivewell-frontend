@@ -52,6 +52,7 @@ export class ContactFormComponent implements OnInit {
 
   onSubmit() {
     if (this.bookingForm.invalid) return;
+
     this.contactService.createBooking(this.bookingForm.value).subscribe({
       next: (res) => {
         Swal.fire({

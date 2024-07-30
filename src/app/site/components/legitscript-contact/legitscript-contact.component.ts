@@ -18,7 +18,6 @@ import Swal from 'sweetalert2';
 })
 export class LegitscriptContactComponent implements OnInit {
   legitScriptContactForm: FormGroup;
-  isSubmitted: boolean = false;
 
   constructor(
     private fb: FormBuilder,
