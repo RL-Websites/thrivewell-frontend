@@ -136,13 +136,16 @@
       </div>
       <div class="common-border"></div>
       <div>
-        <div class="row mt-lg-60 mt-md-30 mt-20 g-md-auto g-3">
+        <div class="row mt-lg-60 mt-md-30 mt-20 g-md-auto g-3 all-counter">
           <div
-            class="col-md-4 text-center"
-            *ngFor="let counter of counters"
+            class="col-md-4 text-center counter-width"
+            *ngFor="let counter of counters, let i = index"
           >
-            <p class="fs-lg-78 fs-50 fw-250 mb-lg-auto mb-0 d-flex align-items-center justify-content-center">
-              <span>{{ counter.currentValue }}</span>K+
+            <p
+              class="fs-lg-78 fs-50 fw-250 mb-lg-auto mb-0 d-flex align-items-center justify-content-center counter-value "
+              [ngClass]="'counter-' + i"
+            >
+              <span><span class="value">{{ counter.currentValue }}<span class="thousands">K+</span></span></span>
               <i class="icon-up-arrow fs-lg-55 fs-35 text-primary ms-lg-30 ms-md-10"></i>
             </p>
             <p
@@ -856,7 +859,9 @@
         data-aos-easing="ease-in-out"
       >How Thrivewell Works</h2>
       <div class="common-border mt-lg-40 mt-20"></div>
-      <div class="row mt-xl-80 mt-lg-40 mt-md-20 mt-10 g-4">
+
+      <!--For Large device start-->
+      <div class="row mt-xl-80 mt-lg-40 mt-md-20 mt-10 g-4 d-sm-flex d-none">
         <div class="col-sm-6 d-flex work-card-col text-md-start text-center">
           <div
             class="work-card flex-grow-1 text-md-start text-center"
@@ -1101,12 +1106,265 @@
 
         </div>
       </div>
+      <!--For Large device end-->
+
+      <!--For Small device start-->
+      <div class="swiper work-slider mt-xl-80 mt-lg-40  mt-20 g-4 d-sm-none d-flex">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide  d-flex work-card-col text-md-start text-center">
+            <div
+              class="work-card flex-grow-1 text-md-start text-center"
+              data-aos="fade-up-right"
+              data-aos-duration="700"
+              data-aos-easing="ease-in-out"
+            >
+              <h3
+                class="text-capitalize text-dark"
+                data-aos="fade-up"
+                data-aos-duration="800"
+                data-aos-easing="ease-in-out"
+              >
+                Wide Range of <br />
+                Treatment Categories
+              </h3>
+              <p
+                class="mt-20"
+                data-aos="fade-up"
+                data-aos-duration="900"
+                data-aos-easing="ease-in-out"
+              >
+                Discover a diverse selection of treatment categories on
+                Thrivewell. Whether you’re launching a new telehealth brand or
+                enhancing your existing services, we’ve got you covered. Our
+                platform enables you to offer a robust yet tailored digital
+                healthcare experience for your unique brand identity.
+              </p>
+              <div class="text-center position-relative z-1 d-md-block d-none">
+                <img
+                  src="images/home/body-mesure.png"
+                  alt="Wide Range of Treatment Categories"
+                  class="img-fluid"
+                  data-aos="zoom-in-up"
+                  data-aos-duration="1100"
+                  data-aos-easing="ease-in-out"
+                />
+              </div>
+              <div class="work-card-frame-1">
+                <div class="card-left">
+                  <img
+                    src="images/home/frame/work-card/work-card-frame-1/card-left.svg"
+                    alt="card left"
+                  >
+                </div>
+                <div class="card-right">
+                  <img
+                    src="images/home/frame/work-card/work-card-frame-1/card-right.svg"
+                    alt="card right"
+                  >
+                </div>
+                <div class="card-top">
+                  <img
+                    src="images/home/frame/work-card/work-card-frame-1/card-top.svg"
+                    alt="card Top"
+                  >
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="swiper-slide  d-flex  work-card-col text-md-start text-center">
+            <div
+              class="work-card bg-alt flex-grow-1"
+              data-aos="fade-up-left"
+              data-aos-duration="700"
+              data-aos-easing="ease-in-out"
+            >
+              <h3
+                class="text-capitalize text-white"
+                data-aos="fade-up"
+                data-aos-duration="800"
+                data-aos-easing="ease-in-out"
+              >
+                Customize your <br />
+                brand
+              </h3>
+              <p
+                class="mt-20 text-white"
+                data-aos="fade-up"
+                data-aos-duration="900"
+                data-aos-easing="ease-in-out"
+              >
+                At Thrivewell, you have full control. Utilize our user-friendly
+                software to personalize your telehealth services with your
+                branding. From logos to color schemes, make it distinctly yours.
+              </p>
+              <div class="text-end shadow-img d-md-block d-none">
+                <img
+                  src="images/home/doctor-list.png"
+                  alt="Customize your brand"
+                  class="img-fluid me-xl-n50 me-lg-0 special-img position-relative z-1"
+                  data-aos="zoom-in-up"
+                  data-aos-duration="1100"
+                  data-aos-easing="ease-in-out"
+                />
+              </div>
+              <div class="work-card-frame-1">
+                <div class="card-left">
+                  <img
+                    src="images/home/frame/work-card/work-card-frame-2/card-left.svg"
+                    alt="card left"
+                  >
+                </div>
+                <div class="card-right">
+                  <img
+                    src="images/home/frame/work-card/work-card-frame-2/card-right.svg"
+                    alt="card right"
+                  >
+                </div>
+                <div class="card-top">
+                  <img
+                    src="images/home/frame/work-card/work-card-frame-2/card-top.svg"
+                    alt="card Top"
+                  >
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="swiper-slide d-flex work-card-col text-md-start text-center">
+            <div
+              class="work-card bg-alt flex-grow-1"
+              data-aos="fade-up-right"
+              data-aos-duration="700"
+              data-aos-easing="ease-in-out"
+            >
+              <h3
+                class="text-capitalize text-white position-relative z-1"
+                data-aos="fade-up"
+                data-aos-duration="800"
+                data-aos-easing="ease-in-out"
+              >
+                Seamless Prescription <br />
+                Fulfillment
+              </h3>
+              <p
+                class="mt-20 text-white"
+                data-aos="fade-up"
+                data-aos-duration="900"
+                data-aos-easing="ease-in-out"
+              >
+                We handle the heavy lifting. Thrivewell integrates effortlessly
+                with qualified telehealth physicians and pharmacies. If you have
+                preferred partners, we can integrate with them too, ensuring
+                hassle-free prescription fulfillment for your patients.
+              </p>
+              <div class="pb-20 position-relative z-1 d-md-block d-none">
+                <img
+                  src="images/home/prescription.png"
+                  alt="Customize your brand"
+                  class="img-fluid special-img"
+                  data-aos="zoom-in-up"
+                  data-aos-duration="1100"
+                  data-aos-easing="ease-in-out"
+                />
+              </div>
+
+              <div class="work-card-frame-1">
+                <div class="card-left">
+                  <img
+                    src="images/home/frame/work-card/work-card-frame-2/card-left.svg"
+                    alt="card left"
+                  >
+                </div>
+                <div class="card-right">
+                  <img
+                    src="images/home/frame/work-card/work-card-frame-2/card-right.svg"
+                    alt="card right"
+                  >
+                </div>
+                <div class="card-top ">
+                  <img
+                    src="images/home/frame/work-card/work-card-frame-2/card-top.svg"
+                    alt="card Top"
+                  >
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="swiper-slide d-flex work-card-col text-md-start text-center">
+            <div
+              class="work-card flex-grow-1"
+              data-aos="fade-up-left"
+              data-aos-duration="700"
+              data-aos-easing="ease-in-out"
+            >
+              <h3
+                class="text-capitalize text-dark"
+                data-aos="fade-up"
+                data-aos-duration="800"
+                data-aos-easing="ease-in-out"
+              >
+                Quick Customer <br />
+                Acquisition
+              </h3>
+              <p
+                class="mt-20"
+                data-aos="fade-up"
+                data-aos-duration="900"
+                data-aos-easing="ease-in-out"
+              >
+                Time is critical. With Thrivewell, you can start acquiring
+                customers within days. Our built-in conversion optimization tools
+                and analytics enable you to scale your marketing efforts
+                effectively. Additionally, we will provide comprehensive support
+                and guidance to help you attract even more customers, ensuring
+                your business grows efficiently and successfully.
+              </p>
+              <div class="text-center position-relative z-1 d-md-block d-none">
+                <img
+                  src="images/home/customer-acwuisition.png"
+                  alt="Quick Customer Acquisition"
+                  class="img-fluid"
+                  data-aos="zoom-in-up"
+                  data-aos-duration="1100"
+                  data-aos-easing="ease-in-out"
+                />
+              </div>
+              <div class="work-card-frame-1">
+                <div class="card-left">
+                  <img
+                    src="images/home/frame/work-card/work-card-frame-1/card-left.svg"
+                    alt="card left"
+                  >
+                </div>
+                <div class="card-right">
+                  <img
+                    src="images/home/frame/work-card/work-card-frame-1/card-right.svg"
+                    alt="card right"
+                  >
+                </div>
+                <div class="card-top">
+                  <img
+                    src="images/home/frame/work-card/work-card-frame-1/card-top.svg"
+                    alt="card Top"
+                  >
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+      <!--For Small device end-->
     </div>
   </section>
   <!--====| HOW TW Work Section End |====-->
 
   <!--====| HOW TW Work Section Start |====-->
-  <section class="section how-to-section frame overflow-hidden">
+  <section class="section how-to-section frame overflow-hidden pt-lg-80 pt-md-60 pt-sm-50 pt-0">
     <div class="container">
       <div class="row">
         <div class="col-md-8 mx-auto text-center">
@@ -1144,6 +1402,19 @@
             >
               Customize Your <br />Telehealth Experience
             </h3>
+            <div
+              class="text-center mt-20 position-relative z-1 d-md-none d-block"
+              data-aos="zoom-in-up"
+              data-aos-duration="1200"
+              data-aos-easing="ease-in-out"
+            >
+              <img
+                src="images/home/custom-websites.png"
+                alt="Customize Your Telehealth Experience"
+                class="img-fluid"
+                style="width: 130px;"
+              />
+            </div>
             <p
               class="mt-30"
               data-aos="fade-up"
@@ -1184,7 +1455,7 @@
               Let’s build a thriving virtual health ecosystem together!
             </p>
             <div
-              class="text-center mt-80 position-relative z-1"
+              class="text-center mt-80 position-relative z-1 d-md-block d-none"
               data-aos="zoom-in-up"
               data-aos-duration="1200"
               data-aos-easing="ease-in-out"
@@ -1233,6 +1504,17 @@
             >
               Custom Websites <br />Tailored Just for You!
             </h3>
+            <div class="text-center mt-25 position-relative z-1 d-md-none block">
+              <img
+                src="images/home/customize-telehealth.svg"
+                alt="Customize Your Telehealth Experience"
+                class="img-fluid"
+                style="width: 177px;"
+                data-aos="zoom-in-up"
+                data-aos-duration="1200"
+                data-aos-easing="ease-in-out"
+              />
+            </div>
             <p
               class="mt-30 text-white"
               data-aos="fade-up"
@@ -1280,7 +1562,7 @@
               Ready to elevate your brand online? Let’s build something
               extraordinary!
             </p>
-            <div class="text-center mt-25 position-relative z-1">
+            <div class="text-center mt-25 position-relative z-1 d-md-block d-none">
               <img
                 src="images/home/customize-telehealth.svg"
                 alt="Customize Your Telehealth Experience"

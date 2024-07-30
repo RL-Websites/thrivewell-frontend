@@ -48,3 +48,9 @@
     }
   }
 }
+
+@media screen and (min-width: 0px) and (max-width: 768px) {
+  .section-img .img-wrapper.left-sec-img {
+    left: 15px;
+  }
+}
