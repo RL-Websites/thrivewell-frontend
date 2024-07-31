@@ -141,18 +141,38 @@
   .all-counter {
     .counter-width {
       p {
+        &.counter-0 {
+          span {
+            &.value {
+              width: 140px;
+              display: inline-block;
+            }
+          }
+        }
         &.counter-1 {
+          span {
+            &.value {
+              width: 200px;
+              display: inline-block;
+              position: relative;
+              &::after {
+                content: "+";
+                position: absolute;
+                right: 0px;
+              }
+            }
+          }
           span {
             &.thousands {
               display: none;
             }
           }
+        }
+        &.counter-2 {
           span {
             &.value {
-              &::after {
-                content: "+";
-                position: relative;
-              }
+              width: 100px;
+              display: inline-block;
             }
           }
         }
@@ -428,6 +448,34 @@
       .right-frame {
         top: -40px;
         right: -100px;
+      }
+    }
+
+    .all-counter {
+      .counter-width {
+        p {
+          &.counter-0 {
+            span {
+              &.value {
+                width: 100px;
+              }
+            }
+          }
+          &.counter-1 {
+            span {
+              &.value {
+                width: 120px;
+              }
+            }
+          }
+          &.counter-2 {
+            span {
+              &.value {
+                width: 70px;
+              }
+            }
+          }
+        }
       }
     }
   }
