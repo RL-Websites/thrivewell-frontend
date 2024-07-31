@@ -122,7 +122,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   animateCounter(counter: any): void {
     const startValue = 0;
     const endValue = counter.number;
-    const duration = counter.duration * 500;
+    const duration = counter.duration * 1500;
     const stepTime = Math.abs(Math.floor(duration / endValue));
 
     let currentValue = startValue;
