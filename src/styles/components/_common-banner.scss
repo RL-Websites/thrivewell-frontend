@@ -17,6 +17,11 @@
   .other-page-banner {
     padding-top: 100px;
     margin-top: unset;
+    h5 {
+      &.h5-special {
+        font-size: 20px;
+      }
+    }
   }
   .book-now-frame {
     .bottom-left-frame,
