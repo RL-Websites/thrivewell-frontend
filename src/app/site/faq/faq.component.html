@@ -6,7 +6,7 @@
 <section class="other-page-banner faq-banner bg-yellow position-relative z-1 overflow-hidden">
   <div class="container">
     <div class="row">
-      <div class="col-md-8 ">
+      <div class="col-md-8">
         <h6
           class="ff-urbanist fs-md-28 fs-18 fw-medium text-primary text-uppercase text-md-start text-center"
           data-aos="fade-up-right"
@@ -20,7 +20,9 @@
           data-aos="fade-up"
           data-aos-duration="900"
           data-aos-easing="ease-in-out-cubic"
-        >Frequently Asked Questions</h2>
+        >
+          Frequently Asked Questions
+        </h2>
         <div class="text-center d-md-none d-block">
           <img
             src="images/faq/faq-banner.png"
@@ -28,7 +30,7 @@
             data-aos="zoom-in-up"
             data-aos-duration="1100"
             data-aos-easing="ease-in-out-cubic"
-          >
+          />
         </div>
         <div
           class="search-box d-flex align-items-center rounded-pill mt-30"
@@ -41,7 +43,7 @@
             type="text"
             name="search"
             placeholder="Search Here.."
-          >
+          />
         </div>
       </div>
       <div class="col-md-4 d-md-block d-none">
@@ -52,7 +54,7 @@
             data-aos="zoom-in-up"
             data-aos-duration="1100"
             data-aos-easing="ease-in-out-cubic"
-          >
+          />
         </div>
       </div>
     </div>
@@ -65,90 +67,202 @@
 <!--====|| Main Section Start ||====-->
 <main>
   <!--====|| FAQ Content Start ||====-->
-  <section class="faq-section section position-relative overflow-hidden z-1 ">
+  <section class="faq-section section position-relative overflow-hidden z-1">
     <div class="container">
-      <div
-        ngbAccordion
-        [closeOthers]="true"
-        style="max-width: 957px; margin: 0 auto;"
-        class="mt-n30"
-      >
-        <div
-          *ngFor="let item of items; let i = index"
-          ngbAccordionItem
-          [collapsed]="i !== 0"
-          class="border-top-0 border-start-0 border-end-0 "
-          [ngClass]="'special-' + i"
-          style="border-color: #afafaf;"
-        >
-          <h2 ngbAccordionHeader>
-            <button
-              class="bg-transparent fs-md-26 fs-sm-22 fs-20 fw-semibold shadow-none px-0 py-md-30  py-20"
-              ngbAccordionButton
-            >{{ item.question }}</button>
-          </h2>
-          <div ngbAccordionCollapse>
+      <div class="row">
+        <div class="col-md-10 mx-auto">
+          <div
+            ngbAccordion
+            [closeOthers]="true"
+          >
+            <div>
+              <h6 class="fs-26 fw-semibold text-primary">General Questions</h6>
+            </div>
             <div
-              ngbAccordionBody
-              class="px-0 pt-0 pb-30"
+              *ngFor="let item of items1; let i = index"
+              ngbAccordionItem
+              [collapsed]="i !== 0"
+              class="border-top-0 border-start-0 border-end-0"
+              [ngClass]="'special-' + i"
+              style="border-color: #afafaf"
             >
-              <div class="row">
-                <div class="col-md-6 pe-md-30 pe-auto">
-                  <p>{{ item.answer1 }}</p>
-                </div>
-                <div class="col-md-6 text-center">
-                  <img
-                    src="images/faq/youtube.webp"
-                    alt="Youtube"
-                    class="w-100 rounded-20"
-                  >
-                  <a
-                    class="text-blue text-decoration-underline fs-bold  d-inline-block mt-20"
-                    href=""
-                  >Play Video</a>
+              <h2 ngbAccordionHeader>
+                <button
+                  class="bg-transparent fs-md-26 fs-sm-22 fs-20 fw-semibold shadow-none px-0 py-md-30 py-20"
+                  ngbAccordionButton
+                >
+                  {{ item.question }}
+                </button>
+              </h2>
+              <div ngbAccordionCollapse>
+                <div
+                  ngbAccordionBody
+                  class="px-0 pt-0 pb-30"
+                >
+                  <div class="row">
+                    <div class="col-md-12 pe-md-30 pe-auto">
+                      <p>{{ item.answer1 }}</p>
+                    </div>
+                    <!-- <div class="col-md-6 text-center">
+                      <img
+                        src="images/faq/youtube.webp"
+                        alt="Youtube"
+                        class="w-100 rounded-20"
+                      >
+                      <a
+                        class="text-blue text-decoration-underline fs-bold  d-inline-block mt-20"
+                        href=""
+                      >Play Video</a>
 
+                    </div> -->
+                  </div>
                 </div>
               </div>
-              <div class="row mt-20">
-                <p class="mb-0">{{ item.answer2 }}</p>
-              </div>
-
             </div>
           </div>
         </div>
       </div>
+      <!--===| General Question Faq end |===-->
 
+      <div class="row mt-80 pf-faq">
+        <div class="col-md-10 mx-auto">
+          <div
+            ngbAccordion
+            [closeOthers]="true"
+          >
+            <div>
+              <h6 class="fs-26 fw-semibold text-primary">Platform Features and Functionality </h6>
+            </div>
+            <div
+              *ngFor="let item of items2; let i = index"
+              ngbAccordionItem
+              [collapsed]="i !== 0"
+              class="border-top-0 border-start-0 border-end-0"
+              [ngClass]="'special-' + i"
+              style="border-color: #afafaf"
+            >
+              <h2 ngbAccordionHeader>
+                <button
+                  class="bg-transparent fs-md-26 fs-sm-22 fs-20 fw-semibold shadow-none px-0 py-md-30 py-20"
+                  ngbAccordionButton
+                >
+                  {{ item.question }}
+                </button>
+              </h2>
+              <div ngbAccordionCollapse>
+                <div
+                  ngbAccordionBody
+                  class="px-0 pt-0 pb-30"
+                >
+                  <div class="row">
+                    <div class="col-md-12 pe-md-30 pe-auto">
+                      <p>{{ item.answer1 }}</p>
+                    </div>
+                    <!-- <div class="col-md-6 text-center">
+                      <img
+                        src="images/faq/youtube.webp"
+                        alt="Youtube"
+                        class="w-100 rounded-20"
+                      >
+                      <a
+                        class="text-blue text-decoration-underline fs-bold  d-inline-block mt-20"
+                        href=""
+                      >Play Video</a>
+
+                    </div> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--===| Platform Features and Functionality Faq end |===-->
+
+      <div class="row mt-80 saf-faq">
+        <div class="col-md-10 mx-auto">
+          <div
+            ngbAccordion
+            [closeOthers]="true"
+          >
+            <div>
+              <h6 class="fs-26 fw-semibold text-primary">Shipping and Fulfillment</h6>
+            </div>
+            <div
+              *ngFor="let item of items3; let i = index"
+              ngbAccordionItem
+              [collapsed]="i !== 0"
+              class="border-top-0 border-start-0 border-end-0"
+              [ngClass]="'special-' + i"
+              style="border-color: #afafaf"
+            >
+              <h2 ngbAccordionHeader>
+                <button
+                  class="bg-transparent fs-md-26 fs-sm-22 fs-20 fw-semibold shadow-none px-0 py-md-30 py-20"
+                  ngbAccordionButton
+                >
+                  {{ item.question }}
+                </button>
+              </h2>
+              <div ngbAccordionCollapse>
+                <div
+                  ngbAccordionBody
+                  class="px-0 pt-0 pb-30"
+                >
+                  <div class="row">
+                    <div class="col-md-12 pe-md-30 pe-auto">
+                      <p>{{ item.answer1 }}</p>
+                    </div>
+                    <!-- <div class="col-md-6 text-center">
+                      <img
+                        src="images/faq/youtube.webp"
+                        alt="Youtube"
+                        class="w-100 rounded-20"
+                      >
+                      <a
+                        class="text-blue text-decoration-underline fs-bold  d-inline-block mt-20"
+                        href=""
+                      >Play Video</a>
+
+                    </div> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--===| Platform Features and Functionality Faq end |===-->
 
     </div>
     <div class="faq-frame">
-      <div class="top-left-frame ">
+      <div class="top-left-frame">
         <img
           src="images/faq/frame/top-left.svg"
           alt="Top Left Frame"
-        >
+        />
       </div>
-      <div class="top-right-frame ">
+      <div class="top-right-frame">
         <img
           src="images/faq/frame/top-right.svg"
           alt="Top Right Frame"
-        >
+        />
       </div>
-      <div class="bottom-left-frame ">
+      <div class="bottom-left-frame">
         <img
           src="images/faq/frame/bottom-left.svg"
           alt="Bottom Left Frame"
-        >
+        />
       </div>
       <div class="bottom-right-frame position-absolute z-n1 bottom-0 end-0">
         <img
           src="images/faq/frame/bottom-right.svg"
           alt="Bottom Right Frame"
-        >
+        />
       </div>
     </div>
   </section>
   <!--====|| FAQ Content End ||====-->
-
 </main>
 <!--====|| Main Section End ||====-->
 
