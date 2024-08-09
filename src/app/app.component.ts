@@ -1,16 +1,20 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { LoaderService } from './services/loader.service';
 import { LoaderComponent } from './site/components/loader/loader.component';
+import { OpeningModalComponent } from './site/components/opening-modal/opening-modal.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, LoaderComponent],
+  imports: [RouterOutlet, LoaderComponent, OpeningModalComponent, CommonModule],
   templateUrl: './app.component.html',
   styles: ``,
 })
 export class AppComponent implements OnInit {
+  modalVisible = false;
+
   constructor(private loaderService: LoaderService) {}
 
   onActive() {
@@ -26,5 +30,6 @@ export class AppComponent implements OnInit {
     setTimeout(() => {
       this.loaderService.hide();
     }, 200);
+    this.modalVisible = true;
   }
 }
