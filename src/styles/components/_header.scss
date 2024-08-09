@@ -35,6 +35,29 @@ header {
             }
           }
         }
+        &:nth-child(5) {
+          &::after {
+            position: unset;
+            background-color: transparent;
+          }
+          a {
+            &.active {
+              &::after {
+                width: 0;
+                height: 0;
+              }
+            }
+            &:focus {
+              color: inherit;
+            }
+            &:hover {
+              &::after {
+                width: 0;
+                height: 0;
+              }
+            }
+          }
+        }
         &:last-child {
           &::after {
             position: unset;
