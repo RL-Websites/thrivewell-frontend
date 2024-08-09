@@ -1,0 +1,51 @@
+<div
+  class="modal-overlay"
+  *ngIf="isVisible"
+  (click)="closeModal()"
+>
+  <div
+    class="modal-content"
+    (click)="$event.stopPropagation()"
+  >
+    <div>
+      <div class="modal-close">
+        <i
+          class="icon-close"
+          (click)="closeModal()"
+        ></i>
+      </div>
+      <h5 class="text-capitalize">Our team is here to help answer any questions you might have.</h5>
+      <button
+        [disabled]="isButtonDisabled"
+        (click)="enableButton()"
+        class="
+        btn-cta
+        mt-xl-40
+        mt-lg-20
+        mt-0"
+      >Chat with our support team</button>
+      <button
+        class="btn-cta mt-xl-20 mt-lg-10 mt-0"
+        [disabled]="isButtonDisabled"
+        (click)="enableButton()"
+      >Apply to be a Partner</button>
+      <p
+        [routerLink]="'/privacy-policy'"
+        (click)="closeModal()"
+        class="fs-14 mt-40 mb-0 text-decoration-underline"
+      >By engaging with chat, I acknowledge that Thrivewell may
+        use, monitor and record my information as described in its Privacy Policy.
+        For your security, please do not enter health information on the chat.
+      </p>
+    </div>
+
+    <div class="modal-frame">
+      <div class="frame-top-left">
+        <img
+          class="position-absolute start-0 top-0"
+          src="images/modal/top-left.svg"
+        >
+      </div>
+    </div>
+  </div>
+</div>
