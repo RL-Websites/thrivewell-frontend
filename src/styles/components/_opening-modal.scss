@@ -31,3 +31,27 @@
     }
   }
 }
+
+@media screen and (min-width: 0px) and (max-width: 768px) {
+  .modal-overlay {
+    .modal-content {
+      padding: 50px 20px 30px 20px;
+      border-radius: 10px;
+      width: 550px;
+      text-align: center;
+      .btn-cta {
+        width: 285px;
+      }
+      .modal-close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        i {
+          font-size: 22px;
+          cursor: pointer;
+          color: $gray;
+        }
+      }
+    }
+  }
+}

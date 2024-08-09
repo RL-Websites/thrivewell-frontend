@@ -4,7 +4,7 @@
   (click)="closeModal()"
 >
   <div
-    class="modal-content"
+    class="modal-content position-relative overflow-hidden z-1"
     (click)="$event.stopPropagation()"
   >
     <div>
@@ -21,11 +21,11 @@
         class="
         btn-cta
         mt-xl-40
-        mt-lg-20
-        mt-0"
+        mt-20
+      "
       >Chat with our support team</button>
       <button
-        class="btn-cta mt-xl-20 mt-lg-10 mt-0"
+        class="btn-cta mt-xl-20 mt-10 "
         [disabled]="isButtonDisabled"
         (click)="enableButton()"
       >Apply to be a Partner</button>
@@ -40,7 +40,7 @@
     </div>
 
     <div class="modal-frame">
-      <div class="frame-top-left">
+      <div class="frame-top-left position-absolute z-n1 top-0 start-0">
         <img
           class="position-absolute start-0 top-0"
           src="images/modal/top-left.svg"
