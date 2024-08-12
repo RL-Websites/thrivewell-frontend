@@ -30,6 +30,9 @@ ul li {
   color: $primary;
   margin-right: 8px;
 }
+.container {
+  padding: 0;
+}
 
 @media screen and (min-width: 0px) and (max-width: 1200px) {
   br {
@@ -49,5 +52,9 @@ ul li {
   }
   .common-border {
     height: 0.5px;
+  }
+  .container {
+    padding-right: calc(var(--bs-gutter-x) * 0.5);
+    padding-left: calc(var(--bs-gutter-x) * 0.5);
   }
 }
