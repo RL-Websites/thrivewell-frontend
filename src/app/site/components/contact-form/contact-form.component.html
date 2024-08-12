@@ -4,7 +4,7 @@
     #formRef="ngForm"
     (ngSubmit)="onSubmit()"
   >
-    <div class="row  gx-lg-4 gx-3 gy-lg-3 gy-1">
+    <div class="row gx-lg-4 gx-3 gy-lg-3 gy-1">
       <div class="col-md-6">
         <div class="signle-input mb-3">
           <label
@@ -16,9 +16,12 @@
             class="form-control"
             id="firstName"
             formControlName="first_name"
-          >
+          />
           <span
-            *ngIf="f['first_name'].errors && (formRef.submitted || f['first_name'].touched)"
+            *ngIf="
+              f['first_name'].errors &&
+              (formRef.submitted || f['first_name'].touched)
+            "
             class="fs-14 fw-medium text-danger mt-1"
           >First name is required</span>
         </div>
@@ -34,9 +37,12 @@
             class="form-control"
             id="lastName"
             formControlName="last_name"
-          >
+          />
           <span
-            *ngIf="f['last_name'].errors && (formRef.submitted || f['last_name'].touched)"
+            *ngIf="
+              f['last_name'].errors &&
+              (formRef.submitted || f['last_name'].touched)
+            "
             class="fs-14 fw-medium text-danger mt-1"
           >Last name is required</span>
         </div>
@@ -53,16 +59,22 @@
             class="form-control"
             id="email"
             formControlName="email"
-          >
-          <div *ngIf="f['email'].errors && (formRef.submitted || f['email'].touched)">
+          />
+          <div *ngIf="
+              f['email'].errors && (formRef.submitted || f['email'].touched)
+            ">
             <p
               *ngIf="f['email'].errors['required']"
               class="fs-14 fw-medium text-danger mt-1"
-            >Email name is required</p>
+            >
+              Email name is required
+            </p>
             <p
               *ngIf="f['email'].errors['email']"
               class="fs-14 fw-medium text-danger mt-1"
-            >Invalid Email</p>
+            >
+              Invalid Email
+            </p>
           </div>
         </div>
       </div>
@@ -79,16 +91,23 @@
             id="phoneNumber"
             formControlName="phone_number"
             (keypress)="restrictInput($event)"
-          >
-          <div *ngIf="f['phone_number'].errors && (formRef.submitted || f['phone_number'].touched)">
+          />
+          <div *ngIf="
+              f['phone_number'].errors &&
+              (formRef.submitted || f['phone_number'].touched)
+            ">
             <p
               *ngIf="f['phone_number'].errors['required']"
               class="fs-14 fw-medium text-danger mt-1"
-            >Phone number is required</p>
+            >
+              Phone number is required
+            </p>
             <p
               *ngIf="f['phone_number'].errors['minlength']"
               class="fs-14 fw-medium text-danger mt-1"
-            > Phone Number should be at least 10</p>
+            >
+              Phone Number should be at least 10
+            </p>
           </div>
         </div>
       </div>
@@ -104,7 +123,7 @@
             class="form-control"
             id="company"
             formControlName="company"
-          >
+          />
         </div>
       </div>
 
@@ -119,7 +138,7 @@
             class="form-control"
             id="product"
             formControlName="product"
-          >
+          />
         </div>
       </div>
 
@@ -133,7 +152,7 @@
             type="text"
             class="form-control"
             id="city"
-          >
+          />
         </div>
       </div>
 
@@ -152,8 +171,9 @@
             <option
               *ngFor="let state of states"
               [value]="state.id"
-            >{{state.name}}</option>
-
+            >
+              {{ state.name }}
+            </option>
           </select>
         </div>
       </div>
@@ -171,26 +191,43 @@
             formControlName="notes"
           ></textarea>
           <div
-            *ngIf="f['notes'].errors && (formRef.submitted || f['notes'].touched)"
+            *ngIf="
+              f['notes'].errors && (formRef.submitted || f['notes'].touched)
+            "
             class="fs-14 fw-medium text-danger mt-1"
           >
             <p
               *ngIf="f['notes'].errors['required']"
               class="fs-14 fw-medium text-danger mt-1"
-            >Notes is required</p>
+            >
+              Notes is required
+            </p>
             <p
               *ngIf="f['notes'].errors['minlength']"
               class="fs-14 fw-medium text-danger mt-1"
-            >Notes should be at least 100 characters</p>
+            >
+              Notes should be at least 100 characters
+            </p>
           </div>
         </div>
       </div>
-      <div class="col-12 text-md-start text-center">
-        <button
-          type="submit"
-          class="btn-cta mt-10 d-inline-block"
-          style="max-width: 118px;"
-        >Submit</button>
+      <div class="col-12">
+        <div class="row">
+          <div class="col-md-6 text-md-start text-center order-md-0 order-1">
+            <button
+              type="submit"
+              class="btn-cta mt-10 d-inline-block"
+              style="max-width: 118px"
+            >
+              Submit
+            </button>
+          </div>
+          <div class="col-md-6 d-flex align-items-center justify-content-md-end justify-content-center order-md-1 order-0">
+            <p class="fs-md-16 fs-14 fw-medium fst-italic text-danger mb-md-0 mb-10 order-md-1 order-0">
+              * Required Field
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </form>

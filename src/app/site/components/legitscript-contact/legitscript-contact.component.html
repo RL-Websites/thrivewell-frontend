@@ -16,9 +16,12 @@
             class="form-control"
             id="firstName"
             formControlName="first_name"
-          >
+          />
           <span
-            *ngIf=" f['first_name'].errors && (formRef.submitted || f['first_name'].touched)"
+            *ngIf="
+              f['first_name'].errors &&
+              (formRef.submitted || f['first_name'].touched)
+            "
             class="fs-14 fw-medium text-danger mt-1"
           >First name is required</span>
         </div>
@@ -34,9 +37,12 @@
             class="form-control"
             id="lastName"
             formControlName="last_name"
-          >
+          />
           <span
-            *ngIf=" f['last_name'].errors && (formRef.submitted || f['last_name'].touched)"
+            *ngIf="
+              f['last_name'].errors &&
+              (formRef.submitted || f['last_name'].touched)
+            "
             class="fs-14 fw-medium text-danger mt-1"
           >Last name is required</span>
         </div>
@@ -52,16 +58,22 @@
             class="form-control"
             id="email"
             formControlName="email"
-          >
-          <div *ngIf="f['email'].errors && (formRef.submitted || f['email'].touched)">
+          />
+          <div *ngIf="
+              f['email'].errors && (formRef.submitted || f['email'].touched)
+            ">
             <p
               *ngIf="f['email'].errors['required']"
               class="fs-14 fw-medium text-danger mt-1"
-            >Email name is required</p>
+            >
+              Email name is required
+            </p>
             <p
               *ngIf="f['email'].errors['email']"
               class="fs-14 fw-medium text-danger mt-1"
-            >Invalid Email</p>
+            >
+              Invalid Email
+            </p>
           </div>
         </div>
       </div>
@@ -81,7 +93,6 @@
               selected
             >United States</option>
           </select>
-
         </div>
       </div>
       <div class="col-md-6">
@@ -96,16 +107,23 @@
             id="phoneNumber"
             formControlName="phone_number"
             (keypress)="restrictInput($event)"
-          >
-          <div *ngIf="f['phone_number'].errors && (formRef.submitted || f['phone_number'].touched)">
+          />
+          <div *ngIf="
+              f['phone_number'].errors &&
+              (formRef.submitted || f['phone_number'].touched)
+            ">
             <p
               *ngIf="f['phone_number'].errors['required']"
               class="fs-14 fw-medium text-danger mt-1"
-            >Phone number is required</p>
+            >
+              Phone number is required
+            </p>
             <p
               *ngIf="f['phone_number'].errors['minlength']"
               class="fs-14 fw-medium text-danger mt-1"
-            > Phone number should be at least 10</p>
+            >
+              Phone number should be at least 10
+            </p>
           </div>
         </div>
       </div>
@@ -120,9 +138,11 @@
             class="form-control"
             id="company"
             formControlName="company"
-          >
+          />
           <span
-            *ngIf="f['company'].errors && (formRef.submitted || f['company'].touched)"
+            *ngIf="
+              f['company'].errors && (formRef.submitted || f['company'].touched)
+            "
             class="fs-14 fw-medium text-danger mt-1"
           >Company is required</span>
         </div>
@@ -140,29 +160,45 @@
             formControlName="message"
           ></textarea>
           <div
-            *ngIf="f['message'].errors && (formRef.submitted || f['message'].touched)"
+            *ngIf="
+              f['message'].errors && (formRef.submitted || f['message'].touched)
+            "
             class="fs-14 fw-medium text-danger mt-1"
           >
             <p
               *ngIf="f['message'].errors['required']"
               class="fs-14 fw-medium text-danger mt-1"
-            >Message is required</p>
+            >
+              Message is required
+            </p>
             <p
               *ngIf="f['message'].errors['minlength']"
               class="fs-14 fw-medium text-danger mt-1"
-            >Message should be at least 100 characters</p>
+            >
+              Message should be at least 100 characters
+            </p>
           </div>
         </div>
-
       </div>
 
+      <div class="col-12">
+        <div class="row">
+          <div class="col-md-6 text-md-start text-center order-md-0 order-1">
+            <button
+              type="submit"
+              class="btn-cta mt-10 d-inline-block"
+              style="max-width: 118px"
+            >
+              Submit
+            </button>
+          </div>
 
-      <div class="col-12 text-md-start text-center">
-        <button
-          type="submit"
-          class="btn-cta mt-10 d-inline-block"
-          style="max-width: 118px;"
-        >Submit</button>
+          <div class="col-md-6 d-flex align-items-center justify-content-md-end justify-content-center order-md-1 order-0">
+            <p class="fs-md-16 fs-14 fw-medium fst-italic text-danger mb-md-0 mb-10 order-md-1 order-0">
+              * Required Field
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </form>
