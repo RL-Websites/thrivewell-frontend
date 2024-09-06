@@ -1,4 +1,20 @@
 .privacy-policy {
+  h5,
+  h4 {
+    text-align: start !important;
+  }
+
+  ul {
+    &.list-desc {
+      li {
+        list-style: disc;
+        &::marker {
+          color: $primary;
+        }
+      }
+    }
+  }
+
   .privacy-policy-frame {
     .top-left-frame {
       position: absolute;
@@ -23,6 +39,20 @@
       z-index: -1;
       bottom: -50px;
       right: -200px;
+    }
+  }
+}
+
+@media screen and (min-width: 0px) and (max-width: 768px) {
+  .privacy-policy {
+    h4 {
+      font-size: 26px;
+    }
+    h5 {
+      font-size: 22px;
+    }
+    p {
+      text-align: start;
     }
   }
 }
