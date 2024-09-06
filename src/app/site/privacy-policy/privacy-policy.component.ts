@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { FooterComponent } from '../components/footer/footer.component';
 import { HeaderComponent } from '../components/header/header.component';
 import { OtherBannerFrameComponent } from '../components/other-banner-frame/other-banner-frame.component';
@@ -6,7 +7,12 @@ import { OtherBannerFrameComponent } from '../components/other-banner-frame/othe
 @Component({
   selector: 'app-privacy-policy',
   standalone: true,
-  imports: [FooterComponent, OtherBannerFrameComponent, HeaderComponent],
+  imports: [
+    FooterComponent,
+    OtherBannerFrameComponent,
+    HeaderComponent,
+    RouterLink,
+  ],
   templateUrl: './privacy-policy.component.html',
   styles: ``,
 })
