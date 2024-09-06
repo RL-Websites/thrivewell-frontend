@@ -45,6 +45,11 @@ h5 {
 }
 /*== Common font family integration end ==*/
 
+//some class
+.text-justify {
+  text-align: justify;
+}
+
 //Medium Device
 @media screen and (min-width: 0px) and (max-width: 992px) {
   body,

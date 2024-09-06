@@ -3,6 +3,10 @@
     font-weight: 500;
     color: $dark;
   }
+  h5,
+  h6 {
+    text-align: start !important;
+  }
 
   .t-and-c-frame {
     .top-left-frame {
@@ -28,6 +32,20 @@
       z-index: -1;
       bottom: -50px;
       right: -200px;
+    }
+  }
+}
+
+@media screen and (min-width: 0px) and (max-width: 768px) {
+  .terms-and-conditions {
+    h5 {
+      font-size: 22px;
+    }
+    h6 {
+      font-size: 20px;
+    }
+    p {
+      text-align: start;
     }
   }
 }
