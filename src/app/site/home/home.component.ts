@@ -46,7 +46,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     {
       id: '2',
       label: 'States Licensed',
-      number: 40,
+      number: 50,
       duration: 3,
       currentValue: 0,
       animated: false,

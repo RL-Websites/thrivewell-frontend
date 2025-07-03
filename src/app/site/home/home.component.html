@@ -14,7 +14,9 @@
     </h1>
     <div class="row">
       <div class="col-md-8 pb-xl-70 pb-lg-40 pb-md-auto">
-        <div class="mt-xl-30 mt-lg-20 mt-md-10 pe-xl-120 pe-lg-80 pe-md-30 pe-auto text-md-start text-center">
+        <div
+          class="mt-xl-30 mt-lg-20 mt-md-10 pe-xl-120 pe-lg-80 pe-md-30 pe-auto text-md-start text-center"
+        >
           <p
             class="fs-20 fw-medium text-primary"
             data-aos="fade-up"
@@ -22,22 +24,14 @@
           >
             Introducing the premier telehealth solution. 
           </p>
-          <p
-            data-aos="fade-up"
-            data-aos-duration="1300"
-          >
+          <p data-aos="fade-up" data-aos-duration="1300">
             Transform healthcare with Thrivewell's industry-leading telehealth
-            system. Our comprehensive platform simplifies operations and integrates
-            seamlessly, letting you focus on what matters most - your patients.
+            system. Our comprehensive platform simplifies operations and
+            integrates seamlessly, letting you focus on what matters most - your
+            patients.
           </p>
 
-
-
-          <p
-            class="fw-semibold"
-            data-aos="fade-up"
-            data-aos-duration="1500"
-          >
+          <p class="fw-semibold" data-aos="fade-up" data-aos-duration="1500">
             Request a free demo and see the telehealth revolution for yourself! 
           </p>
           <a
@@ -45,7 +39,8 @@
             class="btn-cta mt-xl-20 mt-lg-10 mt-0"
             data-aos="fade-up"
             data-aos-duration="1600"
-          >Book Now</a>
+            >Book Now</a
+          >
         </div>
       </div>
       <div class="col-md-4 d-md-block d-none">
@@ -63,18 +58,18 @@
     </div>
   </div>
 
-  <div class='box'>
+  <div class="box">
     <div
-      class='wave one'
+      class="wave one"
       data-aos="fade-right-up"
       data-aos-duration=" 2000"
       data-aos-easing="ease-in-out-cubic"
-    > </div>
-    <div class='wave two'></div>
-    <div class='wave three'></div>
-    <div class='wave lineThree'></div>
-    <div class='wave four'></div>
-    <div class='wave lineFour'></div>
+    ></div>
+    <div class="wave two"></div>
+    <div class="wave three"></div>
+    <div class="wave lineThree"></div>
+    <div class="wave four"></div>
+    <div class="wave lineFour"></div>
   </div>
 
   <!-- Old Frame -->
@@ -104,8 +99,6 @@
       >
     </div>
   </div> -->
-
-
 </section>
 <!--====| Banner Section End |====-->
 
@@ -114,12 +107,16 @@
   <!--====| Client Section Start |====-->
   <section class="counter-section section">
     <div class="counter container">
-      <div class="d-md-flex d-block gap-35 pb-md-30 pb-10 text-md-start text-center">
+      <div
+        class="d-md-flex d-block gap-35 pb-md-30 pb-10 text-md-start text-center"
+      >
         <h2
           class="text-nowrap lh-1"
           data-aos="fade-up-right"
           data-aos-duration="700"
-        >Proven Results</h2>
+        >
+          Proven Results
+        </h2>
         <p
           class="fs-xl-20 fs-lg-18 fs-md-16 fs-14 mt-md-0 mt-20"
           data-aos="fade-up-left"
@@ -136,20 +133,28 @@
         <div class="row mt-lg-60 mt-md-30 mt-20 g-md-auto g-3 all-counter">
           <div
             class="col-md-4 text-center counter-width"
-            *ngFor="let counter of counters, let i = index"
+            *ngFor="let counter of counters; let i = index"
           >
             <p
-              class="fs-lg-78 fs-50 fw-250 mb-lg-auto mb-0 d-flex align-items-center justify-content-center counter-value "
+              class="fs-lg-78 fs-50 fw-250 mb-lg-auto mb-0 d-flex align-items-center justify-content-center counter-value"
               [ngClass]="'counter-' + i"
             >
-              <span class=" d-flex"><span class="value ">{{ counter.currentValue }}</span> <span class="thousands">K+</span></span>
-              <i class="icon-up-arrow fs-lg-55 fs-35 text-primary ms-lg-30 ms-md-10"></i>
+              <span class="d-flex"
+                ><span class="value">{{ counter.currentValue }}</span>
+                <span class="thousands">K+</span></span
+              >
+              <i
+                *ngIf="i != 1"
+                class="icon-up-arrow fs-lg-55 fs-35 text-primary ms-lg-30 ms-md-10"
+              ></i>
             </p>
             <p
               class="fs-lg-25 fs-md-18 fs-15 fw-300 mb-0"
               data-aos="fade-up"
               data-aos-duration="700"
-            >{{ counter.label }}</p>
+            >
+              {{ counter.label }}
+            </p>
           </div>
         </div>
       </div>
@@ -157,16 +162,13 @@
 
     <div class="counter-frame">
       <div class="left-frame">
-        <img
-          src="images/home/frame/counter/left-frame.svg"
-          alt="Left Frame"
-        >
+        <img src="images/home/frame/counter/left-frame.svg" alt="Left Frame" />
       </div>
       <div class="right-frame">
         <img
           src="images/home/frame/counter/right-frame.svg"
           alt="Right Frame"
-        >
+        />
       </div>
     </div>
   </section>
@@ -179,7 +181,7 @@
         <div class="row">
           <div class="col-xl-8 col-12 mb-10">
             <h2
-              class="fw-normal  text-md-start text-center"
+              class="fw-normal text-md-start text-center"
               data-aos="fade-up-right"
               data-aos-duration="700"
               data-aos-easing="ease-in-out"
@@ -190,7 +192,7 @@
             <p
               data-aos="fade-up"
               data-aos-duration="800"
-              class="fs-xl-20 fs-lg-18 fs-md-16 fs-14 fw-medium pe-60 mt-md-20 mt-10  text-md-start text-center"
+              class="fs-xl-20 fs-lg-18 fs-md-16 fs-14 fw-medium pe-60 mt-md-20 mt-10 text-md-start text-center"
             >
               Empower your direct-to-consumer brand with a seamless telehealth
               experience. Our all-in-one toolkit streamlines operations and
@@ -208,7 +210,7 @@
           <img
             src="images/home/frame/toolbox/toobox-header.svg"
             alt="Toolbox Header Frame"
-          >
+          />
         </div>
       </div>
     </div>
@@ -227,7 +229,7 @@
               Experience  
             </h4>
             <p
-              class="fw-medium  text-md-start text-center"
+              class="fw-medium text-md-start text-center"
               data-aos="fade-right"
               data-aos-duration="700"
             >
@@ -248,11 +250,9 @@
                 />
               </div>
             </div>
-            <p
-              class="fw-medium"
-              data-aos="fade-right"
-              data-aos-duration="800"
-            >We offer:</p>
+            <p class="fw-medium" data-aos="fade-right" data-aos-duration="800">
+              We offer:
+            </p>
             <div class="row">
               <div class="col-6">
                 <ul class="d-flex flex-column gap-lg-20 gap-10">
@@ -286,7 +286,7 @@
                   </li>
                 </ul>
               </div>
-              <div class="col-6 ">
+              <div class="col-6">
                 <ul class="d-flex flex-column gap-lg-20 gap-10">
                   <li
                     class="fw-medium"
@@ -318,7 +318,8 @@
                   data-aos="fade-up"
                   data-aos-duration="900"
                   data-aos-easing="ease-in-out-cubic"
-                >Learn More </a>
+                  >Learn More
+                </a>
               </div>
             </div>
           </div>
@@ -343,7 +344,7 @@
     </div>
     <!-- Simplify E-Commerce Section End-->
 
-    <div class="ecommerce-service pt-xl-60 pt-20  pb-xl-80 pb-50">
+    <div class="ecommerce-service pt-xl-60 pt-20 pb-xl-80 pb-50">
       <div class="container ecommerce-wrapper">
         <div class="row">
           <div class="col-lg-6 col-md-5 d-md-block d-none">
@@ -357,7 +358,7 @@
                 <img
                   src="images/home/telehealt-integration.webp"
                   alt="Telehealth Seamless Integration "
-                  class="w-100 "
+                  class="w-100"
                 />
               </div>
             </div>
@@ -391,7 +392,7 @@
                 <img
                   src="images/home/telehealt-integration.webp"
                   alt="Telehealth Seamless Integration "
-                  class="w-100 "
+                  class="w-100"
                 />
               </div>
             </div>
@@ -423,32 +424,36 @@
                 </ul>
               </div>
               <div class="col-md-6 mt-md-0 mt-10">
-                <ul class="d-flex flex-column  gap-lg-20 gap-10">
+                <ul class="d-flex flex-column gap-lg-20 gap-10">
                   <li
                     class="fw-medium d-flex"
                     data-aos="fade-left"
                     data-aos-duration="800"
                   >
-                    <i class="icon-tick fs-14 mt-2"></i> <span>Comprehensive Doctor Portal and
-                      CRM</span>
+                    <i class="icon-tick fs-14 mt-2"></i>
+                    <span>Comprehensive Doctor Portal and CRM</span>
                   </li>
                   <li
                     class="fw-medium d-flex"
                     data-aos="fade-left"
                     data-aos-duration="850"
                   >
-                    <i class="icon-tick fs-14 mt-2"></i> <span>Secure Doctor-Patient Messaging</span>
+                    <i class="icon-tick fs-14 mt-2"></i>
+                    <span>Secure Doctor-Patient Messaging</span>
                   </li>
                 </ul>
               </div>
               <div class="col-md-12 text-md-start text-center">
                 <a
-                  [routerLink]="'/revolutionizing-telehealth-seamless-integration'"
+                  [routerLink]="
+                    '/revolutionizing-telehealth-seamless-integration'
+                  "
                   class="btn-cta-outline mt-30"
                   data-aos="fade-up"
                   data-aos-duration="900"
                   data-aos-easing="ease-in-out-cubic"
-                >Learn More </a>
+                  >Learn More
+                </a>
               </div>
             </div>
           </div>
@@ -458,7 +463,7 @@
             <img
               src="images/home/frame/toolbox/toolbox-top-right.svg"
               alt="Toolbox top right"
-            >
+            />
           </div>
         </div>
       </div>
@@ -467,7 +472,7 @@
           <img
             src="images/home/frame/toolbox/toolbox-top-left.svg"
             alt="Toolbox top left"
-          >
+          />
         </div>
       </div>
     </div>
@@ -563,12 +568,15 @@
               </div>
               <div class="col-md-12 text-md-start text-center">
                 <a
-                  [routerLink]="'/efficient-fulfillment-for-your-telehealth-venture'"
+                  [routerLink]="
+                    '/efficient-fulfillment-for-your-telehealth-venture'
+                  "
                   class="btn-cta-outline mt-30"
                   data-aos="fade-up"
                   data-aos-duration="900"
                   data-aos-easing="ease-in-out-cubic"
-                >Learn More </a>
+                  >Learn More
+                </a>
               </div>
             </div>
           </div>
@@ -598,13 +606,13 @@
         <img
           src="images/home/frame/toolbox/telehealth-left-frame.svg"
           alt="Telehealth left"
-        >
+        />
       </div>
       <div class="telehealth-right-frame">
         <img
           src="images/home/frame/toolbox/telehealth-right-frame.svg"
           alt="Telehealth right"
-        >
+        />
       </div>
     </div>
     <!-- Telehealth Seamless Integration Section End-->
@@ -615,7 +623,9 @@
   <section class="legitscript-section section bg-yellow">
     <div class="container">
       <div class="row">
-        <div class="col-md-7 pe-xl-120 pe-lg-50 pe-auto text-md-start text-center">
+        <div
+          class="col-md-7 pe-xl-120 pe-lg-50 pe-auto text-md-start text-center"
+        >
           <img
             src="images/home/legit-script.svg"
             alt="Legit Script Logo"
@@ -664,7 +674,8 @@
             data-aos="fade-up"
             data-aos-duration="900"
             data-aos-easing="ease-in-out-cubic"
-          >Learn More </a>
+            >Learn More
+          </a>
         </div>
 
         <div class="col-md-5 d-md-block d-none">
@@ -691,13 +702,13 @@
         <img
           src="images/home/frame/legitscript/left-frame.svg"
           alt="legitscript left"
-        >
+        />
       </div>
       <div class="legitscript-right-frame">
         <img
           src="images/home/frame/legitscript/right-frame.svg"
           alt="legitscript right"
-        >
+        />
       </div>
     </div>
   </section>
@@ -709,7 +720,7 @@
       <div class="row pb-lg-50 pb-md-20 pb-0">
         <div class="col-md-7">
           <h2
-            class="lh-1  text-md-start text-center"
+            class="lh-1 text-md-start text-center"
             data-aos="fade-up-right"
             data-aos-duration="700"
             data-aos-easing="ease-in-out"
@@ -824,19 +835,19 @@
         <img
           src="images/home/frame/security/security-left.svg"
           alt="security left"
-        >
+        />
       </div>
       <div class="security-left-frame-2">
         <img
           src="images/home/frame/security/security-left-2.svg"
           alt="security left"
-        >
+        />
       </div>
       <div class="security-right-frame">
         <img
           src="images/home/frame/security/security-right.svg"
           alt="security right"
-        >
+        />
       </div>
     </div>
   </section>
@@ -854,7 +865,9 @@
         data-aos="fade-up-right"
         data-aos-duration="700"
         data-aos-easing="ease-in-out"
-      >How Thrivewell Works</h2>
+      >
+        How Thrivewell Works
+      </h2>
       <div class="common-border mt-lg-40 mt-20"></div>
 
       <!--For Large device start-->
@@ -902,22 +915,21 @@
                 <img
                   src="images/home/frame/work-card/work-card-frame-1/card-left.svg"
                   alt="card left"
-                >
+                />
               </div>
               <div class="card-right">
                 <img
                   src="images/home/frame/work-card/work-card-frame-1/card-right.svg"
                   alt="card right"
-                >
+                />
               </div>
               <div class="card-top">
                 <img
                   src="images/home/frame/work-card/work-card-frame-1/card-top.svg"
                   alt="card Top"
-                >
+                />
               </div>
             </div>
-
           </div>
         </div>
         <div class="col-sm-6 d-flex work-card-col text-md-start text-center">
@@ -961,23 +973,22 @@
                 <img
                   src="images/home/frame/work-card/work-card-frame-2/card-left.svg"
                   alt="card left"
-                >
+                />
               </div>
               <div class="card-right">
                 <img
                   src="images/home/frame/work-card/work-card-frame-2/card-right.svg"
                   alt="card right"
-                >
+                />
               </div>
               <div class="card-top">
                 <img
                   src="images/home/frame/work-card/work-card-frame-2/card-top.svg"
                   alt="card Top"
-                >
+                />
               </div>
             </div>
           </div>
-
         </div>
         <div class="col-sm-6 d-flex work-card-col text-md-start text-center">
           <div
@@ -1022,23 +1033,22 @@
                 <img
                   src="images/home/frame/work-card/work-card-frame-2/card-left.svg"
                   alt="card left"
-                >
+                />
               </div>
               <div class="card-right">
                 <img
                   src="images/home/frame/work-card/work-card-frame-2/card-right.svg"
                   alt="card right"
-                >
+                />
               </div>
-              <div class="card-top ">
+              <div class="card-top">
                 <img
                   src="images/home/frame/work-card/work-card-frame-2/card-top.svg"
                   alt="card Top"
-                >
+                />
               </div>
             </div>
           </div>
-
         </div>
         <div class="col-sm-6 d-flex work-card-col text-md-start text-center">
           <div
@@ -1084,31 +1094,34 @@
                 <img
                   src="images/home/frame/work-card/work-card-frame-1/card-left.svg"
                   alt="card left"
-                >
+                />
               </div>
               <div class="card-right">
                 <img
                   src="images/home/frame/work-card/work-card-frame-1/card-right.svg"
                   alt="card right"
-                >
+                />
               </div>
               <div class="card-top">
                 <img
                   src="images/home/frame/work-card/work-card-frame-1/card-top.svg"
                   alt="card Top"
-                >
+                />
               </div>
             </div>
           </div>
-
         </div>
       </div>
       <!--For Large device end-->
 
       <!--For Small device start-->
-      <div class="swiper work-slider mt-xl-80 mt-lg-40  mt-20 g-4 d-sm-none d-flex">
+      <div
+        class="swiper work-slider mt-xl-80 mt-lg-40 mt-20 g-4 d-sm-none d-flex"
+      >
         <div class="swiper-wrapper">
-          <div class="swiper-slide  d-flex work-card-col text-md-start text-center">
+          <div
+            class="swiper-slide d-flex work-card-col text-md-start text-center"
+          >
             <div
               class="work-card flex-grow-1 text-md-start text-center"
               data-aos="fade-up-right"
@@ -1151,25 +1164,26 @@
                   <img
                     src="images/home/frame/work-card/work-card-frame-1/card-left.svg"
                     alt="card left"
-                  >
+                  />
                 </div>
                 <div class="card-right">
                   <img
                     src="images/home/frame/work-card/work-card-frame-1/card-right.svg"
                     alt="card right"
-                  >
+                  />
                 </div>
                 <div class="card-top">
                   <img
                     src="images/home/frame/work-card/work-card-frame-1/card-top.svg"
                     alt="card Top"
-                  >
+                  />
                 </div>
               </div>
-
             </div>
           </div>
-          <div class="swiper-slide  d-flex  work-card-col text-md-start text-center">
+          <div
+            class="swiper-slide d-flex work-card-col text-md-start text-center"
+          >
             <div
               class="work-card bg-alt flex-grow-1"
               data-aos="fade-up-left"
@@ -1210,25 +1224,26 @@
                   <img
                     src="images/home/frame/work-card/work-card-frame-2/card-left.svg"
                     alt="card left"
-                  >
+                  />
                 </div>
                 <div class="card-right">
                   <img
                     src="images/home/frame/work-card/work-card-frame-2/card-right.svg"
                     alt="card right"
-                  >
+                  />
                 </div>
                 <div class="card-top">
                   <img
                     src="images/home/frame/work-card/work-card-frame-2/card-top.svg"
                     alt="card Top"
-                  >
+                  />
                 </div>
               </div>
             </div>
-
           </div>
-          <div class="swiper-slide d-flex work-card-col text-md-start text-center">
+          <div
+            class="swiper-slide d-flex work-card-col text-md-start text-center"
+          >
             <div
               class="work-card bg-alt flex-grow-1"
               data-aos="fade-up-right"
@@ -1271,25 +1286,26 @@
                   <img
                     src="images/home/frame/work-card/work-card-frame-2/card-left.svg"
                     alt="card left"
-                  >
+                  />
                 </div>
                 <div class="card-right">
                   <img
                     src="images/home/frame/work-card/work-card-frame-2/card-right.svg"
                     alt="card right"
-                  >
+                  />
                 </div>
-                <div class="card-top ">
+                <div class="card-top">
                   <img
                     src="images/home/frame/work-card/work-card-frame-2/card-top.svg"
                     alt="card Top"
-                  >
+                  />
                 </div>
               </div>
             </div>
-
           </div>
-          <div class="swiper-slide d-flex work-card-col text-md-start text-center">
+          <div
+            class="swiper-slide d-flex work-card-col text-md-start text-center"
+          >
             <div
               class="work-card flex-grow-1"
               data-aos="fade-up-left"
@@ -1312,8 +1328,8 @@
                 data-aos-easing="ease-in-out"
               >
                 Time is critical. With Thrivewell, you can start acquiring
-                customers within days. Our built-in conversion optimization tools
-                and analytics enable you to scale your marketing efforts
+                customers within days. Our built-in conversion optimization
+                tools and analytics enable you to scale your marketing efforts
                 effectively. Additionally, we will provide comprehensive support
                 and guidance to help you attract even more customers, ensuring
                 your business grows efficiently and successfully.
@@ -1333,23 +1349,22 @@
                   <img
                     src="images/home/frame/work-card/work-card-frame-1/card-left.svg"
                     alt="card left"
-                  >
+                  />
                 </div>
                 <div class="card-right">
                   <img
                     src="images/home/frame/work-card/work-card-frame-1/card-right.svg"
                     alt="card right"
-                  >
+                  />
                 </div>
                 <div class="card-top">
                   <img
                     src="images/home/frame/work-card/work-card-frame-1/card-top.svg"
                     alt="card Top"
-                  >
+                  />
                 </div>
               </div>
             </div>
-
           </div>
         </div>
         <div class="swiper-button-next"></div>
@@ -1361,7 +1376,9 @@
   <!--====| HOW TW Work Section End |====-->
 
   <!--====| HOW TW Work Section Start |====-->
-  <section class="section how-to-section frame overflow-hidden pt-lg-80 pt-md-60 pt-sm-50 pt-0">
+  <section
+    class="section how-to-section frame overflow-hidden pt-lg-80 pt-md-60 pt-sm-50 pt-0"
+  >
     <div class="container">
       <div class="row">
         <div class="col-md-8 mx-auto text-center">
@@ -1380,7 +1397,9 @@
             data-aos="fade-up"
             data-aos-duration="800"
             data-aos-easing="ease-in-out"
-          >Here’s how it works:</p>
+          >
+            Here’s how it works:
+          </p>
         </div>
       </div>
       <div class="row mt-10 g-4 text-lg-start text-center">
@@ -1409,7 +1428,7 @@
                 src="images/home/custom-websites.png"
                 alt="Customize Your Telehealth Experience"
                 class="img-fluid"
-                style="width: 130px;"
+                style="width: 130px"
               />
             </div>
             <p
@@ -1468,23 +1487,22 @@
                 <img
                   src="images/home/frame/work-card/work-card-frame-1/card-left.svg"
                   alt="card left"
-                >
+                />
               </div>
               <div class="card-right">
                 <img
                   src="images/home/frame/work-card/work-card-frame-1/card-right.svg"
                   alt="card right"
-                >
+                />
               </div>
               <div class="card-top">
                 <img
                   src="images/home/frame/work-card/work-card-frame-1/card-top.svg"
                   alt="card Top"
-                >
+                />
               </div>
             </div>
           </div>
-
         </div>
         <div class="col-lg-6 col-12 d-flex work-card-col">
           <div
@@ -1501,12 +1519,14 @@
             >
               Custom Websites <br />Tailored Just for You!
             </h3>
-            <div class="text-center mt-25 position-relative z-1 d-md-none block">
+            <div
+              class="text-center mt-25 position-relative z-1 d-md-none block"
+            >
               <img
                 src="images/home/customize-telehealth.svg"
                 alt="Customize Your Telehealth Experience"
                 class="img-fluid"
-                style="width: 177px;"
+                style="width: 177px"
                 data-aos="zoom-in-up"
                 data-aos-duration="1200"
                 data-aos-easing="ease-in-out"
@@ -1559,7 +1579,9 @@
               Ready to elevate your brand online? Let’s build something
               extraordinary!
             </p>
-            <div class="text-center mt-25 position-relative z-1 d-md-block d-none">
+            <div
+              class="text-center mt-25 position-relative z-1 d-md-block d-none"
+            >
               <img
                 src="images/home/customize-telehealth.svg"
                 alt="Customize Your Telehealth Experience"
@@ -1574,74 +1596,73 @@
                 <img
                   src="images/home/frame/work-card/work-card-frame-2/card-left.svg"
                   alt="card left"
-                >
+                />
               </div>
-              <div class="card-bottom-right position-absolute z-n1 end-0 bottom-0">
+              <div
+                class="card-bottom-right position-absolute z-n1 end-0 bottom-0"
+              >
                 <img
                   src="images/home/frame/work-card/work-card-frame-2/card-bottom-right.svg"
                   alt="card right"
-                >
+                />
               </div>
-              <div class="card-top ">
+              <div class="card-top">
                 <img
                   src="images/home/frame/work-card/work-card-frame-2/card-top.svg"
                   alt="card Top"
-                >
+                />
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </div>
 
     <div class="ht-frame">
       <div class="frame-left">
-        <img
-          src="images/home/frame/work-card/work-left.svg"
-          alt="Work Left"
-        >
+        <img src="images/home/frame/work-card/work-left.svg" alt="Work Left" />
       </div>
       <div class="frame-right">
-        <img
-          src="images/home/frame/work-card/work-right.svg"
-          alt="Work Left"
-        >
+        <img src="images/home/frame/work-card/work-right.svg" alt="Work Left" />
       </div>
     </div>
   </section>
   <!--====| HOW TW Work Section End |====-->
 
   <!--====| Telehealth Partner Section Start |====-->
-  <section class="telehealth-section pt-lg-80 pt-50 bg-secondary-light ">
-    <div class="container ">
+  <section class="telehealth-section pt-lg-80 pt-50 bg-secondary-light">
+    <div class="container">
       <h3
         class="text-md-start text-center"
         data-aos="fade-up-right"
         data-aos-duration="700"
         data-aos-easing="ease-in-out"
-      >Thrivewell: Your Telehealth Success Partner</h3>
+      >
+        Thrivewell: Your Telehealth Success Partner
+      </h3>
       <div class="row">
         <div class="col-md-5 pb-md-80 pb-50">
           <p
-            class="fs-20 fw-bold  mt-10 text-md-start text-center"
+            class="fs-20 fw-bold mt-10 text-md-start text-center"
             data-aos="fade-up"
             data-aos-duration="800"
             data-aos-easing="ease-in-out"
-          >Launching a new telehealth business or growing your DTC brand? Thrivewell is here
-            to support you every
-            step
-            of the
-            way</p>
+          >
+            Launching a new telehealth business or growing your DTC brand?
+            Thrivewell is here to support you every step of the way
+          </p>
           <div class="text-md-start text-center">
-            <ul class="text-start d-md-flex d-inline-block flex-column  gap-20 mt-20">
+            <ul
+              class="text-start d-md-flex d-inline-block flex-column gap-20 mt-20"
+            >
               <li
                 class="fw-medium"
                 data-aos="fade-right"
                 data-aos-duration="450"
                 data-aos-easing="ease-in-out"
               >
-                <i class="icon-tick fs-14"></i> Experience the Power of Connection
+                <i class="icon-tick fs-14"></i> Experience the Power of
+                Connection
               </li>
               <li
                 class="fw-medium mt-md-0 mt-20"
@@ -1669,10 +1690,11 @@
               data-aos="fade-up"
               data-aos-duration="1000"
               data-aos-easing="ease-in-out-cubic"
-            >Learn More </a>
+              >Learn More
+            </a>
           </div>
         </div>
-        <div class="col-md-7 ">
+        <div class="col-md-7">
           <div>
             <img
               src="images/home/our-partner.webp"
@@ -1681,7 +1703,7 @@
               data-aos="zoom-in-up"
               data-aos-duration="1200"
               data-aos-easing="ease-in-out"
-            >
+            />
           </div>
         </div>
       </div>
@@ -1691,13 +1713,13 @@
         <img
           src="images/home/frame/telehealth-partner/top-frame.svg"
           alt="Top Frame"
-        >
+        />
       </div>
       <div class="frame-bg">
         <img
           src="images/home/frame/telehealth-partner/frame-bg.svg"
           alt="Frame Bg"
-        >
+        />
       </div>
     </div>
   </section>

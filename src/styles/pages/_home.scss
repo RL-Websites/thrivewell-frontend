@@ -6,6 +6,7 @@
   padding-top: 190px;
   padding-bottom: 30px;
   background-color: #ffdc32;
+
   .container {
     position: relative;
     z-index: 1;
@@ -19,9 +20,11 @@
     bottom: 0;
     width: 100%;
     height: 100%;
+
     .wave {
       opacity: 0.4;
       border-radius: 43%;
+
       &.one {
         animation: rotate 30000ms infinite linear;
         opacity: 100%;
@@ -81,6 +84,7 @@
         left: -150px;
         top: -100px;
       }
+
       &.lineThree {
         animation: rotate 30000ms infinite linear;
         opacity: 100%;
@@ -94,10 +98,12 @@
       }
     }
   }
+
   @keyframes rotate {
     from {
       transform: rotate(0deg);
     }
+
     to {
       transform: rotate(360deg);
     }
@@ -133,11 +139,13 @@
   }
 */
 }
+
 /*==== Home Banner End ==== */
 
 .counter-section {
   position: relative;
   overflow: hidden;
+
   .all-counter {
     .counter-width {
       p {
@@ -149,25 +157,27 @@
             }
           }
         }
+
         &.counter-1 {
           span {
             &.value {
               width: 200px;
               display: inline-block;
               position: relative;
+
               &::after {
-                content: "+";
-                position: absolute;
-                right: 0px;
+                content: '';
               }
             }
           }
+
           span {
             &.thousands {
               display: none;
             }
           }
         }
+
         &.counter-2 {
           span {
             &.value {
@@ -179,6 +189,7 @@
       }
     }
   }
+
   .counter-frame {
     .left-frame {
       position: absolute;
@@ -186,6 +197,7 @@
       bottom: 5%;
       left: -150px;
     }
+
     .right-frame {
       position: absolute;
       z-index: -1;
@@ -201,8 +213,10 @@
   position: relative;
   z-index: 1;
   overflow: hidden;
+
   .toolbox-header {
     position: relative;
+
     .toolbox-header-frame {
       .top-frame {
         position: absolute;
@@ -217,9 +231,11 @@
     overflow: hidden;
     position: relative;
     z-index: 1;
+
     .ecommerce-wrapper {
       position: relative;
       z-index: 1;
+
       .ecommerce-service-frame {
         .top-right-frame {
           position: absolute;
@@ -229,6 +245,7 @@
         }
       }
     }
+
     .ecommerce-left-service-frame {
       .top-left-frame {
         position: absolute;
@@ -238,6 +255,7 @@
       }
     }
   }
+
   .telehealth-frame {
     .telehealth-left-frame {
       position: absolute;
@@ -245,6 +263,7 @@
       bottom: 80px;
       left: -100px;
     }
+
     .telehealth-right-frame {
       position: absolute;
       z-index: -1;
@@ -253,11 +272,13 @@
     }
   }
 }
+
 /*==== Toolbox Section End ==== */
 
 .legitscript-section {
   position: relative;
   z-index: 1;
+
   .legitscript-frame {
     .legitscript-left-frame {
       position: absolute;
@@ -265,6 +286,7 @@
       left: 0;
       bottom: 0;
     }
+
     .legitscript-right-frame {
       position: absolute;
       z-index: -1;
@@ -280,6 +302,7 @@
   position: relative;
   overflow: hidden;
   z-index: 1;
+
   .security-frame {
     .security-left-frame {
       position: absolute;
@@ -287,12 +310,14 @@
       bottom: 100px;
       left: 200px;
     }
+
     .security-left-frame-2 {
       position: absolute;
       z-index: -1;
       top: 40%;
       left: -120px;
     }
+
     .security-right-frame {
       position: absolute;
       z-index: -1;
@@ -301,12 +326,14 @@
     }
   }
 }
+
 /*==== Security Section End ==== */
 
 .how-to-section {
   &.frame {
     position: relative;
     z-index: 1;
+
     .ht-frame {
       .frame-left {
         position: absolute;
@@ -314,6 +341,7 @@
         left: -60px;
         bottom: 200px;
       }
+
       .frame-right {
         position: absolute;
         z-index: -1;
@@ -323,12 +351,14 @@
     }
   }
 }
+
 /*==== How to Work Section End ==== */
 
 .telehealth-section {
   position: relative;
   z-index: 1;
   overflow: hidden;
+
   .telehealth-frame {
     .frame-top {
       position: absolute;
@@ -336,6 +366,7 @@
       top: -55px;
       right: 0;
     }
+
     .frame-bg {
       position: absolute;
       z-index: -1;
@@ -344,11 +375,14 @@
     }
   }
 }
+
 /*==== Telehealth Section End ==== */
 
 @media screen and (min-width: 0px) and (max-width: 1200px) {
+
   // Home page styles
   .home-banner {
+
     /*OLd Frame */
     /*
     .frame-img {
@@ -418,6 +452,7 @@
           left: -70px;
           top: -80px;
         }
+
         &.lineThree {
           width: 330px;
           height: 280px;
@@ -430,21 +465,25 @@
 }
 
 @media screen and (min-width: 0px) and (max-width: 992px) {
+
   // Home page styles
   .home-banner {
     padding-top: 170px;
     padding-bottom: 50px;
   }
+
   .counter-section {
     .counter-frame {
       .left-frame {
         top: unset;
         bottom: -100px;
         left: -180px;
+
         img {
           transform: rotate(-60deg);
         }
       }
+
       .right-frame {
         top: -40px;
         right: -100px;
@@ -461,6 +500,7 @@
               }
             }
           }
+
           &.counter-1 {
             span {
               &.value {
@@ -468,6 +508,7 @@
               }
             }
           }
+
           &.counter-2 {
             span {
               &.value {
@@ -484,8 +525,10 @@
     position: relative;
     z-index: 1;
     overflow: hidden;
+
     .toolbox-header {
       position: relative;
+
       .toolbox-header-frame {
         .top-frame {
           position: absolute;
@@ -512,10 +555,12 @@
       .telehealth-left-frame {
         bottom: -100px;
         left: -120px;
+
         img {
           transform: rotate(-25deg);
         }
       }
+
       .telehealth-right-frame {
         bottom: 150px;
         right: -50px;
@@ -527,6 +572,7 @@
     &.frame {
       position: relative;
       z-index: 1;
+
       .ht-frame {
         .frame-left {
           position: absolute;
@@ -534,6 +580,7 @@
           left: -60px;
           bottom: 200px;
         }
+
         .frame-right {
           position: absolute;
           z-index: -1;
@@ -598,6 +645,7 @@
           right: -150px;
           top: -40px;
         }
+
         &.lineThree {
           width: 180px;
           height: 190px;
@@ -626,9 +674,11 @@
     .all-counter {
       gap: 30px;
       flex-direction: column;
+
       .counter-width {
         width: 200px;
         margin: 0 auto;
+
         p {
           i {
             margin-left: 20px;
@@ -642,12 +692,14 @@
     .toolbox-header-frame {
       .top-frame {
         top: -50px !important;
+
         img {
           width: 120px;
         }
       }
     }
   }
+
   .ht-connect-section .contact-frame .left-frame {
     bottom: 200px !important;
   }
@@ -666,6 +718,7 @@
       }
     }
   }
+
   .toolbox-header {
     .toolbox-header-frame {
       .top-frame {
@@ -680,6 +733,7 @@
     .work-slider {
       .work-card-col {
         height: 350px;
+
         .work-card {
           padding: 44px;
         }
@@ -689,6 +743,7 @@
         margin-left: 0;
         padding-bottom: 60px;
       }
+
       .swiper-button-next {
         width: 40px;
         height: 40px;
@@ -699,11 +754,13 @@
         top: unset;
         position: absolute;
         bottom: 0;
+
         &::after {
           font-size: 20px;
           color: $primary;
         }
       }
+
       .swiper-button-prev {
         width: 40px;
         height: 40px;
