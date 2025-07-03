@@ -71,30 +71,32 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    new Swiper('.work-slider', {
-      spaceBetween: 60,
-      loop: true,
-      centeredSlides: true,
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      breakpoints: {
-        0: {
-          slidesPerView: 1,
-          spaceBetween: 15,
+    if (isPlatformBrowser(this.platformId)) {
+      new Swiper('.work-slider', {
+        spaceBetween: 60,
+        loop: true,
+        centeredSlides: true,
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
         },
-        576: {
-          slidesPerView: 1.4,
-          spaceBetween: 20,
-          centeredSlides: false,
+        breakpoints: {
+          0: {
+            slidesPerView: 1,
+            spaceBetween: 15,
+          },
+          576: {
+            slidesPerView: 1.4,
+            spaceBetween: 20,
+            centeredSlides: false,
+          },
+          1024: {
+            slidesPerView: 3.2,
+            spaceBetween: 50,
+          },
         },
-        1024: {
-          slidesPerView: 3.2,
-          spaceBetween: 50,
-        },
-      },
-    });
+      });
+    }
   }
 
   @HostListener('window:scroll', [])
