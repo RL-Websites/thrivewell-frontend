@@ -1,15 +1,12 @@
-<header class=" container w-100   mt-xl-50 mt-lg-40 mt-md-30 mt-20">
+<header class="container w-100 mt-xl-50 mt-lg-40 mt-md-30 mt-20">
   <nav
-    class="navbar navbar-expand-md d-flex justify-content-between align-items-center  bg-white  rounded-md-4 rounded-3"
+    class="navbar navbar-expand-md d-flex justify-content-between align-items-center bg-white rounded-md-4 rounded-3"
     data-aos="fade-down"
     data-aos-duration="800"
   >
     <div>
       <a [routerLink]="''">
-        <img
-          src="images/thrivewell-logo.svg"
-          alt=""
-        />
+        <img src="images/thrivewell-logo.svg" alt="" />
       </a>
     </div>
     <button
@@ -22,7 +19,12 @@
       aria-label="Toggle navigation"
       (click)="toggleNavbar()"
     >
-      <i [ngClass]="{'icon-hamburger': isCollapsed, 'icon-close': !isCollapsed}"></i>
+      <i
+        [ngClass]="{
+          'icon-hamburger': isCollapsed,
+          'icon-close': !isCollapsed,
+        }"
+      ></i>
     </button>
     <div
       class="collapse navbar-collapse text-md-end text-center justify-content-md-end justify-content-center"
@@ -35,35 +37,45 @@
             [routerLink]="'/about'"
             routerLinkActive="active"
             class="text-dark fw-medium"
-          >About</a>
+            >About</a
+          >
         </li>
-        <li class="list-unstyled"><a
+        <li class="list-unstyled">
+          <a
             [routerLink]="'/solutions'"
             routerLinkActive="active"
             class="text-dark fw-medium"
-          >Solutions</a></li>
-        <li class="list-unstyled"><a
+            >Solutions</a
+          >
+        </li>
+        <li class="list-unstyled">
+          <a
             [routerLink]="'/legitscript'"
             routerLinkActive="active"
             class="text-dark fw-medium"
-          >LegitScript</a></li>
-        <li class="list-unstyled"><a
+            >LegitScript</a
+          >
+        </li>
+        <li class="list-unstyled">
+          <a
             [routerLink]="'/faq'"
             routerLinkActive="active"
             class="text-dark fw-medium"
-          >FAQ</a></li>
-        <li class="list-unstyled"><a
-            [routerLink]="'/book-now'"
-            class="btn-cta"
-          >Book Now</a></li>
-        <li class="list-unstyled "><a
-            href="tel:+14693336867"
-            class=" d-flex align-items-center justify-content-md-start justify-content-center"
+            >FAQ</a
+          >
+        </li>
+        <li class="list-unstyled">
+          <a [routerLink]="'/book-now'" class="btn-cta">Book Now</a>
+        </li>
+        <li class="list-unstyled">
+          <a
+            href="tel:+19728437272"
+            class="d-flex align-items-center justify-content-md-start justify-content-center"
           >
             <i class="icon-call fw-medium text-primary me-10"></i>
-            <span class="text-dark fw-medium fs-16">1 (469) 333 6867</span>
-          </a></li>
-
+            <span class="text-dark fw-medium fs-16">1 (972) 843-7272</span>
+          </a>
+        </li>
       </ul>
     </div>
   </nav>
