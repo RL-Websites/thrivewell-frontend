@@ -14,6 +14,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Autoplay, Navigation } from 'swiper/modules';
+import { ContactFormComponent } from '../components/contact-form/contact-form.component';
 import { CtaComponent } from '../components/cta/cta.component';
 import { FooterComponent } from '../components/footer/footer.component';
 import { HeaderComponent } from '../components/header/header.component';
@@ -31,6 +32,7 @@ Swiper.use([Autoplay, Navigation]);
     RouterLink,
     CommonModule,
     CtaComponent,
+    ContactFormComponent,
   ],
 })
 export class HomeComponent implements OnInit, AfterViewInit {

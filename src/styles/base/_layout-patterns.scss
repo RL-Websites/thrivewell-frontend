@@ -1,0 +1,50 @@
+/**
+ * Parity mapping (reference: thrivewellrx Next/Tailwind → Angular SCSS)
+ * - .tw-section-container ≈ max-w-7xl + horizontal padding
+ * - .bg-hex-pattern ≈ globals.css .bg-hex-pattern (muted radial accents)
+ * - .hero-overlay-brand ≈ .hero-overlay using brand $dark / $primary
+ */
+
+.tw-section-container {
+  max-width: var(--tw-section-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--tw-section-padding-x);
+  padding-right: var(--tw-section-padding-x);
+  width: 100%;
+}
+
+.bg-hex-pattern {
+  background-color: $body;
+  background-image: radial-gradient(
+      circle at 100% 0%,
+      rgba($dark, 0.04) 0%,
+      transparent 50%
+    ),
+    radial-gradient(circle at 0% 100%, rgba($dark, 0.04) 0%, transparent 45%);
+}
+
+.bg-hex-pattern--cream {
+  background-color: $secondary-light;
+  background-image: radial-gradient(
+      circle at 100% 0%,
+      rgba($dark, 0.04) 0%,
+      transparent 50%
+    ),
+    radial-gradient(circle at 0% 100%, rgba($dark, 0.04) 0%, transparent 45%);
+}
+
+.hero-overlay-brand {
+  background: linear-gradient(
+    180deg,
+    rgba($dark, 0.75) 0%,
+    rgba($primary, 0.5) 45%,
+    rgba($dark, 0.85) 100%
+  );
+}
+
+.site-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}

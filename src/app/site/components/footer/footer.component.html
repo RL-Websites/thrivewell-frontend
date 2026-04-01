@@ -1,9 +1,42 @@
-<footer class="bg-gray-light">
+<footer class="site-footer bg-gray-light">
+  <!-- Reference-style contact strip — Thrivewell palette: primary / secondary -->
+  <div class="site-footer__strip row g-0 text-white text-center small">
+    <div
+      class="col-md-4 site-footer__strip-cell bg-primary d-flex align-items-center justify-content-center gap-2 py-4 px-3"
+    >
+      <i class="icon-directions fs-24 flex-shrink-0" aria-hidden="true"></i>
+      <span class="text-start"
+        >Serving partners nationwide — reach out to confirm coverage in your
+        state.</span
+      >
+    </div>
+    <div
+      class="col-md-4 site-footer__strip-cell bg-secondary d-flex align-items-center justify-content-center gap-2 py-4 px-3"
+    >
+      <i class="icon-sent fs-24 flex-shrink-0" aria-hidden="true"></i>
+      <a
+        class="text-white text-break"
+        href="mailto:info@thrivewellrx.com"
+        >info&#64;thrivewellrx.com</a
+      >
+    </div>
+    <div
+      class="col-md-4 site-footer__strip-cell bg-primary d-flex align-items-center justify-content-center gap-2 py-4 px-3"
+    >
+      <i class="icon-call fs-24 flex-shrink-0" aria-hidden="true"></i>
+      <a class="text-white text-nowrap" href="tel:+19728437272"
+        >1 (972) 843-7272</a
+      >
+    </div>
+  </div>
+
   <div class="container">
     <div class="row section">
-      <div class="col-xl-8 col-lg-7 col-md-6 order-md-0 order-1 text-md-start text-center mt-md-0 mt-50">
+      <div
+        class="col-xl-8 col-lg-7 col-md-6 order-md-0 order-1 text-md-start text-center mt-md-0 mt-50"
+      >
         <div>
-          <a href="#">
+          <a [routerLink]="''">
             <img
               src="images/thrivewell-logo.svg"
               alt="Thrive Logo"
@@ -18,52 +51,52 @@
           data-aos="fade-up"
           data-aos-duration="400"
           data-aos-easing="ease-in-out-cubic"
-        >Have questions?</h4>
+        >
+          Have questions?
+        </h4>
         <p
           class="ff-noto-serif"
           data-aos="fade-up"
           data-aos-duration="450"
           data-aos-easing="ease-in-out-cubic"
-        >Ask us at
-          <a
-            class="text-primary"
-            href="mailto:info@thrivewellrx.com"
-          >info&#64;thrivewellrx.com</a>
+        >
+          Ask us at
+          <a class="text-primary" href="mailto:info@thrivewellrx.com"
+            >info&#64;thrivewellrx.com</a
+          >
         </p>
         <p
           class="text-gray fs-20 fw-medium mt-30"
           data-aos="fade-up"
           data-aos-duration="500"
           data-aos-easing="ease-in-out-cubic"
-        >Connect With Us</p>
-        <ul class="d-flex justify-content-md-start justify-content-center align-items-center gap-22 mt-20">
-          <!-- <li
-            data-aos="fade-right"
-            data-aos-duration="450"
-            data-aos-easing="ease-in-out-cubic"
-          ><a href="#"><i class="fs-35 icon-instagram"></i></a></li> -->
+        >
+          Connect With Us
+        </p>
+        <ul
+          class="d-flex justify-content-md-start justify-content-center align-items-center gap-22 mt-20"
+        >
           <li
             data-aos="fade-right"
             data-aos-duration="550"
             data-aos-easing="ease-in-out-cubic"
-          ><a
+          >
+            <a
               href="https://www.facebook.com/people/Thrive-Well-Digital-Healthcare-Platform/61561262447908/"
               target="_blank"
-            ><i class="fs-35 icon-facebook"></i></a>
+              rel="noopener noreferrer"
+              ><i class="fs-35 icon-facebook"></i
+            ></a>
           </li>
-          <!-- <li
-            data-aos="fade-right"
-            data-aos-duration="650"
-            data-aos-easing="ease-in-out-cubic"
-          ><a href="#"><i class="fs-35 icon-linkedin"></i></a></li> -->
           <li
             data-aos="fade-right"
             data-aos-duration="750"
             data-aos-easing="ease-in-out-cubic"
-          ><a
-              href="https://x.com/ThrivewellRx"
-              target="_blank"
-            ><i class="fs-30 icon-twitter"></i></a></li>
+          >
+            <a href="https://x.com/ThrivewellRx" target="_blank" rel="noopener noreferrer"
+              ><i class="fs-30 icon-twitter"></i
+            ></a>
+          </li>
         </ul>
       </div>
 
@@ -74,70 +107,88 @@
               data-aos="fade-up"
               data-aos-duration="300"
               data-aos-easing="ease-in-out-cubic"
-            ><a
+            >
+              <a
                 [routerLink]="''"
                 class="fs-lg-20 fs-md-18 fs-sm-16 fs-15 fw-medium text-dark"
-              >Home</a></li>
+                >Home</a
+              >
+            </li>
             <li
               data-aos="fade-up"
               data-aos-duration="350"
               data-aos-easing="ease-in-out-cubic"
-            ><a
+            >
+              <a
                 [routerLink]="'/about'"
                 class="fs-lg-20 fs-md-18 fs-sm-16 fs-15 fw-medium text-dark"
-              >About</a></li>
+                >About</a
+              >
+            </li>
             <li
               data-aos="fade-up"
               data-aos-duration="400"
               data-aos-easing="ease-in-out-cubic"
-            ><a
+            >
+              <a
                 [routerLink]="'/solutions'"
                 class="fs-lg-20 fs-md-18 fs-sm-16 fs-15 fw-medium text-dark"
-              >Solutions</a></li>
+                >Solutions</a
+              >
+            </li>
             <li
               data-aos="fade-up"
               data-aos-duration="450"
               data-aos-easing="ease-in-out-cubic"
-            ><a
+            >
+              <a
                 [routerLink]="'/legitscript'"
                 class="fs-lg-20 fs-md-18 fs-sm-16 fs-15 fw-medium text-dark"
-              >LegitScript</a></li>
+                >LegitScript</a
+              >
+            </li>
             <li
               data-aos="fade-up"
               data-aos-duration="500"
               data-aos-easing="ease-in-out-cubic"
-            ><a
+            >
+              <a
                 [routerLink]="'/faq'"
                 class="fs-lg-20 fs-md-18 fs-sm-16 fs-15 fw-medium text-dark"
-              >FAQ</a></li>
+                >FAQ</a
+              >
+            </li>
           </ul>
           <ul class="d-flex flex-column gap-md-35 gap-30 mt-md-0 mt-30">
             <li
               data-aos="fade-up"
               data-aos-duration="300"
               data-aos-easing="ease-in-out-cubic"
-            ><a
+            >
+              <a
                 [routerLink]="'/privacy-policy'"
                 class="fs-lg-20 fs-md-18 fs-sm-16 fs-15 fw-medium text-dark"
-              >Privacy Policy</a></li>
+                >Privacy Policy</a
+              >
+            </li>
             <li
               data-aos="fade-up"
               data-aos-duration="350"
               data-aos-easing="ease-in-out-cubic"
-            ><a
+            >
+              <a
                 [routerLink]="'/terms-and-conditions'"
                 class="fs-lg-20 fs-md-18 fs-sm-16 fs-15 fw-medium text-dark"
-              >Terms & Conditions</a></li>
+                >Terms & Conditions</a
+              >
+            </li>
             <li
               class="mt-auto"
               data-aos="fade-up"
               data-aos-duration="450"
               data-aos-easing="ease-in-out-cubic"
             >
-              <a
-                [routerLink]="'/book-now'"
-                class="btn-cta"
-              >Request A Demo</a>
+              <a [routerLink]="'/book-now'" class="btn-cta">Request A Demo</a>
             </li>
           </ul>
         </div>
@@ -146,23 +197,18 @@
   </div>
   <div class="bottom-footer bg-primary-light-one py-md-35 py-25">
     <div class="container">
-      <p class=" fs-md-16 fs-14 fw-medium text-white text-center mb-0">Copyright &copy; 2024 Thrivewell. All rights reserved.</p>
+      <p class="fs-md-16 fs-14 fw-medium text-white text-center mb-0">
+        Copyright &copy; 2024 Thrivewell. All rights reserved.
+      </p>
     </div>
   </div>
 
   <div class="footer-frame">
     <div class="footer-left">
-      <img
-        src="images/footer/footer-left.svg"
-        alt="Left Frame"
-      >
+      <img src="images/footer/footer-left.svg" alt="" />
     </div>
     <div class="footer-right">
-      <img
-        src="images/footer/footer-right.svg"
-        alt="Right Frame"
-      >
+      <img src="images/footer/footer-right.svg" alt="" />
     </div>
   </div>
 </footer>
-<!--====| Footer Section End |====-->

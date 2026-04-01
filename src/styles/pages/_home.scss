@@ -1,146 +1,254 @@
-// Home page styles
-.home-banner {
-  overflow: hidden;
-  position: relative;
-  margin-top: -150px;
-  padding-top: 190px;
-  padding-bottom: 30px;
-  background-color: #ffdc32;
+// Home page — hero + split contact (paleta predominante amarillo marca: $secondary, $secondary-light, $yellow)
+.home-hero {
+  isolation: isolate;
+  min-height: 420px;
 
-  .container {
-    position: relative;
-    z-index: 1;
+  @media (min-width: 768px) {
+    min-height: 480px;
   }
 
-  .box {
+  &__media {
     position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
+    background-color: $secondary;
+    background-image: linear-gradient(
+      145deg,
+      $secondary-yellow-two 0%,
+      $secondary-light 22%,
+      $secondary-yellow 45%,
+      $secondary 72%,
+      darken($secondary, 6%) 100%
+    );
+    // Acentos suaves (toques de azul marca, sin tapar el amarillo)
+    box-shadow: inset 0 0 80px rgba($primary, 0.06);
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+          circle at 100% 0%,
+          rgba($white, 0.35) 0%,
+          transparent 42%
+        ),
+        radial-gradient(
+          circle at 0% 100%,
+          rgba($secondary-yellow, 0.5) 0%,
+          transparent 48%
+        );
+      pointer-events: none;
+    }
+  }
+
+  &__content {
+    padding-top: 3rem;
+    padding-bottom: 4rem;
+
+    @media (min-width: 992px) {
+      padding-top: 4rem;
+      padding-bottom: 5rem;
+    }
+  }
+
+  &__copy {
+    color: $dark;
+
+    p {
+      color: mix($dark, $gray, 85%);
+    }
+
+    .fw-semibold {
+      color: $dark;
+    }
+  }
+
+  &__phones-wrap {
+    filter: drop-shadow(0 18px 36px rgba(0, 0, 0, 0.12));
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__phones {
+    display: block;
     width: 100%;
-    height: 100%;
+    height: auto;
+    object-fit: contain;
+  }
 
-    .wave {
-      opacity: 0.4;
-      border-radius: 43%;
+  h1.home-hero__title {
+    font-size: clamp(1.35rem, 3vw, 2.75rem);
+    line-height: 1.15;
+    text-wrap: balance;
+    color: $primary;
+  }
 
-      &.one {
-        animation: rotate 30000ms infinite linear;
-        opacity: 100%;
-        background: #ffea86;
-        position: absolute;
-        z-index: 0;
-        width: 600px;
-        height: 530px;
-        left: -150px;
-        bottom: -250px;
-      }
+  &__lead {
+    max-width: 36rem;
+    font-size: clamp(1rem, 2vw, 1.125rem);
+    line-height: 1.5;
 
-      &.two {
-        animation: rotate 30000ms infinite linear;
-        opacity: 100%;
-        background: #ffea86;
-        position: absolute;
-        z-index: 0;
-        width: 550px;
-        height: 620px;
-        right: -150px;
-        bottom: -300px;
-      }
-
-      &.three {
-        animation: rotate 32000ms infinite linear;
-        opacity: 100%;
-        background: #ffea86;
-        position: absolute;
-        z-index: 0;
-        width: 530px;
-        height: 580px;
-        right: -100px;
-        top: -300px;
-      }
-
-      &.four {
-        animation: rotate 35000ms infinite linear;
-        opacity: 100%;
-        background: #ffea86;
-        position: absolute;
-        z-index: 0;
-        width: 560px;
-        height: 480px;
-        left: -180px;
-        top: -200px;
-      }
-
-      &.lineFour {
-        animation: rotate 30000ms infinite linear;
-        opacity: 100%;
-        border: 1px solid #ada03d;
-        position: absolute;
-        z-index: 0;
-        width: 430px;
-        height: 380px;
-        left: -150px;
-        top: -100px;
-      }
-
-      &.lineThree {
-        animation: rotate 30000ms infinite linear;
-        opacity: 100%;
-        border: 1px solid #ada03d;
-        position: absolute;
-        z-index: 0;
-        width: 430px;
-        height: 380px;
-        right: -100px;
-        top: -150px;
-      }
+    @media (min-width: 992px) {
+      max-width: none;
     }
   }
 
-  @keyframes rotate {
-    from {
-      transform: rotate(0deg);
-    }
-
-    to {
-      transform: rotate(360deg);
-    }
+  h1.home-hero__title {
+    font-family: 'Noto Serif', serif;
   }
-
-  /* Old Frame*/
-  /*
-  .frame-img {
-    .top-left-frame {
-      position: absolute;
-      z-index: -1;
-      top: -210px;
-      left: -40px;
-    }
-    .top-right-frame {
-      position: absolute;
-      z-index: -1;
-      top: -150px;
-      right: -150px;
-    }
-    .bottom-left-frame {
-      position: absolute;
-      z-index: -1;
-      bottom: -90px;
-      left: -70px;
-    }
-    .bottom-right-frame {
-      position: absolute;
-      z-index: -1;
-      bottom: -144px;
-      right: -20px;
-    }
-  }
-*/
 }
 
-/*==== Home Banner End ==== */
+.home-contact-split {
+  margin-top: -4rem;
+
+  @media (min-width: 768px) {
+    margin-top: -5rem;
+  }
+
+  .home-split-outer {
+    position: relative;
+  }
+
+  .home-split-card {
+    box-shadow: var(--tw-card-shadow-lg);
+    overflow: hidden;
+  }
+
+  .home-split-card__info {
+    background: linear-gradient(180deg, $white 0%, $primary-light-three 100%);
+    border-right: 1px solid rgba($primary, 0.12);
+
+    @media (max-width: 991px) {
+      border-right: none;
+    }
+  }
+
+  .home-split-card__kicker {
+    color: $primary;
+    letter-spacing: 0.06em;
+  }
+
+  .home-split-card__contact {
+    a {
+      color: $primary;
+      text-decoration: underline;
+      text-decoration-color: rgba($primary, 0.4);
+      text-underline-offset: 3px;
+
+      &:hover {
+        color: darken($primary, 6%);
+      }
+    }
+  }
+
+  .home-split-card__badge {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 92px;
+    height: 92px;
+    border-radius: 50%;
+    background: $white;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    z-index: 5;
+    padding: 12px;
+
+    img {
+      width: 100%;
+      height: auto;
+      max-height: 36px;
+      object-fit: contain;
+    }
+  }
+
+  // Panel formulario: azul marca (alineado al sitio); campos claros; CTA amarilla — evita ámbar/oliva (contraste pobre)
+  &__form {
+    background-image: linear-gradient(
+      165deg,
+      darken($primary, 7%) 0%,
+      $primary 42%,
+      darken($primary, 11%) 100%
+    );
+    color: $white;
+
+    &-title {
+      color: $white;
+      font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+    }
+
+    .contact-form {
+      border-radius: 0;
+      box-shadow: none !important;
+      background: transparent !important;
+      padding: 0 !important;
+    }
+
+    .form-label {
+      color: rgba(255, 255, 255, 0.95);
+    }
+
+    .form-control,
+    .form-select,
+    textarea {
+      border-radius: 6px;
+      border: 1px solid rgba($white, 0.55);
+      background: $white;
+      color: $dark;
+
+      &::placeholder {
+        color: $gray;
+      }
+
+      &:focus {
+        border-color: $secondary;
+        box-shadow: 0 0 0 0.2rem rgba($secondary, 0.45);
+        background: $white;
+        color: $dark;
+        outline: none;
+      }
+    }
+
+    select option {
+      color: $dark;
+      background: $white;
+    }
+
+    textarea {
+      min-height: 100px;
+    }
+
+    .text-danger {
+      color: lighten($danger, 6%) !important;
+    }
+
+    .btn-cta {
+      width: 100%;
+      max-width: none !important;
+      background-color: $secondary !important;
+      border: 3px solid $white !important;
+      color: $dark !important;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+
+      &:hover {
+        background-color: lighten($secondary, 5%) !important;
+        border-color: $primary-light-three !important;
+        color: $dark !important;
+        filter: none;
+      }
+    }
+  }
+
+  @media (max-width: 991px) {
+    .home-split-card__info {
+      border-bottom: 1px solid rgba($primary, 0.12);
+    }
+  }
+}
+
+/*==== Home hero / contact End ==== */
 
 .counter-section {
   position: relative;

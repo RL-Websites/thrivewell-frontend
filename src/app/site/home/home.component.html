@@ -1,111 +1,127 @@
-<!--====| Header CSS Start |====-->
+<!--
+  Parity mapping (thrivewellrx → Angular): SiteHeader→app-header; Hero→home-hero;
+  ContactDemo→home-contact-split; Features/Experience→existing toolbox + work sections.
+-->
 <app-header></app-header>
-<!--====| Header Section End |====-->
-<!--====| Banner Section Start |====-->
-<section class="home-banner section">
-  <div class="container">
-    <h1
-      class="fs-md-53 text-capitalize text-md-start text-center"
-      data-aos="fade-up"
-      data-aos-duration="1000"
-    >
-      Transform your Telehealth <br />
-      vision into reality..
-    </h1>
-    <div class="row">
-      <div class="col-md-8 pb-xl-70 pb-lg-40 pb-md-auto">
-        <div
-          class="mt-xl-30 mt-lg-20 mt-md-10 pe-xl-120 pe-lg-80 pe-md-30 pe-auto text-md-start text-center"
-        >
-          <p
-            class="fs-20 fw-medium text-primary"
-            data-aos="fade-up"
-            data-aos-duration="1200"
-          >
-            Introducing the premier telehealth solution. 
-          </p>
-          <p data-aos="fade-up" data-aos-duration="1300">
-            Transform healthcare with Thrivewell's industry-leading telehealth
-            system. Our comprehensive platform simplifies operations and
-            integrates seamlessly, letting you focus on what matters most - your
-            patients.
-          </p>
 
-          <p class="fw-semibold" data-aos="fade-up" data-aos-duration="1500">
-            Request a free demo and see the telehealth revolution for yourself! 
-          </p>
-          <a
-            [routerLink]="['/book-now']"
-            class="btn-cta mt-xl-20 mt-lg-10 mt-0"
-            data-aos="fade-up"
-            data-aos-duration="1600"
-            >Book Now</a
-          >
-        </div>
+<!-- Hero: gradient + overlay + copy; phones asset a la derecha (desktop) -->
+<section class="home-hero position-relative overflow-hidden">
+  <div class="home-hero__media" aria-hidden="true"></div>
+  <div
+    class="container position-relative z-1 px-3 px-md-4 py-5 home-hero__content"
+  >
+    <div class="row align-items-center justify-content-lg-between gy-4">
+      <div class="col-lg-6 text-center text-lg-start home-hero__copy">
+        <h1
+          class="home-hero__title text-uppercase fw-bold mb-3"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+        >
+          Transform your Telehealth vision into reality
+        </h1>
+        <p
+          class="home-hero__lead mb-2 fw-medium"
+          data-aos="fade-up"
+          data-aos-duration="1200"
+        >
+          Introducing the premier telehealth solution. Transform healthcare with
+          Thrivewell&apos;s industry-leading platform — compliant integrations,
+          scalable operations, and a seamless experience for your patients.
+        </p>
+        <p class="fw-semibold mb-4" data-aos="fade-up" data-aos-duration="1400">
+          Request a free demo and see the telehealth revolution for yourself.
+        </p>
+        <a
+          [routerLink]="['/book-now']"
+          class="btn-cta"
+          data-aos="fade-up"
+          data-aos-duration="1600"
+          >Book Now</a
+        >
       </div>
-      <div class="col-md-4 d-md-block d-none">
-        <div class="mt-xl-n80 mt-lg-n30">
+      <div
+        class="col-lg-5 col-md-8 mx-auto mx-lg-0 text-center"
+        data-aos="zoom-in"
+        data-aos-duration="1200"
+      >
+        <div class="home-hero__phones-wrap">
           <img
             src="images/home/mobile-browsing.png"
-            alt="Mobile Browse"
-            class="w-100"
-            data-aos="zoom-in"
-            data-aos-duration="1800"
-            data-aos-easing="ease-in-out-cubic"
+            alt=""
+            width="520"
+            height="520"
+            class="home-hero__phones img-fluid"
+            loading="eager"
           />
         </div>
       </div>
     </div>
   </div>
-
-  <div class="box">
-    <div
-      class="wave one"
-      data-aos="fade-right-up"
-      data-aos-duration=" 2000"
-      data-aos-easing="ease-in-out-cubic"
-    ></div>
-    <div class="wave two"></div>
-    <div class="wave three"></div>
-    <div class="wave lineThree"></div>
-    <div class="wave four"></div>
-    <div class="wave lineFour"></div>
-  </div>
-
-  <!-- Old Frame -->
-  <!-- <div class="frame-img">
-    <div class="top-left-frame">
-      <img
-        src="images/home/frame/banner/top-left.svg"
-        alt="Bottom Left Frame"
-      >
-    </div>
-    <div class="top-right-frame">
-      <img
-        src="images/home/frame/banner/top-right.svg"
-        alt="Top Right Frame"
-      >
-    </div>
-    <div class="bottom-left-frame">
-      <img
-        src="images/home/frame/banner/bottom-left.svg"
-        alt="Bottom Left Frame"
-      >
-    </div>
-    <div class="bottom-right-frame">
-      <img
-        src="images/home/frame/banner/bottom-right.svg"
-        alt="Bottom Right Frame"
-      >
-    </div>
-  </div> -->
 </section>
-<!--====| Banner Section End |====-->
+
+<!-- Split card: info + marca; formulario con misma lógica que book-now (solo estilos locales) -->
+<section class="home-contact-split position-relative z-2">
+  <div class="tw-section-container px-3 px-md-4">
+    <div class="position-relative home-split-outer" data-aos="fade-up" data-aos-duration="900">
+      <div
+        class="row g-0 shadow-lg rounded-3 home-split-card align-items-stretch position-relative"
+      >
+        <div
+          class="col-lg-6 home-split-card__info p-4 p-xl-5 d-flex flex-column justify-content-center"
+        >
+          <p class="home-split-card__kicker fw-bold mb-2 text-uppercase small">
+            We are ready to help
+          </p>
+          <h2 class="fs-3 fw-bold text-dark mb-4">Contact us today</h2>
+          <dl class="mb-0 home-split-card__contact">
+            <div class="mb-4">
+              <dt class="fw-semibold text-dark small">Email</dt>
+              <dd class="mb-0 mt-1">
+                <a class="fw-medium" href="mailto:info@thrivewellrx.com"
+                  >info&#64;thrivewellrx.com</a
+                >
+              </dd>
+            </div>
+            <div>
+              <dt class="fw-semibold text-dark small">Phone</dt>
+              <dd class="mb-0 mt-1">
+                <a class="fw-medium" href="tel:+19728437272"
+                  >1 (972) 843-7272</a
+                >
+              </dd>
+            </div>
+          </dl>
+        </div>
+        <div
+          class="col-lg-6 home-contact-split__form p-4 p-xl-5 d-flex align-items-start"
+        >
+          <div class="position-relative w-100 home-contact-split__form-inner">
+            <h3 class="home-contact-split__form-title text-center fw-bold mb-4">
+              Request a demo
+            </h3>
+            <contact-form></contact-form>
+          </div>
+        </div>
+      </div>
+      <div
+        class="home-split-card__badge d-none d-lg-flex align-items-center justify-content-center"
+        aria-hidden="true"
+      >
+        <img
+          src="images/thrivewell-logo.svg"
+          alt=""
+          width="120"
+          height="32"
+        />
+      </div>
+    </div>
+  </div>
+</section>
 
 <!--====|| Main Section Start ||====-->
 <main>
   <!--====| Client Section Start |====-->
-  <section class="counter-section section">
+  <section class="counter-section section bg-hex-pattern">
     <div class="counter container">
       <div
         class="d-md-flex d-block gap-35 pb-md-30 pb-10 text-md-start text-center"
@@ -175,7 +191,7 @@
   <!--====| Client Section End |====-->
 
   <!--====| Toolbox Section Start |====-->
-  <section class="toolbox-section section bg-secondary-light">
+  <section class="toolbox-section section bg-hex-pattern--cream">
     <div class="toolbox-header">
       <div class="container">
         <div class="row">

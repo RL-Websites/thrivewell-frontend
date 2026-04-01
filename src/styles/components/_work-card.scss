@@ -2,6 +2,7 @@
   @extend .bg-secondary-yellow-two;
   border-radius: 20px;
   border: 1px solid #decc42;
+  box-shadow: var(--tw-card-shadow);
   padding: 50px 50px 0;
   position: relative;
   overflow: hidden;

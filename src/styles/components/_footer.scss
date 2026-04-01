@@ -1,6 +1,22 @@
 footer {
   position: relative;
   z-index: 1;
+
+  .site-footer__strip {
+    a {
+      color: inherit;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .site-footer__strip-cell {
+    min-height: 4.5rem;
+  }
+
   .footer-frame {
     .footer-left {
       position: absolute;

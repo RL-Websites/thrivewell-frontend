@@ -1,174 +1,75 @@
-// Header styled
-header {
+// Header — reference-style full-width bar; Thrivewell colors
+.site-header {
   position: relative;
-  z-index: 10;
-  nav {
-    padding: 18px 40px !important;
-    box-shadow: 0px 3px 21px 0px #eccd38;
-    ul {
-      li {
-        a {
-          position: relative;
-          &::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: -7px;
-            width: 0;
-            height: 0;
-            background-color: $primary;
-            transition: 0.3s;
-          }
-          &.active {
-            &::after {
-              width: 20px;
-              height: 2px;
-            }
-          }
-          &:focus {
-            color: $dark;
-          }
-          &:hover {
-            &::after {
-              width: 20px;
-              height: 2px;
-            }
-          }
-        }
-        &:nth-child(5) {
-          &::after {
-            position: unset;
-            background-color: transparent;
-          }
-          a {
-            &.active {
-              &::after {
-                width: 0;
-                height: 0;
-              }
-            }
-            &:focus {
-              color: inherit;
-            }
-            &:hover {
-              &::after {
-                width: 0;
-                height: 0;
-              }
-            }
-          }
-        }
-        &:last-child {
-          &::after {
-            position: unset;
-            background-color: transparent;
-          }
-          a {
-            &.active {
-              &::after {
-                width: 0;
-                height: 0;
-              }
-            }
-            &:focus {
-              color: inherit;
-            }
-            &:hover {
-              &::after {
-                width: 0;
-                height: 0;
-              }
-            }
-          }
-        }
-      }
+  z-index: 1030;
+  border-color: rgba(0, 0, 0, 0.06) !important;
+
+  .navbar {
+    box-shadow: none;
+  }
+
+  .nav-link {
+    position: relative;
+    padding: 0.25rem 0 !important;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      background-color: $primary;
+      transition: width 0.25s ease;
+    }
+
+    &.active::after,
+    &:hover::after {
+      width: 100%;
     }
   }
-}
-@media screen and (min-width: 0px) and (max-width: 992px) {
-  header {
-    nav {
-      box-shadow: 0px 3px 10px 0px #ecce3851;
-      padding: 15px 25px !important;
-      a {
-        img {
-          max-width: 120px;
-        }
-      }
-      ul {
-        li {
-          a {
-            font-size: 16px;
-            &.active {
-              &::after {
-                bottom: -3px;
-              }
-            }
-            &:hover {
-              &::after {
-                bottom: -3px;
-              }
-            }
-          }
-        }
-      }
-    }
+
+  .btn-cta {
+    white-space: nowrap;
   }
 }
 
-@media screen and (min-width: 0px) and (max-width: 768px) {
-  header {
+.site-header__phone-label {
+  letter-spacing: 0.04em;
+  font-size: 0.7rem;
+}
+
+@media (min-width: 768px) {
+  .site-header__phone-label {
+    font-size: 0.75rem;
+  }
+}
+
+@media screen and (min-width: 0px) and (max-width: 767px) {
+  .site-header {
     position: fixed;
     top: 0;
     right: 0;
     left: 0;
-    width: 100%;
 
-    nav {
-      button {
-        &.navbar-toggler {
-          i {
-            font-weight: 600;
-            color: $primary;
-          }
-        }
-      }
-      ul {
-        li {
-          margin-top: 40px;
-          a {
-            font-size: 18px;
-          }
-        }
-      }
+    .navbar-toggler i {
+      font-weight: 600;
+      color: $primary;
+    }
 
-      .navbar-collapse {
-        &.show {
-          margin-top: 15px;
-          border-top: 1px solid rgba(39, 93, 173, 0.5);
-          height: calc(100vh - 115px);
-        }
+    .navbar-collapse {
+      &.show {
+        margin-top: 12px;
+        padding-top: 12px;
+        border-top: 1px solid rgba(39, 93, 173, 0.2);
+        max-height: calc(100vh - 120px);
+        overflow-y: auto;
       }
     }
-  }
-}
 
-@media screen and (min-width: 0px) and (max-width: 576px) {
-  header {
-    nav {
-      .navbar-collapse {
-        &.show {
-          height: calc(100vh - 115px);
-        }
-      }
-
-      button {
-        &.navbar-toggler {
-          i {
-            font-size: 16px;
-          }
-        }
-      }
+    .nav-link {
+      font-size: 1.05rem;
+      padding: 0.5rem 0 !important;
     }
   }
 }
