@@ -52,15 +52,20 @@
           class="list-unstyled nav-item-product"
           [class.nav-item-product--active]="isProductRoute"
           ngbDropdown
+          #productDropdown="ngbDropdown"
           display="dynamic"
           placement="bottom-start"
+          (mouseenter)="onProductDropdownMouseEnter(productDropdown)"
+          (mouseleave)="onProductDropdownMouseLeave(productDropdown)"
         >
           <button
             type="button"
             class="text-dark fw-medium text-decoration-none header-product-toggle"
-            ngbDropdownToggle
+            ngbDropdownAnchor
             id="headerProductDropdown"
             aria-haspopup="true"
+            (click)="onProductButtonClick($event, productDropdown)"
+            (keydown)="onProductDropdownKeydown($event, productDropdown)"
           >
             Products
           </button>

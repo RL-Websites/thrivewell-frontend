@@ -17,8 +17,14 @@ import {
   RouterModule,
 } from '@angular/router';
 import { filter } from 'rxjs';
-import { NgbCollapse, NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
+import {
+  NgbCollapse,
+  NgbDropdown,
+  NgbDropdownModule,
+} from '@ng-bootstrap/ng-bootstrap';
 import AOS from 'aos';
+
+const PRODUCT_DROPDOWN_CLOSE_DELAY_MS = 150;
 
 @Component({
   selector: 'app-header',
@@ -39,6 +45,9 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
   public isCollapsed = true;
   /** Subrayado activo del ítem Product cuando la ruta es /product/... */
   isProductRoute = false;
+  /** Hover para abrir menú; sin hover (táctil) se usa clic en el botón */
+  prefersHover = false;
+  private productDropdownCloseTimer: ReturnType<typeof setTimeout> | null = null;
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
@@ -47,6 +56,9 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      this.prefersHover = window.matchMedia('(hover: hover)').matches;
+    }
     this.syncProductRoute();
     this.router.events
       .pipe(filter((e): e is NavigationEnd => e instanceof NavigationEnd))
@@ -67,8 +79,54 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
+    if (this.productDropdownCloseTimer !== null) {
+      clearTimeout(this.productDropdownCloseTimer);
+      this.productDropdownCloseTimer = null;
+    }
     if (isPlatformBrowser(this.platformId)) {
       this.renderer.setStyle(document.body, 'overflow', 'auto');
+    }
+  }
+
+  onProductDropdownMouseEnter(dropdown: NgbDropdown): void {
+    if (!this.prefersHover) {
+      return;
+    }
+    if (this.productDropdownCloseTimer !== null) {
+      clearTimeout(this.productDropdownCloseTimer);
+      this.productDropdownCloseTimer = null;
+    }
+    dropdown.open();
+  }
+
+  onProductDropdownMouseLeave(dropdown: NgbDropdown): void {
+    if (!this.prefersHover) {
+      return;
+    }
+    this.productDropdownCloseTimer = setTimeout(() => {
+      dropdown.close();
+      this.productDropdownCloseTimer = null;
+    }, PRODUCT_DROPDOWN_CLOSE_DELAY_MS);
+  }
+
+  onProductButtonClick(event: MouseEvent, dropdown: NgbDropdown): void {
+    if (this.prefersHover) {
+      return;
+    }
+    event.preventDefault();
+    dropdown.toggle();
+  }
+
+  onProductDropdownKeydown(event: KeyboardEvent, dropdown: NgbDropdown): void {
+    const k = event.key;
+    if (
+      k === 'ArrowDown' ||
+      k === 'ArrowUp' ||
+      k === 'Home' ||
+      k === 'End' ||
+      k === 'Tab'
+    ) {
+      dropdown.onKeyDown(event);
     }
   }
 
