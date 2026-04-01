@@ -9,6 +9,8 @@ import { TelehealthSuccessPartnerComponent } from './learn-more/telehealth-succe
 import { TelehealthVentureComponent } from './learn-more/telehealth-venture/telehealth-venture.component';
 import { LegitScriptComponent } from './legit-script/legit-script.component';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
+import { ProductFlowComponent } from './product-flow/product-flow.component';
+import { ProductShellComponent } from './product/product-shell.component';
 import { SiteComponent } from './site.component';
 import { SolutionsComponent } from './solutions/solutions.component';
 import { TermsAndConditionsComponent } from './terms-and-conditions/terms-and-conditions.component';
@@ -41,6 +43,16 @@ export const siteRoutes: Routes = [
       {
         path: 'solutions',
         component: SolutionsComponent,
+      },
+      {
+        path: 'product',
+        component: ProductShellComponent,
+        children: [
+          {
+            path: 'flow',
+            component: ProductFlowComponent,
+          },
+        ],
       },
       {
         path: 'terms-and-conditions',

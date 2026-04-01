@@ -48,6 +48,32 @@
             >Solutions</a
           >
         </li>
+        <li
+          class="list-unstyled nav-item-product"
+          [class.nav-item-product--active]="isProductRoute"
+          ngbDropdown
+          display="dynamic"
+          placement="bottom-start"
+        >
+          <button
+            type="button"
+            class="text-dark fw-medium text-decoration-none header-product-toggle"
+            ngbDropdownToggle
+            id="headerProductDropdown"
+            aria-haspopup="true"
+          >
+            Products
+          </button>
+          <div class="header-product-menu" ngbDropdownMenu aria-labelledby="headerProductDropdown">
+            <a
+              ngbDropdownItem
+              routerLink="/product/flow"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
+              >Flow</a
+            >
+          </div>
+        </li>
         <li class="list-unstyled">
           <a
             [routerLink]="'/legitscript'"

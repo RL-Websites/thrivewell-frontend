@@ -1,0 +1,1164 @@
+// Anfitrión: no recortar secciones con capas absolute (Experience).
+:host {
+  display: block;
+  overflow: visible;
+}
+
+// Layout + paleta alineada con https://503success.com/ (medición: panel / strip / inputs / CTA).
+// Panel teal rgb(14,154,173) · Inputs rgb(10,119,134) · Verde acento rgb(102,186,70) — mismo verde en
+// "Contact us today!" y botón Submit; panel coherente con strip (.pf-strip__cell--a).
+$pf-navy: #1e3a5f;
+$pf-primary: #275dad;
+$pf-teal: #0e9aad;
+$pf-teal-mid: #0c8f9f; // gradiente panel formulario (entre panel e input)
+$pf-teal-deep: #0a7786;
+$pf-green: #66ba46;
+$pf-green-hover: #5a9f3d;
+$pf-muted-bg: #e6f0f7; // bloque “Experience” / gris-azulado claro
+$pf-text: #333333;
+$pf-text-muted: #666666;
+$pf-footer-navy: #051022; // sección oscura medida ≈ rgb(5, 16, 34)
+// Resolved relative to this file so the Angular CSS bundler can copy assets (public/ is copied to output root at runtime as /images/...).
+$pf-hero-img: url("../../../../public/images/product-flow/hero-shutterstock.jpg");
+$pf-aside-img: url("../../../../public/images/product-flow/add.png");
+$pf-exp-img: url("../../../../public/images/product-flow/dental-img.png");
+
+.product-flow-page {
+  --pf-card-dark: #0a1628;
+  --pf-accent-line: #6fd6a8; // acento hover legible sobre tarjeta oscura (familia verde 503)
+  min-width: 0;
+  margin-bottom: 0;
+  // Experience: foto absolute debe poder salir por arriba/abajo sin recorte (evitar clip de ancestros)
+  overflow-x: visible;
+  overflow-y: visible;
+}
+
+/* ===== Hero ===== */
+.pf-hero {
+  position: relative;
+  isolation: isolate;
+  min-height: 420px;
+  overflow: hidden;
+
+  @media (min-width: 768px) {
+    min-height: 480px;
+  }
+}
+
+.pf-hero__bg {
+  position: absolute;
+  inset: 0;
+  background-image: $pf-hero-img;
+  background-size: cover;
+  background-position: center;
+}
+
+.pf-hero__overlay {
+  position: absolute;
+  inset: 0;
+  // Tinte más cercano al hero 503 (lectura sobre foto tech / salud)
+  background: linear-gradient(
+    180deg,
+    rgba(5, 22, 40, 0.82) 0%,
+    rgba(10, 90, 105, 0.45) 45%,
+    rgba(5, 16, 34, 0.9) 100%
+  );
+}
+
+.pf-hero__deco {
+  position: absolute;
+  z-index: 2;
+  pointer-events: none;
+  line-height: 0;
+
+  img {
+    display: block;
+    max-width: min(180px, 28vw);
+    height: auto;
+    opacity: 0.9;
+  }
+
+  &--tl {
+    top: 0.75rem;
+    left: 0.5rem;
+  }
+
+  &--br {
+    right: 0.5rem;
+    bottom: 0.75rem;
+  }
+}
+
+.pf-hero__inner {
+  position: relative;
+  z-index: 2;
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 4rem 1rem 7rem;
+  text-align: center;
+
+  @media (min-width: 768px) {
+    padding-top: 5rem;
+    padding-bottom: 9rem;
+    max-width: 52rem;
+  }
+}
+
+.pf-hero__title {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+
+  @media (min-width: 768px) {
+    font-size: 2.25rem;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 2.65rem;
+  }
+}
+
+.pf-hero__subtitle {
+  margin: 1rem 0 0;
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.95);
+
+  @media (min-width: 768px) {
+    font-size: 1.125rem;
+  }
+}
+
+/* ===== Contact demo overlap ===== */
+// Breakpoints alineados con Bootstrap / diseño común: sm 576, md 768, lg 992, xl 1200, xxl 1400
+.pf-contact-demo {
+  position: relative;
+  z-index: 3;
+  margin-top: -6rem;
+  padding: 0 clamp(0.75rem, 4vw, 1.5rem) 2.5rem;
+  overflow: visible;
+
+  @media (min-width: 576px) {
+    padding-bottom: 3rem;
+  }
+
+  @media (min-width: 768px) {
+    margin-top: -7rem;
+    padding-bottom: 4rem;
+  }
+}
+
+.pf-contact-demo__wrap {
+  position: relative;
+  z-index: 1;
+  max-width: 72rem;
+  margin: 0 auto;
+  overflow: visible;
+}
+
+.pf-contact-demo__grid {
+  display: grid;
+  overflow: visible;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 2px;
+  box-shadow: 0 20px 50px rgba(0, 33, 71, 0.14);
+
+  @media (min-width: 768px) {
+    // 2fr + 3fr → junta vertical al 40% (no 50%): el logo debe centrarse en la junta
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+    align-items: stretch;
+  }
+}
+
+.pf-contact-demo__col {
+  position: relative;
+  z-index: 0;
+  min-width: 0;
+  padding: 2.25rem 1.25rem;
+
+  @media (min-width: 576px) {
+    padding: 2.5rem 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.pf-contact-demo__col--light {
+  background: #fff;
+
+  @media (min-width: 768px) {
+    // Espacio para la mitad izquierda del badge (radio ~50px)
+    padding-right: clamp(3.25rem, 4.5vw, 4.5rem);
+  }
+}
+
+.pf-contact-demo__eyebrow {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.pf-contact-demo__heading {
+  margin: 0.35rem 0 0;
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: $pf-green;
+
+  @media (min-width: 768px) {
+    font-size: 1.5rem;
+  }
+}
+
+.pf-contact-demo__dl {
+  margin: 1.75rem 0 0;
+}
+
+.pf-contact-demo__dl-row {
+  padding: 1rem 0;
+  border-bottom: 1px dotted #c5ccd4;
+
+  &:first-child {
+    padding-top: 0;
+  }
+
+  &:last-child {
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+}
+
+.pf-contact-demo__dl dt {
+  margin: 0;
+  font-weight: 600;
+  color: #374151;
+  font-size: 0.9375rem;
+
+  &::after {
+    content: ":";
+  }
+}
+
+.pf-contact-demo__dl dd {
+  margin: 0.35rem 0 0;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.pf-contact-demo__dl a {
+  color: #111827;
+  font-weight: 500;
+  text-decoration: none;
+
+  &:hover {
+    color: $pf-teal;
+    text-decoration: underline;
+  }
+}
+
+.pf-contact-demo__col--accent {
+  color: #fff;
+  // Misma familia que el strip teal; gradiente suave para separar del bloque de campos (referencia 503)
+  background: linear-gradient(
+    165deg,
+    $pf-teal 0%,
+    $pf-teal-mid 42%,
+    #0a7f8f 100%
+  );
+
+  @media (min-width: 768px) {
+    padding-left: clamp(3.25rem, 4.5vw, 4.5rem);
+  }
+}
+
+.pf-contact-demo__form-title {
+  margin: 0;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
+
+  @media (min-width: 768px) {
+    font-size: 1.875rem;
+  }
+}
+
+.pf-contact-demo__form {
+  margin-top: 2rem;
+}
+
+.pf-contact-demo__fields {
+  display: grid;
+  gap: 1rem;
+
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.pf-contact-demo__form label {
+  display: block;
+  text-align: left;
+  font-size: 0.875rem;
+  font-weight: 500;
+
+  span {
+    display: block;
+    margin-bottom: 0.35rem;
+    color: rgba(255, 255, 255, 0.95);
+  }
+}
+
+.pf-contact-demo__form input,
+.pf-contact-demo__form textarea {
+  width: 100%;
+  border-radius: 4px;
+  border: 0;
+  background: $pf-teal-deep;
+  color: #fff;
+  padding: 0.65rem 0.8rem;
+  font-size: 0.875rem;
+  outline: none;
+  transition: box-shadow 0.2s, background-color 0.2s;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.12);
+
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  &:focus {
+    box-shadow:
+      inset 0 1px 2px rgba(0, 0, 0, 0.1),
+      0 0 0 2px rgba(255, 255, 255, 0.5);
+  }
+}
+
+.pf-contact-demo__full {
+  display: block;
+  margin-top: 1rem;
+}
+
+.pf-contact-demo__recaptcha {
+  margin: 1rem 0 0;
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.1);
+  font-size: 0.75rem;
+  line-height: 1.4;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.92);
+
+  a {
+    color: #fff;
+    font-weight: 600;
+    text-decoration: underline;
+
+    &:hover {
+      color: rgba(255, 255, 255, 0.95);
+    }
+  }
+}
+
+.pf-contact-demo__submit {
+  width: 100%;
+  margin-top: 1rem;
+  border: 0;
+  border-radius: 6px;
+  // Mismo verde que .pf-contact-demo__heading (503: rgb(102, 186, 70))
+  background: $pf-green;
+  color: #fff;
+  padding: 0.85rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  box-shadow:
+    0 2px 0 rgba(255, 255, 255, 0.12) inset,
+    0 4px 14px rgba(0, 0, 0, 0.18);
+  transition: background 0.2s, box-shadow 0.2s;
+
+  &:hover {
+    background: $pf-green-hover;
+    box-shadow:
+      0 2px 0 rgba(255, 255, 255, 0.1) inset,
+      0 6px 18px rgba(0, 0, 0, 0.22);
+  }
+
+  &:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+  }
+}
+
+.pf-contact-demo__logo-badge {
+  // Centrado en la junta columna 40% | 60% (grid 2fr / 3fr), no en el 50% del bloque
+  --pf-badge-size: 88px;
+  --pf-badge-seam: 40%;
+
+  position: absolute;
+  left: var(--pf-badge-seam);
+  top: 50%;
+  z-index: 5;
+  display: none;
+  box-sizing: border-box;
+  width: var(--pf-badge-size);
+  height: var(--pf-badge-size);
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 3px solid $pf-teal;
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  flex-shrink: 0;
+
+  img {
+    display: block;
+    max-width: min(72px, 78%);
+    width: auto;
+    height: auto;
+    object-fit: contain;
+  }
+
+  @media (min-width: 768px) {
+    display: flex;
+    --pf-badge-size: 96px;
+  }
+
+  @media (min-width: 992px) {
+    --pf-badge-size: 100px;
+  }
+}
+
+/* ===== Features ===== */
+.pf-features {
+  position: relative;
+  padding: 3.5rem 0;
+  background-color: #fff;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("../../../../public/images/product-flow/dental-bg.png") center /
+      cover no-repeat;
+    opacity: 0.07;
+    pointer-events: none;
+  }
+
+  @media (min-width: 768px) {
+    padding: 5rem 0;
+  }
+}
+
+.pf-features__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 clamp(0.75rem, 4vw, 2rem);
+}
+
+.pf-features__intro {
+  display: grid;
+  gap: 2rem;
+
+  @media (min-width: 1024px) {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+}
+
+.pf-features__title {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: $pf-navy;
+  text-wrap: balance;
+
+  @media (min-width: 768px) {
+    font-size: 1.875rem;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 2.25rem;
+  }
+}
+
+.pf-features__lead {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: #444;
+
+  @media (min-width: 768px) {
+    font-size: 1.125rem;
+  }
+}
+
+.pf-features__split {
+  margin-top: 3.5rem;
+  display: grid;
+  gap: 2.5rem;
+
+  @media (min-width: 1024px) {
+    grid-template-columns: 1fr min(300px, 100%);
+    gap: 2rem;
+    align-items: start;
+  }
+}
+
+.pf-features__cards {
+  display: grid;
+  gap: 1.5rem;
+
+  @media (min-width: 640px) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.pf-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1.5rem;
+  min-height: 200px;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: #fff;
+  box-shadow: 0 15px 50px -12px rgba(0, 0, 0, 0.12);
+  transition: background-color 0.5s ease, border-color 0.5s ease;
+
+  @media (min-width: 640px) {
+    min-height: 220px;
+  }
+
+  &:hover {
+    background: var(--pf-card-dark);
+    border-color: rgba(255, 255, 255, 0.1);
+
+    .pf-card__icon {
+      color: var(--pf-accent-line);
+    }
+
+    .pf-card__icon img {
+      filter: brightness(0) invert(1);
+    }
+
+    .pf-card__title {
+      color: #fff;
+    }
+
+    .pf-card__bar {
+      background: $pf-green;
+    }
+
+    .pf-card__body {
+      color: rgba(255, 255, 255, 0.9);
+    }
+  }
+}
+
+.pf-card__icon {
+  flex-shrink: 0;
+  width: 3.5rem;
+  height: 3.5rem;
+  color: #111827;
+  transition: color 0.5s ease;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: filter 0.5s ease;
+  }
+}
+
+.pf-card__title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0a1628;
+  transition: color 0.5s ease;
+
+  @media (min-width: 768px) {
+    font-size: 1.125rem;
+  }
+}
+
+.pf-card__bar {
+  margin-top: 0.5rem;
+  width: 4rem;
+  height: 0.35rem;
+  max-width: 100%;
+  border-radius: 999px;
+  background: $pf-teal;
+  transition: background-color 0.5s ease;
+}
+
+.pf-card__body {
+  margin: 0.75rem 0 0;
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: $pf-text-muted;
+  transition: color 0.5s ease;
+}
+
+.pf-features__aside {
+  position: relative;
+  min-height: 420px;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0, 33, 71, 0.12);
+
+  @media (min-width: 1024px) {
+    min-height: 0;
+    align-self: stretch;
+  }
+}
+
+.pf-features__aside-img {
+  position: absolute;
+  inset: 0;
+  background-image: $pf-aside-img;
+  background-size: cover;
+  background-position: center 28%;
+}
+
+.pf-features__aside-overlay {
+  position: absolute;
+  inset: 0;
+  // Degradé tipo 503: teal fuerte abajo para titular + contacto; foto visible arriba
+  background: linear-gradient(
+    to top,
+    rgba(0, 130, 150, 0.92) 0%,
+    rgba(14, 154, 173, 0.55) 38%,
+    rgba(14, 154, 173, 0.12) 62%,
+    transparent 78%
+  );
+}
+
+.pf-features__aside-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 1rem 1rem 1.75rem;
+  color: #fff;
+
+  @media (min-width: 768px) {
+    padding: 1.25rem 1.25rem 2rem;
+  }
+}
+
+.pf-features__aside-copy {
+  width: 100%;
+  max-width: 17.5rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.pf-features__aside-title {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+
+  @media (min-width: 768px) {
+    font-size: 1.35rem;
+  }
+}
+
+.pf-features__aside-line {
+  margin: 1rem 0 0;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  line-height: 1.35;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+
+  @media (min-width: 768px) {
+    font-size: 1.0625rem;
+  }
+}
+
+// Bloque centrado; filas icono + texto alineadas a la izquierda dentro del ancho fijo (como 503)
+.pf-features__aside-contact {
+  margin-top: 1.75rem;
+  width: 100%;
+  max-width: 16.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.pf-features__aside-link {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  text-align: left;
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.875rem;
+  line-height: 1.35;
+  text-decoration: none;
+  word-break: break-word;
+
+  @media (min-width: 768px) {
+    font-size: 0.9375rem;
+  }
+
+  &:hover {
+    text-decoration: underline;
+    color: #fff;
+  }
+
+  svg {
+    width: 1.35rem;
+    height: 1.35rem;
+    flex-shrink: 0;
+    align-self: flex-start;
+    margin-top: 0.1rem;
+    filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.25));
+  }
+
+  span {
+    flex: 1;
+    min-width: 0;
+  }
+}
+
+/* ===== Experience (referencia 503: split ~42/58, fondo azul uniforme, patrón hex sutil arriba-dcha) ===== */
+// Bloque padre semántico: altura del flujo (padding + inner) algo menor que la caja de la foto (top/bottom negativos en __media).
+// overflow visible en toda la cadena para no recortar la imagen.
+.pf-experience {
+  position: relative;
+  z-index: 1;
+  padding: 3.5rem 0 6.25rem;
+  background: $pf-muted-bg;
+  overflow: visible;
+  // Margen inferior negativo: el strip (.pf-strip-wrap, z-index mayor) sube y tapa la parte baja de la foto.
+  margin-bottom: -1.75rem;
+
+  @media (max-width: 767px) {
+    padding: 2.75rem 0 5.25rem;
+    margin-bottom: -1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    padding-top: 5.25rem;
+    padding-bottom: 7.75rem;
+    margin-bottom: -3rem;
+    min-height: min(42rem, 78vh);
+  }
+
+  // Tablet: menos aire vertical que desktop ancho (Playwright: sección muy alta vs contenido).
+  @media (min-width: 768px) and (max-width: 1023px) {
+    padding-top: 4.75rem;
+    padding-bottom: 6.75rem;
+    min-height: min(36rem, 72vh);
+  }
+
+  @media (min-width: 1024px) {
+    padding-top: 5.75rem;
+    padding-bottom: 9.25rem;
+    margin-bottom: -3.75rem;
+    min-height: min(44rem, 76vh);
+  }
+}
+
+.pf-experience__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 clamp(0.75rem, 4vw, 2rem);
+  overflow: visible;
+  // Altura = contenido (rejilla); la foto absolute mide inner + sangrado vertical ⇒ siempre más alta que este bloque.
+  min-width: 0;
+}
+
+// Capa tipo 503: absolute al inner, ancha (invade zona del texto por detrás); el copy sigue encima (z-index).
+.pf-experience__media {
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  overflow: visible;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  // Sin color de fondo: el PNG / letterboxing deja ver el fondo de la sección (.pf-experience).
+  background-color: transparent;
+  background-image: $pf-exp-img;
+  background-repeat: no-repeat;
+  // contain = imagen completa visible (cover recorta)
+  background-size: contain;
+  // left + contain: si el PNG tiene mucho “aire”, center hacía invisible el cambio de left; anclamos al borde izquierdo del sprite.
+  background-position: left center;
+
+  @media (min-width: 768px) {
+    // top/bottom negativos: altura = altura(inner) + |top| + |bottom| (sin min-height que compita con el cálculo).
+    top: clamp(-8.5rem, -17vw, -14rem);
+    // Ojo: clamp(min, vw, max) con vw muy negativo en pantallas anchas SATURA en min (antes ~-4.5rem y no “se movía” más).
+    // Rango más ancho + tope inferior más negativo para que el desplazamiento sea real.
+    left: clamp(-8rem, -14vw, -3rem);
+    bottom: clamp(-5rem, -10vw, -7.5rem);
+    width: min(100%, 72rem);
+  }
+
+  // Tablet (768–1023): Playwright mostró la foto al ~100% del inner; se estrecha para dejar aire al copy.
+  @media (min-width: 768px) and (max-width: 1023px) {
+    width: min(90%, 44rem);
+    left: clamp(-5.5rem, -12vw, -2.5rem);
+    bottom: clamp(-4.25rem, -9vw, -6.5rem);
+  }
+
+  @media (max-width: 767px) {
+    position: relative;
+    top: auto;
+    left: auto;
+    bottom: auto;
+    width: 100%;
+    min-height: 20rem;
+    max-height: min(75vh, 32rem);
+    aspect-ratio: auto;
+    margin: 0 0 1.75rem;
+  }
+}
+
+.pf-experience__grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 2rem;
+  overflow: visible;
+
+  @media (min-width: 768px) {
+    grid-template-columns: minmax(0, 0.4fr) minmax(0, 0.6fr);
+    column-gap: clamp(1.75rem, 4vw, 2.75rem);
+    row-gap: 2rem;
+    align-items: start;
+  }
+
+  @media (min-width: 1024px) {
+    column-gap: clamp(2rem, 4.5vw, 3rem);
+  }
+}
+
+.pf-experience__spacer {
+  display: none;
+
+  @media (min-width: 768px) {
+    display: block;
+    min-height: 1px;
+  }
+}
+
+.pf-experience__copy {
+  position: relative;
+  z-index: 2;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 0.25rem 0 0;
+
+  // Textura sutil esquina superior derecha (referencia tipo hex / malla)
+  &::before {
+    content: "";
+    position: absolute;
+    top: -0.5rem;
+    right: -1rem;
+    width: min(58%, 24rem);
+    height: min(52%, 18rem);
+    pointer-events: none;
+    opacity: 0.45;
+    background-image: radial-gradient(
+      circle at center,
+      rgba(39, 93, 173, 0.22) 1px,
+      transparent 1.5px
+    );
+    background-size: 14px 14px;
+    mask-image: radial-gradient(ellipse at 100% 0%, #000 55%, transparent 72%);
+  }
+
+  @media (min-width: 768px) {
+    padding: 0.5rem 0 0 0.5rem;
+  }
+}
+
+.pf-experience__eyebrow-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: nowrap;
+}
+
+.pf-experience__eyebrow {
+  margin: 0;
+  flex-shrink: 0;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: $pf-primary;
+}
+
+.pf-experience__rule {
+  flex: 1;
+  min-width: 2rem;
+  height: 2px;
+  border-radius: 1px;
+  background: linear-gradient(90deg, $pf-primary 0%, rgba(39, 93, 173, 0.35) 100%);
+}
+
+.pf-experience__title {
+  margin: 1.25rem 0 0;
+  font-size: 1.375rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #111827;
+  text-wrap: balance;
+
+  @media (min-width: 768px) {
+    font-size: 1.75rem;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 2rem;
+    max-width: 26em;
+  }
+}
+
+.pf-experience__text {
+  margin-top: 1.35rem;
+
+  p {
+    margin: 0 0 1.1rem;
+    font-size: 1rem;
+    line-height: 1.7;
+    font-style: italic;
+    color: #3d3d3d;
+
+    @media (min-width: 768px) {
+      font-size: 1.0625rem;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.pf-experience__lead,
+.pf-experience__follow {
+  font-style: italic;
+}
+
+.pf-experience__tags {
+  margin-top: 2.25rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(39, 93, 173, 0.2);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+
+  @media (min-width: 640px) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem 1.5rem;
+    align-items: start;
+  }
+
+  span {
+    margin: 0;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    line-height: 1.35;
+    color: #111827;
+    text-align: left;
+
+    @media (min-width: 768px) {
+      font-size: 1rem;
+    }
+  }
+}
+
+/* ===== Strip flotante (entre Experience claro y banda navy) + footer ===== */
+// Referencia: ~⅓ del strip sobre fondo claro, ~⅔ sobre navy. El strip es hermano de .pf-experience y .pf-bottom-band.
+.pf-strip-wrap {
+  position: relative;
+  z-index: 4;
+  isolation: isolate;
+  width: 100%;
+  min-width: 0;
+  padding: 0 clamp(0.75rem, 4vw, 2rem);
+  color: #fff;
+  // margin-top: solapa el padding inferior de Experience (parte superior del strip “en el aire” sobre claro)
+  margin-top: -4rem;
+  // margin-bottom: tira hacia arriba la .pf-bottom-band para que el navy quede detrás del tercio inferior del strip
+  margin-bottom: -6rem;
+
+  @media (min-width: 640px) {
+    margin-top: -5rem;
+    margin-bottom: -7rem;
+  }
+
+  @media (min-width: 1024px) {
+    // Fila única ~192px → ⅓ ≈ 64px (~4rem), ⅔ ≈ 128px (~8rem)
+    margin-top: -5.5rem;
+    margin-bottom: -8.5rem;
+  }
+}
+
+.pf-bottom-band {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  overflow: visible;
+  // Compensa el solape del strip para que el copyright quede por debajo del bloque teal/verde
+  padding-top: 5.5rem;
+  background-color: $pf-footer-navy;
+  background-image: linear-gradient(
+      rgba(5, 16, 34, 0.9),
+      rgba(5, 16, 34, 0.94)
+    ),
+    url("../../../../public/images/product-flow/footer-bg.jpg");
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+
+  @media (min-width: 640px) {
+    padding-top: 6.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    padding-top: 8.75rem;
+  }
+
+  .pf-ref-footer {
+    margin-top: 0;
+    background: transparent;
+  }
+}
+
+.pf-strip {
+  position: relative;
+  z-index: 2;
+  max-width: 64rem;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  overflow: hidden;
+  border-radius: 2px;
+  // Lectura “flotante” (elevación) sin aumentar el solape sobre el contenido
+  box-shadow:
+    0 4px 6px rgba(0, 0, 0, 0.06),
+    0 18px 46px rgba(0, 0, 0, 0.22),
+    0 2px 0 rgba(255, 255, 255, 0.06) inset;
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.pf-strip__cell {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  min-height: 168px;
+  min-width: 0;
+  padding: 2rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.375;
+  text-align: left;
+  color: #fff;
+
+  @media (min-width: 640px) {
+    padding: 2rem 2rem;
+  }
+
+  @media (min-width: 1024px) {
+    min-height: 192px;
+    padding: 2rem 2.5rem;
+    font-size: 1rem;
+  }
+
+  svg {
+    width: 2.25rem;
+    height: 2.25rem;
+    flex-shrink: 0;
+    opacity: 0.95;
+    color: #fff;
+    fill: currentColor;
+  }
+
+  p {
+    color: #fff;
+  }
+
+  a {
+    color: #fff !important;
+    text-decoration: none;
+    text-underline-offset: 2px;
+    transition: text-decoration 0.15s ease;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.pf-strip__cell--a {
+  background: $pf-teal;
+}
+
+.pf-strip__cell--b {
+  background: $pf-green;
+}
+
+.pf-strip__text {
+  min-width: 0;
+  text-align: left;
+}
+
+.pf-strip__book {
+  font-weight: 700;
+  text-transform: capitalize;
+}
