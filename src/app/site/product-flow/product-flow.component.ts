@@ -1,6 +1,12 @@
 import { CommonModule, DOCUMENT } from '@angular/common';
-import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { Component, Inject, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import {
+  FormBuilder,
+  FormGroup,
+  NgForm,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { HeaderComponent } from '../components/header/header.component';
 import { FooterComponent } from '../components/footer/footer.component';
@@ -13,7 +19,7 @@ import Swal from 'sweetalert2';
   standalone: true,
   imports: [
     CommonModule,
-    FormsModule,
+    ReactiveFormsModule,
     RouterLink,
     HeaderComponent,
     FooterComponent,
@@ -25,21 +31,30 @@ import Swal from 'sweetalert2';
 export class ProductFlowComponent implements OnInit, OnDestroy {
   private static readonly bodyClass = 'product-flow-page';
 
-  demoForm = {
-    name: '',
-    email: '',
-    company: '',
-    message: '',
-  };
+  @ViewChild('formRef') formRef: NgForm;
+  demoForm: FormGroup;
 
   constructor(
     @Inject(DOCUMENT) private readonly document: Document,
+    private fb: FormBuilder,
     private contactService: ContactService
   ) {}
 
   ngOnInit(): void {
     this.document.body.classList.add(ProductFlowComponent.bodyClass);
     this.document.documentElement.classList.add(ProductFlowComponent.bodyClass);
+
+    this.demoForm = this.fb.group({
+      first_name: ['', [Validators.required]],
+      last_name: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
+      company: ['', [Validators.required]],
+      message: ['', [Validators.required, Validators.minLength(50)]],
+    });
+  }
+
+  get f() {
+    return this.demoForm.controls;
   }
 
   ngOnDestroy(): void {
@@ -47,16 +62,16 @@ export class ProductFlowComponent implements OnInit, OnDestroy {
     this.document.documentElement.classList.remove(ProductFlowComponent.bodyClass);
   }
 
-  onDemoSubmit(event: Event): void {
-    event.preventDefault();
+  onDemoSubmit(): void {
+    if (this.demoForm.invalid) return;
 
     const payload = {
-      first_name: this.demoForm.name,
-      last_name: '',
-      email: this.demoForm.email,
-      phone_number: '',
-      company: this.demoForm.company,
-      notes: this.demoForm.message,
+      first_name: this.demoForm.value.first_name,
+      last_name: this.demoForm.value.last_name,
+      email: this.demoForm.value.email,
+      phone_number: '5555555555',
+      company: this.demoForm.value.company,
+      notes: this.demoForm.value.message,
     };
 
     this.contactService.createBooking(payload).subscribe({
@@ -79,7 +94,8 @@ export class ProductFlowComponent implements OnInit, OnDestroy {
             </div>`,
           confirmButtonText: 'Okay',
         });
-        this.demoForm = { name: '', email: '', company: '', message: '' };
+        this.demoForm.reset();
+        this.formRef.resetForm();
       },
       error: () => {
         Swal.fire({

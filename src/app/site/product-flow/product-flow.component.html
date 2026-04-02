@@ -94,23 +94,47 @@
           <h2 class="pf-contact-demo__form-title">Request a demo</h2>
           <form
             class="pf-contact-demo__form"
-            (submit)="onDemoSubmit($event)"
+            [formGroup]="demoForm"
+            #formRef="ngForm"
+            (ngSubmit)="onDemoSubmit()"
             aria-label="Request a demo"
           >
             <div class="pf-contact-demo__fields">
               <div class="signle-input">
-                <label for="pf-name" class="form-label fw-semibold">
-                  Full Name <span class="text-danger">*</span>
+                <label for="pf-first-name" class="form-label fw-semibold">
+                  First Name <span class="text-danger">*</span>
                 </label>
                 <input
                   type="text"
                   class="form-control"
-                  id="pf-name"
-                  name="name"
-                  required
-                  [(ngModel)]="demoForm.name"
-                  autocomplete="name"
+                  id="pf-first-name"
+                  formControlName="first_name"
                 />
+                <span
+                  *ngIf="
+                    f['first_name'].errors &&
+                    (formRef.submitted || f['first_name'].touched)
+                  "
+                  class="fs-14 fw-medium text-danger mt-1"
+                >First name is required</span>
+              </div>
+              <div class="signle-input">
+                <label for="pf-last-name" class="form-label fw-semibold">
+                  Last Name <span class="text-danger">*</span>
+                </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="pf-last-name"
+                  formControlName="last_name"
+                />
+                <span
+                  *ngIf="
+                    f['last_name'].errors &&
+                    (formRef.submitted || f['last_name'].touched)
+                  "
+                  class="fs-14 fw-medium text-danger mt-1"
+                >Last name is required</span>
               </div>
               <div class="signle-input">
                 <label for="pf-email" class="form-label fw-semibold">
@@ -120,11 +144,24 @@
                   type="email"
                   class="form-control"
                   id="pf-email"
-                  name="email"
-                  required
-                  [(ngModel)]="demoForm.email"
-                  autocomplete="email"
+                  formControlName="email"
                 />
+                <div *ngIf="
+                    f['email'].errors && (formRef.submitted || f['email'].touched)
+                  ">
+                  <p
+                    *ngIf="f['email'].errors['required']"
+                    class="fs-14 fw-medium text-danger mt-1"
+                  >
+                    Email is required
+                  </p>
+                  <p
+                    *ngIf="f['email'].errors['email']"
+                    class="fs-14 fw-medium text-danger mt-1"
+                  >
+                    Invalid Email
+                  </p>
+                </div>
               </div>
               <div class="signle-input">
                 <label for="pf-company" class="form-label fw-semibold">
@@ -134,24 +171,43 @@
                   type="text"
                   class="form-control"
                   id="pf-company"
-                  name="company"
-                  required
-                  [(ngModel)]="demoForm.company"
-                  autocomplete="organization"
+                  formControlName="company"
                 />
+                <span
+                  *ngIf="
+                    f['company'].errors &&
+                    (formRef.submitted || f['company'].touched)
+                  "
+                  class="fs-14 fw-medium text-danger mt-1"
+                >Company name is required</span>
               </div>
 
             </div>
             <div class="signle-input pf-contact-demo__full">
               <label for="pf-message" class="form-label fw-semibold d-block">
-                Message
+                Message <span class="text-danger">*</span>
               </label>
               <textarea
                 id="pf-message"
-                name="message"
+                formControlName="message"
                 rows="4"
-                [(ngModel)]="demoForm.message"
               ></textarea>
+              <div *ngIf="
+                  f['message'].errors && (formRef.submitted || f['message'].touched)
+                ">
+                <p
+                  *ngIf="f['message'].errors['required']"
+                  class="fs-14 fw-medium text-danger mt-1"
+                >
+                  Message is required
+                </p>
+                <p
+                  *ngIf="f['message'].errors['minlength']"
+                  class="fs-14 fw-medium text-danger mt-1"
+                >
+                  Message should be at least 50 characters
+                </p>
+              </div>
             </div>
             <button type="submit" class="btn-cta mt-20 d-inline-block">
               Submit
