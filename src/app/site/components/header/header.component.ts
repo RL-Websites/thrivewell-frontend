@@ -43,9 +43,9 @@ const PRODUCT_DROPDOWN_CLOSE_DELAY_MS = 150;
 export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
   routerLink: any;
   public isCollapsed = true;
-  /** Subrayado activo del ítem Product cuando la ruta es /product/... */
+  /** Active underline on the Product item when route is /product/... */
   isProductRoute = false;
-  /** Hover para abrir menú; sin hover (táctil) se usa clic en el botón */
+  /** Hover to open menu; without hover (touch) the button click is used */
   prefersHover = false;
   private productDropdownCloseTimer: ReturnType<typeof setTimeout> | null = null;
 

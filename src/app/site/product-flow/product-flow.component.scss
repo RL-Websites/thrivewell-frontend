@@ -1,23 +1,23 @@
-// Anfitrión: no recortar secciones con capas absolute (Experience).
+// Host: do not clip sections with absolute layers (Experience).
 :host {
   display: block;
   overflow: visible;
 }
 
-// Layout + paleta alineada con https://503success.com/ (medición: panel / strip / inputs / CTA).
-// Panel teal rgb(14,154,173) · Inputs rgb(10,119,134) · Verde acento rgb(102,186,70) — mismo verde en
-// "Contact us today!" y botón Submit; panel coherente con strip (.pf-strip__cell--a).
+// Layout + palette aligned with https://503success.com/ (measured: panel / strip / inputs / CTA).
+// Panel teal rgb(14,154,173) · Inputs rgb(10,119,134) · Green accent rgb(102,186,70) — same green in
+// "Contact us today!" and Submit button; panel consistent with strip (.pf-strip__cell--a).
 $pf-navy: #1e3a5f;
 $pf-primary: #275dad;
 $pf-teal: #0e9aad;
-$pf-teal-mid: #0c8f9f; // gradiente panel formulario (entre panel e input)
+$pf-teal-mid: #0c8f9f; // form panel gradient (between panel and input)
 $pf-teal-deep: #0a7786;
 $pf-green: #66ba46;
 $pf-green-hover: #5a9f3d;
-$pf-muted-bg: #e6f0f7; // bloque “Experience” / gris-azulado claro
+$pf-muted-bg: #e6f0f7; // “Experience” block / light blue-gray
 $pf-text: #333333;
 $pf-text-muted: #666666;
-$pf-footer-navy: #051022; // sección oscura medida ≈ rgb(5, 16, 34)
+$pf-footer-navy: #051022; // dark section measured ≈ rgb(5, 16, 34)
 // Resolved relative to this file so the Angular CSS bundler can copy assets (public/ is copied to output root at runtime as /images/...).
 $pf-hero-img: url("../../../../public/images/product-flow/hero-shutterstock.jpg");
 $pf-aside-img: url("../../../../public/images/product-flow/add.png");
@@ -25,10 +25,10 @@ $pf-exp-img: url("../../../../public/images/product-flow/dental-img.png");
 
 .product-flow-page {
   --pf-card-dark: #0a1628;
-  --pf-accent-line: #6fd6a8; // acento hover legible sobre tarjeta oscura (familia verde 503)
+  --pf-accent-line: #6fd6a8; // hover accent readable on dark card (503 green family)
   min-width: 0;
   margin-bottom: 0;
-  // Experience: foto absolute debe poder salir por arriba/abajo sin recorte (evitar clip de ancestros)
+  // Experience: absolute photo must be able to overflow top/bottom without clipping (avoid ancestor clip)
   overflow-x: visible;
   overflow-y: visible;
 }
@@ -56,7 +56,7 @@ $pf-exp-img: url("../../../../public/images/product-flow/dental-img.png");
 .pf-hero__overlay {
   position: absolute;
   inset: 0;
-  // Tinte más cercano al hero 503 (lectura sobre foto tech / salud)
+  // Tint closest to 503 hero (readability over tech/health photo)
   background: linear-gradient(
     180deg,
     rgba(5, 22, 40, 0.82) 0%,
@@ -139,7 +139,6 @@ $pf-exp-img: url("../../../../public/images/product-flow/dental-img.png");
 }
 
 /* ===== Contact demo overlap ===== */
-// Breakpoints alineados con Bootstrap / diseño común: sm 576, md 768, lg 992, xl 1200, xxl 1400
 .pf-contact-demo {
   position: relative;
   z-index: 3;
@@ -168,12 +167,10 @@ $pf-exp-img: url("../../../../public/images/product-flow/dental-img.png");
 .pf-contact-demo__grid {
   display: grid;
   overflow: visible;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 2px;
-  box-shadow: 0 20px 50px rgba(0, 33, 71, 0.14);
+  border-radius: 12px;
+  box-shadow: 0px 8px 26.1px 0px rgba(174, 174, 174, 0.3);
 
   @media (min-width: 768px) {
-    // 2fr + 3fr → junta vertical al 40% (no 50%): el logo debe centrarse en la junta
     grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
     align-items: stretch;
   }
@@ -190,18 +187,16 @@ $pf-exp-img: url("../../../../public/images/product-flow/dental-img.png");
   }
 
   @media (min-width: 768px) {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding: 3rem 2rem;
   }
 }
 
 .pf-contact-demo__col--light {
   background: #fff;
+  border-radius: 12px 12px 0 0;
 
   @media (min-width: 768px) {
-    // Espacio para la mitad izquierda del badge (radio ~50px)
+    border-radius: 12px 0 0 12px;
     padding-right: clamp(3.25rem, 4.5vw, 4.5rem);
   }
 }
@@ -270,17 +265,13 @@ $pf-exp-img: url("../../../../public/images/product-flow/dental-img.png");
   }
 }
 
+// Right column — white background with standard form styles (matching book-now / legit-script)
 .pf-contact-demo__col--accent {
-  color: #fff;
-  // Misma familia que el strip teal; gradiente suave para separar del bloque de campos (referencia 503)
-  background: linear-gradient(
-    165deg,
-    $pf-teal 0%,
-    $pf-teal-mid 42%,
-    #0a7f8f 100%
-  );
+  background: #fff;
+  border-radius: 0 0 12px 12px;
 
   @media (min-width: 768px) {
+    border-radius: 0 12px 12px 0;
     padding-left: clamp(3.25rem, 4.5vw, 4.5rem);
   }
 }
@@ -290,8 +281,7 @@ $pf-exp-img: url("../../../../public/images/product-flow/dental-img.png");
   text-align: center;
   font-size: 1.5rem;
   font-weight: 700;
-  color: #fff;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
+  color: #333;
 
   @media (min-width: 768px) {
     font-size: 1.875rem;
@@ -311,104 +301,12 @@ $pf-exp-img: url("../../../../public/images/product-flow/dental-img.png");
   }
 }
 
-.pf-contact-demo__form label {
-  display: block;
-  text-align: left;
-  font-size: 0.875rem;
-  font-weight: 500;
-
-  span {
-    display: block;
-    margin-bottom: 0.35rem;
-    color: rgba(255, 255, 255, 0.95);
-  }
-}
-
-.pf-contact-demo__form input,
-.pf-contact-demo__form textarea {
-  width: 100%;
-  border-radius: 4px;
-  border: 0;
-  background: $pf-teal-deep;
-  color: #fff;
-  padding: 0.65rem 0.8rem;
-  font-size: 0.875rem;
-  outline: none;
-  transition: box-shadow 0.2s, background-color 0.2s;
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.12);
-
-  &::placeholder {
-    color: rgba(255, 255, 255, 0.7);
-  }
-
-  &:focus {
-    box-shadow:
-      inset 0 1px 2px rgba(0, 0, 0, 0.1),
-      0 0 0 2px rgba(255, 255, 255, 0.5);
-  }
-}
-
 .pf-contact-demo__full {
   display: block;
   margin-top: 1rem;
 }
 
-.pf-contact-demo__recaptcha {
-  margin: 1rem 0 0;
-  padding: 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  border-radius: 4px;
-  background: rgba(0, 0, 0, 0.1);
-  font-size: 0.75rem;
-  line-height: 1.4;
-  text-align: center;
-  color: rgba(255, 255, 255, 0.92);
-
-  a {
-    color: #fff;
-    font-weight: 600;
-    text-decoration: underline;
-
-    &:hover {
-      color: rgba(255, 255, 255, 0.95);
-    }
-  }
-}
-
-.pf-contact-demo__submit {
-  width: 100%;
-  margin-top: 1rem;
-  border: 0;
-  border-radius: 6px;
-  // Mismo verde que .pf-contact-demo__heading (503: rgb(102, 186, 70))
-  background: $pf-green;
-  color: #fff;
-  padding: 0.85rem 1rem;
-  font-size: 0.875rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  cursor: pointer;
-  box-shadow:
-    0 2px 0 rgba(255, 255, 255, 0.12) inset,
-    0 4px 14px rgba(0, 0, 0, 0.18);
-  transition: background 0.2s, box-shadow 0.2s;
-
-  &:hover {
-    background: $pf-green-hover;
-    box-shadow:
-      0 2px 0 rgba(255, 255, 255, 0.1) inset,
-      0 6px 18px rgba(0, 0, 0, 0.22);
-  }
-
-  &:focus-visible {
-    outline: 2px solid #fff;
-    outline-offset: 2px;
-  }
-}
-
 .pf-contact-demo__logo-badge {
-  // Centrado en la junta columna 40% | 60% (grid 2fr / 3fr), no en el 50% del bloque
   --pf-badge-size: 88px;
   --pf-badge-seam: 40%;
 
@@ -545,7 +443,7 @@ $pf-exp-img: url("../../../../public/images/product-flow/dental-img.png");
   min-height: 200px;
   padding: 2rem;
   border-radius: 0.5rem;
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border: 1px solid #decc42;
   background: #fff;
   box-shadow: 0 15px 50px -12px rgba(0, 0, 0, 0.12);
   transition: background-color 0.5s ease, border-color 0.5s ease;
@@ -556,7 +454,7 @@ $pf-exp-img: url("../../../../public/images/product-flow/dental-img.png");
 
   &:hover {
     background: var(--pf-card-dark);
-    border-color: rgba(255, 255, 255, 0.1);
+    border-color: #ffc625;
 
     .pf-card__icon {
       color: var(--pf-accent-line);
@@ -571,7 +469,7 @@ $pf-exp-img: url("../../../../public/images/product-flow/dental-img.png");
     }
 
     .pf-card__bar {
-      background: $pf-green;
+      background: #ffc625;
     }
 
     .pf-card__body {
@@ -654,7 +552,7 @@ $pf-exp-img: url("../../../../public/images/product-flow/dental-img.png");
 .pf-features__aside-overlay {
   position: absolute;
   inset: 0;
-  // Degradé tipo 503: teal fuerte abajo para titular + contacto; foto visible arriba
+  // 503-style gradient: strong teal at bottom for title + contact; photo visible at top
   background: linear-gradient(
     to top,
     rgba(0, 130, 150, 0.92) 0%,
@@ -712,7 +610,7 @@ $pf-exp-img: url("../../../../public/images/product-flow/dental-img.png");
   }
 }
 
-// Bloque centrado; filas icono + texto alineadas a la izquierda dentro del ancho fijo (como 503)
+// Centered block; icon + text rows left-aligned within fixed width (like 503)
 .pf-features__aside-contact {
   margin-top: 1.75rem;
   width: 100%;
@@ -759,16 +657,16 @@ $pf-exp-img: url("../../../../public/images/product-flow/dental-img.png");
   }
 }
 
-/* ===== Experience (referencia 503: split ~42/58, fondo azul uniforme, patrón hex sutil arriba-dcha) ===== */
-// Bloque padre semántico: altura del flujo (padding + inner) algo menor que la caja de la foto (top/bottom negativos en __media).
-// overflow visible en toda la cadena para no recortar la imagen.
+/* ===== Experience (ref 503: split ~42/58, uniform blue bg, subtle hex pattern top-right) ===== */
+// Semantic parent block: flow height (padding + inner) slightly shorter than the photo box (negative top/bottom on __media).
+// overflow visible throughout the chain to avoid clipping the image.
 .pf-experience {
   position: relative;
   z-index: 1;
   padding: 3.5rem 0 6.25rem;
   background: $pf-muted-bg;
   overflow: visible;
-  // Margen inferior negativo: el strip (.pf-strip-wrap, z-index mayor) sube y tapa la parte baja de la foto.
+  // Negative bottom margin: the strip (.pf-strip-wrap, higher z-index) rises and covers the bottom of the photo.
   margin-bottom: -1.75rem;
 
   @media (max-width: 767px) {
@@ -783,7 +681,7 @@ $pf-exp-img: url("../../../../public/images/product-flow/dental-img.png");
     min-height: min(42rem, 78vh);
   }
 
-  // Tablet: menos aire vertical que desktop ancho (Playwright: sección muy alta vs contenido).
+  // Tablet: less vertical space than wide desktop (Playwright: section too tall vs content).
   @media (min-width: 768px) and (max-width: 1023px) {
     padding-top: 4.75rem;
     padding-bottom: 6.75rem;
@@ -805,11 +703,11 @@ $pf-exp-img: url("../../../../public/images/product-flow/dental-img.png");
   margin: 0 auto;
   padding: 0 clamp(0.75rem, 4vw, 2rem);
   overflow: visible;
-  // Altura = contenido (rejilla); la foto absolute mide inner + sangrado vertical ⇒ siempre más alta que este bloque.
+  // Height = content (grid); the absolute photo measures inner + vertical bleed => always taller than this block.
   min-width: 0;
 }
 
-// Capa tipo 503: absolute al inner, ancha (invade zona del texto por detrás); el copy sigue encima (z-index).
+// 503-style layer: absolute to inner, wide (bleeds behind the text area); copy stays on top (z-index).
 .pf-experience__media {
   position: absolute;
   z-index: 0;
@@ -818,26 +716,26 @@ $pf-exp-img: url("../../../../public/images/product-flow/dental-img.png");
   border: 0;
   border-radius: 0;
   box-shadow: none;
-  // Sin color de fondo: el PNG / letterboxing deja ver el fondo de la sección (.pf-experience).
+  // No background color: the PNG / letterboxing lets the section background (.pf-experience) show through.
   background-color: transparent;
   background-image: $pf-exp-img;
   background-repeat: no-repeat;
   // contain = imagen completa visible (cover recorta)
   background-size: contain;
-  // left + contain: si el PNG tiene mucho “aire”, center hacía invisible el cambio de left; anclamos al borde izquierdo del sprite.
+  // left + contain: if the PNG has lots of whitespace, center made the left shift invisible; we anchor to the left edge of the sprite.
   background-position: left center;
 
   @media (min-width: 768px) {
-    // top/bottom negativos: altura = altura(inner) + |top| + |bottom| (sin min-height que compita con el cálculo).
+    // Negative top/bottom: height = inner height + |top| + |bottom| (no min-height competing with the calculation).
     top: clamp(-8.5rem, -17vw, -14rem);
-    // Ojo: clamp(min, vw, max) con vw muy negativo en pantallas anchas SATURA en min (antes ~-4.5rem y no “se movía” más).
-    // Rango más ancho + tope inferior más negativo para que el desplazamiento sea real.
+    // Note: clamp(min, vw, max) with very negative vw on wide screens SATURATES at min (before ~-4.5rem and wouldn't move further).
+    // Wider range + more negative lower bound so the displacement is real.
     left: clamp(-8rem, -14vw, -3rem);
     bottom: clamp(-5rem, -10vw, -7.5rem);
     width: min(100%, 72rem);
   }
 
-  // Tablet (768–1023): Playwright mostró la foto al ~100% del inner; se estrecha para dejar aire al copy.
+  // Tablet (768–1023): Playwright showed the photo at ~100% of inner; narrowed to leave room for copy.
   @media (min-width: 768px) and (max-width: 1023px) {
     width: min(90%, 44rem);
     left: clamp(-5.5rem, -12vw, -2.5rem);
@@ -1015,7 +913,7 @@ $pf-exp-img: url("../../../../public/images/product-flow/dental-img.png");
 }
 
 /* ===== Strip flotante (entre Experience claro y banda navy) + footer ===== */
-// Referencia: ~⅓ del strip sobre fondo claro, ~⅔ sobre navy. El strip es hermano de .pf-experience y .pf-bottom-band.
+// Reference: ~⅓ of the strip over light background, ~⅔ over navy. The strip is a sibling of .pf-experience and .pf-bottom-band.
 .pf-strip-wrap {
   position: relative;
   z-index: 4;
@@ -1024,55 +922,24 @@ $pf-exp-img: url("../../../../public/images/product-flow/dental-img.png");
   min-width: 0;
   padding: 0 clamp(0.75rem, 4vw, 2rem);
   color: #fff;
-  // margin-top: solapa el padding inferior de Experience (parte superior del strip “en el aire” sobre claro)
+  // margin-top: solapa el padding inferior de Experience
   margin-top: -4rem;
-  // margin-bottom: tira hacia arriba la .pf-bottom-band para que el navy quede detrás del tercio inferior del strip
-  margin-bottom: -6rem;
+  margin-bottom: 0;
+  // Fondo que cierra el hueco entre Experience y footer
+  background: $pf-muted-bg;
+  padding-bottom: 2rem;
 
   @media (min-width: 640px) {
     margin-top: -5rem;
-    margin-bottom: -7rem;
+    padding-bottom: 2.5rem;
   }
 
   @media (min-width: 1024px) {
-    // Fila única ~192px → ⅓ ≈ 64px (~4rem), ⅔ ≈ 128px (~8rem)
     margin-top: -5.5rem;
-    margin-bottom: -8.5rem;
+    padding-bottom: 3rem;
   }
 }
 
-.pf-bottom-band {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  min-width: 0;
-  margin: 0;
-  overflow: visible;
-  // Compensa el solape del strip para que el copyright quede por debajo del bloque teal/verde
-  padding-top: 5.5rem;
-  background-color: $pf-footer-navy;
-  background-image: linear-gradient(
-      rgba(5, 16, 34, 0.9),
-      rgba(5, 16, 34, 0.94)
-    ),
-    url("../../../../public/images/product-flow/footer-bg.jpg");
-  background-size: cover;
-  background-position: center top;
-  background-repeat: no-repeat;
-
-  @media (min-width: 640px) {
-    padding-top: 6.5rem;
-  }
-
-  @media (min-width: 1024px) {
-    padding-top: 8.75rem;
-  }
-
-  .pf-ref-footer {
-    margin-top: 0;
-    background: transparent;
-  }
-}
 
 .pf-strip {
   position: relative;
@@ -1084,7 +951,7 @@ $pf-exp-img: url("../../../../public/images/product-flow/dental-img.png");
   gap: 0;
   overflow: hidden;
   border-radius: 2px;
-  // Lectura “flotante” (elevación) sin aumentar el solape sobre el contenido
+  // “Floating” elevation without increasing overlap on content
   box-shadow:
     0 4px 6px rgba(0, 0, 0, 0.06),
     0 18px 46px rgba(0, 0, 0, 0.22),

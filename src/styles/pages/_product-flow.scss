@@ -1,5 +1,5 @@
-// Product Flow (/product/flow): insets negativos en la foto Experience. En _base.scss, body tiene overflow-x: hidden
-// (recorta hacia la izquierda). Algunos navegadores aplican el clip en html si solo se toca body — se marcan ambos.
+// Product Flow (/product/flow): negative insets on the Experience photo. In _base.scss, body has overflow-x: hidden
+// (clips to the left). Some browsers apply the clip on html if only body is targeted — both are marked.
 html.product-flow-page,
 body.product-flow-page {
   overflow-x: visible;

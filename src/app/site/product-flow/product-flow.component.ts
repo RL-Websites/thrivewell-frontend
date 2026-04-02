@@ -2,8 +2,9 @@ import { CommonModule, DOCUMENT } from '@angular/common';
 import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
-import { ProductFlowLayoutComponent } from './product-flow-layout.component';
-import { ProductFlowReferenceFooterComponent } from './product-flow-reference-footer.component';
+import { HeaderComponent } from '../components/header/header.component';
+import { FooterComponent } from '../components/footer/footer.component';
+import { OtherBannerFrameComponent } from '../components/other-banner-frame/other-banner-frame.component';
 
 @Component({
   selector: 'app-product-flow',
@@ -12,8 +13,9 @@ import { ProductFlowReferenceFooterComponent } from './product-flow-reference-fo
     CommonModule,
     FormsModule,
     RouterLink,
-    ProductFlowLayoutComponent,
-    ProductFlowReferenceFooterComponent,
+    HeaderComponent,
+    FooterComponent,
+    OtherBannerFrameComponent,
   ],
   templateUrl: './product-flow.component.html',
   styleUrl: './product-flow.component.scss',
