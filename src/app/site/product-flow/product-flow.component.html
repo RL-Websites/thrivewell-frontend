@@ -1,5 +1,47 @@
-<app-product-flow-layout>
-<div class="product-flow-page">
+<!--====| Header CSS Start |====-->
+<app-header></app-header>
+<!--====| Header Section End |====-->
+
+<!--====|| Product Flow Banner Start ||====-->
+<section class="other-page-banner bg-yellow position-relative z-1 overflow-hidden">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h6
+          class="ff-urbanist fs-md-28 fs-18 fw-medium text-primary text-uppercase text-md-start text-center"
+          data-aos="fade-up-right"
+          data-aos-duration="700"
+          data-aos-easing="ease-in-out-cubic"
+        >
+          PRODUCT
+        </h6>
+        <h2
+          class="fw-bold text-capitalize text-md-start text-center"
+          data-aos="fade-up"
+          data-aos-duration="900"
+          data-aos-easing="ease-in-out-cubic"
+        >
+          Flow — Telehealth Platform
+        </h2>
+        <p
+          class="fs-20 fw-medium mt-30 mb-0 text-md-start text-center"
+          data-aos="fade-up"
+          data-aos-duration="1100"
+          data-aos-easing="ease-in-out-cubic"
+        >
+          A comprehensive, white-labeled virtual care platform with scalable
+          integrations, compliant workflows, and a seamless experience built
+          around your patients.
+        </p>
+      </div>
+    </div>
+  </div>
+  <other-banner-frame></other-banner-frame>
+</section>
+<!--====|| Product Flow Banner End ||====-->
+
+<!--====|| Main Section Start ||====-->
+<main class="product-flow-page">
   <!-- Hero (reference: Hero.tsx + hero-overlay) -->
   <section
     class="pf-hero"
@@ -28,7 +70,7 @@
     </div>
   </section>
 
-  <!-- Contact + Request demo (reference: ContactDemo) -->
+  <!-- Contact + Request demo -->
   <section
     class="pf-contact-demo"
     aria-label="Contact and request a demo"
@@ -45,12 +87,6 @@
                 <a href="mailto:info@thrivewellrx.com">info&#64;thrivewellrx.com</a>
               </dd>
             </div>
-            <div class="pf-contact-demo__dl-row">
-              <dt>Phone</dt>
-              <dd>
-                <a href="tel:+19728437272">1 (972) 843-7272</a>
-              </dd>
-            </div>
           </dl>
         </div>
 
@@ -62,69 +98,63 @@
             aria-label="Request a demo"
           >
             <div class="pf-contact-demo__fields">
-              <label>
-                <span>Name</span>
+              <div class="signle-input">
+                <label for="pf-name" class="form-label fw-semibold">
+                  Full Name <span class="text-danger">*</span>
+                </label>
                 <input
-                  name="name"
                   type="text"
+                  class="form-control"
+                  id="pf-name"
+                  name="name"
                   required
-                  placeholder="Full name *"
                   [(ngModel)]="demoForm.name"
                   autocomplete="name"
                 />
-              </label>
-              <label>
-                <span>Email</span>
+              </div>
+              <div class="signle-input">
+                <label for="pf-email" class="form-label fw-semibold">
+                  Email <span class="text-danger">*</span>
+                </label>
                 <input
-                  name="email"
                   type="email"
+                  class="form-control"
+                  id="pf-email"
+                  name="email"
                   required
-                  placeholder="Email *"
                   [(ngModel)]="demoForm.email"
                   autocomplete="email"
                 />
-              </label>
-              <label>
-                <span>Company name</span>
+              </div>
+              <div class="signle-input">
+                <label for="pf-company" class="form-label fw-semibold">
+                  Company Name <span class="text-danger">*</span>
+                </label>
                 <input
-                  name="company"
                   type="text"
+                  class="form-control"
+                  id="pf-company"
+                  name="company"
                   required
-                  placeholder="Company name *"
                   [(ngModel)]="demoForm.company"
                   autocomplete="organization"
                 />
-              </label>
-              <label>
-                <span>Telephone</span>
-                <input
-                  name="phone"
-                  type="tel"
-                  required
-                  placeholder="Telephone *"
-                  [(ngModel)]="demoForm.phone"
-                  autocomplete="tel"
-                />
-              </label>
+              </div>
+
             </div>
-            <label class="pf-contact-demo__full">
-              <span>Message</span>
+            <div class="signle-input pf-contact-demo__full">
+              <label for="pf-message" class="form-label fw-semibold d-block">
+                Message
+              </label>
               <textarea
+                id="pf-message"
                 name="message"
                 rows="4"
-                placeholder="Questions or comments"
                 [(ngModel)]="demoForm.message"
               ></textarea>
-            </label>
-            <p
-              class="pf-contact-demo__recaptcha"
-              role="status"
-            >
-              Demo layout — connect your backend to enable submissions, or use
-              <a routerLink="/book-now">Book Now</a> to reach our team.
-            </p>
-            <button type="submit" class="pf-contact-demo__submit">
-              Submit now
+            </div>
+            <button type="submit" class="btn-cta mt-20 d-inline-block">
+              Submit
             </button>
           </form>
         </div>
@@ -169,11 +199,10 @@
               />
             </span>
             <div>
-              <h3 class="pf-card__title">Access to provider networks</h3>
+              <h3 class="pf-card__title">100% Customizable</h3>
               <div class="pf-card__bar" aria-hidden="true"></div>
               <p class="pf-card__body">
-                Leverage your own providers or tap into our network of clinicians
-                for superior patient care when you need it.
+                Customizable To Fit Your Pharmacy Without Extra Development Costs!
               </p>
             </div>
           </article>
@@ -188,15 +217,14 @@
               />
             </span>
             <div>
-              <h3 class="pf-card__title">Custom branded technology</h3>
+              <h3 class="pf-card__title">Full API Integrations</h3>
               <div class="pf-card__bar" aria-hidden="true"></div>
               <p class="pf-card__body">
-                Tailor the platform to your brand for a seamless, recognizable
-                experience across every touchpoint.
+                Easy Integrations including Accounting, Shipping, CRMs & More!
               </p>
             </div>
           </article>
-          <article class="pf-card">
+          <!-- <article class="pf-card">
             <span class="pf-card__icon" aria-hidden="true">
               <img
                 src="images/product-flow/svg/icon-2.svg"
@@ -214,7 +242,7 @@
                 connect in the way that works best.
               </p>
             </div>
-          </article>
+          </article> -->
           <article class="pf-card">
             <span class="pf-card__icon" aria-hidden="true">
               <img
@@ -226,11 +254,10 @@
               />
             </span>
             <div>
-              <h3 class="pf-card__title">Remote patient monitoring</h3>
+              <h3 class="pf-card__title">On-Demand Reporting</h3>
               <div class="pf-card__bar" aria-hidden="true"></div>
               <p class="pf-card__body">
-                Collect real-time data to support adherence and chronic care
-                management from anywhere.
+                Extensive Reporting Allows Instant Access To All Your Metrics and Data!
               </p>
             </div>
           </article>
@@ -245,11 +272,10 @@
               />
             </span>
             <div>
-              <h3 class="pf-card__title">Lab testing &amp; diagnostics</h3>
+              <h3 class="pf-card__title">100% Support</h3>
               <div class="pf-card__bar" aria-hidden="true"></div>
               <p class="pf-card__body">
-                Expand virtual care with integrated lab and diagnostic
-                capabilities for a complete clinical picture.
+                Phone, Text, & Email Support From Our In-House U.S. Team.
               </p>
             </div>
           </article>
@@ -264,11 +290,10 @@
               />
             </span>
             <div>
-              <h3 class="pf-card__title">Dedicated support</h3>
+              <h3 class="pf-card__title">100% Compliant</h3>
               <div class="pf-card__bar" aria-hidden="true"></div>
               <p class="pf-card__body">
-                Work with a team focused on onboarding, integrations, and ongoing
-                success for your organization.
+                Fully Compliant With All Rules And Regulations!
               </p>
             </div>
           </article>
@@ -306,10 +331,10 @@
     </div>
   </section>
 
-  <!-- Experience (referencia 503: foto ~40% izq., copy en azul muy claro, patrón sutil, 3 columnas abajo) -->
+  <!-- Experience (ref 503: photo ~40% left, copy on very light blue, subtle pattern, 3 columns below) -->
   <section class="pf-experience" aria-labelledby="pf-experience-heading">
     <div class="pf-experience__inner">
-      <!-- Capa grande tipo 503: absolute respecto al inner, por debajo del copy (z-index) -->
+      <!-- Large 503-style layer: absolute relative to inner, below the copy (z-index) -->
       <div
         class="pf-experience__media"
         role="presentation"
@@ -347,8 +372,8 @@
   </section>
 
   <!--
-    Strip entre Experience (fondo claro) y banda navy: debe quedar ~1/3 sobre claro y ~2/3 sobre oscuro.
-    No va dentro de .pf-bottom-band para que el solape sea respecto al bloque anterior, no solo margen interno.
+    Strip between Experience (light bg) and footer: sits ~1/3 over light and ~2/3 over dark.
+    Not inside .pf-bottom-band so the overlap is relative to the previous block, not just internal margin.
   -->
   <section class="pf-strip-wrap" aria-label="Contact shortcuts">
     <div class="pf-strip">
@@ -391,9 +416,9 @@
     </div>
   </section>
 
-  <div class="pf-bottom-band">
-    <app-product-flow-reference-footer></app-product-flow-reference-footer>
-  </div>
 
-</div>
-</app-product-flow-layout>
+</main>
+
+<!--====| Footer Section Start |====-->
+<app-footer></app-footer>
+<!--====| Footer Section End |====-->
