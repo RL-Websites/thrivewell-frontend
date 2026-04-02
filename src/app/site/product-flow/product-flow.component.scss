@@ -720,7 +720,7 @@ $pf-exp-img: url("../../../../public/images/product-flow/dental-img.png");
   background-color: transparent;
   background-image: $pf-exp-img;
   background-repeat: no-repeat;
-  // contain = imagen completa visible (cover recorta)
+  // contain = full image visible (cover crops)
   background-size: contain;
   // left + contain: if the PNG has lots of whitespace, center made the left shift invisible; we anchor to the left edge of the sprite.
   background-position: left center;
@@ -922,10 +922,10 @@ $pf-exp-img: url("../../../../public/images/product-flow/dental-img.png");
   min-width: 0;
   padding: 0 clamp(0.75rem, 4vw, 2rem);
   color: #fff;
-  // margin-top: solapa el padding inferior de Experience
+  // margin-top: overlaps the bottom padding of Experience
   margin-top: -4rem;
   margin-bottom: 0;
-  // Fondo que cierra el hueco entre Experience y footer
+  // Background that closes the gap between Experience and footer
   background: $pf-muted-bg;
   padding-bottom: 2rem;
 

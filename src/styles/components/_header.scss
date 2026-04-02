@@ -107,7 +107,7 @@ header {
   -webkit-appearance: none;
   appearance: none;
 
-  // Bootstrap .dropdown-toggle usa ::after para el caret; no reutilizar ese pseudo para el subrayado
+  // Bootstrap .dropdown-toggle uses ::after for the caret; don't reuse that pseudo for the underline
   &.dropdown-toggle::after {
     display: none !important;
     content: none !important;
@@ -116,7 +116,7 @@ header {
     border: 0 !important;
   }
 
-  // Subrayado (mismo rol que los <a> del nav): solo ::before
+  // Underline (same role as the nav <a> elements): only ::before
   &::before {
     content: "";
     position: absolute;
