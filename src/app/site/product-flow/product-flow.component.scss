@@ -635,6 +635,8 @@ $pf-exp-img: url("../../../../public/images/product-flow/dental-img.png");
     padding-top: 4.75rem;
     padding-bottom: 6.75rem;
     min-height: min(36rem, 72vh);
+    // 50vw makes the copy column ~308px at 768px; narrow for body text. Slightly narrower image rail.
+    --pf-exp-media-viewport-cap: 45vw;
   }
 
   @media (min-width: 1024px) {
@@ -642,6 +644,16 @@ $pf-exp-img: url("../../../../public/images/product-flow/dental-img.png");
     padding-bottom: 9.25rem;
     margin-bottom: -3.75rem;
     min-height: min(44rem, 76vh);
+  }
+
+  // Between “large tablet” and ~xl: full 50vw widens the image rail and shrinks copy vs 45vw tablet.
+  @media (min-width: 1024px) and (max-width: 1279px) {
+    --pf-exp-media-viewport-cap: 48vw;
+  }
+
+  // Ultra-wide: uncapped 50vw makes __media huge (e.g. 1500px at 3000px viewport); align with content scale.
+  @media (min-width: 3000px) {
+    --pf-exp-media-viewport-cap: min(50vw, 75rem);
   }
 }
 
