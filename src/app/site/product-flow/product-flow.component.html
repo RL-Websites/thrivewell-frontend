@@ -355,31 +355,17 @@
           </article>
         </div>
 
-        <aside class="pf-features__aside" aria-label="Call to action">
+        <aside
+          class="pf-features__aside"
+          aria-labelledby="pf-features-aside-heading"
+        >
           <div class="pf-features__aside-img"></div>
           <div class="pf-features__aside-overlay"></div>
           <div class="pf-features__aside-content">
             <div class="pf-features__aside-copy">
-              <h2 class="pf-features__aside-title">Ready to modernize telehealth?</h2>
-              <p class="pf-features__aside-line">Call or email us today!</p>
-            </div>
-            <div class="pf-features__aside-contact">
-              <a class="pf-features__aside-link" href="tel:+19728437272">
-                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path
-                    d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
-                  />
-                </svg>
-                <span>1 (972) 843-7272</span>
-              </a>
-              <a class="pf-features__aside-link" href="mailto:info@thrivewellrx.com">
-                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path
-                    d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
-                  />
-                </svg>
-                <span>info&#64;thrivewellrx.com</span>
-              </a>
+              <h2 id="pf-features-aside-heading" class="pf-features__aside-title">
+                Ready to modernize telehealth?
+              </h2>
             </div>
           </div>
         </aside>
@@ -387,15 +373,14 @@
     </div>
   </section>
 
-  <!-- Experience (ref 503: photo ~40% left, copy on very light blue, subtle pattern, 3 columns below) -->
+  <!-- Experience: __media is first child of section (absolute, negative top); __inner holds copy above it. -->
   <section class="pf-experience" aria-labelledby="pf-experience-heading">
+    <div
+      class="pf-experience__media"
+      role="presentation"
+      aria-hidden="true"
+    ></div>
     <div class="pf-experience__inner">
-      <!-- Large 503-style layer: absolute relative to inner, below the copy (z-index) -->
-      <div
-        class="pf-experience__media"
-        role="presentation"
-        aria-hidden="true"
-      ></div>
       <div class="pf-experience__grid">
         <div class="pf-experience__spacer" aria-hidden="true"></div>
         <div class="pf-experience__copy">

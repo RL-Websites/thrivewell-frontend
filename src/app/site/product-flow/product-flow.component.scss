@@ -15,6 +15,8 @@ $pf-teal-deep: #0a7786;
 $pf-green: #66ba46;
 $pf-green-hover: #5a9f3d;
 $pf-muted-bg: #e6f0f7; // “Experience” block / light blue-gray
+// Matches site footer `bg-gray-light` — simulated band under .pf-strip so the card can straddle the “frame”.
+$pf-footer-frame-bg: #fafafa;
 $pf-text: #333333;
 $pf-text-muted: #666666;
 $pf-footer-navy: #051022; // dark section measured ≈ rgb(5, 16, 34)
@@ -349,6 +351,7 @@ $pf-exp-img: url("../../../../public/images/product-flow/dental-img.png");
 /* ===== Features ===== */
 .pf-features {
   position: relative;
+  z-index: 0;
   padding: 3.5rem 0;
   background-color: #fff;
 
@@ -598,76 +601,23 @@ $pf-exp-img: url("../../../../public/images/product-flow/dental-img.png");
   }
 }
 
-.pf-features__aside-line {
-  margin: 1rem 0 0;
-  font-size: 0.9375rem;
-  font-weight: 700;
-  line-height: 1.35;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-
-  @media (min-width: 768px) {
-    font-size: 1.0625rem;
-  }
-}
-
-// Centered block; icon + text rows left-aligned within fixed width (like 503)
-.pf-features__aside-contact {
-  margin-top: 1.75rem;
-  width: 100%;
-  max-width: 16.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  align-items: stretch;
-}
-
-.pf-features__aside-link {
-  display: flex;
-  align-items: center;
-  gap: 0.65rem;
-  text-align: left;
-  color: #fff;
-  font-weight: 600;
-  font-size: 0.875rem;
-  line-height: 1.35;
-  text-decoration: none;
-  word-break: break-word;
-
-  @media (min-width: 768px) {
-    font-size: 0.9375rem;
-  }
-
-  &:hover {
-    text-decoration: underline;
-    color: #fff;
-  }
-
-  svg {
-    width: 1.35rem;
-    height: 1.35rem;
-    flex-shrink: 0;
-    align-self: flex-start;
-    margin-top: 0.1rem;
-    filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.25));
-  }
-
-  span {
-    flex: 1;
-    min-width: 0;
-  }
-}
-
-/* ===== Experience (ref 503: split ~42/58, uniform blue bg, subtle hex pattern top-right) ===== */
-// Semantic parent block: flow height (padding + inner) slightly shorter than the photo box (negative top/bottom on __media).
-// overflow visible throughout the chain to avoid clipping the image.
+/* ===== Experience: absolute media on section + viewport cap ===== */
+// __media is a direct child of the section (position: relative). Light negative top for a small upward bleed.
+// Copy sits in __inner above the photo (z-index).
 .pf-experience {
   position: relative;
-  z-index: 1;
+  // Above .pf-features so the photo bleed (absolute __media) paints over the prior section, not behind it.
+  z-index: 3;
   padding: 3.5rem 0 6.25rem;
   background: $pf-muted-bg;
-  overflow: visible;
-  // Negative bottom margin: the strip (.pf-strip-wrap, higher z-index) rises and covers the bottom of the photo.
+  overflow-x: visible;
+  overflow-y: visible;
   margin-bottom: -1.75rem;
+  // Shared by __inner grid spacer + optional tuning; inherited by descendants.
+  --pf-exp-bleed-left: calc(
+    (100vw - min(100vw, 80rem)) / 2 + clamp(0.75rem, 4vw, 2rem)
+  );
+  --pf-exp-media-viewport-cap: 50vw;
 
   @media (max-width: 767px) {
     padding: 2.75rem 0 5.25rem;
@@ -681,7 +631,6 @@ $pf-exp-img: url("../../../../public/images/product-flow/dental-img.png");
     min-height: min(42rem, 78vh);
   }
 
-  // Tablet: less vertical space than wide desktop (Playwright: section too tall vs content).
   @media (min-width: 768px) and (max-width: 1023px) {
     padding-top: 4.75rem;
     padding-bottom: 6.75rem;
@@ -703,11 +652,10 @@ $pf-exp-img: url("../../../../public/images/product-flow/dental-img.png");
   margin: 0 auto;
   padding: 0 clamp(0.75rem, 4vw, 2rem);
   overflow: visible;
-  // Height = content (grid); the absolute photo measures inner + vertical bleed => always taller than this block.
   min-width: 0;
 }
 
-// 503-style layer: absolute to inner, wide (bleeds behind the text area); copy stays on top (z-index).
+// Positioned against .pf-experience (full-width section): left:0 hits viewport when main is full-bleed.
 .pf-experience__media {
   position: absolute;
   z-index: 0;
@@ -716,29 +664,24 @@ $pf-exp-img: url("../../../../public/images/product-flow/dental-img.png");
   border: 0;
   border-radius: 0;
   box-shadow: none;
-  // No background color: the PNG / letterboxing lets the section background (.pf-experience) show through.
   background-color: transparent;
   background-image: $pf-exp-img;
   background-repeat: no-repeat;
-  // contain = full image visible (cover crops)
   background-size: contain;
-  // left + contain: if the PNG has lots of whitespace, center made the left shift invisible; we anchor to the left edge of the sprite.
   background-position: left center;
 
   @media (min-width: 768px) {
-    // Negative top/bottom: height = inner height + |top| + |bottom| (no min-height competing with the calculation).
-    top: clamp(-8.5rem, -17vw, -14rem);
-    // Note: clamp(min, vw, max) with very negative vw on wide screens SATURATES at min (before ~-4.5rem and wouldn't move further).
-    // Wider range + more negative lower bound so the displacement is real.
-    left: clamp(-8rem, -14vw, -3rem);
-    bottom: clamp(-5rem, -10vw, -7.5rem);
-    width: min(100%, 72rem);
+    background-position: left top;
+    // Subtle upward bleed (between 0 and the old heavy clamp). Tune with design feedback.
+    top: clamp(-4rem, -8vw, -6.5rem);
+    left: 0;
+    bottom: clamp(-5.5rem, -10vw, -7.5rem);
+    width: var(--pf-exp-media-viewport-cap);
+    max-width: var(--pf-exp-media-viewport-cap);
   }
 
-  // Tablet (768–1023): Playwright showed the photo at ~100% of inner; narrowed to leave room for copy.
   @media (min-width: 768px) and (max-width: 1023px) {
-    width: min(90%, 44rem);
-    left: clamp(-5.5rem, -12vw, -2.5rem);
+    top: clamp(-3.25rem, -7vw, -5.5rem);
     bottom: clamp(-4.25rem, -9vw, -6.5rem);
   }
 
@@ -748,6 +691,7 @@ $pf-exp-img: url("../../../../public/images/product-flow/dental-img.png");
     left: auto;
     bottom: auto;
     width: 100%;
+    max-width: none;
     min-height: 20rem;
     max-height: min(75vh, 32rem);
     aspect-ratio: auto;
@@ -763,7 +707,10 @@ $pf-exp-img: url("../../../../public/images/product-flow/dental-img.png");
   overflow: visible;
 
   @media (min-width: 768px) {
-    grid-template-columns: minmax(0, 0.4fr) minmax(0, 0.6fr);
+    // Spacer width = distance from inner content start to viewport cap line (so copy begins ≥ cap).
+    grid-template-columns:
+      max(0px, calc(var(--pf-exp-media-viewport-cap) - var(--pf-exp-bleed-left)))
+      minmax(0, 1fr);
     column-gap: clamp(1.75rem, 4vw, 2.75rem);
     row-gap: 2rem;
     align-items: start;
@@ -913,53 +860,74 @@ $pf-exp-img: url("../../../../public/images/product-flow/dental-img.png");
 }
 
 /* ===== Strip flotante (entre Experience claro y banda navy) + footer ===== */
-// Reference: ~⅓ of the strip over light background, ~⅔ over navy. The strip is a sibling of .pf-experience and .pf-bottom-band.
+// Bottom of this section uses $pf-footer-frame-bg (same as footer) so the strip can “sit on” the seam.
+// Do not add margin on this section (outside background = white gap).
 .pf-strip-wrap {
+  --pf-strip-bridge: 4rem; // simulated footer band + translateY(½×); lower = less gap before app-footer
+
   position: relative;
   z-index: 4;
   isolation: isolate;
   width: 100%;
   min-width: 0;
+  overflow: visible;
   padding: 0 clamp(0.75rem, 4vw, 2rem);
   color: #fff;
-  // margin-top: overlaps the bottom padding of Experience
   margin-top: -4rem;
   margin-bottom: 0;
-  // Background that closes the gap between Experience and footer
-  background: $pf-muted-bg;
-  padding-bottom: 2rem;
+  background: linear-gradient(
+    180deg,
+    $pf-muted-bg 0,
+    $pf-muted-bg calc(100% - var(--pf-strip-bridge)),
+    $pf-footer-frame-bg calc(100% - var(--pf-strip-bridge)),
+    $pf-footer-frame-bg 100%
+  );
+  padding-bottom: var(--pf-strip-bridge);
 
   @media (min-width: 640px) {
+    --pf-strip-bridge: 5rem;
     margin-top: -5rem;
-    padding-bottom: 2.5rem;
   }
 
   @media (min-width: 1024px) {
+    // ≥ half a row (~6rem) so the lower half of .pf-strip stays inside the gray band with translateY(50%).
+    --pf-strip-bridge: 6.5rem;
     margin-top: -5.5rem;
-    padding-bottom: 3rem;
   }
 }
-
 
 .pf-strip {
   position: relative;
   z-index: 2;
   max-width: 64rem;
-  margin: 0 auto;
+  margin: 1rem auto 0;
   display: grid;
   grid-template-columns: 1fr;
   gap: 0;
   overflow: hidden;
   border-radius: 2px;
-  // “Floating” elevation without increasing overlap on content
   box-shadow:
     0 4px 6px rgba(0, 0, 0, 0.06),
     0 18px 46px rgba(0, 0, 0, 0.22),
     0 2px 0 rgba(255, 255, 255, 0.06) inset;
+  // Stacked layout: shift by ½ bridge (band is shorter than half a tall stack).
+  transform: translateY(calc(var(--pf-strip-bridge) * 0.5));
+
+  @media (min-width: 640px) {
+    margin-top: 1.125rem;
+  }
 
   @media (min-width: 1024px) {
+    margin-top: 1.25rem;
     grid-template-columns: repeat(3, minmax(0, 1fr));
+    // One row (~192px): seam sits on the bottom edge of the in-flow box — 50% of height centers on that border.
+    transform: translateY(50%);
   }
+}
+
+:host app-footer {
+  position: relative;
+  z-index: 5;
 }
 
 .pf-strip__cell {
