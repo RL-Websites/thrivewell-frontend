@@ -606,18 +606,11 @@ $pf-exp-img: url("../../../../public/images/product-flow/dental-img.png");
 // Copy sits in __inner above the photo (z-index).
 .pf-experience {
   position: relative;
-  // Above .pf-features so the photo bleed (absolute __media) paints over the prior section, not behind it.
   z-index: 3;
   padding: 3.5rem 0 6.25rem;
   background: $pf-muted-bg;
-  overflow-x: visible;
-  overflow-y: visible;
+  overflow: visible;
   margin-bottom: -1.75rem;
-  // Shared by __inner grid spacer + optional tuning; inherited by descendants.
-  --pf-exp-bleed-left: calc(
-    (100vw - min(100vw, 80rem)) / 2 + clamp(0.75rem, 4vw, 2rem)
-  );
-  --pf-exp-media-viewport-cap: 50vw;
 
   @media (max-width: 767px) {
     padding: 2.75rem 0 5.25rem;
@@ -628,35 +621,14 @@ $pf-exp-img: url("../../../../public/images/product-flow/dental-img.png");
     padding-top: 5.25rem;
     padding-bottom: 7.75rem;
     margin-bottom: -3rem;
-    min-height: min(42rem, 78vh);
-  }
-
-  @media (min-width: 768px) and (max-width: 1023px) {
-    padding-top: 4.75rem;
-    padding-bottom: 6.75rem;
-    min-height: min(36rem, 72vh);
-    // 50vw makes the copy column ~308px at 768px; narrow for body text. Slightly narrower image rail.
-    --pf-exp-media-viewport-cap: 45vw;
   }
 
   @media (min-width: 1024px) {
     padding-top: 5.75rem;
     padding-bottom: 9.25rem;
     margin-bottom: -3.75rem;
-    min-height: min(44rem, 76vh);
-  }
-
-  // Between “large tablet” and ~xl: full 50vw widens the image rail and shrinks copy vs 45vw tablet.
-  @media (min-width: 1024px) and (max-width: 1279px) {
-    --pf-exp-media-viewport-cap: 48vw;
-  }
-
-  // Ultra-wide: uncapped 50vw makes __media huge (e.g. 1500px at 3000px viewport); align with content scale.
-  @media (min-width: 3000px) {
-    --pf-exp-media-viewport-cap: min(50vw, 75rem);
   }
 }
-
 .pf-experience__inner {
   position: relative;
   z-index: 1;
@@ -665,12 +637,31 @@ $pf-exp-img: url("../../../../public/images/product-flow/dental-img.png");
   padding: 0 clamp(0.75rem, 4vw, 2rem);
   overflow: visible;
   min-width: 0;
+
+  @media (min-width: 768px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2.5rem;
+    align-items: center;
+  }
+
+  @media (min-width: 1024px) {
+    column-gap: 3rem;
+  }
+
+  @media (min-width: 1440px) {
+    max-width: 90rem;
+    grid-template-columns: 3fr 2fr;
+    column-gap: 3.5rem;
+  }
+
+  @media (min-width: 1920px) {
+    max-width: 100rem;
+    column-gap: 4rem;
+  }
 }
 
-// Positioned against .pf-experience (full-width section): left:0 hits viewport when main is full-bleed.
 .pf-experience__media {
-  position: absolute;
-  z-index: 0;
   pointer-events: none;
   overflow: visible;
   border: 0;
@@ -680,33 +671,34 @@ $pf-exp-img: url("../../../../public/images/product-flow/dental-img.png");
   background-image: $pf-exp-img;
   background-repeat: no-repeat;
   background-size: contain;
-  background-position: left center;
+  background-position: center center;
 
   @media (min-width: 768px) {
-    background-position: left top;
-    // Subtle upward bleed (between 0 and the old heavy clamp). Tune with design feedback.
-    top: clamp(-4rem, -8vw, -6.5rem);
-    left: 0;
-    bottom: clamp(-5.5rem, -10vw, -7.5rem);
-    width: var(--pf-exp-media-viewport-cap);
-    max-width: var(--pf-exp-media-viewport-cap);
+    width: 100%;
+    min-height: 24rem;
+    margin-top: -22rem;
   }
 
-  @media (min-width: 768px) and (max-width: 1023px) {
-    top: clamp(-3.25rem, -7vw, -5.5rem);
-    bottom: clamp(-4.25rem, -9vw, -6.5rem);
+  @media (min-width: 1024px) {
+    min-height: 33.5rem;
+    margin-top: -17rem;
+  }
+
+  @media (min-width: 1440px) {
+    min-height: 36rem;
+    margin-top: -15rem;
+  }
+
+  @media (min-width: 1920px) {
+    min-height: 42rem;
+    margin-top: -13rem;
   }
 
   @media (max-width: 767px) {
-    position: relative;
-    top: auto;
-    left: auto;
-    bottom: auto;
     width: 100%;
     max-width: none;
     min-height: 20rem;
     max-height: min(75vh, 32rem);
-    aspect-ratio: auto;
     margin: 0 0 1.75rem;
   }
 }
@@ -714,32 +706,14 @@ $pf-exp-img: url("../../../../public/images/product-flow/dental-img.png");
 .pf-experience__grid {
   position: relative;
   z-index: 1;
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 2rem;
   overflow: visible;
-
-  @media (min-width: 768px) {
-    // Spacer width = distance from inner content start to viewport cap line (so copy begins ≥ cap).
-    grid-template-columns:
-      max(0px, calc(var(--pf-exp-media-viewport-cap) - var(--pf-exp-bleed-left)))
-      minmax(0, 1fr);
-    column-gap: clamp(1.75rem, 4vw, 2.75rem);
-    row-gap: 2rem;
-    align-items: start;
-  }
-
-  @media (min-width: 1024px) {
-    column-gap: clamp(2rem, 4.5vw, 3rem);
-  }
 }
 
 .pf-experience__spacer {
   display: none;
-
-  @media (min-width: 768px) {
-    display: block;
-    min-height: 1px;
-  }
 }
 
 .pf-experience__copy {
