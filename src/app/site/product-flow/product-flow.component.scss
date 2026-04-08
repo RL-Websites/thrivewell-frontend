@@ -545,13 +545,12 @@ $pf-exp-img: url("../../../../public/images/product-flow/dental-img.png");
 .pf-features__aside-overlay {
   position: absolute;
   inset: 0;
-  // 503-style gradient: strong teal at bottom for title + contact; photo visible at top
   background: linear-gradient(
     to top,
-    rgba(0, 130, 150, 0.92) 0%,
-    rgba(14, 154, 173, 0.55) 38%,
-    rgba(14, 154, 173, 0.12) 62%,
-    transparent 78%
+    rgba(230, 180, 0, 0.88) 0%,
+    rgba(255, 220, 60, 0.60) 35%,
+    rgba(255, 251, 221, 0.30) 62%,
+    transparent 80%
   );
 }
 
