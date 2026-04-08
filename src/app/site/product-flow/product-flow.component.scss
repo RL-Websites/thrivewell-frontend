@@ -41,6 +41,7 @@ $pf-exp-img: url("../../../../public/images/product-flow/dental-img.png");
   isolation: isolate;
   min-height: 420px;
   overflow: hidden;
+  background-color: #fff;
 
   @media (min-width: 768px) {
     min-height: 480px;
@@ -48,47 +49,15 @@ $pf-exp-img: url("../../../../public/images/product-flow/dental-img.png");
 }
 
 .pf-hero__bg {
-  position: absolute;
-  inset: 0;
-  background-image: $pf-hero-img;
-  background-size: cover;
-  background-position: center;
+  display: none;
 }
 
 .pf-hero__overlay {
-  position: absolute;
-  inset: 0;
-  // Tint closest to 503 hero (readability over tech/health photo)
-  background: linear-gradient(
-    180deg,
-    rgba(5, 22, 40, 0.82) 0%,
-    rgba(10, 90, 105, 0.45) 45%,
-    rgba(5, 16, 34, 0.9) 100%
-  );
+  display: none;
 }
 
 .pf-hero__deco {
-  position: absolute;
-  z-index: 2;
-  pointer-events: none;
-  line-height: 0;
-
-  img {
-    display: block;
-    max-width: min(180px, 28vw);
-    height: auto;
-    opacity: 0.9;
-  }
-
-  &--tl {
-    top: 0.75rem;
-    left: 0.5rem;
-  }
-
-  &--br {
-    right: 0.5rem;
-    bottom: 0.75rem;
-  }
+  display: none;
 }
 
 .pf-hero__inner {
@@ -113,8 +82,7 @@ $pf-exp-img: url("../../../../public/images/product-flow/dental-img.png");
   line-height: 1.2;
   text-transform: uppercase;
   letter-spacing: 0.02em;
-  color: #fff;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  color: #111827;
 
   @media (min-width: 768px) {
     font-size: 2.25rem;
@@ -133,7 +101,7 @@ $pf-exp-img: url("../../../../public/images/product-flow/dental-img.png");
   font-size: 1rem;
   font-weight: 500;
   line-height: 1.5;
-  color: rgba(255, 255, 255, 0.95);
+  color: #444;
 
   @media (min-width: 768px) {
     font-size: 1.125rem;
@@ -144,8 +112,8 @@ $pf-exp-img: url("../../../../public/images/product-flow/dental-img.png");
 .pf-contact-demo {
   position: relative;
   z-index: 3;
-  margin-top: -6rem;
-  padding: 0 clamp(0.75rem, 4vw, 1.5rem) 2.5rem;
+  margin-top: 0;
+  padding: 4rem clamp(0.75rem, 4vw, 1.5rem) 2.5rem;
   overflow: visible;
 
   @media (min-width: 576px) {
@@ -153,7 +121,8 @@ $pf-exp-img: url("../../../../public/images/product-flow/dental-img.png");
   }
 
   @media (min-width: 768px) {
-    margin-top: -7rem;
+    margin-top: 0;
+    padding-top: 5rem;
     padding-bottom: 4rem;
   }
 }
@@ -446,27 +415,11 @@ $pf-exp-img: url("../../../../public/images/product-flow/dental-img.png");
   }
 
   &:hover {
-    background: var(--pf-card-dark);
+    background: rgb(255, 239, 163);
     border-color: #ffc625;
-
-    .pf-card__icon {
-      color: var(--pf-accent-line);
-    }
-
-    .pf-card__icon img {
-      filter: brightness(0) invert(1);
-    }
-
-    .pf-card__title {
-      color: #fff;
-    }
 
     .pf-card__bar {
       background: #ffc625;
-    }
-
-    .pf-card__body {
-      color: rgba(255, 255, 255, 0.9);
     }
   }
 }
@@ -509,7 +462,7 @@ $pf-exp-img: url("../../../../public/images/product-flow/dental-img.png");
   height: 0.35rem;
   max-width: 100%;
   border-radius: 999px;
-  background: $pf-teal;
+  background: $pf-primary; // matches .infographic-card i bg-primary (#275dad)
   transition: background-color 0.5s ease;
 }
 

@@ -44,17 +44,9 @@
 <main class="product-flow-page">
   <!-- Hero (reference: Hero.tsx + hero-overlay) -->
   <section
-    class="pf-hero"
+    class="pf-hero solution-sec-one section position-relative overflow-hidden z-1"
     aria-label="Flow product hero"
   >
-    <div class="pf-hero__bg" role="presentation"></div>
-    <div class="pf-hero__overlay" aria-hidden="true"></div>
-    <div class="pf-hero__deco pf-hero__deco--tl" aria-hidden="true">
-      <img src="images/product-flow/top-left.png" alt="" width="180" height="180" />
-    </div>
-    <div class="pf-hero__deco pf-hero__deco--br" aria-hidden="true">
-      <img src="images/product-flow/bottom-right.png" alt="" width="180" height="180" />
-    </div>
     <div class="pf-hero__inner">
       <h1
         class="pf-hero__title"
@@ -67,6 +59,21 @@
         Comprehensive, white-labeled virtual care — scalable integrations,
         compliant workflows, and a platform built around your patients.
       </p>
+    </div>
+
+    <div class="sec-one-frame" aria-hidden="true">
+      <div class="left-frame position-absolute z-n1">
+        <img
+          src="images/solutions/frame/sec-one/left-frame.svg"
+          alt=""
+        >
+      </div>
+      <div class="right-frame position-absolute z-n1">
+        <img
+          src="images/solutions/frame/sec-one/right-frame.svg"
+          alt=""
+        >
+      </div>
     </div>
   </section>
 
