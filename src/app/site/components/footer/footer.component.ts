@@ -10,6 +10,7 @@ import AOS from 'aos';
   styles: ``,
 })
 export class FooterComponent {
+  currentYear: number = new Date().getFullYear();
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
   ngAfterViewInit(): void {
     if (isPlatformBrowser(this.platformId)) {
