@@ -5,7 +5,11 @@
   margin-top: -150px;
   padding-top: 190px;
   padding-bottom: 30px;
-  background-color: #ffdc32;
+  background-image: url("/images/home/homepage-bg.svg");
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  // background-color: #ffdc32;
 
   .container {
     position: relative;
@@ -28,7 +32,7 @@
       &.one {
         animation: rotate 30000ms infinite linear;
         opacity: 100%;
-        background: #ffea86;
+        background: #FFFEF566;;
         position: absolute;
         z-index: 0;
         width: 600px;
@@ -40,7 +44,7 @@
       &.two {
         animation: rotate 30000ms infinite linear;
         opacity: 100%;
-        background: #ffea86;
+        background: #FFFEF566;;
         position: absolute;
         z-index: 0;
         width: 550px;
@@ -52,7 +56,7 @@
       &.three {
         animation: rotate 32000ms infinite linear;
         opacity: 100%;
-        background: #ffea86;
+        background: #FFFEF566;;
         position: absolute;
         z-index: 0;
         width: 530px;
@@ -64,7 +68,7 @@
       &.four {
         animation: rotate 35000ms infinite linear;
         opacity: 100%;
-        background: #ffea86;
+        background: #FFFEF566;;
         position: absolute;
         z-index: 0;
         width: 560px;

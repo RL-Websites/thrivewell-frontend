@@ -10,11 +10,11 @@
     .px-30,
     .text-nowrap,
     .rounded-pill;
-  border: 3px solid $secondary;
+  // border: 3px solid $secondary;
   transition: 0.3s;
   &:hover {
     @extend .btn-secondary, .text-dark;
-    border: 3px solid $primary;
+    // border: 3px solid $primary;
     background-color: $secondary;
   }
 }
