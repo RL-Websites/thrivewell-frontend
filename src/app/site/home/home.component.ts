@@ -17,6 +17,7 @@ import { Autoplay, Navigation } from 'swiper/modules';
 import { CtaComponent } from '../components/cta/cta.component';
 import { FooterComponent } from '../components/footer/footer.component';
 import { HeaderComponent } from '../components/header/header.component';
+import { OurServiceComponent } from '../components/our-service/our-service.component';
 
 Swiper.use([Autoplay, Navigation]);
 
