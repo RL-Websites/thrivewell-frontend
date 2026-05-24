@@ -18,6 +18,7 @@ import { CtaComponent } from '../components/cta/cta.component';
 import { FooterComponent } from '../components/footer/footer.component';
 import { HeaderComponent } from '../components/header/header.component';
 import { OurServiceComponent } from '../components/our-service/our-service.component';
+import { OurClientsComponent } from '../components/our-clients/our-clients.component';
 
 Swiper.use([Autoplay, Navigation]);
 
@@ -33,6 +34,7 @@ Swiper.use([Autoplay, Navigation]);
     CommonModule,
     CtaComponent,
     OurServiceComponent,
+    OurClientsComponent,
   ],
 })
 export class HomeComponent implements OnInit, AfterViewInit {
