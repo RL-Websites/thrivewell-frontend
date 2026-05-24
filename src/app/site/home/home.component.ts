@@ -32,6 +32,7 @@ Swiper.use([Autoplay, Navigation]);
     RouterLink,
     CommonModule,
     CtaComponent,
+    OurServiceComponent,
   ],
 })
 export class HomeComponent implements OnInit, AfterViewInit {
@@ -72,7 +73,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    if (isPlatformBrowser(this.platformId)) {
+    if (isPlatformBrowser(this.platformId) && typeof document !== 'undefined') {
       new Swiper('.work-slider', {
         spaceBetween: 60,
         loop: true,

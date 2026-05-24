@@ -1,1 +1,83 @@
-<p>our-service works!</p>
+<section class="our-service section">
+  <div class="container">
+    <div class="our-service__panel">
+      <div class="our-service__content">
+        <div class="row">
+          <div class="col-12">
+            <h2 class="our-service__title">What ThriveWell RX Does</h2>
+            <p class="our-service__intro">
+              ThriveWell RX helps businesses launch and operate modern telehealth
+              programs without building the entire medical, technical, and
+              operational system from scratch. We provide the foundation needed
+              to support:
+            </p>
+          </div>
+        </div>
+
+        <ul class="our-service__benefits row gy-3">
+          <li
+            class="our-service__benefit col-lg-4 col-md-6"
+            *ngFor="let benefit of benefits"
+          >
+            <i class="icon-tick" aria-hidden="true"></i>
+            <span>{{ benefit }}</span>
+          </li>
+        </ul>
+
+        <p class="our-service__summary">
+          Whether you are launching a new healthcare brand or expanding an
+          existing wellness business, ThriveWell RX gives you the platform and
+          backend infrastructure to move faster.
+        </p>
+
+        <div class="our-service__divider"></div>
+
+        <div class="our-service__cards row g-4">
+          <div
+            class="our-service__card-col col-lg-4 col-sm-6"
+            *ngFor="let service of services"
+          >
+            <article class="our-service__card" tabindex="0">
+              <div class="our-service__card-inner">
+                <div class="our-service__card-face our-service__card-face--front">
+                  <img
+                    class="our-service__card-img"
+                    [src]="service.image"
+                    [alt]="service.title"
+                  />
+                  <div class="our-service__card-overlay">
+                    <h3 class="our-service__card-title">{{ service.title }}</h3>
+                  </div>
+                </div>
+
+                <div class="our-service__card-face our-service__card-face--back">
+                  <p class="our-service__card-copy">
+                    Create a frictionless patient experience with our ecommerce
+                    solutions for telehealth.
+                  </p>
+                  <p class="our-service__card-label">We offer:</p>
+                  <ul class="our-service__card-list">
+                    <li
+                      class="our-service__card-item"
+                      *ngFor="let detail of cardDetails"
+                    >
+                      <i class="icon-tick" aria-hidden="true"></i>
+                      <span>{{ detail }}</span>
+                    </li>
+                  </ul>
+                  <a
+                    class="our-service__card-link"
+                    [routerLink]="['/simplify-your-e-commerce-experience']"
+                  >
+                    Learn More
+                    <span aria-hidden="true">-></span>
+                  </a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
