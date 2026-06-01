@@ -1,0 +1,123 @@
+import { AfterViewInit, Component, ElementRef, OnDestroy, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+@Component({
+  selector: 'app-launch-timeline',
+  standalone: true,
+  imports: [CommonModule],
+  templateUrl: './launch-timeline.component.html',
+})
+export class LaunchTimelineComponent implements AfterViewInit, OnDestroy {
+  @ViewChild('timelineWrapper', { static: true }) timelineWrapper!: ElementRef<HTMLElement>;
+  @ViewChildren('timelineItem') timelineItems!: QueryList<ElementRef<HTMLElement>>;
+
+  activeIndex = 0;
+  progressHeight = 0;
+
+  timeline = [
+    {
+      title: 'Discovery & Onboarding',
+      description:
+        'We begin by understanding your business model, treatment categories, pricing structure, and branding goals. Your account setup and onboarding process starts immediately.',
+      steps: [
+        'Business discovery call',
+        'Treatment category planning',
+        'Brand onboarding',
+        'Account setup initiation',
+        'Compliance and workflow discussion'
+      ],
+      day: 'Day 1–3',
+      side: 'left'
+    },
+    {
+      title: 'Platform & Brand Configuration',
+      description:
+        'Your telehealth platform is configured with your branding, workflows, treatment programs, pricing, intake forms, and operational settings.',
+      steps: [
+        'White-label branding setup',
+        'Intake and onboarding forms',
+        'Product and package configuration',
+        'Payment workflow setup',
+        'Dashboard and portal configuration'
+      ],
+      day: 'Day 4–7',
+      side: 'right'
+    },
+    {
+      title: 'Provider, Pharmacy & Workflow Integration',
+      description:
+        'We connect your workflows with providers, pharmacy fulfillment partners, and operational support systems to ensure everything is functioning smoothly.',
+      steps: [
+        'Provider workflow setup',
+        'Pharmacy coordination',
+        'Prescription routing configuration',
+        'Support workflow setup',
+        'Internal testing and QA'
+      ],
+      day: 'Day 8–12',
+      side: 'left'
+    },
+    {
+      title: 'Testing, Training & Launch',
+      description:
+        'Final testing is completed, your team receives operational guidance, and your platform is prepared for launch. Once approved, your healthcare brand goes live and starts accepting patients.',
+      steps: [
+        'Final quality assurance',
+        'Workflow testing',
+        'Team guidance and training',
+        'Go-live preparation',
+        'Patient onboarding readiness'
+      ],
+      day: 'Day 13–15+',
+      side: 'right'
+    }
+  ];
+
+  private scrollHandler = this.updateScrollState.bind(this);
+
+  ngAfterViewInit(): void {
+    this.updateScrollState();
+    if (typeof window !== 'undefined') {
+      window.addEventListener('scroll', this.scrollHandler, { passive: true });
+      window.addEventListener('resize', this.scrollHandler);
+    }
+  }
+
+  ngOnDestroy(): void {
+    if (typeof window !== 'undefined') {
+      window.removeEventListener('scroll', this.scrollHandler);
+      window.removeEventListener('resize', this.scrollHandler);
+    }
+  }
+
+  updateScrollState(): void {
+    if (!this.timelineWrapper) {
+      return;
+    }
+
+    const timelineRect = this.timelineWrapper.nativeElement.getBoundingClientRect();
+    const viewportHeight = window.innerHeight;
+    const progressStart = viewportHeight * 0.2;
+    const progressEnd = viewportHeight * 0.8;
+    const rawProgress = (viewportHeight - timelineRect.top - progressStart) / (timelineRect.height + progressEnd - progressStart);
+    this.progressHeight = Math.min(100, Math.max(0, rawProgress * 100));
+    this.activeIndex = this.getActiveItemIndex();
+  }
+
+  private getActiveItemIndex(): number {
+    if (!this.timelineItems?.length) {
+      return 0;
+    }
+
+    const threshold = window.innerHeight * 0.75;
+    let activeIndex = 0;
+    this.timelineItems.forEach((item, index) => {
+      const itemRect = item.nativeElement.getBoundingClientRect();
+      if (itemRect.top < threshold) {
+        activeIndex = index;
+      }
+    });
+
+    return Math.min(activeIndex, this.timeline.length - 1);
+  }
+}

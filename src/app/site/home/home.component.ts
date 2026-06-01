@@ -21,6 +21,7 @@ import { OurServiceComponent } from '../components/our-service/our-service.compo
 import { OurClientsComponent } from '../components/our-clients/our-clients.component';
 import { LegitscriptHomeComponent } from '../components/legitscript-home/legitscript-home.component';
 import { LegitScriptComponent } from '../legit-script/legit-script.component';
+import { LaunchTimelineComponent } from '../components/launch-timeline/launch-timeline.component';
 
 Swiper.use([Autoplay, Navigation]);
 
@@ -37,6 +38,7 @@ Swiper.use([Autoplay, Navigation]);
     CtaComponent,
     OurServiceComponent,
     OurClientsComponent,
+    LaunchTimelineComponent,
     LegitscriptHomeComponent,
     LegitScriptComponent,
   ],
