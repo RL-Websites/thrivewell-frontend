@@ -19,6 +19,8 @@ import { FooterComponent } from '../components/footer/footer.component';
 import { HeaderComponent } from '../components/header/header.component';
 import { OurServiceComponent } from '../components/our-service/our-service.component';
 import { OurClientsComponent } from '../components/our-clients/our-clients.component';
+import { LegitscriptHomeComponent } from '../components/legitscript-home/legitscript-home.component';
+import { LegitScriptComponent } from '../legit-script/legit-script.component';
 
 Swiper.use([Autoplay, Navigation]);
 
@@ -35,6 +37,8 @@ Swiper.use([Autoplay, Navigation]);
     CtaComponent,
     OurServiceComponent,
     OurClientsComponent,
+    LegitscriptHomeComponent,
+    LegitScriptComponent,
   ],
 })
 export class HomeComponent implements OnInit, AfterViewInit {
