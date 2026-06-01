@@ -21,6 +21,7 @@ import { OurServiceComponent } from '../components/our-service/our-service.compo
 import { OurClientsComponent } from '../components/our-clients/our-clients.component';
 import { LegitscriptHomeComponent } from '../components/legitscript-home/legitscript-home.component';
 import { LegitScriptComponent } from '../legit-script/legit-script.component';
+import { SecurityAndComplianceComponent } from '../components/security-and-compilance/security-and-compilance.component';
 
 Swiper.use([Autoplay, Navigation]);
 
@@ -39,6 +40,7 @@ Swiper.use([Autoplay, Navigation]);
     OurClientsComponent,
     LegitscriptHomeComponent,
     LegitScriptComponent,
+    SecurityAndComplianceComponent,
   ],
 })
 export class HomeComponent implements OnInit, AfterViewInit {

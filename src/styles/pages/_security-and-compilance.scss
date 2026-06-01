@@ -1,0 +1,196 @@
+.security-compliance {
+  position: relative;
+  overflow: hidden;
+  padding: 100px 128px;
+  color: #ffffff;
+  background-image: url("/images/home/ValuePropositionSection.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &__content {
+    position: relative;
+    z-index: 1;
+    max-width: 1064px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  &__pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 25px;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1;
+    text-transform: uppercase;
+    border: 1px solid #ffffff4d;
+    border-radius: 999px;
+    background: #ffffff33;
+    box-shadow: 0 4px 6px -4px #0000001a,
+      0 10px 15px -3px #0000001a;
+  }
+
+  &__pill-icon {
+    font-size: 16px;
+  }
+
+  &__title {
+    margin: 38px 0 0;
+    color: #ffffff;
+    font-size: 52px;
+    font-weight: 700;
+    line-height: 1.18;
+  }
+
+  &__intro {
+    max-width: 900px;
+    margin: 114px auto 0;
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.45;
+  }
+
+  &__divider {
+    width: 148px;
+    height: 2px;
+    margin: 34px auto 36px;
+    background: #ffffff66;
+    border-radius: 999px;
+  }
+
+  &__subtitle {
+    margin: 0 0 28px;
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.25;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 22px;
+    text-align: left;
+  }
+
+  &__card {
+    min-height: 178px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 25px 22px 22px;
+    border: 1px solid #ffffff33;
+    border-radius: 16px;
+    background: #ffffff1a;
+    backdrop-filter: blur(8px);
+  }
+
+  &__card-icon {
+    width: 48px;
+    height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 22px;
+    border-radius: 12px;
+    background: #ffffff33;
+  }
+
+  &__card-title {
+    max-width: 190px;
+    margin: 34px 0 0;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.12;
+  }
+
+  &__footer {
+    max-width: 730px;
+    margin: 52px auto 0;
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.45;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .security-compliance {
+    padding: 90px 64px;
+
+    &__title {
+      font-size: 44px;
+    }
+
+    &__intro {
+      margin-top: 48px;
+      font-size: 22px;
+    }
+
+    &__card {
+      min-height: 164px;
+    }
+
+    &__card-title {
+      font-size: 18px;
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .security-compliance {
+    padding: 80px 32px;
+
+    &__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .security-compliance {
+    padding: 64px 18px;
+
+    &__pill {
+      padding: 9px 18px;
+      font-size: 12px;
+    }
+
+    &__title {
+      margin-top: 24px;
+      font-size: 34px;
+    }
+
+    &__intro {
+      margin-top: 34px;
+      font-size: 18px;
+    }
+
+    &__subtitle,
+    &__footer {
+      font-size: 22px;
+    }
+
+    &__grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    &__card {
+      min-height: 144px;
+      border-radius: 12px;
+    }
+
+    &__card-title {
+      max-width: none;
+      font-size: 18px;
+    }
+  }
+}
