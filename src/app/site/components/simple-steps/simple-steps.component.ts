@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
+import { FlowComponent } from '../flow/flow.component';
 
 @Component({
   selector: 'app-simple-steps',
   standalone: true,
-  imports: [],
+  imports: [FlowComponent],
   templateUrl: './simple-steps.component.html',
-  styles: ``
+  styles: ``,
 })
-export class SimpleStepsComponent {
-
-}
+export class SimpleStepsComponent {}
