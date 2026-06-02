@@ -1,0 +1,985 @@
+// Host: do not clip sections with absolute layers (Experience).
+:host {
+  display: block;
+  overflow: visible;
+}
+
+// Layout + palette aligned with https://503success.com/ (measured: panel / strip / inputs / CTA).
+// Panel teal rgb(14,154,173) · Inputs rgb(10,119,134) · Green accent rgb(102,186,70) — same green in
+// "Contact us today!" and Submit button; panel consistent with strip (.pf-strip__cell--a).
+$pf-navy: #1e3a5f;
+$pf-primary: #275dad;
+$pf-teal: #0e9aad;
+$pf-teal-mid: #0c8f9f; // form panel gradient (between panel and input)
+$pf-teal-deep: #0a7786;
+$pf-green: #66ba46;
+$pf-green-hover: #5a9f3d;
+$pf-muted-bg: #e6f0f7; // “Experience” block / light blue-gray
+// Matches site footer `bg-gray-light` — simulated band under .pf-strip so the card can straddle the “frame”.
+$pf-footer-frame-bg: #fafafa;
+$pf-text: #333333;
+$pf-text-muted: #666666;
+$pf-footer-navy: #051022; // dark section measured ≈ rgb(5, 16, 34)
+// Resolved relative to this file so the Angular CSS bundler can copy assets (public/ is copied to output root at runtime as /images/...).
+$pf-hero-img: url("../../../../public/images/product-flow/hero-shutterstock.png");
+$pf-aside-img: url("../../../../public/images/product-flow/add.png");
+$pf-exp-img: url("../../../../public/images/product-flow/dental-img.png");
+
+.product-flow-page {
+  --pf-card-dark: #0a1628;
+  --pf-accent-line: #6fd6a8; // hover accent readable on dark card (503 green family)
+  min-width: 0;
+  margin-bottom: 0;
+  // Experience: absolute photo must be able to overflow top/bottom without clipping (avoid ancestor clip)
+  overflow-x: visible;
+  overflow-y: visible;
+}
+
+/* ===== Hero ===== */
+.pf-hero {
+  position: relative;
+  isolation: isolate;
+  min-height: 420px;
+  overflow: hidden;
+
+  @media (min-width: 768px) {
+    min-height: 480px;
+  }
+}
+
+.pf-hero__bg {
+  position: absolute;
+  inset: 0;
+  background-image: $pf-hero-img;
+  background-size: cover;
+  background-position: center;
+}
+
+.pf-hero__overlay {
+  position: absolute;
+  inset: 0;
+  // Tint closest to 503 hero (readability over tech/health photo)
+  background: linear-gradient(
+    180deg,
+    rgba(5, 22, 40, 0.82) 0%,
+    rgba(10, 90, 105, 0.45) 45%,
+    rgba(5, 16, 34, 0.9) 100%
+  );
+}
+
+.pf-hero__deco {
+  position: absolute;
+  z-index: 2;
+  pointer-events: none;
+  line-height: 0;
+
+  img {
+    display: block;
+    max-width: min(180px, 28vw);
+    height: auto;
+    opacity: 0.9;
+  }
+
+  &--tl {
+    top: 0.75rem;
+    left: 0.5rem;
+  }
+
+  &--br {
+    right: 0.5rem;
+    bottom: 0.75rem;
+  }
+}
+
+.pf-hero__inner {
+  position: relative;
+  z-index: 2;
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 4rem 1rem 7rem;
+  text-align: center;
+
+  @media (min-width: 768px) {
+    padding-top: 5rem;
+    padding-bottom: 9rem;
+    max-width: 52rem;
+  }
+}
+
+.pf-hero__title {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+
+  @media (min-width: 768px) {
+    font-size: 2.25rem;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 2.65rem;
+  }
+}
+
+.pf-hero__subtitle {
+  margin: 1rem 0 0;
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.95);
+
+  @media (min-width: 768px) {
+    font-size: 1.125rem;
+  }
+}
+
+/* ===== Contact demo overlap ===== */
+.pf-contact-demo {
+  position: relative;
+  z-index: 3;
+  margin-top: -6rem;
+  padding: 0 clamp(0.75rem, 4vw, 1.5rem) 2.5rem;
+  overflow: visible;
+
+  @media (min-width: 576px) {
+    padding-bottom: 3rem;
+  }
+
+  @media (min-width: 768px) {
+    margin-top: -7rem;
+    padding-bottom: 4rem;
+  }
+}
+
+.pf-contact-demo__wrap {
+  position: relative;
+  z-index: 1;
+  max-width: 72rem;
+  margin: 0 auto;
+  overflow: visible;
+}
+
+.pf-contact-demo__grid {
+  display: grid;
+  overflow: visible;
+  border-radius: 12px;
+  box-shadow: 0px 8px 26.1px 0px rgba(174, 174, 174, 0.3);
+
+  @media (min-width: 768px) {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+    align-items: stretch;
+  }
+}
+
+.pf-contact-demo__col {
+  position: relative;
+  z-index: 0;
+  min-width: 0;
+  padding: 2.25rem 1.25rem;
+
+  @media (min-width: 576px) {
+    padding: 2.5rem 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    padding: 3rem 2rem;
+  }
+}
+
+.pf-contact-demo__col--light {
+  background: #fff;
+  border-radius: 12px 12px 0 0;
+
+  @media (min-width: 768px) {
+    border-radius: 12px 0 0 12px;
+    padding-right: clamp(3.25rem, 4.5vw, 4.5rem);
+  }
+}
+
+.pf-contact-demo__eyebrow {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.pf-contact-demo__heading {
+  margin: 0.35rem 0 0;
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: $pf-green;
+
+  @media (min-width: 768px) {
+    font-size: 1.5rem;
+  }
+}
+
+.pf-contact-demo__dl {
+  margin: 1.75rem 0 0;
+}
+
+.pf-contact-demo__dl-row {
+  padding: 1rem 0;
+  border-bottom: 1px dotted #c5ccd4;
+
+  &:first-child {
+    padding-top: 0;
+  }
+
+  &:last-child {
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+}
+
+.pf-contact-demo__dl dt {
+  margin: 0;
+  font-weight: 600;
+  color: #374151;
+  font-size: 0.9375rem;
+
+  &::after {
+    content: ":";
+  }
+}
+
+.pf-contact-demo__dl dd {
+  margin: 0.35rem 0 0;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.pf-contact-demo__dl a {
+  color: #111827;
+  font-weight: 500;
+  text-decoration: none;
+
+  &:hover {
+    color: $pf-teal;
+    text-decoration: underline;
+  }
+}
+
+// Right column — white background with standard form styles (matching book-now / legit-script)
+.pf-contact-demo__col--accent {
+  background: #fff;
+  border-radius: 0 0 12px 12px;
+
+  @media (min-width: 768px) {
+    border-radius: 0 12px 12px 0;
+    padding-left: clamp(3.25rem, 4.5vw, 4.5rem);
+  }
+}
+
+.pf-contact-demo__form-title {
+  margin: 0;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #333;
+
+  @media (min-width: 768px) {
+    font-size: 1.875rem;
+  }
+}
+
+.pf-contact-demo__form {
+  margin-top: 2rem;
+}
+
+.pf-contact-demo__fields {
+  display: grid;
+  gap: 1rem;
+
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.pf-contact-demo__full {
+  display: block;
+  margin-top: 1rem;
+}
+
+.pf-contact-demo__logo-badge {
+  --pf-badge-size: 88px;
+  --pf-badge-seam: 40%;
+
+  position: absolute;
+  left: var(--pf-badge-seam);
+  top: 50%;
+  z-index: 5;
+  display: none;
+  box-sizing: border-box;
+  width: var(--pf-badge-size);
+  height: var(--pf-badge-size);
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 3px solid $pf-teal;
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  flex-shrink: 0;
+
+  img {
+    display: block;
+    max-width: min(72px, 78%);
+    width: auto;
+    height: auto;
+    object-fit: contain;
+  }
+
+  @media (min-width: 768px) {
+    display: flex;
+    --pf-badge-size: 96px;
+  }
+
+  @media (min-width: 992px) {
+    --pf-badge-size: 100px;
+  }
+}
+
+/* ===== Features ===== */
+.pf-features {
+  position: relative;
+  z-index: 0;
+  padding: 3.5rem 0;
+  background-color: #fff;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("../../../../public/images/product-flow/dental-bg.png") center /
+      cover no-repeat;
+    opacity: 0.07;
+    pointer-events: none;
+  }
+
+  @media (min-width: 768px) {
+    padding: 5rem 0;
+  }
+}
+
+.pf-features__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 clamp(0.75rem, 4vw, 2rem);
+}
+
+.pf-features__intro {
+  display: grid;
+  gap: 2rem;
+
+  @media (min-width: 1024px) {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+}
+
+.pf-features__title {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: $pf-navy;
+  text-wrap: balance;
+
+  @media (min-width: 768px) {
+    font-size: 1.875rem;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 2.25rem;
+  }
+}
+
+.pf-features__lead {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: #444;
+
+  @media (min-width: 768px) {
+    font-size: 1.125rem;
+  }
+}
+
+.pf-features__split {
+  margin-top: 3.5rem;
+  display: grid;
+  gap: 2.5rem;
+
+  @media (min-width: 1024px) {
+    grid-template-columns: 1fr min(300px, 100%);
+    gap: 2rem;
+    align-items: start;
+  }
+}
+
+.pf-features__cards {
+  display: grid;
+  gap: 1.5rem;
+
+  @media (min-width: 640px) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.pf-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1.5rem;
+  min-height: 200px;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  border: 1px solid #decc42;
+  background: #fff;
+  box-shadow: 0 15px 50px -12px rgba(0, 0, 0, 0.12);
+  transition: background-color 0.5s ease, border-color 0.5s ease;
+
+  @media (min-width: 640px) {
+    min-height: 220px;
+  }
+
+  &:hover {
+    background: var(--pf-card-dark);
+    border-color: #ffc625;
+
+    .pf-card__icon {
+      color: var(--pf-accent-line);
+    }
+
+    .pf-card__icon img {
+      filter: brightness(0) invert(1);
+    }
+
+    .pf-card__title {
+      color: #fff;
+    }
+
+    .pf-card__bar {
+      background: #ffc625;
+    }
+
+    .pf-card__body {
+      color: rgba(255, 255, 255, 0.9);
+    }
+  }
+}
+
+.pf-card__icon {
+  flex-shrink: 0;
+  width: 3.5rem;
+  height: 3.5rem;
+  color: #111827;
+  transition: color 0.5s ease;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: filter 0.5s ease;
+  }
+}
+
+.pf-card__title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0a1628;
+  transition: color 0.5s ease;
+
+  @media (min-width: 768px) {
+    font-size: 1.125rem;
+  }
+}
+
+.pf-card__bar {
+  margin-top: 0.5rem;
+  width: 4rem;
+  height: 0.35rem;
+  max-width: 100%;
+  border-radius: 999px;
+  background: $pf-teal;
+  transition: background-color 0.5s ease;
+}
+
+.pf-card__body {
+  margin: 0.75rem 0 0;
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: $pf-text-muted;
+  transition: color 0.5s ease;
+}
+
+.pf-features__aside {
+  position: relative;
+  min-height: 420px;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0, 33, 71, 0.12);
+
+  @media (min-width: 1024px) {
+    min-height: 0;
+    align-self: stretch;
+  }
+}
+
+.pf-features__aside-img {
+  position: absolute;
+  inset: 0;
+  background-image: $pf-aside-img;
+  background-size: cover;
+  background-position: center 28%;
+}
+
+.pf-features__aside-overlay {
+  position: absolute;
+  inset: 0;
+  // 503-style gradient: strong teal at bottom for title + contact; photo visible at top
+  background: linear-gradient(
+    to top,
+    rgba(0, 130, 150, 0.92) 0%,
+    rgba(14, 154, 173, 0.55) 38%,
+    rgba(14, 154, 173, 0.12) 62%,
+    transparent 78%
+  );
+}
+
+.pf-features__aside-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 1rem 1rem 1.75rem;
+  color: #fff;
+
+  @media (min-width: 768px) {
+    padding: 1.25rem 1.25rem 2rem;
+  }
+}
+
+.pf-features__aside-copy {
+  width: 100%;
+  max-width: 17.5rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.pf-features__aside-title {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+
+  @media (min-width: 768px) {
+    font-size: 1.35rem;
+  }
+}
+
+/* ===== Experience: absolute media on section + viewport cap ===== */
+// __media is a direct child of the section (position: relative). Light negative top for a small upward bleed.
+// Copy sits in __inner above the photo (z-index).
+.pf-experience {
+  position: relative;
+  z-index: 3;
+  padding: 3.5rem 0 6.25rem;
+  background: $pf-muted-bg;
+  overflow: visible;
+  margin-bottom: -1.75rem;
+
+  @media (max-width: 767px) {
+    padding: 2.75rem 0 5.25rem;
+    margin-bottom: -1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    padding-top: 5.25rem;
+    padding-bottom: 7.75rem;
+    margin-bottom: -3rem;
+  }
+
+  @media (min-width: 1024px) {
+    padding-top: 5.75rem;
+    padding-bottom: 9.25rem;
+    margin-bottom: -3.75rem;
+  }
+}
+.pf-experience__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 clamp(0.75rem, 4vw, 2rem);
+  overflow: visible;
+  min-width: 0;
+
+  @media (min-width: 768px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2.5rem;
+    align-items: center;
+  }
+
+  @media (min-width: 1024px) {
+    column-gap: 3rem;
+  }
+
+  @media (min-width: 1440px) {
+    max-width: 90rem;
+    grid-template-columns: 3fr 2fr;
+    column-gap: 3.5rem;
+  }
+
+  @media (min-width: 1920px) {
+    max-width: 100rem;
+    column-gap: 4rem;
+  }
+}
+
+.pf-experience__media {
+  pointer-events: none;
+  overflow: visible;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background-color: transparent;
+  background-image: $pf-exp-img;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+
+  @media (min-width: 768px) {
+    width: 100%;
+    min-height: 24rem;
+    margin-top: -22rem;
+  }
+
+  @media (min-width: 1024px) {
+    min-height: 33.5rem;
+    margin-top: -17rem;
+  }
+
+  @media (min-width: 1440px) {
+    min-height: 36rem;
+    margin-top: -15rem;
+  }
+
+  @media (min-width: 1920px) {
+    min-height: 42rem;
+    margin-top: -13rem;
+  }
+
+  @media (max-width: 767px) {
+    width: 100%;
+    max-width: none;
+    min-height: 20rem;
+    max-height: min(75vh, 32rem);
+    margin: 0 0 1.75rem;
+  }
+}
+
+.pf-experience__grid {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  overflow: visible;
+}
+
+.pf-experience__spacer {
+  display: none;
+}
+
+.pf-experience__copy {
+  position: relative;
+  z-index: 2;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 0.25rem 0 0;
+
+  // Textura sutil esquina superior derecha (referencia tipo hex / malla)
+  &::before {
+    content: "";
+    position: absolute;
+    top: -0.5rem;
+    right: -1rem;
+    width: min(58%, 24rem);
+    height: min(52%, 18rem);
+    pointer-events: none;
+    opacity: 0.45;
+    background-image: radial-gradient(
+      circle at center,
+      rgba(39, 93, 173, 0.22) 1px,
+      transparent 1.5px
+    );
+    background-size: 14px 14px;
+    mask-image: radial-gradient(ellipse at 100% 0%, #000 55%, transparent 72%);
+  }
+
+  @media (min-width: 768px) {
+    padding: 0.5rem 0 0 0.5rem;
+  }
+}
+
+.pf-experience__eyebrow-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: nowrap;
+}
+
+.pf-experience__eyebrow {
+  margin: 0;
+  flex-shrink: 0;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: $pf-primary;
+}
+
+.pf-experience__rule {
+  flex: 1;
+  min-width: 2rem;
+  height: 2px;
+  border-radius: 1px;
+  background: linear-gradient(90deg, $pf-primary 0%, rgba(39, 93, 173, 0.35) 100%);
+}
+
+.pf-experience__title {
+  margin: 1.25rem 0 0;
+  font-size: 1.375rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #111827;
+  text-wrap: balance;
+
+  @media (min-width: 768px) {
+    font-size: 1.75rem;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 2rem;
+    max-width: 26em;
+  }
+}
+
+.pf-experience__text {
+  margin-top: 1.35rem;
+
+  p {
+    margin: 0 0 1.1rem;
+    font-size: 1rem;
+    line-height: 1.7;
+    font-style: italic;
+    color: #3d3d3d;
+
+    @media (min-width: 768px) {
+      font-size: 1.0625rem;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.pf-experience__lead,
+.pf-experience__follow {
+  font-style: italic;
+}
+
+.pf-experience__tags {
+  margin-top: 2.25rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(39, 93, 173, 0.2);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+
+  @media (min-width: 640px) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem 1.5rem;
+    align-items: start;
+  }
+
+  span {
+    margin: 0;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    line-height: 1.35;
+    color: #111827;
+    text-align: left;
+
+    @media (min-width: 768px) {
+      font-size: 1rem;
+    }
+  }
+}
+
+/* ===== Strip flotante (entre Experience claro y banda navy) + footer ===== */
+// Bottom of this section uses $pf-footer-frame-bg (same as footer) so the strip can “sit on” the seam.
+// Do not add margin on this section (outside background = white gap).
+.pf-strip-wrap {
+  --pf-strip-bridge: 4rem; // simulated footer band + translateY(½×); lower = less gap before app-footer
+
+  position: relative;
+  z-index: 4;
+  isolation: isolate;
+  width: 100%;
+  min-width: 0;
+  overflow: visible;
+  padding: 0 clamp(0.75rem, 4vw, 2rem);
+  color: #fff;
+  margin-top: -4rem;
+  margin-bottom: 0;
+  background: linear-gradient(
+    180deg,
+    $pf-muted-bg 0,
+    $pf-muted-bg calc(100% - var(--pf-strip-bridge)),
+    $pf-footer-frame-bg calc(100% - var(--pf-strip-bridge)),
+    $pf-footer-frame-bg 100%
+  );
+  padding-bottom: var(--pf-strip-bridge);
+
+  @media (min-width: 640px) {
+    --pf-strip-bridge: 5rem;
+    margin-top: -5rem;
+  }
+
+  @media (min-width: 1024px) {
+    // ≥ half a row (~6rem) so the lower half of .pf-strip stays inside the gray band with translateY(50%).
+    --pf-strip-bridge: 6.5rem;
+    margin-top: -5.5rem;
+  }
+}
+
+.pf-strip {
+  position: relative;
+  z-index: 2;
+  max-width: 64rem;
+  margin: 1rem auto 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  overflow: hidden;
+  border-radius: 2px;
+  box-shadow:
+    0 4px 6px rgba(0, 0, 0, 0.06),
+    0 18px 46px rgba(0, 0, 0, 0.22),
+    0 2px 0 rgba(255, 255, 255, 0.06) inset;
+  // Stacked layout: shift by ½ bridge (band is shorter than half a tall stack).
+  transform: translateY(calc(var(--pf-strip-bridge) * 0.5));
+
+  @media (min-width: 640px) {
+    margin-top: 1.125rem;
+  }
+
+  @media (min-width: 1024px) {
+    margin-top: 1.25rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    // One row (~192px): seam sits on the bottom edge of the in-flow box — 50% of height centers on that border.
+    transform: translateY(50%);
+  }
+}
+
+:host app-footer {
+  position: relative;
+  z-index: 5;
+}
+
+.pf-strip__cell {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  min-height: 168px;
+  min-width: 0;
+  padding: 2rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.375;
+  text-align: left;
+  color: #fff;
+
+  @media (min-width: 640px) {
+    padding: 2rem 2rem;
+  }
+
+  @media (min-width: 1024px) {
+    min-height: 192px;
+    padding: 2rem 2.5rem;
+    font-size: 1rem;
+  }
+
+  svg {
+    width: 2.25rem;
+    height: 2.25rem;
+    flex-shrink: 0;
+    opacity: 0.95;
+    color: #fff;
+    fill: currentColor;
+  }
+
+  p {
+    color: #fff;
+  }
+
+  a {
+    color: #fff !important;
+    text-decoration: none;
+    text-underline-offset: 2px;
+    transition: text-decoration 0.15s ease;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.pf-strip__cell--a {
+  background: $pf-teal;
+}
+
+.pf-strip__cell--b {
+  background: $pf-green;
+}
+
+.pf-strip__text {
+  min-width: 0;
+  text-align: left;
+}
+
+.pf-strip__book {
+  font-weight: 700;
+  text-transform: capitalize;
+}

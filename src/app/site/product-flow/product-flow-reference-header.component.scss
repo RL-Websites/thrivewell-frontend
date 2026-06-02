@@ -1,0 +1,105 @@
+// Parity with thrivewellrx SiteHeader (border-b, max-w-7xl, logo + demo CTA).
+$ref-text: #333333;
+$ref-navy: #051022; // aligned with bottom band / 503
+$ref-teal: #0e9aad;
+
+.pf-ref-header {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  background: #fff;
+}
+
+.pf-ref-header__inner {
+  display: flex;
+  max-width: 80rem;
+  margin: 0 auto;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+
+  @media (min-width: 640px) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    padding: 1rem 2rem;
+  }
+}
+
+.pf-ref-header__brand {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+.pf-ref-header__logo {
+  display: block;
+  height: auto;
+  max-height: 48px;
+  width: auto;
+}
+
+.pf-ref-header__cta {
+  width: 100%;
+  max-width: 100%;
+  text-align: center;
+
+  @media (min-width: 640px) {
+    width: auto;
+    max-width: none;
+    text-align: right;
+  }
+}
+
+.pf-ref-header__cta-text {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: $ref-text;
+  line-height: 1.4;
+
+  @media (min-width: 640px) {
+    font-size: 0.875rem;
+  }
+
+  @media (min-width: 768px) {
+    font-size: 1rem;
+  }
+}
+
+.pf-ref-header__cta-line {
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  display: block;
+
+  @media (min-width: 640px) {
+    display: inline;
+  }
+}
+
+.pf-ref-header__cta-phone {
+  display: inline-block;
+  margin-top: 0.25rem;
+  color: $ref-navy;
+  text-decoration: underline;
+  text-decoration-color: $ref-teal;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 2px;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: normal;
+
+  @media (min-width: 640px) {
+    margin-top: 0;
+    margin-left: 0.35rem;
+  }
+
+  &:hover {
+    color: $ref-teal;
+  }
+}

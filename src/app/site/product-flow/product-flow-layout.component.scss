@@ -1,0 +1,20 @@
+// Flow-exclusive layout: page container without altering global header/footer layout.
+:host {
+  display: block;
+  overflow: visible;
+}
+
+.product-flow-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-width: 0;
+  overflow: visible;
+}
+
+.product-flow-layout__main {
+  flex: 1 0 auto;
+  width: 100%;
+  min-width: 0;
+  overflow: visible;
+}

@@ -1,0 +1,8 @@
+// Product Flow (/product/flow): Experience photo uses negative top/bottom (absolute) and bleeds past the section.
+// In _base.scss, body uses overflow-x: hidden; per CSS, that pairs with overflow-y becoming a scrollport and can
+// clip vertical overflow. Force both axes visible on html/body while this route is active.
+html.product-flow-page,
+body.product-flow-page {
+  overflow-x: visible;
+  overflow-y: visible;
+}

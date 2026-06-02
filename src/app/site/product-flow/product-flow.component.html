@@ -1,0 +1,465 @@
+<!--====| Header CSS Start |====-->
+<app-header></app-header>
+<!--====| Header Section End |====-->
+
+<!--====|| Product Flow Banner Start ||====-->
+<section class="other-page-banner bg-yellow position-relative z-1 overflow-hidden">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h6
+          class="ff-urbanist fs-md-28 fs-18 fw-medium text-primary text-uppercase text-md-start text-center"
+          data-aos="fade-up-right"
+          data-aos-duration="700"
+          data-aos-easing="ease-in-out-cubic"
+        >
+          PRODUCT
+        </h6>
+        <h2
+          class="fw-bold text-capitalize text-md-start text-center"
+          data-aos="fade-up"
+          data-aos-duration="900"
+          data-aos-easing="ease-in-out-cubic"
+        >
+          Flow — Telehealth Platform
+        </h2>
+        <p
+          class="fs-20 fw-medium mt-30 mb-0 text-md-start text-center"
+          data-aos="fade-up"
+          data-aos-duration="1100"
+          data-aos-easing="ease-in-out-cubic"
+        >
+          A comprehensive, white-labeled virtual care platform with scalable
+          integrations, compliant workflows, and a seamless experience built
+          around your patients.
+        </p>
+      </div>
+    </div>
+  </div>
+  <other-banner-frame></other-banner-frame>
+</section>
+<!--====|| Product Flow Banner End ||====-->
+
+<!--====|| Main Section Start ||====-->
+<main class="product-flow-page">
+  <!-- Hero (reference: Hero.tsx + hero-overlay) -->
+  <section
+    class="pf-hero"
+    aria-label="Flow product hero"
+  >
+    <div class="pf-hero__bg" role="presentation"></div>
+    <div class="pf-hero__overlay" aria-hidden="true"></div>
+    <div class="pf-hero__deco pf-hero__deco--tl" aria-hidden="true">
+      <img src="images/product-flow/top-left.png" alt="" width="180" height="180" />
+    </div>
+    <div class="pf-hero__deco pf-hero__deco--br" aria-hidden="true">
+      <img src="images/product-flow/bottom-right.png" alt="" width="180" height="180" />
+    </div>
+    <div class="pf-hero__inner">
+      <h1
+        class="pf-hero__title"
+      >
+        Transform your telehealth vision into reality
+      </h1>
+      <p
+        class="pf-hero__subtitle"
+      >
+        Comprehensive, white-labeled virtual care — scalable integrations,
+        compliant workflows, and a platform built around your patients.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact + Request demo -->
+  <section
+    class="pf-contact-demo"
+    aria-label="Contact and request a demo"
+  >
+    <div class="pf-contact-demo__wrap">
+      <div class="pf-contact-demo__grid">
+        <div class="pf-contact-demo__col pf-contact-demo__col--light">
+          <p class="pf-contact-demo__eyebrow">We are ready to help!</p>
+          <h2 class="pf-contact-demo__heading">Contact us today!</h2>
+          <dl class="pf-contact-demo__dl">
+            <div class="pf-contact-demo__dl-row">
+              <dt>Email</dt>
+              <dd>
+                <a href="mailto:info@thrivewellrx.com">info&#64;thrivewellrx.com</a>
+              </dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="pf-contact-demo__col pf-contact-demo__col--accent">
+          <h2 class="pf-contact-demo__form-title">Request a demo</h2>
+          <form
+            class="pf-contact-demo__form"
+            [formGroup]="demoForm"
+            #formRef="ngForm"
+            (ngSubmit)="onDemoSubmit()"
+            aria-label="Request a demo"
+          >
+            <div class="pf-contact-demo__fields">
+              <div class="signle-input">
+                <label for="pf-first-name" class="form-label fw-semibold">
+                  First Name <span class="text-danger">*</span>
+                </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="pf-first-name"
+                  formControlName="first_name"
+                />
+                <span
+                  *ngIf="
+                    f['first_name'].errors &&
+                    (formRef.submitted || f['first_name'].touched)
+                  "
+                  class="fs-14 fw-medium text-danger mt-1"
+                >First name is required</span>
+              </div>
+              <div class="signle-input">
+                <label for="pf-last-name" class="form-label fw-semibold">
+                  Last Name <span class="text-danger">*</span>
+                </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="pf-last-name"
+                  formControlName="last_name"
+                />
+                <span
+                  *ngIf="
+                    f['last_name'].errors &&
+                    (formRef.submitted || f['last_name'].touched)
+                  "
+                  class="fs-14 fw-medium text-danger mt-1"
+                >Last name is required</span>
+              </div>
+              <div class="signle-input">
+                <label for="pf-email" class="form-label fw-semibold">
+                  Email <span class="text-danger">*</span>
+                </label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="pf-email"
+                  formControlName="email"
+                />
+                <div *ngIf="
+                    f['email'].errors && (formRef.submitted || f['email'].touched)
+                  ">
+                  <p
+                    *ngIf="f['email'].errors['required']"
+                    class="fs-14 fw-medium text-danger mt-1"
+                  >
+                    Email is required
+                  </p>
+                  <p
+                    *ngIf="f['email'].errors['email']"
+                    class="fs-14 fw-medium text-danger mt-1"
+                  >
+                    Invalid Email
+                  </p>
+                </div>
+              </div>
+              <div class="signle-input">
+                <label for="pf-company" class="form-label fw-semibold">
+                  Company Name <span class="text-danger">*</span>
+                </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="pf-company"
+                  formControlName="company"
+                />
+                <span
+                  *ngIf="
+                    f['company'].errors &&
+                    (formRef.submitted || f['company'].touched)
+                  "
+                  class="fs-14 fw-medium text-danger mt-1"
+                >Company name is required</span>
+              </div>
+
+            </div>
+            <div class="signle-input pf-contact-demo__full">
+              <label for="pf-message" class="form-label fw-semibold d-block">
+                Message <span class="text-danger">*</span>
+              </label>
+              <textarea
+                id="pf-message"
+                formControlName="message"
+                rows="4"
+              ></textarea>
+              <div *ngIf="
+                  f['message'].errors && (formRef.submitted || f['message'].touched)
+                ">
+                <p
+                  *ngIf="f['message'].errors['required']"
+                  class="fs-14 fw-medium text-danger mt-1"
+                >
+                  Message is required
+                </p>
+                <p
+                  *ngIf="f['message'].errors['minlength']"
+                  class="fs-14 fw-medium text-danger mt-1"
+                >
+                  Message should be at least 50 characters
+                </p>
+              </div>
+            </div>
+            <button type="submit" class="btn-cta mt-20 d-inline-block">
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div class="pf-contact-demo__logo-badge" aria-hidden="true">
+        <img
+          src="images/thrivewell-logo.svg"
+          alt=""
+          width="72"
+          height="72"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Features (reference: Features.tsx) -->
+  <section class="pf-features" aria-labelledby="pf-features-heading">
+    <div class="pf-features__inner">
+      <div class="pf-features__intro">
+        <h2 id="pf-features-heading" class="pf-features__title">
+          A telehealth platform that simplifies delivery without compromising care
+        </h2>
+        <p class="pf-features__lead">
+          ThrivewellRx provides scalable, white-labeled telehealth solutions so
+          healthcare organizations can expand offerings and enhance patient
+          experience — customizable, end-to-end virtual care aligned with your
+          brand.
+        </p>
+      </div>
+
+      <div class="pf-features__split">
+        <div class="pf-features__cards">
+          <article class="pf-card">
+            <span class="pf-card__icon" aria-hidden="true">
+              <img
+                src="images/product-flow/svg/icon-0.svg"
+                alt=""
+                width="56"
+                height="56"
+                loading="lazy"
+              />
+            </span>
+            <div>
+              <h3 class="pf-card__title">100% Customizable</h3>
+              <div class="pf-card__bar" aria-hidden="true"></div>
+              <p class="pf-card__body">
+                Customizable To Fit Your Pharmacy Without Extra Development Costs!
+              </p>
+            </div>
+          </article>
+          <article class="pf-card">
+            <span class="pf-card__icon" aria-hidden="true">
+              <img
+                src="images/product-flow/svg/icon-1.svg"
+                alt=""
+                width="56"
+                height="56"
+                loading="lazy"
+              />
+            </span>
+            <div>
+              <h3 class="pf-card__title">Full API Integrations</h3>
+              <div class="pf-card__bar" aria-hidden="true"></div>
+              <p class="pf-card__body">
+                Easy Integrations including Accounting, Shipping, CRMs & More!
+              </p>
+            </div>
+          </article>
+          <!-- <article class="pf-card">
+            <span class="pf-card__icon" aria-hidden="true">
+              <img
+                src="images/product-flow/svg/icon-2.svg"
+                alt=""
+                width="56"
+                height="56"
+                loading="lazy"
+              />
+            </span>
+            <div>
+              <h3 class="pf-card__title">Telemedicine that fits your workflow</h3>
+              <div class="pf-card__bar" aria-hidden="true"></div>
+              <p class="pf-card__body">
+                Synchronous and asynchronous options so patients and physicians
+                connect in the way that works best.
+              </p>
+            </div>
+          </article> -->
+          <article class="pf-card">
+            <span class="pf-card__icon" aria-hidden="true">
+              <img
+                src="images/product-flow/svg/icon-3.svg"
+                alt=""
+                width="56"
+                height="56"
+                loading="lazy"
+              />
+            </span>
+            <div>
+              <h3 class="pf-card__title">On-Demand Reporting</h3>
+              <div class="pf-card__bar" aria-hidden="true"></div>
+              <p class="pf-card__body">
+                Extensive Reporting Allows Instant Access To All Your Metrics and Data!
+              </p>
+            </div>
+          </article>
+          <article class="pf-card">
+            <span class="pf-card__icon" aria-hidden="true">
+              <img
+                src="images/product-flow/svg/icon-4.svg"
+                alt=""
+                width="56"
+                height="56"
+                loading="lazy"
+              />
+            </span>
+            <div>
+              <h3 class="pf-card__title">100% Support</h3>
+              <div class="pf-card__bar" aria-hidden="true"></div>
+              <p class="pf-card__body">
+                Phone, Text, & Email Support From Our In-House U.S. Team.
+              </p>
+            </div>
+          </article>
+          <article class="pf-card">
+            <span class="pf-card__icon" aria-hidden="true">
+              <img
+                src="images/product-flow/svg/icon-5.svg"
+                alt=""
+                width="56"
+                height="56"
+                loading="lazy"
+              />
+            </span>
+            <div>
+              <h3 class="pf-card__title">100% Compliant</h3>
+              <div class="pf-card__bar" aria-hidden="true"></div>
+              <p class="pf-card__body">
+                Fully Compliant With All Rules And Regulations!
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <aside
+          class="pf-features__aside"
+          aria-labelledby="pf-features-aside-heading"
+        >
+          <div class="pf-features__aside-img"></div>
+          <div class="pf-features__aside-overlay"></div>
+          <div class="pf-features__aside-content">
+            <div class="pf-features__aside-copy">
+              <h2 id="pf-features-aside-heading" class="pf-features__aside-title">
+                Ready to modernize telehealth?
+              </h2>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience: __media is first child of section (absolute, negative top); __inner holds copy above it. -->
+  <section class="pf-experience" aria-labelledby="pf-experience-heading">
+    <div class="pf-experience__inner">
+      <div
+          class="pf-experience__media"
+          role="presentation"
+          aria-hidden="true"
+        ></div>
+      <div class="pf-experience__grid">
+        <div class="pf-experience__spacer" aria-hidden="true"></div>
+        <div class="pf-experience__copy">
+          <div class="pf-experience__eyebrow-row">
+            <p class="pf-experience__eyebrow">Experience</p>
+            <span class="pf-experience__rule" aria-hidden="true"></span>
+          </div>
+          <h2 id="pf-experience-heading" class="pf-experience__title">
+            The premier telehealth solution for organizations that put patients
+            first
+          </h2>
+          <div class="pf-experience__text">
+            <p class="pf-experience__lead">
+              Introducing a comprehensive platform that simplifies operations and
+              integrates seamlessly — so you can focus on care, not complexity.
+            </p>
+            <p class="pf-experience__follow">
+              Request a demo and see how ThrivewellRx helps teams launch and scale
+              virtual care with confidence.
+            </p>
+          </div>
+          <div class="pf-experience__tags">
+            <span>Fully customizable</span>
+            <span>Built for compliance</span>
+            <span>Seamless integrations</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--
+    Strip between Experience (light bg) and footer: sits ~1/3 over light and ~2/3 over dark.
+    Not inside .pf-bottom-band so the overlap is relative to the previous block, not just internal margin.
+  -->
+  <section class="pf-strip-wrap" aria-label="Contact shortcuts">
+    <div class="pf-strip">
+      <div class="pf-strip__cell pf-strip__cell--a">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path
+            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"
+          />
+        </svg>
+        <div class="pf-strip__text">
+          <p class="mb-0">Virtual-first care nationwide</p>
+          <p class="mb-0 mt-1">Serving healthcare organizations across the U.S.</p>
+        </div>
+      </div>
+      <div class="pf-strip__cell pf-strip__cell--b">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path
+            d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+          />
+        </svg>
+        <p class="mb-0 pf-strip__text">
+          <a href="mailto:info@thrivewellrx.com">info&#64;thrivewellrx.com</a>
+        </p>
+      </div>
+      <div class="pf-strip__cell pf-strip__cell--a">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path
+            d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
+          />
+        </svg>
+        <div class="pf-strip__text">
+          <p class="mb-0">
+            <a href="tel:+19728437272">1 (972) 843-7272</a>
+          </p>
+          <p class="mb-0 mt-1">
+            <a routerLink="/book-now" class="pf-strip__book">Book now</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+</main>
+
+<!--====| Footer Section Start |====-->
+<app-footer></app-footer>
+<!--====| Footer Section End |====-->

@@ -40,3 +40,12 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# Cursor
+.cursor/
+
+# Playwright
+.playwright/
+.playwright-mcp/
+
+#test-commit
