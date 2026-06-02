@@ -1,11 +1,13 @@
-<section class="our-service section">
+<section class="our-service section" data-aos="fade-up" data-aos-duration="900">
   <div class="container">
     <div class="our-service__panel">
       <div class="our-service__content">
         <div class="row">
           <div class="col-12">
-            <h2 class="our-service__title">What ThriveWell RX Does</h2>
-            <p class="our-service__intro">
+            <h2 class="our-service__title" data-aos="fade-up-right" data-aos-duration="700" data-aos-easing="ease-in-out">
+              What ThriveWell RX Does
+            </h2>
+            <p class="our-service__intro" data-aos="fade-up" data-aos-duration="900">
               ThriveWell RX helps businesses launch and operate modern telehealth
               programs without building the entire medical, technical, and
               operational system from scratch. We provide the foundation needed
@@ -14,17 +16,20 @@
           </div>
         </div>
 
-        <ul class="our-service__benefits row gy-3">
+        <ul class="our-service__benefits row gy-3" data-aos="fade-up" data-aos-duration="1000">
           <li
             class="our-service__benefit col-lg-4 col-md-6"
-            *ngFor="let benefit of benefits"
+            *ngFor="let benefit of benefits; let i = index"
+            data-aos="fade-right"
+            data-aos-duration="700"
+            [attr.data-aos-delay]="i * 100"
           >
             <i class="icon-tick" aria-hidden="true"></i>
             <span>{{ benefit }}</span>
           </li>
         </ul>
 
-        <p class="our-service__summary">
+        <p class="our-service__summary" data-aos="fade-up" data-aos-duration="900">
           Whether you are launching a new healthcare brand or expanding an
           existing wellness business, ThriveWell RX gives you the platform and
           backend infrastructure to move faster.
@@ -35,7 +40,10 @@
         <div class="our-service__cards row g-4">
           <div
             class="our-service__card-col col-lg-4 col-sm-6"
-            *ngFor="let service of services"
+            *ngFor="let service of services; let i = index"
+            data-aos="zoom-in-up"
+            data-aos-duration="900"
+            [attr.data-aos-delay]="i * 120"
           >
             <article class="our-service__card" tabindex="0">
               <div class="our-service__card-inner">
