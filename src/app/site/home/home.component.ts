@@ -21,6 +21,7 @@ import { OurServiceComponent } from '../components/our-service/our-service.compo
 import { OurClientsComponent } from '../components/our-clients/our-clients.component';
 import { LegitscriptHomeComponent } from '../components/legitscript-home/legitscript-home.component';
 import { LegitScriptComponent } from '../legit-script/legit-script.component';
+import { LaunchTimelineComponent } from '../components/launch-timeline/launch-timeline.component';
 import { SecurityAndComplianceComponent } from '../components/security-and-compilance/security-and-compilance.component';
 import { HealthcareOperationsComponent } from '../components/healthcare-operations/healthcare-operations.component';
 import { SimpleStepsComponent } from '../components/simple-steps/simple-steps.component';
@@ -40,6 +41,7 @@ Swiper.use([Autoplay, Navigation]);
     CtaComponent,
     OurServiceComponent,
     OurClientsComponent,
+    LaunchTimelineComponent,
     LegitscriptHomeComponent,
     LegitScriptComponent,
     SecurityAndComplianceComponent,
