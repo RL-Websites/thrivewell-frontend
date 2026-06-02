@@ -1,16 +1,21 @@
 import { AfterViewInit, Component, ElementRef, OnDestroy, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { LearnFasterComponent } from '../learn-faster/learn-faster.component';
 
 @Component({
   selector: 'app-launch-timeline',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, LearnFasterComponent],
   templateUrl: './launch-timeline.component.html',
 })
 export class LaunchTimelineComponent implements AfterViewInit, OnDestroy {
-  @ViewChild('timelineWrapper', { static: true, read: ElementRef }) timelineWrapper!: ElementRef<HTMLElement>;
-  @ViewChild('timelineBody', { static: true, read: ElementRef }) timelineBody!: ElementRef<HTMLElement>;
-  @ViewChildren('timelineItem', { read: ElementRef }) timelineItems!: QueryList<ElementRef<HTMLElement>>;
+  @ViewChild('timelineWrapper', { static: true, read: ElementRef })
+  timelineWrapper!: ElementRef<HTMLElement>;
+  @ViewChild('timelineBody', { static: true, read: ElementRef })
+  timelineBody!: ElementRef<HTMLElement>;
+  @ViewChildren('timelineItem', { read: ElementRef }) timelineItems!: QueryList<
+    ElementRef<HTMLElement>
+  >;
 
   activeIndex = 0;
   progressHeight = 0;
@@ -26,10 +31,10 @@ export class LaunchTimelineComponent implements AfterViewInit, OnDestroy {
         'Treatment category planning',
         'Brand onboarding',
         'Account setup initiation',
-        'Compliance and workflow discussion'
+        'Compliance and workflow discussion',
       ],
       day: 'Day 1–3',
-      side: 'left'
+      side: 'left',
     },
     {
       title: 'Platform & Brand Configuration',
@@ -40,10 +45,10 @@ export class LaunchTimelineComponent implements AfterViewInit, OnDestroy {
         'Intake and onboarding forms',
         'Product and package configuration',
         'Payment workflow setup',
-        'Dashboard and portal configuration'
+        'Dashboard and portal configuration',
       ],
       day: 'Day 4–7',
-      side: 'right'
+      side: 'right',
     },
     {
       title: 'Provider, Pharmacy & Workflow Integration',
@@ -54,10 +59,10 @@ export class LaunchTimelineComponent implements AfterViewInit, OnDestroy {
         'Pharmacy coordination',
         'Prescription routing configuration',
         'Support workflow setup',
-        'Internal testing and QA'
+        'Internal testing and QA',
       ],
       day: 'Day 8–12',
-      side: 'left'
+      side: 'left',
     },
     {
       title: 'Testing, Training & Launch',
@@ -68,11 +73,11 @@ export class LaunchTimelineComponent implements AfterViewInit, OnDestroy {
         'Workflow testing',
         'Team guidance and training',
         'Go-live preparation',
-        'Patient onboarding readiness'
+        'Patient onboarding readiness',
       ],
       day: 'Day 13–15+',
-      side: 'right'
-    }
+      side: 'right',
+    },
   ];
 
   private scrollHandler = this.updateScrollState.bind(this);
@@ -102,7 +107,9 @@ export class LaunchTimelineComponent implements AfterViewInit, OnDestroy {
     const viewportHeight = window.innerHeight;
     const progressStart = viewportHeight * 0.2;
     const progressEnd = viewportHeight * 0.8;
-    const rawProgress = (viewportHeight - timelineRect.top - progressStart) / (timelineRect.height + progressEnd - progressStart);
+    const rawProgress =
+      (viewportHeight - timelineRect.top - progressStart) /
+      (timelineRect.height + progressEnd - progressStart);
     this.progressHeight = Math.min(100, Math.max(0, rawProgress * 100));
     this.updateLineBounds();
     this.updateFirstCardFill();
@@ -116,8 +123,10 @@ export class LaunchTimelineComponent implements AfterViewInit, OnDestroy {
     }
 
     const bodyRect = body.getBoundingClientRect();
-    const firstItem = this.timelineItems.first?.nativeElement.getBoundingClientRect();
-    const lastItem = this.timelineItems.last?.nativeElement.getBoundingClientRect();
+    const firstItem =
+      this.timelineItems.first?.nativeElement.getBoundingClientRect();
+    const lastItem =
+      this.timelineItems.last?.nativeElement.getBoundingClientRect();
 
     if (!firstItem || !lastItem) {
       return;
@@ -140,20 +149,30 @@ export class LaunchTimelineComponent implements AfterViewInit, OnDestroy {
 
     const bodyRect = body.getBoundingClientRect();
     const firstItemRect = firstItem.getBoundingClientRect();
-    const lineStart = parseFloat(getComputedStyle(body).getPropertyValue('--timeline-line-start') || '0');
-    const lineEnd = parseFloat(getComputedStyle(body).getPropertyValue('--timeline-line-end') || '100');
+    const lineStart = parseFloat(
+      getComputedStyle(body).getPropertyValue('--timeline-line-start') || '0',
+    );
+    const lineEnd = parseFloat(
+      getComputedStyle(body).getPropertyValue('--timeline-line-end') || '100',
+    );
     const totalLineHeight = lineEnd - lineStart;
 
     // First card middle to first card bottom
-    const firstCardMiddle = firstItemRect.top + firstItemRect.height / 2 - bodyRect.top;
-    const firstCardBottom = firstItemRect.top + firstItemRect.height - bodyRect.top;
+    const firstCardMiddle =
+      firstItemRect.top + firstItemRect.height / 2 - bodyRect.top;
+    const firstCardBottom =
+      firstItemRect.top + firstItemRect.height - bodyRect.top;
     const firstCardFillHeight = firstCardBottom - firstCardMiddle;
 
     // How much of the total line height is the first card?
-    const firstCardRatio = totalLineHeight > 0 ? (firstCardFillHeight / totalLineHeight) * 100 : 0;
+    const firstCardRatio =
+      totalLineHeight > 0 ? (firstCardFillHeight / totalLineHeight) * 100 : 0;
 
     // What percentage of progress fills the first card?
-    this.firstCardFillPercent = Math.min(100, Math.max(0, (this.progressHeight / firstCardRatio) * 100));
+    this.firstCardFillPercent = Math.min(
+      100,
+      Math.max(0, (this.progressHeight / firstCardRatio) * 100),
+    );
   }
 
   private getActiveItemIndex(): number {
