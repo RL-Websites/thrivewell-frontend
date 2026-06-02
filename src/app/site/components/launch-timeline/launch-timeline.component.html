@@ -11,7 +11,7 @@
       </p>
     </div>
 
-    <div class="launch-timeline__body">
+    <div class="launch-timeline__body" #timelineBody>
       <div class="launch-timeline__line">
         <span class="launch-timeline__line-progress" [style.height.%]="progressHeight"></span>
       </div>
@@ -38,8 +38,8 @@
 
             <div class="launch-timeline__col launch-timeline__col--center">
               <div class="launch-timeline__marker">
-                <span class="launch-timeline__day">{{ item.day }}</span>
-                <span class="launch-timeline__dot"></span>
+                <span class="launch-timeline__day" [class.launch-timeline__day--active]="activeIndex === i">{{ item.day }}</span>
+                <!-- <span class="launch-timeline__dot"></span> -->
               </div>
             </div>
 

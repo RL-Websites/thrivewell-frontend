@@ -123,20 +123,27 @@ export class LaunchTimelineComponent implements AfterViewInit, OnDestroy {
     }
 
     const bodyRect = body.getBoundingClientRect();
-    const firstItem =
-      this.timelineItems.first?.nativeElement.getBoundingClientRect();
-    const lastItem =
-      this.timelineItems.last?.nativeElement.getBoundingClientRect();
+    const firstMarker = this.getMarkerElement(this.timelineItems.first?.nativeElement);
+    const lastMarker = this.getMarkerElement(this.timelineItems.last?.nativeElement);
 
-    if (!firstItem || !lastItem) {
+    if (!firstMarker || !lastMarker) {
       return;
     }
 
-    const start = firstItem.top + firstItem.height / 2 - bodyRect.top;
-    const end = lastItem.top + lastItem.height / 2 - bodyRect.top;
+    const start = this.getElementCenterY(firstMarker) - bodyRect.top;
+    const end = this.getElementCenterY(lastMarker) - bodyRect.top;
 
     body.style.setProperty('--timeline-line-start', `${Math.max(0, start)}px`);
     body.style.setProperty('--timeline-line-end', `${Math.max(0, end)}px`);
+  }
+
+  private getMarkerElement(row: HTMLElement | undefined): HTMLElement | null {
+    return row?.querySelector('.launch-timeline__marker') ?? null;
+  }
+
+  private getElementCenterY(element: HTMLElement): number {
+    const rect = element.getBoundingClientRect();
+    return rect.top + rect.height / 2;
   }
 
   private updateFirstCardFill(): void {
@@ -183,7 +190,10 @@ export class LaunchTimelineComponent implements AfterViewInit, OnDestroy {
     const threshold = window.innerHeight * 0.75;
     let activeIndex = 0;
     this.timelineItems.forEach((item, index) => {
-      const itemRect = item.nativeElement.getBoundingClientRect();
+      const marker = this.getMarkerElement(item.nativeElement);
+      const itemRect = marker
+        ? marker.getBoundingClientRect()
+        : item.nativeElement.getBoundingClientRect();
       if (itemRect.top < threshold) {
         activeIndex = index;
       }

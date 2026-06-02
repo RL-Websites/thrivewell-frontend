@@ -145,6 +145,13 @@
       box-shadow: 0 6px 18px rgba(30, 64, 175, 0.08);
     }
 
+    .launch-timeline__day--active {
+      background: #2c61af;
+      color: #ffffff;
+      border-color: #2c61af;
+      box-shadow: 0 6px 18px rgba(44, 97, 175, 0.18);
+    }
+
     .launch-timeline__dot {
       display: inline-block;
       width: 8px;
