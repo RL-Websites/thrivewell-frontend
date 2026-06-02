@@ -6,13 +6,13 @@
     width: min(100%, 1198px);
     margin: 0 auto;
     padding: 4rem 3rem;
-    border-radius: 32px;
+    border-radius: 20px;
     background-color: #2f65bf;
     background-image: url('/images/home/learnfaster.svg');
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
-    box-shadow: 0 28px 80px rgba(24, 54, 109, 0.16);
+
     overflow: hidden;
 
     @media screen and (max-width: 1200px) {
@@ -34,7 +34,7 @@
     }
 
     &__title {
-      font-size: 55px;
+      font-size: 53px;
       line-height: 43.2px;
       font-weight: 700;
       margin-bottom: 1.6rem;
@@ -42,10 +42,10 @@
 
     &__text {
       max-width: 760px;
+      font-weight: 200;
       margin: 0 auto 2rem;
       font-size: 20px;
       line-height: 28.8px;
-      opacity: 0.95;
     }
 
     &__button {
@@ -59,14 +59,11 @@
       color: #11223f;
       font-weight: 600;
       text-decoration: none;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      box-shadow: 0 16px 25px rgba(10, 39, 91, 0.12);
+      transition: transform 0.2s ease;
+
       margin: 0 auto 1.5rem;
 
-      &:hover {
-        transform: translateY(-1px);
-        box-shadow: 0 20px 30px rgba(10, 39, 91, 0.18);
-      }
+
 
       @media screen and (min-width: 992px) {
         width: 436px;
@@ -76,8 +73,8 @@
     }
 
     &__footer {
-      font-size: 1rem;
-      opacity: 0.92;
+      font-size: 18px;
+      font-weight: 600;
     }
   }
 }
