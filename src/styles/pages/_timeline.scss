@@ -34,39 +34,32 @@
 
   &__line {
     position: absolute;
-    top: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 6px;
-    height: 100%;
-    border-radius: 999px;
-    overflow: visible;
+    // Dynamic offsets driven via JS bounding calculations
+    top: var(--timeline-line-start, 0);
+    bottom: calc(100% - var(--timeline-line-end, 100%));
+    width: 2px;
+    z-index: 1;
+    pointer-events: none;
 
-    &::before {
+   &::before {
       content: '';
       position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
       top: 0;
-      width: 4px;
+      left: 0;
+      width: 100%;
       height: 100%;
-      border-radius: 999px;
-      border-left: 4px dashed rgba(59, 130, 246, 0.6);
-      box-sizing: border-box;
-      opacity: 0.95;
+      border-left: 2px dashed #94a3b8;
     }
 
     &-progress {
       position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
       top: 0;
-      width: 4px;
-      height: 0;
-      background: linear-gradient(180deg, #3b82f6 0%, #1e40af 100%);
-      border-radius: 999px;
-      transition: height 260ms ease-out;
-      z-index: 2;
+      left: 0;
+      width: 100%;
+      border-left: 2px solid #2563eb;
+      transition: height 100ms ease-out;
     }
   }
 

@@ -14,6 +14,7 @@ export class LaunchTimelineComponent implements AfterViewInit, OnDestroy {
 
   activeIndex = 0;
   progressHeight = 0;
+  firstCardFillPercent = 0;
 
   timeline = [
     {
@@ -104,6 +105,7 @@ export class LaunchTimelineComponent implements AfterViewInit, OnDestroy {
     const rawProgress = (viewportHeight - timelineRect.top - progressStart) / (timelineRect.height + progressEnd - progressStart);
     this.progressHeight = Math.min(100, Math.max(0, rawProgress * 100));
     this.updateLineBounds();
+    this.updateFirstCardFill();
     this.activeIndex = this.getActiveItemIndex();
   }
 
@@ -126,6 +128,32 @@ export class LaunchTimelineComponent implements AfterViewInit, OnDestroy {
 
     body.style.setProperty('--timeline-line-start', `${Math.max(0, start)}px`);
     body.style.setProperty('--timeline-line-end', `${Math.max(0, end)}px`);
+  }
+
+  private updateFirstCardFill(): void {
+    const body = this.timelineBody?.nativeElement;
+    const firstItem = this.timelineItems?.first?.nativeElement;
+
+    if (!body || !firstItem) {
+      return;
+    }
+
+    const bodyRect = body.getBoundingClientRect();
+    const firstItemRect = firstItem.getBoundingClientRect();
+    const lineStart = parseFloat(getComputedStyle(body).getPropertyValue('--timeline-line-start') || '0');
+    const lineEnd = parseFloat(getComputedStyle(body).getPropertyValue('--timeline-line-end') || '100');
+    const totalLineHeight = lineEnd - lineStart;
+
+    // First card middle to first card bottom
+    const firstCardMiddle = firstItemRect.top + firstItemRect.height / 2 - bodyRect.top;
+    const firstCardBottom = firstItemRect.top + firstItemRect.height - bodyRect.top;
+    const firstCardFillHeight = firstCardBottom - firstCardMiddle;
+
+    // How much of the total line height is the first card?
+    const firstCardRatio = totalLineHeight > 0 ? (firstCardFillHeight / totalLineHeight) * 100 : 0;
+
+    // What percentage of progress fills the first card?
+    this.firstCardFillPercent = Math.min(100, Math.max(0, (this.progressHeight / firstCardRatio) * 100));
   }
 
   private getActiveItemIndex(): number {
