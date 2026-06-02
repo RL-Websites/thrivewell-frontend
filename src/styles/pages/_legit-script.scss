@@ -20,6 +20,11 @@
 .client-section {
   padding: 156px 0;
   position: relative;
+
+  &--bg {
+    background: linear-gradient(to bottom, #FDEFC1 0%, #CEEBEA 50%, #CEEBEA 100%);
+  }
+
   .client-card {
     height: 415px;
     padding: 40px;
