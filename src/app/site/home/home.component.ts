@@ -25,6 +25,7 @@ import { LaunchTimelineComponent } from '../components/launch-timeline/launch-ti
 import { SecurityAndComplianceComponent } from '../components/security-and-compilance/security-and-compilance.component';
 import { HealthcareOperationsComponent } from '../components/healthcare-operations/healthcare-operations.component';
 import { SimpleStepsComponent } from '../components/simple-steps/simple-steps.component';
+import { LearnFasterComponent } from '../components/learn-faster/learn-faster.component';
 
 Swiper.use([Autoplay, Navigation]);
 
@@ -47,6 +48,7 @@ Swiper.use([Autoplay, Navigation]);
     SecurityAndComplianceComponent,
     HealthcareOperationsComponent,
     SimpleStepsComponent,
+    LearnFasterComponent,
   ],
 })
 export class HomeComponent implements OnInit, AfterViewInit {
