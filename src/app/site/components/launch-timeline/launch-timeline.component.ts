@@ -8,8 +8,9 @@ import { CommonModule } from '@angular/common';
   templateUrl: './launch-timeline.component.html',
 })
 export class LaunchTimelineComponent implements AfterViewInit, OnDestroy {
-  @ViewChild('timelineWrapper', { static: true }) timelineWrapper!: ElementRef<HTMLElement>;
-  @ViewChildren('timelineItem') timelineItems!: QueryList<ElementRef<HTMLElement>>;
+  @ViewChild('timelineWrapper', { static: true, read: ElementRef }) timelineWrapper!: ElementRef<HTMLElement>;
+  @ViewChild('timelineBody', { static: true, read: ElementRef }) timelineBody!: ElementRef<HTMLElement>;
+  @ViewChildren('timelineItem', { read: ElementRef }) timelineItems!: QueryList<ElementRef<HTMLElement>>;
 
   activeIndex = 0;
   progressHeight = 0;
@@ -91,17 +92,40 @@ export class LaunchTimelineComponent implements AfterViewInit, OnDestroy {
   }
 
   updateScrollState(): void {
-    if (!this.timelineWrapper) {
+    const native = this.timelineWrapper?.nativeElement;
+    if (!native || typeof native.getBoundingClientRect !== 'function') {
       return;
     }
 
-    const timelineRect = this.timelineWrapper.nativeElement.getBoundingClientRect();
+    const timelineRect = native.getBoundingClientRect();
     const viewportHeight = window.innerHeight;
     const progressStart = viewportHeight * 0.2;
     const progressEnd = viewportHeight * 0.8;
     const rawProgress = (viewportHeight - timelineRect.top - progressStart) / (timelineRect.height + progressEnd - progressStart);
     this.progressHeight = Math.min(100, Math.max(0, rawProgress * 100));
+    this.updateLineBounds();
     this.activeIndex = this.getActiveItemIndex();
+  }
+
+  private updateLineBounds(): void {
+    const body = this.timelineBody?.nativeElement;
+    if (!body || !this.timelineItems?.length) {
+      return;
+    }
+
+    const bodyRect = body.getBoundingClientRect();
+    const firstItem = this.timelineItems.first?.nativeElement.getBoundingClientRect();
+    const lastItem = this.timelineItems.last?.nativeElement.getBoundingClientRect();
+
+    if (!firstItem || !lastItem) {
+      return;
+    }
+
+    const start = firstItem.top + firstItem.height / 2 - bodyRect.top;
+    const end = lastItem.top + lastItem.height / 2 - bodyRect.top;
+
+    body.style.setProperty('--timeline-line-start', `${Math.max(0, start)}px`);
+    body.style.setProperty('--timeline-line-end', `${Math.max(0, end)}px`);
   }
 
   private getActiveItemIndex(): number {
