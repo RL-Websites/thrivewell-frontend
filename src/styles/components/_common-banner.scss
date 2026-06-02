@@ -9,6 +9,9 @@
       letter-spacing: 0;
     }
   }
+  &--bg {
+    background: linear-gradient(130deg, #FDEFC1 15%, #C9EBD5 50%, #CEEBEA 100%);
+  }
 }
 
 @media screen and (min-width: 0px) and (max-width: 992px) {
