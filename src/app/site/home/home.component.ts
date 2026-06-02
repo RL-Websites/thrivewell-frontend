@@ -27,6 +27,8 @@ import { HealthcareOperationsComponent } from '../components/healthcare-operatio
 import { SimpleStepsComponent } from '../components/simple-steps/simple-steps.component';
 import { LearnFasterComponent } from '../components/learn-faster/learn-faster.component';
 import { FlowComponent } from '../components/flow/flow.component';
+import { LaunchFasterComponent } from '../components/launch-faster/launch-faster.component';
+import { BrandCtaComponent } from '../components/brand-cta/brand-cta.component';
 
 Swiper.use([Autoplay, Navigation]);
 
@@ -51,6 +53,8 @@ Swiper.use([Autoplay, Navigation]);
     SimpleStepsComponent,
     LearnFasterComponent,
     FlowComponent,
+    LaunchFasterComponent,
+    BrandCtaComponent,
   ],
 })
 export class HomeComponent implements OnInit, AfterViewInit {
