@@ -1,0 +1,42 @@
+<section class="security-compliance">
+  <div class="security-compliance__content">
+    <div class="security-compliance__pill">
+      <i class="security-compliance__pill-icon icon-security" aria-hidden="true"></i>
+      <span class="security-compliance__pill-text">
+        Security &amp; Compliance
+      </span>
+    </div>
+
+    <h2 class="security-compliance__title">
+      Compliance Built Into the Foundation
+    </h2>
+
+    <p class="security-compliance__intro">
+      ThriveWell RX is built around secure, responsible, and scalable healthcare
+      operations.
+    </p>
+
+    <div class="security-compliance__divider" aria-hidden="true"></div>
+
+    <h3 class="security-compliance__subtitle">
+      Our infrastructure supports:
+    </h3>
+
+    <div class="security-compliance__grid">
+      <article class="security-compliance__card" *ngFor="let item of securityItems">
+        <span class="security-compliance__card-icon">
+          <i [class]="item.icon" aria-hidden="true"></i>
+        </span>
+
+        <p class="security-compliance__card-title">
+          {{ item.title }}
+        </p>
+      </article>
+    </div>
+
+    <p class="security-compliance__footer">
+      We help healthcare businesses grow with structure, safety, and
+      accountability.
+    </p>
+  </div>
+</section>
