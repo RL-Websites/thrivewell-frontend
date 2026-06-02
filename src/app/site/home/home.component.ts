@@ -23,6 +23,7 @@ import { LegitscriptHomeComponent } from '../components/legitscript-home/legitsc
 import { LegitScriptComponent } from '../legit-script/legit-script.component';
 import { SecurityAndComplianceComponent } from '../components/security-and-compilance/security-and-compilance.component';
 import { HealthcareOperationsComponent } from '../components/healthcare-operations/healthcare-operations.component';
+import { SimpleStepsComponent } from '../components/simple-steps/simple-steps.component';
 
 Swiper.use([Autoplay, Navigation]);
 
@@ -43,6 +44,7 @@ Swiper.use([Autoplay, Navigation]);
     LegitScriptComponent,
     SecurityAndComplianceComponent,
     HealthcareOperationsComponent,
+    SimpleStepsComponent,
   ],
 })
 export class HomeComponent implements OnInit, AfterViewInit {

@@ -1,0 +1,213 @@
+.simple-steps {
+  overflow: hidden;
+  background: linear-gradient(180deg, #ffffff 0%, #f9fbf1 42%, #c9f2ec 100%);
+
+  &__header {
+    margin-bottom: 60px;
+  }
+
+  &__eyebrow {
+    gap: 8px;
+    padding: 12px 20px;
+    border-radius: 999px;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 198, 37, 0.2) 0%,
+      rgba(168, 230, 207, 0.3) 50%,
+      rgba(255, 198, 37, 0.2) 100%
+    );
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  &__eyebrow-text {
+    background: linear-gradient(
+      90deg,
+      #275dad 0%,
+      #2962b0 7.14%,
+      #2b66b3 14.29%,
+      #2e6bb6 21.43%,
+      #3070b9 28.57%,
+      #3274bc 35.71%,
+      #3579c0 42.86%,
+      #377ec3 50%,
+      #3a83c6 57.14%,
+      #3c87c9 64.29%,
+      #3f8ccc 71.43%,
+      #4291cf 78.57%,
+      #4495d2 85.71%,
+      #479ad5 92.86%,
+      #4a9fd8 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  &__eyebrow-dot {
+    width: 8px;
+    height: 8px;
+    flex: 0 0 8px;
+    border-radius: 50%;
+    background: linear-gradient(
+      135deg,
+      #275dad 0%,
+      #2f6db8 25%,
+      #377ec3 50%,
+      #408ecd 75%,
+      #4a9fd8 100%
+    );
+  }
+
+  &__title {
+    margin-top: 30px;
+    color: $dark;
+    font-size: 52px;
+    font-weight: 700;
+    line-height: 1.18;
+  }
+
+  &__timeline {
+    position: relative;
+    min-height: 1160px;
+    max-width: 980px;
+    background: url("/images/home/simple-steps-bg.svg") center 15px / 650px auto no-repeat;
+  }
+
+  &__card {
+    position: absolute;
+    max-width: 448px;
+    max-height: 220px;
+    padding: 30px 30px 60px 40px;
+    border-top: 1px solid #f3f4f6;
+    border-radius: 8px;
+    background: #ffffff;
+    box-shadow: 0 4px 30px 0 #d8debe80;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 10px;
+      border-radius: 8px 0 0 8px;
+      background: linear-gradient(
+        90deg,
+        #275dad 0%,
+        #2a5fae 12.5%,
+        #2e62af 25%,
+        #3164b0 37.5%,
+        #3466b2 50%,
+        #3768b3 62.5%,
+        #3a6bb4 75%,
+        #3d6db5 87.5%,
+        #406fb6 100%
+      );
+    }
+
+    &--one {
+      top: 0;
+      left: 0;
+    }
+
+    &--two {
+      top: 220px;
+      right: 40px;
+    }
+
+    &--three {
+      top: 460px;
+      left: 0;
+    }
+
+    &--four {
+      top: 690px;
+      right: 40px;
+    }
+
+    &--five {
+      top: 950px;
+      left: 100px;
+    }
+  }
+
+  &__badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 16px;
+    border-radius: 999px;
+    background: linear-gradient(
+      90deg,
+      #275dad 0%,
+      #2a5fae 12.5%,
+      #2e62af 25%,
+      #3164b0 37.5%,
+      #3466b2 50%,
+      #3768b3 62.5%,
+      #3a6bb4 75%,
+      #3d6db5 87.5%,
+      #406fb6 100%
+    );
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  &__card-title {
+    margin: 18px 0 14px;
+    color: $dark;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  &__text {
+    color: #2b2b2bcc;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.55;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .simple-steps {
+    &__title {
+      font-size: 42px;
+    }
+
+    &__timeline {
+      min-height: auto;
+      background-position: center top;
+      background-size: 420px auto;
+    }
+
+    &__card {
+      position: relative;
+      inset: auto;
+      width: 100%;
+      margin-bottom: 30px;
+    }
+  }
+}
+
+@media (max-width: 575.98px) {
+  .simple-steps {
+    &__header {
+      margin-bottom: 35px;
+    }
+
+    &__title {
+      font-size: 34px;
+    }
+
+    &__card {
+      padding: 24px 22px 40px 32px;
+    }
+
+    &__card-title {
+      font-size: 22px;
+    }
+  }
+}
