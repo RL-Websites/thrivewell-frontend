@@ -1,9 +1,26 @@
+/* Cabinet Grotesk font files are hosted in `public/fonts/cabinet/`.
+   Use a single @font-face for the Regular weight to keep imports simple.
+   (For production, consider adding woff2/woff fallbacks and more weights.) */
+@font-face {
+  font-family: 'Cabinet Grotesk';
+  src: url('/fonts/cabinet/CabinetGrotesk-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 // Global font-family classes
 .ff-noto-serif {
   font-family: "Noto Serif", serif;
 }
+
 .ff-urbanist {
   font-family: "Urbanist", sans-serif;
+}
+
+// Utility class for Cabinet Grotesk
+.ff-cabinet {
+  font-family: 'Cabinet Grotesk', "Urbanist", sans-serif;
 }
 
 /*== Common font family integration start ==*/
@@ -31,18 +48,23 @@ h1 {
   font-size: 80px;
   font-weight: 700;
 }
+
 h2 {
   font-size: 53px;
 }
+
 h3 {
   font-size: 43px;
 }
+
 h4 {
   font-size: 35px;
 }
+
 h5 {
   font-size: 32px;
 }
+
 /*== Common font family integration end ==*/
 
 //some class
@@ -52,20 +74,25 @@ h5 {
 
 //Medium Device
 @media screen and (min-width: 0px) and (max-width: 992px) {
+
   body,
   p,
   a {
     font-size: 16px;
   }
+
   h1 {
     font-size: 50px;
   }
+
   h2 {
     font-size: 40px;
   }
+
   h3 {
     font-size: 32px;
   }
+
   h4 {
     font-size: 24px;
   }
@@ -73,20 +100,25 @@ h5 {
 
 //Small Device
 @media screen and (min-width: 0px) and (max-width: 768px) {
+
   body,
   p,
   a {
     font-size: 14px;
   }
+
   h1 {
     font-size: 32px;
   }
+
   h2 {
     font-size: 32px;
   }
+
   h3 {
     font-size: 28px;
   }
+
   h4 {
     font-size: 24px;
   }

@@ -1,0 +1,80 @@
+.learn-faster-section {
+  padding: 4rem 0;
+  background: #e9f7f2;
+
+  .learn-faster-card {
+    width: min(100%, 1198px);
+    margin: 0 auto;
+    padding: 4rem 3rem;
+    border-radius: 20px;
+    background-color: #2f65bf;
+    background-image: url('/images/home/learnfaster.svg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+
+    overflow: hidden;
+
+    @media screen and (max-width: 1200px) {
+      width: 100%;
+    }
+
+    @media screen and (max-width: 992px) {
+      padding: 3rem 2rem;
+    }
+
+    @media screen and (max-width: 576px) {
+      padding: 2rem 1.25rem;
+      border-radius: 24px;
+    }
+
+    &__content {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    &__title {
+      font-size: 53px;
+      line-height: 43.2px;
+      font-weight: 700;
+      margin-bottom: 1.6rem;
+    }
+
+    &__text {
+      max-width: 760px;
+      font-weight: 200;
+      margin: 0 auto 2rem;
+      font-size: 20px;
+      line-height: 28.8px;
+    }
+
+    &__button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 45px;
+      padding: 0 2rem;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #FFFDF2 0%, #FFF09D 100%);
+      color: #11223f;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.2s ease;
+
+      margin: 0 auto 1.5rem;
+
+
+
+      @media screen and (min-width: 992px) {
+        width: 436px;
+        padding: 0;
+        /* horizontal padding not needed when fixed width */
+      }
+    }
+
+    &__footer {
+      font-size: 18px;
+      font-weight: 600;
+    }
+  }
+}
