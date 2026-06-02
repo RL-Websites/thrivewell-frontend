@@ -1,0 +1,135 @@
+.healthcare-operations {
+  padding: 92px 0;
+  background-image: url("/images/home/healthcare-operations-bg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &__header {
+    margin-bottom: 52px;
+  }
+
+  &__title {
+    color: $dark;
+    font-size: 50px;
+    font-weight: 700;
+  }
+
+  &__text {
+    max-width: 465px;
+    margin: 0;
+    color: $dark;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.55;
+    letter-spacing: 0;
+  }
+
+  &__pill {
+    width: fit-content;
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    margin-top: 32px;
+    padding: 10px 30px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, rgba(255, 198, 37, 0.2) 0%, rgba(168, 230, 207, 0.3) 50%, rgba(255, 198, 37, 0.2) 100%);
+
+    span:last-child {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      background: linear-gradient(90deg, #275dad 0%, #2962b0 7.14%, #2b66b3 14.29%, #2e6bb6 21.43%, #3070b9 28.57%, #3274bc 35.71%, #3579c0 42.86%, #377ec3 50%, #3a83c6 57.14%, #3c87c9 64.29%, #3f8ccc 71.43%, #4291cf 78.57%, #4495d2 85.71%, #479ad5 92.86%, #4a9fd8 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+
+  &__pill-dot {
+    width: 8px;
+    height: 8px;
+    flex: 0 0 8px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #275dad 0%, #2f6db8 25%, #377ec3 50%, #408ecd 75%, #4a9fd8 100%);
+  }
+
+  &__grid {
+    --bs-gutter-x: 15px;
+    --bs-gutter-y: 15px;
+  }
+
+  &__card {
+    min-height: 242px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 30px;
+    text-align: center;
+    border: 1px solid #ecdf7c;
+    border-radius: 16px;
+    background: linear-gradient(180deg, rgba(255, 254, 242, 0.35) 0%, rgba(255, 240, 157, 0.7) 100%);
+    box-shadow: 0px 2px 25.3px 0px #fffbdd33;
+
+    p {
+      max-width: 260px;
+      margin: 40px 0 0;
+      color: $dark;
+      font-size: 24px;
+      font-weight: 600;
+    }
+  }
+
+  &__icon {
+    width: 76px;
+    height: 76px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #19a97b;
+    font-size: 32px;
+    border-radius: 18px;
+    background: #f8ffd4;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .healthcare-operations {
+    padding: 72px 0;
+
+    &__header {
+      gap: 28px;
+    }
+
+    &__title {
+      font-size: 44px;
+    }
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .healthcare-operations {
+    padding: 56px 0;
+
+    &__title {
+      font-size: 34px;
+    }
+
+    &__text {
+      font-size: 18px;
+    }
+
+    &__pill {
+      padding: 10px 18px;
+    }
+
+    &__card {
+      min-height: 210px;
+
+      p {
+        font-size: 21px;
+      }
+    }
+  }
+}

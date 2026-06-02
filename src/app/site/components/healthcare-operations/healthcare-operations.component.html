@@ -1,0 +1,37 @@
+<section class="healthcare-operations">
+  <div class="container">
+    <div class="row align-items-center healthcare-operations__header">
+      <div class="col-lg-6">
+        <h2 class="healthcare-operations__title">
+          AI-Enabled Healthcare <br> Operations
+        </h2>
+
+        <div class="healthcare-operations__pill">
+          <span class="healthcare-operations__pill-dot"></span>
+          <span>Human-led. AI-supported. Built for scale.</span>
+        </div>
+      </div>
+
+      <div class="col-lg-5 offset-lg-1">
+        <p class="healthcare-operations__text">
+          ThriveWell RX uses intelligent automation to support faster
+          communication, smoother workflows, and more efficient operations.
+        </p>
+      </div>
+    </div>
+
+    <div class="row g-15 healthcare-operations__grid">
+      <div
+        class="col-lg-4 col-md-6"
+        *ngFor="let operation of operations"
+      >
+        <article class="healthcare-operations__card">
+          <span class="healthcare-operations__icon">
+            <i [class]="operation.icon" aria-hidden="true"></i>
+          </span>
+          <p>{{ operation.title }}</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
