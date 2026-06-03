@@ -1,9 +1,12 @@
-import { Component } from '@angular/core';
-import  {ImageWithFallbackComponent} from '../shared/image-with-fallback.component';
-import { BenefitCardComponent } from '../benefit-card/benefit-card.component';
-import { FeatureCardComponent } from '../feature-card/feature-card.component';
 import { CommonModule } from '@angular/common';
-import { HeaderComponent } from "../../header/header.component";
+import { Component } from '@angular/core';
+
+import { BenefitCardComponent } from '../components/FlowRX/benefit-card/benefit-card.component';
+import { FeatureCardComponent } from '../components/FlowRX/feature-card/feature-card.component';
+import { ImageWithFallbackComponent } from '../components/FlowRX/shared/image-with-fallback.component';
+
+import { FooterComponent } from '../components/footer/footer.component';
+import { HeaderComponent } from '../components/header/header.component';
 
 @Component({
   selector: 'app-flow-section',
@@ -14,6 +17,7 @@ import { HeaderComponent } from "../../header/header.component";
     FeatureCardComponent,
     CommonModule,
     HeaderComponent,
+    FooterComponent,
   ],
   templateUrl: './flow-section.component.html',
   styles: ``,

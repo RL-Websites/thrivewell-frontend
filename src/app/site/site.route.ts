@@ -1,7 +1,9 @@
 import { Routes } from '@angular/router';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { BookNowComponent } from './book-now/book-now.component';
+
 import { FaqComponent } from './faq/faq.component';
+import { FlowSectionComponent } from './flow-section/flow-section.component';
 import { HomeComponent } from './home/home.component';
 import { RevolutionTelehealthComponent } from './learn-more/revolution-telehealth/revolution-telehealth.component';
 import { SimplifyEcommerceComponent } from './learn-more/simplify-ecommerce/simplify-ecommerce.component';
@@ -12,7 +14,6 @@ import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.componen
 import { SiteComponent } from './site.component';
 import { SolutionsComponent } from './solutions/solutions.component';
 import { TermsAndConditionsComponent } from './terms-and-conditions/terms-and-conditions.component';
-import { FlowSectionComponent } from './components/FlowRX/flow-section/flow-section.component';
 
 export const siteRoutes: Routes = [
   {
