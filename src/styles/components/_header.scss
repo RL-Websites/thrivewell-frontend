@@ -147,11 +147,13 @@ header {
             &.active {
               &::after {
                 bottom: -3px;
+                background:transparent;
               }
             }
             &:hover {
               &::after {
                 bottom: -3px;
+                background:transparent;
               }
             }
           }
@@ -160,12 +162,16 @@ header {
             .dropdown-menu {
               display: none;
               position: static;
-              box-shadow: none;
+              border: 0;
               background: transparent;
               padding: 0;
+              margin: 0 auto;
               margin-top: 12px;
+                width: 200px;
 
               li {
+                padding: 0 18px;
+                margin: 0;
                 a {
                   padding: 12px 0;
                   color: $dark;
