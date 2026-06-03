@@ -8,69 +8,44 @@ import { CommonModule } from '@angular/common';
   templateUrl: './launch-timeline.component.html',
 })
 export class LaunchTimelineComponent implements AfterViewInit, OnDestroy {
-  @ViewChild('timelineWrapper', { static: true, read: ElementRef }) timelineWrapper!: ElementRef<HTMLElement>;
-  @ViewChild('timelineBody', { static: true, read: ElementRef }) timelineBody!: ElementRef<HTMLElement>;
-  @ViewChildren('timelineItem', { read: ElementRef }) timelineItems!: QueryList<ElementRef<HTMLElement>>;
+  @ViewChild('timelineWrapper', { static: true }) timelineWrapper!: ElementRef<HTMLElement>;
+  @ViewChild('timelineBody', { static: true }) timelineBody!: ElementRef<HTMLElement>;
+  @ViewChildren('timelineItem') timelineItems!: QueryList<ElementRef<HTMLElement>>;
+  @ViewChildren('timelineAnchor') timelineAnchors!: QueryList<ElementRef<HTMLElement>>;
+  @ViewChildren('timelineMarker') timelineMarkers!: QueryList<ElementRef<HTMLElement>>;
 
   activeIndex = 0;
   progressHeight = 0;
-  firstCardFillPercent = 0;
+  isMobile = false;
+  private mobileBreakpoint = 768;
 
   timeline = [
     {
       title: 'Discovery & Onboarding',
-      description:
-        'We begin by understanding your business model, treatment categories, pricing structure, and branding goals. Your account setup and onboarding process starts immediately.',
-      steps: [
-        'Business discovery call',
-        'Treatment category planning',
-        'Brand onboarding',
-        'Account setup initiation',
-        'Compliance and workflow discussion'
-      ],
-      day: 'Day 1–3',
+      description: 'We begin by understanding your business model, treatment categories, pricing structure, and branding goals. Your account setup and onboarding process starts immediately.',
+      steps: ['Business discovery call', 'Treatment category planning', 'Brand onboarding', 'Account setup initiation', 'Compliance and workflow discussion'],
+      day: 'Day 1-3',
       side: 'left'
     },
     {
       title: 'Platform & Brand Configuration',
-      description:
-        'Your telehealth platform is configured with your branding, workflows, treatment programs, pricing, intake forms, and operational settings.',
-      steps: [
-        'White-label branding setup',
-        'Intake and onboarding forms',
-        'Product and package configuration',
-        'Payment workflow setup',
-        'Dashboard and portal configuration'
-      ],
-      day: 'Day 4–7',
+      description: 'Your telehealth platform is configured with your branding, workflows, treatment programs, pricing, intake forms, and operational settings.',
+      steps: ['White-label branding setup', 'Intake and onboarding forms', 'Product and package configuration', 'Payment workflow setup', 'Dashboard and portal configuration'],
+      day: 'Day 4-7',
       side: 'right'
     },
     {
       title: 'Provider, Pharmacy & Workflow Integration',
-      description:
-        'We connect your workflows with providers, pharmacy fulfillment partners, and operational support systems to ensure everything is functioning smoothly.',
-      steps: [
-        'Provider workflow setup',
-        'Pharmacy coordination',
-        'Prescription routing configuration',
-        'Support workflow setup',
-        'Internal testing and QA'
-      ],
-      day: 'Day 8–12',
+      description: 'We connect your workflows with providers, pharmacy fulfillment partners, and operational support systems to ensure everything is functioning smoothly.',
+      steps: ['Provider workflow setup', 'Pharmacy coordination', 'Prescription routing configuration', 'Support workflow setup', 'Internal testing and QA'],
+      day: 'Day 8-12',
       side: 'left'
     },
     {
       title: 'Testing, Training & Launch',
-      description:
-        'Final testing is completed, your team receives operational guidance, and your platform is prepared for launch. Once approved, your healthcare brand goes live and starts accepting patients.',
-      steps: [
-        'Final quality assurance',
-        'Workflow testing',
-        'Team guidance and training',
-        'Go-live preparation',
-        'Patient onboarding readiness'
-      ],
-      day: 'Day 13–15+',
+      description: 'Final testing is completed, your team receives operational guidance, and your platform is prepared for launch. Once approved, your healthcare brand goes live and starts accepting patients.',
+      steps: ['Final quality assurance', 'Workflow testing', 'Team guidance and training', 'Go-live preparation', 'Patient onboarding readiness'],
+      day: 'Day 13-15+',
       side: 'right'
     }
   ];
@@ -78,8 +53,9 @@ export class LaunchTimelineComponent implements AfterViewInit, OnDestroy {
   private scrollHandler = this.updateScrollState.bind(this);
 
   ngAfterViewInit(): void {
-    this.updateScrollState();
     if (typeof window !== 'undefined') {
+      // Small timeout to allow structural layout cycles to settle completely
+      setTimeout(() => { this.alignMarkersToSubheadings(); this.updateScrollState(); }, 200);
       window.addEventListener('scroll', this.scrollHandler, { passive: true });
       window.addEventListener('resize', this.scrollHandler);
     }
@@ -93,83 +69,91 @@ export class LaunchTimelineComponent implements AfterViewInit, OnDestroy {
   }
 
   updateScrollState(): void {
-    const native = this.timelineWrapper?.nativeElement;
-    if (!native || typeof native.getBoundingClientRect !== 'function') {
-      return;
-    }
+    const wrapper = this.timelineWrapper?.nativeElement;
+    if (!wrapper) return;
 
-    const timelineRect = native.getBoundingClientRect();
-    const viewportHeight = window.innerHeight;
-    const progressStart = viewportHeight * 0.2;
-    const progressEnd = viewportHeight * 0.8;
-    const rawProgress = (viewportHeight - timelineRect.top - progressStart) / (timelineRect.height + progressEnd - progressStart);
-    this.progressHeight = Math.min(100, Math.max(0, rawProgress * 100));
-    this.updateLineBounds();
-    this.updateFirstCardFill();
-    this.activeIndex = this.getActiveItemIndex();
-  }
-
-  private updateLineBounds(): void {
-    const body = this.timelineBody?.nativeElement;
-    if (!body || !this.timelineItems?.length) {
-      return;
-    }
-
-    const bodyRect = body.getBoundingClientRect();
-    const firstItem = this.timelineItems.first?.nativeElement.getBoundingClientRect();
-    const lastItem = this.timelineItems.last?.nativeElement.getBoundingClientRect();
-
-    if (!firstItem || !lastItem) {
-      return;
-    }
-
-    const start = firstItem.top + firstItem.height / 2 - bodyRect.top;
-    const end = lastItem.top + lastItem.height / 2 - bodyRect.top;
-
-    body.style.setProperty('--timeline-line-start', `${Math.max(0, start)}px`);
-    body.style.setProperty('--timeline-line-end', `${Math.max(0, end)}px`);
-  }
-
-  private updateFirstCardFill(): void {
-    const body = this.timelineBody?.nativeElement;
-    const firstItem = this.timelineItems?.first?.nativeElement;
-
-    if (!body || !firstItem) {
-      return;
-    }
-
-    const bodyRect = body.getBoundingClientRect();
-    const firstItemRect = firstItem.getBoundingClientRect();
-    const lineStart = parseFloat(getComputedStyle(body).getPropertyValue('--timeline-line-start') || '0');
-    const lineEnd = parseFloat(getComputedStyle(body).getPropertyValue('--timeline-line-end') || '100');
-    const totalLineHeight = lineEnd - lineStart;
-
-    // First card middle to first card bottom
-    const firstCardMiddle = firstItemRect.top + firstItemRect.height / 2 - bodyRect.top;
-    const firstCardBottom = firstItemRect.top + firstItemRect.height - bodyRect.top;
-    const firstCardFillHeight = firstCardBottom - firstCardMiddle;
-
-    // How much of the total line height is the first card?
-    const firstCardRatio = totalLineHeight > 0 ? (firstCardFillHeight / totalLineHeight) * 100 : 0;
-
-    // What percentage of progress fills the first card?
-    this.firstCardFillPercent = Math.min(100, Math.max(0, (this.progressHeight / firstCardRatio) * 100));
-  }
-
-  private getActiveItemIndex(): number {
-    if (!this.timelineItems?.length) {
-      return 0;
-    }
-
-    const threshold = window.innerHeight * 0.75;
-    let activeIndex = 0;
-    this.timelineItems.forEach((item, index) => {
-      const itemRect = item.nativeElement.getBoundingClientRect();
-      if (itemRect.top < threshold) {
-        activeIndex = index;
+    const isMobileNow = typeof window !== 'undefined' && window.innerWidth <= this.mobileBreakpoint;
+    if (isMobileNow !== this.isMobile) {
+      this.isMobile = isMobileNow;
+      wrapper.classList.toggle('is-mobile', this.isMobile);
+      if (!this.isMobile) {
+        setTimeout(() => this.alignMarkersToSubheadings(), 50);
       }
+    }
+
+    if (!this.isMobile) {
+      this.calculateContinuousProgress();
+    }
+  }
+
+  /**
+   * Aligns the center day badges with the card subheadings.
+   */
+  private alignMarkersToSubheadings(): void {
+    if (this.isMobile || !this.timelineItems?.length) return;
+
+    const rows = this.timelineItems.toArray();
+    const anchors = this.timelineAnchors.toArray();
+    const markers = this.timelineMarkers.toArray();
+
+    rows.forEach((row, i) => {
+      const rowTop = row.nativeElement.getBoundingClientRect().top;
+      const anchorTop = anchors[i].nativeElement.getBoundingClientRect().top;
+      
+      // Calculate where the subheading text sits relative to its row container frame
+      const targetOffsetTop = anchorTop - rowTop;
+      
+      // Offset the corresponding central marker perfectly to that baseline point
+      markers[i].nativeElement.style.transform = `translateY(${targetOffsetTop}px)`;
     });
 
-    return Math.min(activeIndex, this.timeline.length - 1);
+    // Recalculate track bounds immediately after elements complete alignment shifts
+    this.updateLineTrackBounds();
+  }
+
+  private updateLineTrackBounds(): void {
+    const body = this.timelineBody?.nativeElement;
+    if (!body || !this.timelineMarkers?.length) return;
+
+    const bodyRect = body.getBoundingClientRect();
+    const firstMarker = this.timelineMarkers.first.nativeElement.getBoundingClientRect();
+    const lastMarker = this.timelineMarkers.last.nativeElement.getBoundingClientRect();
+
+    // Line starts precisely at the bottom edge of the first badge and terminates at the top edge of the last badge
+    const startOffset = firstMarker.bottom - bodyRect.top;
+    const endOffset = lastMarker.top - bodyRect.top;
+
+    body.style.setProperty('--timeline-line-start', `${startOffset}px`);
+    body.style.setProperty('--timeline-line-end', `${endOffset}px`);
+  }
+
+  private calculateContinuousProgress(): void {
+    const body = this.timelineBody?.nativeElement;
+    if (!body) return;
+
+    const bodyRect = body.getBoundingClientRect();
+    const viewportCenter = window.innerHeight * 0.5;
+
+    const lineStart = parseFloat(getComputedStyle(body).getPropertyValue('--timeline-line-start') || '0');
+    const lineEnd = parseFloat(getComputedStyle(body).getPropertyValue('--timeline-line-end') || '0');
+    const totalLineHeight = lineEnd - lineStart;
+
+    if (totalLineHeight <= 0) return;
+
+    const currentScrollPosInBody = viewportCenter - bodyRect.top;
+    const scrollProgressInLine = currentScrollPosInBody - lineStart;
+
+    const rawPercent = (scrollProgressInLine / totalLineHeight) * 100;
+    this.progressHeight = Math.min(100, Math.max(0, rawPercent));
+
+    // Evaluate active item state index based on markers crossing the viewport center
+    let currentActive = 0;
+    const markers = this.timelineMarkers.toArray();
+    markers.forEach((marker, index) => {
+      if (marker.nativeElement.getBoundingClientRect().top <= viewportCenter) {
+        currentActive = index;
+      }
+    });
+    this.activeIndex = currentActive;
   }
 }

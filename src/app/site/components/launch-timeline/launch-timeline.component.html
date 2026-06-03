@@ -1,67 +1,56 @@
 <section class="launch-timeline section bg-secondary-light" #timelineWrapper>
   <div class="container">
-    <div class="launch-timeline__header text-md-start text-center">
-      <h2 class="launch-timeline__title" data-aos="fade-up-right" data-aos-duration="700" data-aos-easing="ease-in-out">
-        Your 15-20 Day
-        <br />
-        Launch Timeline
+    
+    <div class="launch-timeline__header text-center">
+      <h2 class="launch-timeline__title" data-aos="fade-up" data-aos-duration="700">
+        Your 15–20 Day <br /> Launch Timeline
       </h2>
-      <p class="launch-timeline__subtitle" data-aos="fade-up-left" data-aos-duration="800" data-aos-easing="ease-in-out">
+      <p class="launch-timeline__subtitle" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
         From onboarding to going live, ThriveWell RX helps you launch your healthcare brand quickly, efficiently, and with the infrastructure already in place.
       </p>
     </div>
 
-    <div class="launch-timeline__body">
+    <div class="launch-timeline__body" #timelineBody>
+      
       <div class="launch-timeline__line">
         <span class="launch-timeline__line-progress" [style.height.%]="progressHeight"></span>
       </div>
 
       <div class="launch-timeline__items">
-        <ng-container *ngFor="let item of timeline; let i = index">
-          <div class="launch-timeline__row" #timelineItem data-aos="fade-up" data-aos-duration="700" data-aos-easing="ease-in-out">
-            <div class="launch-timeline__col launch-timeline__col--left">
-              <ng-container *ngIf="item.side === 'left'">
-                <article class="launch-timeline__card" [class.launch-timeline__card--active]="activeIndex === i">
-                  <div class="launch-timeline__content">
-                    <h3 class="launch-timeline__item-title">{{ item.title }}</h3>
-                    <p class="launch-timeline__description">{{ item.description }}</p>
-                    <ul class="launch-timeline__steps">
-                      <li class="launch-timeline__step" *ngFor="let step of item.steps">
-                        <i class="icon-tick launch-timeline__step-icon"></i>
-                        <span>{{ step }}</span>
-                      </li>
-                    </ul>
-                  </div>
-                </article>
-              </ng-container>
-            </div>
-
-            <div class="launch-timeline__col launch-timeline__col--center">
-              <div class="launch-timeline__marker">
-                <span class="launch-timeline__day">{{ item.day }}</span>
-                <span class="launch-timeline__dot"></span>
-              </div>
-            </div>
-
-            <div class="launch-timeline__col launch-timeline__col--right">
-              <ng-container *ngIf="item.side === 'right'">
-                <article class="launch-timeline__card" [class.launch-timeline__card--active]="activeIndex === i">
-                  <div class="launch-timeline__content">
-                    <h3 class="launch-timeline__item-title">{{ item.title }}</h3>
-                    <p class="launch-timeline__description">{{ item.description }}</p>
-                    <ul class="launch-timeline__steps">
-                      <li class="launch-timeline__step" *ngFor="let step of item.steps">
-                        <i class="icon-tick launch-timeline__step-icon"></i>
-                        <span>{{ step }}</span>
-                      </li>
-                    </ul>
-                  </div>
-                </article>
-              </ng-container>
+        <div 
+          *ngFor="let item of timeline; let i = index" 
+          class="launch-timeline__row" 
+          [class.launch-timeline__row--left]="item.side === 'left'"
+          [class.launch-timeline__row--right]="item.side === 'right'"
+          #timelineItem
+        >
+          
+          <div class="launch-timeline__center-pill">
+            <div class="launch-timeline__marker" #timelineMarker>
+              <span class="launch-timeline__day" [class.launch-timeline__day--filled]="activeIndex === i">
+                {{ item.day }}
+              </span>
             </div>
           </div>
-        </ng-container>
+
+          <div class="launch-timeline__card" [class.launch-timeline__card--active]="activeIndex === i">
+            <div class="launch-timeline__content">
+              <h3 class="launch-timeline__item-title">{{ item.title }}</h3>
+              <p class="launch-timeline__description">{{ item.description }}</p>
+              
+              <p class="launch-timeline__steps-heading" #timelineAnchor>This phase includes:</p>
+              <ul class="launch-timeline__steps">
+                <li class="launch-timeline__step" *ngFor="let step of item.steps">
+                  <i class="icon-tick launch-timeline__step-icon"></i>
+                  <span>{{ step }}</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
       </div>
+
     </div>
   </div>
 </section>
