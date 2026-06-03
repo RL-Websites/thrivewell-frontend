@@ -24,6 +24,11 @@ import { LegitScriptComponent } from '../legit-script/legit-script.component';
 import { LaunchTimelineComponent } from '../components/launch-timeline/launch-timeline.component';
 import { SecurityAndComplianceComponent } from '../components/security-and-compilance/security-and-compilance.component';
 import { HealthcareOperationsComponent } from '../components/healthcare-operations/healthcare-operations.component';
+import { SimpleStepsComponent } from '../components/simple-steps/simple-steps.component';
+import { LearnFasterComponent } from '../components/learn-faster/learn-faster.component';
+import { FlowComponent } from '../components/flow/flow.component';
+import { LaunchFasterComponent } from '../components/launch-faster/launch-faster.component';
+import { BrandCtaComponent } from '../components/brand-cta/brand-cta.component';
 
 Swiper.use([Autoplay, Navigation]);
 
@@ -45,6 +50,11 @@ Swiper.use([Autoplay, Navigation]);
     LegitScriptComponent,
     SecurityAndComplianceComponent,
     HealthcareOperationsComponent,
+    SimpleStepsComponent,
+    LearnFasterComponent,
+    FlowComponent,
+    LaunchFasterComponent,
+    BrandCtaComponent,
   ],
 })
 export class HomeComponent implements OnInit, AfterViewInit {

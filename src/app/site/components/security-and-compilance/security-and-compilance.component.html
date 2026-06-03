@@ -1,29 +1,30 @@
 <section class="security-compliance">
   <div class="security-compliance__content">
-    <div class="security-compliance__pill">
+    <div class="security-compliance__pill" data-aos="fade-up" data-aos-duration="700">
       <i class="security-compliance__pill-icon icon-security" aria-hidden="true"></i>
       <span class="security-compliance__pill-text">
         Security &amp; Compliance
       </span>
     </div>
 
-    <h2 class="security-compliance__title">
+    <h2 class="security-compliance__title" data-aos="fade-up-right" data-aos-duration="800" data-aos-easing="ease-in-out">
       Compliance Built Into the Foundation
     </h2>
 
-    <p class="security-compliance__intro">
+    <p class="security-compliance__intro" data-aos="fade-up" data-aos-duration="1000">
       ThriveWell RX is built around secure, responsible, and scalable healthcare
       operations.
     </p>
 
-    <div class="security-compliance__divider" aria-hidden="true"></div>
+    <div class="security-compliance__divider" aria-hidden="true" data-aos="fade-up" data-aos-duration="900"></div>
 
-    <h3 class="security-compliance__subtitle">
+    <h3 class="security-compliance__subtitle" data-aos="fade-up" data-aos-duration="950">
       Our infrastructure supports:
     </h3>
 
     <div class="security-compliance__grid">
-      <article class="security-compliance__card" *ngFor="let item of securityItems">
+      <article class="security-compliance__card" *ngFor="let item of securityItems; let i = index" data-aos="fade-up"
+        data-aos-duration="900" [attr.data-aos-delay]="i * 80">
         <span class="security-compliance__card-icon">
           <i [class]="item.icon" aria-hidden="true"></i>
         </span>
@@ -34,7 +35,7 @@
       </article>
     </div>
 
-    <p class="security-compliance__footer">
+    <p class="security-compliance__footer" data-aos="fade-up" data-aos-duration="1100">
       We help healthcare businesses grow with structure, safety, and
       accountability.
     </p>

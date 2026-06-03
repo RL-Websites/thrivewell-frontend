@@ -1,10 +1,11 @@
 import { AfterViewInit, Component, ElementRef, OnDestroy, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { LearnFasterComponent } from '../learn-faster/learn-faster.component';
 
 @Component({
   selector: 'app-launch-timeline',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, LearnFasterComponent],
   templateUrl: './launch-timeline.component.html',
 })
 export class LaunchTimelineComponent implements AfterViewInit, OnDestroy {
