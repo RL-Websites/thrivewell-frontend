@@ -1,11 +1,11 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?lpail5');
-  src:  url('fonts/icomoon.eot?lpail5#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.woff2?lpail5') format('woff2'),
-    url('fonts/icomoon.ttf?lpail5') format('truetype'),
-    url('fonts/icomoon.woff?lpail5') format('woff'),
-    url('fonts/icomoon.svg?lpail5#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?et79d8');
+  src:  url('fonts/icomoon.eot?et79d8#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.woff2?et79d8') format('woff2'),
+    url('fonts/icomoon.ttf?et79d8') format('truetype'),
+    url('fonts/icomoon.woff?et79d8') format('woff'),
+    url('fonts/icomoon.svg?et79d8#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -26,6 +26,21 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-home:before {
+  content: "\e92e";
+}
+.icon-box-tick:before {
+  content: "\e92f";
+}
+.icon-locate:before {
+  content: "\e930";
+}
+.icon-top:before {
+  content: "\e931";
+}
+.icon-star-thrivewell:before {
+  content: "\e932";
+}
 .icon-security1:before {
   content: "\e926";
 }

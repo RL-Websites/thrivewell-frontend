@@ -12,6 +12,7 @@ import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.componen
 import { SiteComponent } from './site.component';
 import { SolutionsComponent } from './solutions/solutions.component';
 import { TermsAndConditionsComponent } from './terms-and-conditions/terms-and-conditions.component';
+import { FlowSectionComponent } from './components/FlowRX/flow-section/flow-section.component';
 
 export const siteRoutes: Routes = [
   {
@@ -41,6 +42,10 @@ export const siteRoutes: Routes = [
       {
         path: 'solutions',
         component: SolutionsComponent,
+      },
+      {
+        path: 'flow-rx',
+        component: FlowSectionComponent,
       },
       {
         path: 'terms-and-conditions',

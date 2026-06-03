@@ -1,0 +1,23 @@
+<div class="feature-card">
+    <div class="feature-card__image-wrapper">
+        <app-image-with-fallback [src]="imageUrl" [alt]="title"
+            className="feature-card__image"></app-image-with-fallback>
+        <div class="feature-card__image-overlay"></div>
+    </div>
+
+    <div class="feature-card__body">
+        <div class="feature-card__header">
+            <div class="feature-card__icon" [innerHTML]="iconSvg"></div>
+            <h3 class="feature-card__title">{{ title }}</h3>
+        </div>
+        <div class="feature-card__description">
+            <p *ngIf="introText" class="feature-card__intro">{{ introText }}</p>
+            <ul class="feature-card__list">
+                <li *ngFor="let point of bulletPoints" class="feature-card__list-item">
+                    <span class="feature-card__bullet">•</span>
+                    <span>{{ point }}</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

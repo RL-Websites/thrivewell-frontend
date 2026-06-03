@@ -2,6 +2,8 @@
 header {
   position: relative;
   z-index: 10;
+  box-shadow: 0px 3px 21px 0px #E8E8E8;
+
   nav {
     padding: 18px 40px !important;
     // box-shadow: 0px 3px 21px 0px #eccd38;
@@ -9,6 +11,11 @@ header {
       li {
         a {
           position: relative;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 10px;
+
           &::after {
             content: "";
             position: absolute;
@@ -32,6 +39,45 @@ header {
             &::after {
               width: 20px;
               height: 2px;
+            }
+          }
+        }
+        &.dropdown-parent {
+          position: relative;
+
+          .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: calc(100% + 8px);
+            left: 0;
+            min-width: 180px;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.1);
+            padding: 10px 0;
+            z-index: 20;
+
+            li {
+              a {
+                display: block;
+                padding: 10px 18px;
+                color: $dark;
+                font-size: 15px;
+                font-weight: 500;
+                transition: 0.2s;
+
+                &:hover {
+                  color: $primary;
+                  background: rgba($primary, 0.08);
+                }
+              }
+            }
+          }
+
+          &:hover,
+          &:focus-within {
+            .dropdown-menu {
+              display: block;
             }
           }
         }
@@ -107,6 +153,29 @@ header {
             &:hover {
               &::after {
                 bottom: -3px;
+              }
+            }
+          }
+
+          &.dropdown-parent {
+            .dropdown-menu {
+              display: block;
+              position: static;
+              box-shadow: none;
+              background: transparent;
+              padding: 0;
+              margin-top: 12px;
+
+              li {
+                a {
+                  padding: 12px 0;
+                  color: $dark;
+                  background: transparent;
+                  &:hover {
+                    background: transparent;
+                    color: $primary;
+                  }
+                }
               }
             }
           }
