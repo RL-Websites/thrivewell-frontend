@@ -2,6 +2,8 @@ import { CommonModule, isPlatformBrowser } from '@angular/common';
 import {
   AfterViewInit,
   Component,
+  ElementRef,
+  HostListener,
   Inject,
   OnDestroy,
   PLATFORM_ID,
@@ -21,10 +23,12 @@ import AOS from 'aos';
 export class HeaderComponent implements AfterViewInit, OnDestroy {
   routerLink: any;
   public isCollapsed = true;
+  public isSolutionsOpen = false;
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
-    private renderer: Renderer2
+    private renderer: Renderer2,
+    private elementRef: ElementRef<HTMLElement>,
   ) {}
 
   ngAfterViewInit(): void {
@@ -47,6 +51,24 @@ export class HeaderComponent implements AfterViewInit, OnDestroy {
       } else {
         this.renderer.setStyle(document.body, 'overflow', 'hidden');
       }
+    }
+  }
+
+  toggleSolutionsMenu(event: Event) {
+    event.preventDefault();
+    event.stopPropagation();
+    this.isSolutionsOpen = !this.isSolutionsOpen;
+  }
+
+  @HostListener('document:click', ['$event'])
+  closeSolutionsMenu(event: Event) {
+    if (!this.isSolutionsOpen) {
+      return;
+    }
+
+    const target = event.target as HTMLElement;
+    if (!this.elementRef.nativeElement.contains(target)) {
+      this.isSolutionsOpen = false;
     }
   }
 }
