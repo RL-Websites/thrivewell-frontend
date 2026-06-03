@@ -40,23 +40,25 @@
             >About</a
           >
         </li>
-        <li class="list-unstyled dropdown-parent">
+        <li class="list-unstyled dropdown-parent" [class.open]="isSolutionsOpen">
           <a
-            [routerLink]="'/solutions'"
-            routerLinkActive="active"
-            class="text-dark fw-medium"
+            href="#"
+            class="text-dark fw-medium nav-link-toggle"
+            (click)="toggleSolutionsMenu($event)"
+            [attr.aria-expanded]="isSolutionsOpen"
+            aria-haspopup="true"
             >
             <span>Solutions</span>
             <span class="mt-2"><i class="icon-drop-down"></i></span>
-            </a>
-            <ul class="dropdown-menu list-unstyled mb-0">
-              <li>
-                <a [routerLink]="'/solutions'" class="dropdown-link">FlowHealth DTC</a>
-              </li>
-              <li>
-                <a [routerLink]="'/flow-rx'" class="dropdown-link">Flow RX</a>
-              </li>
-            </ul>
+          </a>
+          <ul class="dropdown-menu list-unstyled mb-0">
+            <li>
+              <a [routerLink]="'/solutions'" class="dropdown-link">FlowHealth DTC</a>
+            </li>
+            <li>
+              <a [routerLink]="'/flow-rx'" class="dropdown-link">Flow RX</a>
+            </li>
+          </ul>
         </li>
         <li class="list-unstyled">
           <a
