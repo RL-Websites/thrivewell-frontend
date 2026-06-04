@@ -1,7 +1,6 @@
 .learn-faster-section {
-  padding: 4rem 0;
-  // background: #e9f7f2;
-
+  padding-top: 100px;
+  padding-bottom: 0;
   .learn-faster-card {
     width: min(100%, 1198px);
     margin: 0 auto;
@@ -75,5 +74,8 @@
       font-size: 18px;
       font-weight: 600;
     }
+  }
+  @media screen and (max-width: 768px) {
+    padding-top: 50px;
   }
 }
