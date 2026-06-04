@@ -1,7 +1,11 @@
+
 // Header styled
 header {
-  position: relative;
-  z-index: 10;
+  position: sticky;
+  top: 15px;
+  right: 0;
+  left: 0;
+  z-index: 1030;
   box-shadow: 0px 3px 21px 0px #E8E8E8;
 
   nav {
@@ -130,6 +134,7 @@ header {
     }
   }
 }
+
 @media screen and (min-width: 0px) and (max-width: 992px) {
   header {
     nav {
@@ -198,8 +203,6 @@ header {
 
 @media screen and (min-width: 0px) and (max-width: 768px) {
   header {
-    position: fixed;
-    top: 0;
     right: 0;
     left: 0;
     width: 100%;

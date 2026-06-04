@@ -362,8 +362,30 @@
   position: relative;
   z-index: 1;
   overflow: hidden;
+  background: linear-gradient(102.25deg, rgba(206, 235, 234, 0.2) 0%, rgba(206, 235, 234, 0.7) 49.49%, rgba(253, 239, 193, 0.5) 98.97%);
+
+  &-content{
+    padding-bottom: 100px;
+  }
+  &-imgContainer{
+    display: flex;
+    align-items: end;
+  }
 
   .telehealth-frame {
+    .frame-top-left {
+      position: absolute;
+      z-index: -1;
+      top: -20px;
+      left: 315px;
+    }
+    .frame-left {
+      position: absolute;
+      z-index: -1;
+      bottom: 200px;
+      left: -80px;
+    }
+
     .frame-top {
       position: absolute;
       z-index: -1;

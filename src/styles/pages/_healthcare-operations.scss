@@ -1,6 +1,8 @@
 .healthcare-operations {
   padding: 92px 0;
-  background-image: url("/images/home/healthcare-operations-bg.png");
+  background-image:
+    url("/images/home/healthcare-operations-bg.svg"),
+    linear-gradient(116.52deg, #fdefc1 24.82%, #c9ebd5 53.3%, #ceebea 81.78%);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -87,7 +89,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    color: #19a97b;
+    color: #2B9067;
     font-size: 32px;
     border-radius: 18px;
     background: #f8ffd4;
