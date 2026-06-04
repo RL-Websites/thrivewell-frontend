@@ -9,7 +9,7 @@ import {
   PLATFORM_ID,
   Renderer2,
 } from '@angular/core';
-import { RouterLink, RouterModule } from '@angular/router';
+import { Router, RouterLink, RouterModule } from '@angular/router';
 import { NgbCollapse } from '@ng-bootstrap/ng-bootstrap';
 import AOS from 'aos';
 
@@ -27,9 +27,16 @@ export class HeaderComponent implements AfterViewInit, OnDestroy {
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
+    private router: Router,
     private renderer: Renderer2,
     private elementRef: ElementRef<HTMLElement>,
   ) {}
+
+  get logoUrl(): string {
+    return this.router.url.startsWith('/flow-rx')
+      ? 'images/flowrx-logo.svg'
+      : 'images/thrivewell-logo.svg';
+  }
 
   ngAfterViewInit(): void {
     if (isPlatformBrowser(this.platformId)) {

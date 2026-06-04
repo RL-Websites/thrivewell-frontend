@@ -9,10 +9,7 @@
   font-display: swap;
 }
 
-// Global font-family classes
-.ff-noto-serif {
-  font-family: "Noto Serif", serif;
-}
+
 
 .ff-urbanist {
   font-family: "Urbanist", sans-serif;
@@ -20,7 +17,7 @@
 
 // Utility class for Cabinet Grotesk
 .ff-cabinet {
-  font-family: 'Cabinet Grotesk', "Urbanist", sans-serif;
+  font-family: 'Cabinet Grotesk', sans-serif;
 }
 
 /*== Common font family integration start ==*/
@@ -39,7 +36,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Noto Serif", serif;
+  font-family: "Urbanist", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
 }
@@ -47,18 +44,21 @@ h6 {
 h1 {
   font-size: 80px;
   font-weight: 700;
-  font-family: 'Cabinet Grotesk', "Urbanist", sans-serif;
+  font-family: 'Cabinet Grotesk', sans-serif;
 }
 
 h2 {
+  font-family: 'Cabinet Grotesk', sans-serif;
   font-size: 53px;
 }
 
 h3 {
+  font-family: 'Cabinet Grotesk', sans-serif;
   font-size: 43px;
 }
 
 h4 {
+  font-family: 'Cabinet Grotesk', sans-serif;
   font-size: 35px;
 }
 
