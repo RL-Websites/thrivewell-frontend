@@ -7,10 +7,9 @@
     <div class="row gx-lg-4 gx-3 gy-lg-3 gy-1">
       <div class="col-md-6">
         <div class="signle-input mb-3">
-          <label
-            for="firstName"
-            class="form-label fw-semibold"
-          >First Name <span class="text-danger">*</span></label>
+          <label for="firstName" class="form-label fw-semibold"
+            >First Name <span class="text-danger">*</span></label
+          >
           <input
             type="text"
             class="form-control"
@@ -23,15 +22,15 @@
               (formRef.submitted || f['first_name'].touched)
             "
             class="fs-14 fw-medium text-danger mt-1"
-          >First name is required</span>
+            >First name is required</span
+          >
         </div>
       </div>
       <div class="col-md-6">
         <div class="signle-input mb-3">
-          <label
-            for="lastName"
-            class="form-label fw-semibold"
-          >Last Name <span class="text-danger">*</span></label>
+          <label for="lastName" class="form-label fw-semibold"
+            >Last Name <span class="text-danger">*</span></label
+          >
           <input
             type="text"
             class="form-control"
@@ -44,24 +43,26 @@
               (formRef.submitted || f['last_name'].touched)
             "
             class="fs-14 fw-medium text-danger mt-1"
-          >Last name is required</span>
+            >Last name is required</span
+          >
         </div>
       </div>
       <div class="col-md-6">
         <div class="signle-input mb-3">
-          <label
-            for="email"
-            class="form-label fw-semibold"
-          >Work Email <span class="text-danger">*</span></label>
+          <label for="email" class="form-label fw-semibold"
+            >Work Email <span class="text-danger">*</span></label
+          >
           <input
             type="email"
             class="form-control"
             id="email"
             formControlName="email"
           />
-          <div *ngIf="
+          <div
+            *ngIf="
               f['email'].errors && (formRef.submitted || f['email'].touched)
-            ">
+            "
+          >
             <p
               *ngIf="f['email'].errors['required']"
               class="fs-14 fw-medium text-danger mt-1"
@@ -79,28 +80,23 @@
       </div>
       <div class="col-md-6">
         <div class="signle-input mb-3">
-          <label
-            for="state"
-            class="form-label fw-semibold"
-          >Your Country <span class="text-danger">*</span></label>
+          <label for="state" class="form-label fw-semibold"
+            >Your Country <span class="text-danger">*</span></label
+          >
           <select
             class="form-select"
             aria-label="Default select example"
             formControlName="country_id"
           >
-            <option
-              value="1"
-              selected
-            >United States</option>
+            <option value="1" selected>United States</option>
           </select>
         </div>
       </div>
       <div class="col-md-6">
         <div class="signle-input mb-3">
-          <label
-            for="phoneNumber"
-            class="form-label fw-semibold"
-          >Phone Number <span class="text-danger">*</span></label>
+          <label for="phoneNumber" class="form-label fw-semibold"
+            >Phone Number <span class="text-danger">*</span></label
+          >
           <input
             type="text"
             class="form-control"
@@ -108,10 +104,12 @@
             formControlName="phone_number"
             (keypress)="restrictInput($event)"
           />
-          <div *ngIf="
+          <div
+            *ngIf="
               f['phone_number'].errors &&
               (formRef.submitted || f['phone_number'].touched)
-            ">
+            "
+          >
             <p
               *ngIf="f['phone_number'].errors['required']"
               class="fs-14 fw-medium text-danger mt-1"
@@ -129,10 +127,9 @@
       </div>
       <div class="col-md-6">
         <div class="signle-input mb-3">
-          <label
-            for="company"
-            class="form-label fw-semibold"
-          >Company Name <span class="text-danger">*</span></label>
+          <label for="company" class="form-label fw-semibold"
+            >Company Name <span class="text-danger">*</span></label
+          >
           <input
             type="text"
             class="form-control"
@@ -144,15 +141,15 @@
               f['company'].errors && (formRef.submitted || f['company'].touched)
             "
             class="fs-14 fw-medium text-danger mt-1"
-          >Company is required</span>
+            >Company is required</span
+          >
         </div>
       </div>
       <div class="col-md-12">
         <div class="signle-input mb-3">
-          <label
-            for="message"
-            class="form-label fw-semibold d-block"
-          >Message <span class="text-danger">*</span></label>
+          <label for="message" class="form-label fw-semibold d-block"
+            >Message <span class="text-danger">*</span></label
+          >
           <textarea
             name="message"
             id="message"
@@ -177,6 +174,12 @@
             >
               Message should be at least 100 characters
             </p>
+            <p
+              *ngIf="f['message'].errors['urlOrDomain']"
+              class="fs-14 fw-medium text-danger mt-1"
+            >
+              Links, URLs, and domains are not allowed in message
+            </p>
           </div>
         </div>
       </div>
@@ -188,13 +191,18 @@
               type="submit"
               class="btn-cta mt-10 d-inline-block"
               style="max-width: 118px"
+              [disabled]="isSubmitting"
             >
               Submit
             </button>
           </div>
 
-          <div class="col-md-6 d-flex align-items-center justify-content-md-end justify-content-center order-md-1 order-0">
-            <p class="fs-md-16 fs-14 fw-medium fst-italic text-danger mb-md-0 mb-10 order-md-1 order-0">
+          <div
+            class="col-md-6 d-flex align-items-center justify-content-md-end justify-content-center order-md-1 order-0"
+          >
+            <p
+              class="fs-md-16 fs-14 fw-medium fst-italic text-danger mb-md-0 mb-10 order-md-1 order-0"
+            >
               * Required Field
             </p>
           </div>

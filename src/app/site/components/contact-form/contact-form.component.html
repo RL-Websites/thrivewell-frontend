@@ -208,6 +208,12 @@
             >
               Notes should be at least 100 characters
             </p>
+            <p
+              *ngIf="f['notes'].errors['urlOrDomain']"
+              class="fs-14 fw-medium text-danger mt-1"
+            >
+              Links, URLs, and domains are not allowed in notes
+            </p>
           </div>
         </div>
       </div>
@@ -218,6 +224,7 @@
               type="submit"
               class="btn-cta mt-10 d-inline-block"
               style="max-width: 118px"
+              [disabled]="isSubmitting"
             >
               Submit
             </button>
