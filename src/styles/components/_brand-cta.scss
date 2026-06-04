@@ -1,9 +1,11 @@
 .brand-cta {
   &__card {
-    padding: 50px;
+    padding: 60px 50px;
     border-radius: 20px;
-    background: url("/images/home/brand-cta-bg.svg") center / cover no-repeat,
+    background: url("/images/home/brand-cta-bg.svg") no-repeat,
       linear-gradient(92.56deg, #275eae 2.14%, #3b71a8 64.57%);
+    background-size: cover;
+    background-position: center center;
   }
 
   &__title {

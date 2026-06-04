@@ -6,115 +6,50 @@
 <main>
   <section class="flow flow__alt">
     <!-- ===================== HERO ===================== -->
-    <div class="flow__hero">
-      <div class="flow__hero-grid">
-        <!-- Left: Text -->
-        <div class="flow__hero-content">
-          <div class="flow__hero-badge">
-            <div class="flow__hero-badge-dot"></div>
-            <span class="flow__hero-badge-text">Introducing Flow</span>
-          </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <!-- Left: Text -->
+          <div class="flow__hero-content">
+            <div class="flow__hero-badge">
+              <div class="flow__hero-badge-dot"></div>
+              <span class="flow__hero-badge-text">Introducing Flow</span>
+            </div>
 
-          <h1 class="flow__hero-heading">
-            Automate What Matters. Control Everything Else.
-          </h1>
-          <p class="flow__hero-subheading">
-            The Complete 503 Pharmacy &amp; Clinic Management System
-          </p>
-          <p class="flow__hero-body">
-            Flow is a purpose-built platform designed to help 503 compounding
-            pharmacies automate operations, process prescriptions faster, and
-            scale without increasing overhead.<br /><br />
-            From prescription intake to fulfillment tracking — Flow eliminates
-            manual work and keeps your entire pharmacy workflow running
-            seamlessly.
-          </p>
-
-          <div class="flow__hero-actions">
-            <button class="flow__btn flow__btn--primary">
-              Get Started with Flow Today →
-            </button>
-            <button class="flow__btn flow__btn--outline">Learn More</button>
+            <h1 class="flow__hero-heading">
+              Automate What Matters. Control Everything Else.
+            </h1>
+            <p class="flow__hero-subheading">
+              The Complete 503 Pharmacy &amp; Clinic Management System
+            </p>
+            <p class="flow__hero-body">
+              Flow is a purpose-built platform designed to help 503 compounding
+              pharmacies automate operations, process prescriptions faster, and
+              scale without increasing overhead.<br /><br />
+              From prescription intake to fulfillment tracking — Flow eliminates
+              manual work and keeps your entire pharmacy workflow running
+              seamlessly.
+            </p>
           </div>
         </div>
 
-        <!-- Right: Image + floating cards -->
-        <div class="flow__hero-visual">
-          <div class="flow__hero-bg-gradient"></div>
-
-          <!-- Blobs -->
-          <div class="flow__blob flow__blob--green-top"></div>
-          <div class="flow__blob flow__blob--yellow-mid"></div>
-          <div class="flow__blob flow__blob--teal-bottom"></div>
-
-          <!-- <img src="/images/flowrx/beautiful-girl.png" /> -->
-
-          <app-image-with-fallback
-            src="/images/flowrx/beautiful-girl.png"
-            alt="Happy woman in activewear"
-            className="flow__hero-image"
-          ></app-image-with-fallback>
-
-          <!-- Floating cards -->
-          <div class="flow__float-card flow__float-card--health">
-            <div class="flow__float-card__icon-wrap">
-              <svg viewBox="0 0 20 20" fill="none">
-                <path
-                  d="M10 2L12 8H18L13 12L15 18L10 14L5 18L7 12L2 8H8L10 2Z"
-                  fill="#275DAD"
-                />
-              </svg>
-            </div>
-            <div>
-              <p class="flow__float-card__label">Health Score</p>
-              <p class="flow__float-card__sub">Track your wellness</p>
-            </div>
-          </div>
-
-          <div class="flow__float-card flow__float-card--progress">
-            <div class="flow__float-card__bars">
-              <div
-                class="flow__float-card__bar flow__float-card__bar--green"
-              ></div>
-              <div
-                class="flow__float-card__bar flow__float-card__bar--blue"
-              ></div>
-              <div
-                class="flow__float-card__bar flow__float-card__bar--yellow"
-              ></div>
-            </div>
-            <p class="flow__float-card__label">Weekly Progress</p>
-          </div>
-
-          <div class="flow__float-card flow__float-card--support">
-            <div class="flow__float-card__pulse"></div>
-            <p class="flow__float-card__label">Live Support Available</p>
-          </div>
-
-          <div class="flow__float-card flow__float-card--stat">
-            <p class="flow__float-card__stat-number">98%</p>
-            <p class="flow__float-card__stat-label">Patient Satisfaction</p>
-          </div>
-
-          <div class="flow__float-card flow__float-card--pharmacy">
-            <div
-              class="flow__float-card__dot flow__float-card__dot--green"
-            ></div>
-            <span class="flow__float-card__label">503 Pharmacy Active</span>
+        <div class="col-lg-6">
+          <!-- Right: Image + floating cards -->
+          <div class="flow__hero">
+            <img
+              src="images/home/flowrx-hero.png"
+              alt="Flow dashboard on laptop"
+              class="flow__hero-image"
+            />
           </div>
         </div>
       </div>
     </div>
 
     <!-- ===================== VALUE PROP BANNER ===================== -->
-    <div class="flow__container">
+    <div class="container">
       <div class="flow__value-banner">
         <div class="flow__value-banner__bg">
-          <app-image-with-fallback
-            src="/images/flowrx/beautiful-girl.png"
-            alt="Medical team collaboration"
-            className="flow__value-banner__img"
-          ></app-image-with-fallback>
           <div class="flow__value-banner__overlay"></div>
         </div>
 
