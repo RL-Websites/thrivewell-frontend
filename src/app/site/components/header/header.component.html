@@ -6,7 +6,7 @@
   >
     <div>
       <a [routerLink]="''">
-        <img src="images/thrivewell-logo.svg" alt="" />
+        <img [src]="logoUrl" alt="Logo" />
       </a>
     </div>
     <button
@@ -40,34 +40,32 @@
             >About</a
           >
         </li>
-        <li class="list-unstyled dropdown-parent" [class.open]="isSolutionsOpen">
+        <li
+          class="list-unstyled dropdown-parent"
+          [class.open]="isSolutionsOpen"
+        >
           <a
             href="#"
             class="text-dark fw-medium nav-link-toggle"
             (click)="toggleSolutionsMenu($event)"
             [attr.aria-expanded]="isSolutionsOpen"
             aria-haspopup="true"
-            >
+          >
             <span>Solutions</span>
             <span class="mt-2"><i class="icon-drop-down"></i></span>
           </a>
           <ul class="dropdown-menu list-unstyled mb-0">
             <li>
-              <a [routerLink]="'/solutions'" class="dropdown-link">FlowHealth DTC</a>
+              <a [routerLink]="'/solutions'" class="dropdown-link"
+                >Telehealth DTC</a
+              >
             </li>
             <li>
               <a [routerLink]="'/flow-rx'" class="dropdown-link">Flow RX</a>
             </li>
           </ul>
         </li>
-        <li class="list-unstyled">
-          <a
-            [routerLink]="'/products'"
-            routerLinkActive="active"
-            class="text-dark fw-medium"
-            >Products</a
-          >
-        </li>
+
         <li class="list-unstyled">
           <a
             [routerLink]="'/legitscript'"
@@ -87,7 +85,7 @@
         <li class="list-unstyled">
           <a [routerLink]="'/book-now'" class="btn-cta">Book Now</a>
         </li>
-        <!-- <li class="list-unstyled">
+        <li class="list-unstyled">
           <a
             href="tel:+19728437272"
             class="d-flex align-items-center justify-content-md-start justify-content-center"
@@ -95,7 +93,7 @@
             <i class="icon-call fw-medium text-primary me-10"></i>
             <span class="text-dark fw-medium fs-16">(972) 843-7272</span>
           </a>
-        </li> -->
+        </li>
       </ul>
     </div>
   </nav>
