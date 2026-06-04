@@ -21,6 +21,7 @@ import Swal from 'sweetalert2';
 })
 export class LegitscriptContactComponent implements OnInit {
   legitScriptContactForm: FormGroup;
+  isSubmitting = false;
 
   constructor(
     private fb: FormBuilder,
@@ -50,7 +51,10 @@ export class LegitscriptContactComponent implements OnInit {
   }
 
   onSubmit() {
-    if (this.legitScriptContactForm.invalid) return;
+    if (this.legitScriptContactForm.invalid || this.isSubmitting) return;
+
+    this.isSubmitting = true;
+
     this.contactService
       .createLegitScriptContact(this.legitScriptContactForm.value)
       .subscribe({
@@ -77,6 +81,7 @@ export class LegitscriptContactComponent implements OnInit {
           });
 
           this.legitScriptContactForm.reset();
+          this.isSubmitting = false;
         },
         error: (error) => {
           Swal.fire({
@@ -102,6 +107,7 @@ export class LegitscriptContactComponent implements OnInit {
             text: error,
             confirmButtonText: 'Okay',
           });
+          this.isSubmitting = false;
         },
       });
   }

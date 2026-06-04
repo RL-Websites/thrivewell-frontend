@@ -23,6 +23,7 @@ export class ContactFormComponent implements OnInit {
   locations: any[] = [...Locations];
   states: any;
   bookingForm: FormGroup;
+  isSubmitting = false;
 
   constructor(
     private fb: FormBuilder,
@@ -61,7 +62,9 @@ export class ContactFormComponent implements OnInit {
   }
 
   onSubmit() {
-    if (this.bookingForm.invalid) return;
+    if (this.bookingForm.invalid || this.isSubmitting) return;
+
+    this.isSubmitting = true;
 
     this.contactService.createBooking(this.bookingForm.value).subscribe({
       next: (res) => {
@@ -86,6 +89,7 @@ export class ContactFormComponent implements OnInit {
           confirmButtonText: 'Okay',
         });
         this.bookingForm.reset();
+        this.isSubmitting = false;
       },
       error: (error) => {
         Swal.fire({
@@ -111,6 +115,7 @@ export class ContactFormComponent implements OnInit {
           text: error,
           confirmButtonText: 'Okay',
         });
+        this.isSubmitting = false;
       },
     });
   }
