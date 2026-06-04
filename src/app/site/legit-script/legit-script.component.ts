@@ -42,29 +42,32 @@ export class LegitScriptComponent implements AfterViewInit, OnInit {
   }
 
   ngAfterViewInit(): void {
-    new Swiper('.client-slider', {
-      spaceBetween: 60,
-      loop: true,
-      centeredSlides: true,
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      breakpoints: {
-        0: {
-          slidesPerView: 1,
-          spaceBetween: 15,
+    // Wrap Swiper inside the platform check so the server ignores it completely
+    if (isPlatformBrowser(this.platformId)) {
+      new Swiper('.client-slider', {
+        spaceBetween: 60,
+        loop: true,
+        centeredSlides: true,
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
         },
-        576: {
-          slidesPerView: 1.4,
-          spaceBetween: 20,
-          centeredSlides: false,
+        breakpoints: {
+          0: {
+            slidesPerView: 1,
+            spaceBetween: 15,
+          },
+          576: {
+            slidesPerView: 1.4,
+            spaceBetween: 20,
+            centeredSlides: false,
+          },
+          1024: {
+            slidesPerView: 3.2,
+            spaceBetween: 50,
+          },
         },
-        1024: {
-          slidesPerView: 3.2,
-          spaceBetween: 50,
-        },
-      },
-    });
+      });
+    }
   }
 }
