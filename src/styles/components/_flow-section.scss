@@ -5,12 +5,10 @@
   background: #fff;
 
   &__alt {
-    padding: 20px 0 80px;
+    padding: 20px 0 0;
     margin: 0;
 
-    @media all and (max-width: 991px) {
-      padding: 120px 0 50px;
-    }
+
   }
 
   // ===================== SHARED UTILITIES =====================
@@ -28,7 +26,11 @@
 
   &__section-header {
     text-align: center;
-    margin-bottom: 64px;
+    margin-bottom: 60px;
+
+    @media all and (max-width:768px) {
+      margin-bottom: 20px;
+    }
   }
 
   &__section-title {
@@ -115,22 +117,23 @@
 
     &__icon {
       flex-shrink: 0;
-      width: 24px;
-      height: 24px;
       margin-top: 2px;
       flex: 0 0 auto;
-      margin-right: 14px;
       color: #406FB6;
       font-size: 12px;
       font-weight: 700;
-      width: 30px;
-      height: 30px;
+      width: 20px;
+      height: 20px;
       border-radius: 50%;
-      background: #E4F7F0;
+      background: #C6D9E5;
       text-align: center;
       display: inline-flex;
       justify-content: center;
       align-items: center;
+
+      &.icon-tick {
+        margin-right: 0;
+      }
 
 
       svg {
@@ -473,6 +476,10 @@
     box-shadow: 0 24px 48px rgba(0, 0, 0, 0.2);
 
     @media all and (max-width: 991px) {
+      border-radius: 20px;
+    }
+
+    @media all and (max-width: 991px) {
       margin: 50px 0;
     }
 
@@ -535,7 +542,16 @@
   &__features {
     position: relative;
     overflow: hidden;
-    padding: 64px 0;
+    padding: 80px 0;
+    background-image: url('/images/flowrx/flow-features-bg.svg');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    // background: linear-gradient(135deg, #E8F4FD 0%, #E9F5FC 7.14%, #EAF7FB 14.29%, #EBF8FA 21.43%, #EDF9FA 28.57%, #EEFAF9 35.71%, #EFFCF8 42.86%, #F0FDF7 50%, #F2FDF5 57.14%, #F4FCF4 64.29%, #F7FCF2 71.43%, #F9FCF0 78.57%, #FBFCEE 85.71%, #FDFBED 92.86%, #FFFBEB 100%);
+
+    @media all and (max-width: 991px) {
+      padding: 50px 0;
+    }
 
 
     &__bg {
@@ -598,13 +614,7 @@
     &__inner {
       position: relative;
       z-index: 1;
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 0 48px;
 
-      @media (max-width: 768px) {
-        padding: 0 24px;
-      }
     }
 
     &__grid {
@@ -625,7 +635,11 @@
   // ===================== BENEFITS =====================
 
   &__benefits {
-    margin-bottom: 96px;
+    padding: 80px 0;
+
+    @media all and (max-width: 991px) {
+      padding: 50px 0;
+    }
 
     &__grid {
       display: grid;
@@ -655,6 +669,7 @@
     position: relative;
     overflow: hidden;
     width: 100%;
+    padding: 50px 0;
 
     &__bg {
       position: absolute;
@@ -671,22 +686,19 @@
     &__inner {
       position: relative;
       z-index: 1;
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 48px 48px;
 
-      @media (max-width: 768px) {
-        padding: 48px 24px;
-      }
+
+
     }
 
     &__grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 48px;
+      gap: 40px;
 
       @media (max-width: 1024px) {
         grid-template-columns: 1fr;
+        gap: 20px;
       }
     }
 
@@ -696,6 +708,10 @@
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
       position: relative;
       overflow: hidden;
+
+      @media all and (max-width: 991px) {
+        padding: 15px;
+      }
 
       &--green {
         background: linear-gradient(135deg, #f0f9f4, #e8f5ed);
@@ -762,7 +778,21 @@
   &__cta {
     position: relative;
     overflow: hidden;
-    background: linear-gradient(90deg, #275dad, #2868b8, #275dad);
+    background-image: url('/images/flowrx/flow-cta.svg');
+    background-position: center center;
+    background-size: cover;
+
+    @media all and (max-width: 991px) {
+      padding-top: 50px;
+    }
+
+    &__content {
+      padding: 80px 0;
+
+      @media all and (max-width: 991px) {
+        padding: 0;
+      }
+    }
 
     &__grid {
       display: grid;
@@ -775,16 +805,7 @@
       }
     }
 
-    &__content {
-      padding: 32px 48px 32px 96px;
-      max-width: 700px;
-      margin-left: auto;
 
-      @media (max-width: 1024px) {
-        margin-left: 0;
-        padding: 48px 24px;
-      }
-    }
 
     &__heading {
       font-family: 'Urbanist', sans-serif;
@@ -809,11 +830,15 @@
     }
 
     &__visual {
-      position: relative;
-      min-height: 300px;
       display: flex;
       align-items: flex-end;
       justify-content: center;
+      height: 100%;
+
+      img {
+        width: 100%;
+        max-width: 350px;
+      }
     }
 
     &__image {

@@ -78,53 +78,32 @@
     </div>
 
     <!-- ===================== FEATURES GRID ===================== -->
+
     <div class="flow__features">
-      <!-- Decorative background -->
-      <div class="flow__features__bg">
-        <div class="flow__features__orb flow__features__orb--blue"></div>
-        <div class="flow__features__orb flow__features__orb--green"></div>
-        <div class="flow__features__orb flow__features__orb--yellow"></div>
-        <div class="flow__features__dots"></div>
-        <svg
-          class="flow__features__waves"
-          viewBox="0 0 1400 800"
-          fill="none"
-          preserveAspectRatio="none"
-        >
-          <path
-            d="M0 200 Q 350 150 700 200 T 1400 200"
-            stroke="#275dad"
-            stroke-width="2"
-          />
-          <path
-            d="M0 500 Q 350 550 700 500 T 1400 500"
-            stroke="#a8e6cf"
-            stroke-width="2"
-          />
-        </svg>
-      </div>
+      <div class="container">
+        <div class="flow__features__inner">
+          <div class="flow__section-header">
+            <h2 class="flow__section-title">What Flow Does</h2>
+          </div>
 
-      <div class="flow__features__inner">
-        <div class="flow__section-header">
-          <h2 class="flow__section-title">What Flow Does</h2>
-        </div>
-
-        <div class="flow__features__grid">
-          <app-feature-card
-            *ngFor="let card of featureCards"
-            [title]="card.title"
-            [introText]="card.introText"
-            [bulletPoints]="card.bulletPoints"
-            [imageUrl]="card.imageUrl"
-            [iconSvg]="card.iconSvg"
-          ></app-feature-card>
+          <div class="flow__features__grid">
+            <app-feature-card
+              *ngFor="let card of featureCards"
+              [title]="card.title"
+              [introText]="card.introText"
+              [bulletPoints]="card.bulletPoints"
+              [imageUrl]="card.imageUrl"
+              [iconSvg]="card.iconSvg"
+            ></app-feature-card>
+          </div>
         </div>
       </div>
     </div>
 
     <!-- ===================== BENEFITS ===================== -->
-    <div class="flow__container">
-      <div class="flow__benefits">
+
+    <div class="flow__benefits">
+      <div class="container">
         <div class="flow__section-header">
           <h2 class="flow__section-title">Why Pharmacies Choose Flow</h2>
         </div>
@@ -141,46 +120,48 @@
 
     <!-- ===================== IMPACT ===================== -->
     <div class="flow__impact">
-      <div class="flow__impact__bg">
-        <div class="flow__impact__bg-gradient"></div>
-      </div>
+      <div class="container">
+        <div class="flow__impact__bg">
+          <div class="flow__impact__bg-gradient"></div>
+        </div>
 
-      <div class="flow__impact__inner">
-        <div class="flow__impact__grid">
-          <!-- Left: Designed for 503 -->
-          <div class="flow__impact__card flow__impact__card--green">
-            <h2 class="flow__impact__card-heading">
-              Designed for 503 Compounding Pharmacies
-            </h2>
-            <p class="flow__impact__card-subtitle">
-              Flow is built specifically for:
-            </p>
-            <ul class="flow__checklist flow__checklist--dark">
-              <li
-                *ngFor="let item of designedForItems"
-                class="flow__checklist__item"
-              >
-                <i class="icon-tick flow__checklist__icon"></i>
-                <span class="flow__checklist__text">{{ item }}</span>
-              </li>
-            </ul>
-          </div>
+        <div class="flow__impact__inner">
+          <div class="flow__impact__grid">
+            <!-- Left: Designed for 503 -->
+            <div class="flow__impact__card flow__impact__card--green">
+              <h2 class="flow__impact__card-heading">
+                Designed for 503 Compounding Pharmacies
+              </h2>
+              <p class="flow__impact__card-subtitle">
+                Flow is built specifically for:
+              </p>
+              <ul class="flow__checklist flow__checklist--dark">
+                <li
+                  *ngFor="let item of designedForItems"
+                  class="flow__checklist__item"
+                >
+                  <i class="icon-tick flow__checklist__icon"></i>
+                  <span class="flow__checklist__text">{{ item }}</span>
+                </li>
+              </ul>
+            </div>
 
-          <!-- Right: Run Smarter -->
-          <div class="flow__impact__card flow__impact__card--blue">
-            <h2 class="flow__impact__card-heading">
-              Run Your Pharmacy Smarter
-            </h2>
-            <p class="flow__impact__card-body">
-              Flow doesn't just manage your operations — It transforms how your
-              pharmacy runs.
-            </p>
-            <div class="flow__impact__card-image-wrap">
-              <app-image-with-fallback
-                src="images/flowrx/young-afro-man.png"
-                alt="Happy man with headphones"
-                className="flow__impact__card-image"
-              ></app-image-with-fallback>
+            <!-- Right: Run Smarter -->
+            <div class="flow__impact__card flow__impact__card--blue">
+              <h2 class="flow__impact__card-heading">
+                Run Your Pharmacy Smarter
+              </h2>
+              <p class="flow__impact__card-body">
+                Flow doesn't just manage your operations — It transforms how
+                your pharmacy runs.
+              </p>
+              <div class="flow__impact__card-image-wrap">
+                <app-image-with-fallback
+                  src="images/flowrx/young-afro-man.png"
+                  alt="Happy man with headphones"
+                  className="flow__impact__card-image"
+                ></app-image-with-fallback>
+              </div>
             </div>
           </div>
         </div>
@@ -189,28 +170,33 @@
 
     <!-- ===================== CTA BANNER ===================== -->
     <div class="flow__cta">
-      <div class="flow__cta__grid">
-        <!-- Left: Text -->
-        <div class="flow__cta__content">
-          <h2 class="flow__cta__heading">Ready to Scale Your Pharmacy?</h2>
-          <p class="flow__cta__body">
-            With Flow, you don't need more staff to grow — you just need a
-            better system.
-          </p>
-          <button class="flow__btn flow__btn--white">
-            Get Started with Flow Today →
-          </button>
-        </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <!-- Left: Text -->
+            <div class="flow__cta__content">
+              <h2 class="flow__cta__heading">Ready to Scale Your Pharmacy?</h2>
+              <p class="text-white">
+                With Flow, you don't need more staff to grow — you just need a
+                better system.
+              </p>
 
-        <!-- Right: Doctor image -->
-        <div class="flow__cta__visual">
-          <div class="flow__blob flow__blob--cta-yellow"></div>
-          <div class="flow__blob flow__blob--cta-green"></div>
-          <app-image-with-fallback
-            src="/images/flowrx/beautiful-young-female-doctor-looking-camera-office.png"
-            alt="Happy healthcare professional"
-            className="flow__cta__image"
-          ></app-image-with-fallback>
+              <p class="fs-24 fw-bold text-white">
+                Get Started with Flow Today
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <!-- Right: Doctor image -->
+            <div class="flow__cta__visual">
+              <img
+                class="w-100"
+                src="/images/flowrx/beautiful-young-female-doctor-looking-camera-office.png"
+                alt="Happy healthcare professional"
+                className="flow__cta__image"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
