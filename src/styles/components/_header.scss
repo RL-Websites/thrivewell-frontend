@@ -6,11 +6,9 @@ header {
   right: 0;
   left: 0;
   z-index: 1030;
-  // box-shadow: 0px 3px 21px 0px #E8E8E8;
-
   nav {
     padding: 18px 40px !important;
-    // box-shadow: 0px 3px 21px 0px #eccd38;
+    box-shadow: 0px 3px 21px 0px #E8E8E8;
     ul {
       li {
         a {
@@ -73,6 +71,9 @@ header {
                 &:hover {
                   color: $primary;
                   background: rgba($primary, 0.08);
+                }
+                &:after {
+                  display: none;
                 }
               }
             }
@@ -166,9 +167,12 @@ header {
           &.dropdown-parent {
             .dropdown-menu {
               display: none;
-              position: static;
+              position: absolute;
+              top: 100%;
+              left: 50%;
+              transform: translateX(-50%);
               border: 0;
-              background: transparent;
+              background: #ffffff;
               padding: 0;
               margin: 0 auto;
               margin-top: 12px;
