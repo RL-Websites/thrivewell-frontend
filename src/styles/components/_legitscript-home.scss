@@ -1,6 +1,7 @@
 .legitscript-home {
   background: url("/images/home/legitscript-bg.png") center / cover no-repeat;
   padding: 100px 0 120px;
+  overflow: hidden;
 
   &__content {
     color: $dark;
