@@ -1,9 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import {
+  AbstractControl,
   FormBuilder,
   FormGroup,
   ReactiveFormsModule,
+  ValidationErrors,
+  ValidatorFn,
   Validators,
 } from '@angular/forms';
 import { Locations } from '@app/constants/locations 1';
@@ -42,7 +45,14 @@ export class ContactFormComponent implements OnInit {
       product: [''],
       city_id: [''],
       state_id: [''],
-      notes: ['', [Validators.required, Validators.minLength(100)]],
+      notes: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(100),
+          this.noUrlOrDomainValidator(),
+        ],
+      ],
     });
   }
 
@@ -117,5 +127,20 @@ export class ContactFormComponent implements OnInit {
     if (currentValue.length >= 10) {
       event.preventDefault();
     }
+  }
+
+  private noUrlOrDomainValidator(): ValidatorFn {
+    const urlOrDomainPattern =
+      /(?:https?:\/\/|www\.|(?:[a-z0-9-]+\.)+[a-z]{2,})(?:[^\s]*)?/i;
+
+    return (control: AbstractControl): ValidationErrors | null => {
+      const value = control.value;
+
+      if (!value || typeof value !== 'string') {
+        return null;
+      }
+
+      return urlOrDomainPattern.test(value) ? { urlOrDomain: true } : null;
+    };
   }
 }

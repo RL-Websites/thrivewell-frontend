@@ -1,9 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import {
+  AbstractControl,
   FormBuilder,
   FormGroup,
   ReactiveFormsModule,
+  ValidationErrors,
+  ValidatorFn,
   Validators,
 } from '@angular/forms';
 import { ContactService } from '@app/services/contact.service';
@@ -21,7 +24,7 @@ export class LegitscriptContactComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private contactService: ContactService
+    private contactService: ContactService,
   ) {}
 
   ngOnInit(): void {
@@ -32,7 +35,14 @@ export class LegitscriptContactComponent implements OnInit {
       country_id: ['1'],
       phone_number: ['', [Validators.required, Validators.minLength(10)]],
       company: ['', [Validators.required]],
-      message: ['', [Validators.required, Validators.minLength(100)]],
+      message: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(100),
+          this.noUrlOrDomainValidator(),
+        ],
+      ],
     });
   }
   get f() {
@@ -108,5 +118,20 @@ export class LegitscriptContactComponent implements OnInit {
     if (currentValue.length >= 10) {
       event.preventDefault();
     }
+  }
+
+  private noUrlOrDomainValidator(): ValidatorFn {
+    const urlOrDomainPattern =
+      /(?:https?:\/\/|www\.|(?:[a-z0-9-]+\.)+[a-z]{2,})(?:[^\s]*)?/i;
+
+    return (control: AbstractControl): ValidationErrors | null => {
+      const value = control.value;
+
+      if (!value || typeof value !== 'string') {
+        return null;
+      }
+
+      return urlOrDomainPattern.test(value) ? { urlOrDomain: true } : null;
+    };
   }
 }
