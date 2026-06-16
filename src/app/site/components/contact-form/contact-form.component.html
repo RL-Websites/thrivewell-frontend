@@ -1,6 +1,6 @@
 <div class="contact-form p-md-30 p-14 bg-white">
   <form [formGroup]="bookingForm" #formRef="ngForm" (ngSubmit)="onSubmit()">
-    <div class="row gx-lg-4 gx-3 gy-lg-3 gy-1">
+    <div class="row gx-lg-4 gx-3 gy-lg-2 gy-1">
       <div class="col-md-6">
         <div class="signle-input mb-3">
           <label for="firstName" class="form-label fw-semibold"
@@ -122,7 +122,7 @@
         </div>
       </div>
 
-      <div class="col-md-6">
+      <!-- <div class="col-md-6">
         <div class="signle-input mb-3">
           <label for="product" class="form-label fw-semibold"
             >What Type of Product</label
@@ -134,7 +134,7 @@
             formControlName="product"
           />
         </div>
-      </div>
+      </div> -->
 
       <div class="col-md-6">
         <div class="signle-input mb-3">
@@ -143,9 +143,9 @@
         </div>
       </div>
 
-      <div class="col-md-6">
+      <div class="col-md-12">
         <div class="signle-input mb-3">
-          <label for="state" class="form-label fw-semibold">Which State</label>
+          <label for="state" class="form-label fw-semibold">State</label>
           <select
             class="form-select"
             aria-label="Default select example"
