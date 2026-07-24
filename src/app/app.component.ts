@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { LoaderService } from './services/loader.service';
+import { AnalyticsService } from './analytics.service';
 import { LoaderComponent } from './site/components/loader/loader.component';
 import { OpeningModalComponent } from './site/components/opening-modal/opening-modal.component';
 
@@ -15,7 +16,10 @@ import { OpeningModalComponent } from './site/components/opening-modal/opening-m
 export class AppComponent implements OnInit {
   modalVisible = false;
 
-  constructor(private loaderService: LoaderService) {}
+  constructor(
+    private loaderService: LoaderService,
+    private analytics: AnalyticsService,
+  ) {}
 
   onActive() {
     if (typeof window !== 'undefined') {
@@ -27,6 +31,7 @@ export class AppComponent implements OnInit {
     }
   }
   ngOnInit(): void {
+    this.analytics.init();
     setTimeout(() => {
       this.loaderService.hide();
     }, 200);
