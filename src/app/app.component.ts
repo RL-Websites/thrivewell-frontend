@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { LoaderService } from './services/loader.service';
-import { AnalyticsService } from './analytics.service';
+import { AnalyticsService } from './services/analytics.service';
 import { LoaderComponent } from './site/components/loader/loader.component';
 import { OpeningModalComponent } from './site/components/opening-modal/opening-modal.component';
 

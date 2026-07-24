@@ -2,7 +2,7 @@ import { Injectable, PLATFORM_ID, inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
-import { environment } from '../environments/environment';
+import { environment } from '../../environments/environment';
 
 type GtagFn = (...args: unknown[]) => void;
 
