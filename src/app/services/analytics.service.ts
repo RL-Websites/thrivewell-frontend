@@ -20,6 +20,7 @@ export class AnalyticsService {
   private readonly measurementId = environment.gaMeasurementId;
 
   private initialized = false;
+  private lastTrackedPath: string | null = null;
 
   /** Loads Google Analytics and starts tracking route changes. Safe to call once from the root component. */
   init(): void {
@@ -34,6 +35,11 @@ export class AnalyticsService {
     this.initialized = true;
 
     this.loadGtagScript();
+
+    // Track the initial (landing) page explicitly. With SSR the router's initial
+    // navigation completes during bootstrap, so the NavigationEnd below can fire
+    // before we subscribe — sending it here guarantees the landing page is counted.
+    this.sendPageView(this.router.url);
     this.trackRouteChanges();
   }
 
@@ -65,10 +71,19 @@ export class AnalyticsService {
   private trackRouteChanges(): void {
     this.router.events
       .pipe(filter((e): e is NavigationEnd => e instanceof NavigationEnd))
-      .subscribe((e) => {
-        window.gtag?.('config', this.measurementId, {
-          page_path: e.urlAfterRedirects,
-        });
-      });
+      .subscribe((e) => this.sendPageView(e.urlAfterRedirects));
+  }
+
+  /** Sends an explicit GA4 page_view event, skipping duplicate consecutive paths. */
+  private sendPageView(path: string): void {
+    if (path === this.lastTrackedPath) {
+      return;
+    }
+    this.lastTrackedPath = path;
+    window.gtag?.('event', 'page_view', {
+      page_path: path,
+      page_location: window.location.href,
+      page_title: document.title,
+    });
   }
 }
