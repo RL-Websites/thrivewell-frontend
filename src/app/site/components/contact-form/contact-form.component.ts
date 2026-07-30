@@ -9,8 +9,11 @@ import {
   ValidatorFn,
   Validators,
 } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Locations } from '@app/constants/locations 1';
+import { AnalyticsService } from '@app/services/analytics.service';
 import { ContactService } from '@app/services/contact.service';
+import { MetaPixelService } from '@app/services/meta-pixel.service';
 import Swal from 'sweetalert2';
 @Component({
   selector: 'contact-form',
@@ -27,7 +30,10 @@ export class ContactFormComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private contactService: ContactService
+    private contactService: ContactService,
+    private router: Router,
+    private analytics: AnalyticsService,
+    private metaPixel: MetaPixelService
   ) {}
 
   ngOnInit(): void {
@@ -68,6 +74,7 @@ export class ContactFormComponent implements OnInit {
 
     this.contactService.createBooking(this.bookingForm.value).subscribe({
       next: (res) => {
+        this.trackLead();
         Swal.fire({
           customClass: {
             confirmButton: 'btn-cta ',
@@ -118,6 +125,30 @@ export class ContactFormComponent implements OnInit {
         this.isSubmitting = false;
       },
     });
+  }
+
+  /**
+   * Reports a successful booking to Meta (Lead) and GA (generate_lead).
+   * No form field values are sent — only the page the lead came from, so no
+   * personal or health information ever leaves the browser via ad tracking.
+   * Tracking must never break the submit flow, hence the try/catch.
+   */
+  private trackLead(): void {
+    try {
+      const path = this.router.url;
+
+      this.metaPixel.track('Lead', {
+        content_name: path,
+        content_category: 'Booking Form',
+      });
+
+      this.analytics.event('generate_lead', {
+        form: 'booking',
+        page_path: path,
+      });
+    } catch {
+      // Ignore — analytics failures must not affect the user.
+    }
   }
 
   restrictInput(event: KeyboardEvent) {

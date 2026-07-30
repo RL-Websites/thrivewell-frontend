@@ -45,6 +45,9 @@ export class AnalyticsService {
 
   /** Sends a custom event to GA (no-op when analytics is disabled). */
   event(name: string, params: Record<string, unknown> = {}): void {
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
     window.gtag?.('event', name, params);
   }
 

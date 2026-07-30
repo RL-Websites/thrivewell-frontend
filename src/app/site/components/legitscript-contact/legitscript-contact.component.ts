@@ -9,7 +9,10 @@ import {
   ValidatorFn,
   Validators,
 } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AnalyticsService } from '@app/services/analytics.service';
 import { ContactService } from '@app/services/contact.service';
+import { MetaPixelService } from '@app/services/meta-pixel.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -26,6 +29,9 @@ export class LegitscriptContactComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private contactService: ContactService,
+    private router: Router,
+    private analytics: AnalyticsService,
+    private metaPixel: MetaPixelService,
   ) {}
 
   ngOnInit(): void {
@@ -59,6 +65,7 @@ export class LegitscriptContactComponent implements OnInit {
       .createLegitScriptContact(this.legitScriptContactForm.value)
       .subscribe({
         next: (res) => {
+          this.trackContact();
           Swal.fire({
             customClass: {
               confirmButton: 'btn-cta ',
@@ -110,6 +117,29 @@ export class LegitscriptContactComponent implements OnInit {
           this.isSubmitting = false;
         },
       });
+  }
+
+  /**
+   * Reports a successful LegitScript inquiry to Meta (Contact) and GA. Kept
+   * separate from the booking form's Lead event so the two intents stay
+   * distinguishable. No form field values are sent.
+   */
+  private trackContact(): void {
+    try {
+      const path = this.router.url;
+
+      this.metaPixel.track('Contact', {
+        content_name: path,
+        content_category: 'LegitScript Inquiry',
+      });
+
+      this.analytics.event('generate_lead', {
+        form: 'legitscript_contact',
+        page_path: path,
+      });
+    } catch {
+      // Ignore — analytics failures must not affect the user.
+    }
   }
 
   restrictInput(event: KeyboardEvent) {
