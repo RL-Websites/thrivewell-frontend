@@ -1,6 +1,7 @@
 import { isPlatformBrowser } from '@angular/common';
 import { Injectable, PLATFORM_ID, inject } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
+import { normalizeAnalyticsPath } from '@app/helper/helper';
 import { filter } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 
@@ -42,10 +43,12 @@ export class MetaPixelService {
 
     this.loadPixelScript();
 
-    // Track the initial (landing) page explicitly, for the same reason as in
-    // AnalyticsService: with SSR the router's initial navigation can complete
-    // before the subscription below exists.
-    this.sendPageView(this.router.url);
+    // Track the landing page from the real browser location, not router.url.
+    // provideRouter() defaults to non-blocking initial navigation, which runs
+    // in an APP_BOOTSTRAP_LISTENER — i.e. after this component's ngOnInit — so
+    // router.url is still '/' at this point. Using it would report the wrong
+    // page here and then fire a second, duplicate PageView on NavigationEnd.
+    this.sendPageView(window.location.pathname);
     this.trackRouteChanges();
   }
 
@@ -93,10 +96,13 @@ export class MetaPixelService {
 
   /** Sends a PageView, skipping duplicate consecutive paths. */
   private sendPageView(path: string): void {
-    if (path === this.lastTrackedPath) {
+    // Compare on the bare path so the landing page tracked above and the
+    // router's own '/book-now?fbclid=...' are recognised as the same page.
+    const key = normalizeAnalyticsPath(path);
+    if (key === this.lastTrackedPath) {
       return;
     }
-    this.lastTrackedPath = path;
+    this.lastTrackedPath = key;
     window.fbq?.('track', 'PageView');
   }
 }
