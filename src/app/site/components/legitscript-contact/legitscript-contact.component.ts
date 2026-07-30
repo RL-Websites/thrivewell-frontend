@@ -11,6 +11,7 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AnalyticsService } from '@app/services/analytics.service';
+import { normalizeAnalyticsPath } from '@app/helper/helper';
 import { ContactService } from '@app/services/contact.service';
 import { MetaPixelService } from '@app/services/meta-pixel.service';
 import Swal from 'sweetalert2';
@@ -126,7 +127,7 @@ export class LegitscriptContactComponent implements OnInit {
    */
   private trackContact(): void {
     try {
-      const path = this.router.url;
+      const path = normalizeAnalyticsPath(this.router.url);
 
       this.metaPixel.track('Contact', {
         content_name: path,

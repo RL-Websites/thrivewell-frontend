@@ -12,6 +12,7 @@ import {
 import { Router } from '@angular/router';
 import { Locations } from '@app/constants/locations 1';
 import { AnalyticsService } from '@app/services/analytics.service';
+import { normalizeAnalyticsPath } from '@app/helper/helper';
 import { ContactService } from '@app/services/contact.service';
 import { MetaPixelService } from '@app/services/meta-pixel.service';
 import Swal from 'sweetalert2';
@@ -135,7 +136,7 @@ export class ContactFormComponent implements OnInit {
    */
   private trackLead(): void {
     try {
-      const path = this.router.url;
+      const path = normalizeAnalyticsPath(this.router.url);
 
       this.metaPixel.track('Lead', {
         content_name: path,

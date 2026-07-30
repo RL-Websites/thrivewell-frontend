@@ -1,6 +1,7 @@
 import { Injectable, PLATFORM_ID, inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { Router, NavigationEnd } from '@angular/router';
+import { normalizeAnalyticsPath } from '@app/helper/helper';
 import { filter } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 
@@ -36,10 +37,12 @@ export class AnalyticsService {
 
     this.loadGtagScript();
 
-    // Track the initial (landing) page explicitly. With SSR the router's initial
-    // navigation completes during bootstrap, so the NavigationEnd below can fire
-    // before we subscribe — sending it here guarantees the landing page is counted.
-    this.sendPageView(this.router.url);
+    // Track the landing page from the real browser location, not router.url.
+    // provideRouter() defaults to non-blocking initial navigation, which runs
+    // in an APP_BOOTSTRAP_LISTENER — i.e. after this component's ngOnInit — so
+    // router.url is still '/' at this point. Using it would report '/' as the
+    // landing page and then fire a second page_view for the real one.
+    this.sendPageView(window.location.pathname + window.location.search);
     this.trackRouteChanges();
   }
 
@@ -79,10 +82,14 @@ export class AnalyticsService {
 
   /** Sends an explicit GA4 page_view event, skipping duplicate consecutive paths. */
   private sendPageView(path: string): void {
-    if (path === this.lastTrackedPath) {
+    // Compare on the bare path so the landing page tracked above and the
+    // router's own '/book-now?fbclid=...' are recognised as the same page.
+    // The full path (query included) is still what gets reported to GA.
+    const key = normalizeAnalyticsPath(path);
+    if (key === this.lastTrackedPath) {
       return;
     }
-    this.lastTrackedPath = path;
+    this.lastTrackedPath = key;
     window.gtag?.('event', 'page_view', {
       page_path: path,
       page_location: window.location.href,
