@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { LoaderService } from './services/loader.service';
 import { AnalyticsService } from './services/analytics.service';
+import { MetaPixelService } from './services/meta-pixel.service';
 import { LoaderComponent } from './site/components/loader/loader.component';
 import { OpeningModalComponent } from './site/components/opening-modal/opening-modal.component';
 
@@ -19,6 +20,7 @@ export class AppComponent implements OnInit {
   constructor(
     private loaderService: LoaderService,
     private analytics: AnalyticsService,
+    private metaPixel: MetaPixelService,
   ) {}
 
   onActive() {
@@ -32,6 +34,7 @@ export class AppComponent implements OnInit {
   }
   ngOnInit(): void {
     this.analytics.init();
+    this.metaPixel.init();
     setTimeout(() => {
       this.loaderService.hide();
     }, 200);
