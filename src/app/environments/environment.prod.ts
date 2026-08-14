@@ -1,4 +1,6 @@
 export const environment = {
   production: true,
-  BASE_URL: '',
+  apiBaseUrl: 'https://api.thrivewellrx.com/api',
+  gaMeasurementId: 'G-SX7MB2M5F6',
+  metaPixelId: '1063220872880495',
 };

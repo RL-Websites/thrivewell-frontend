@@ -1,4 +1,6 @@
 export const environment = {
   production: false,
-  BASE_URL: '',
+  apiBaseUrl: 'http://127.0.0.1:8014/api',
+  gaMeasurementId: '',
+  metaPixelId: '',
 };
