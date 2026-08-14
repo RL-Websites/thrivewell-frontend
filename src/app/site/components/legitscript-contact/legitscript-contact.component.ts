@@ -10,8 +10,8 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AnalyticsService } from '@app/services/analytics.service';
 import { normalizeAnalyticsPath } from '@app/helper/helper';
+import { AnalyticsService } from '@app/services/analytics.service';
 import { ContactService } from '@app/services/contact.service';
 import { MetaPixelService } from '@app/services/meta-pixel.service';
 import Swal from 'sweetalert2';
@@ -47,7 +47,7 @@ export class LegitscriptContactComponent implements OnInit {
         '',
         [
           Validators.required,
-          Validators.minLength(100),
+          Validators.minLength(1),
           this.noUrlOrDomainValidator(),
         ],
       ],
