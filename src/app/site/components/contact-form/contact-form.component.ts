@@ -11,8 +11,8 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Locations } from '@app/constants/locations 1';
-import { AnalyticsService } from '@app/services/analytics.service';
 import { normalizeAnalyticsPath } from '@app/helper/helper';
+import { AnalyticsService } from '@app/services/analytics.service';
 import { ContactService } from '@app/services/contact.service';
 import { MetaPixelService } from '@app/services/meta-pixel.service';
 import Swal from 'sweetalert2';
@@ -34,13 +34,13 @@ export class ContactFormComponent implements OnInit {
     private contactService: ContactService,
     private router: Router,
     private analytics: AnalyticsService,
-    private metaPixel: MetaPixelService
+    private metaPixel: MetaPixelService,
   ) {}
 
   ngOnInit(): void {
     //Get state
     this.states = this.locations.filter(
-      (item: any) => item?.type.toLowerCase() == 'state'
+      (item: any) => item?.type.toLowerCase() == 'state',
     );
 
     //Form Handle
@@ -57,7 +57,7 @@ export class ContactFormComponent implements OnInit {
         '',
         [
           Validators.required,
-          Validators.minLength(100),
+          Validators.minLength(1),
           this.noUrlOrDomainValidator(),
         ],
       ],
