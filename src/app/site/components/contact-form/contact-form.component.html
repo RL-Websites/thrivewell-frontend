@@ -203,11 +203,17 @@
           <div class="col-md-6 text-md-start text-center order-md-0 order-1">
             <button
               type="submit"
-              class="btn-cta mt-10 d-inline-block"
-              style="max-width: 118px"
+              class="btn-cta mt-10 d-inline-flex align-items-center justify-content-center gap-2"
+              style="min-width: 138px"
               [disabled]="isSubmitting"
             >
-              Submit
+              <span
+                *ngIf="isSubmitting"
+                class="spinner-border spinner-border-sm"
+                role="status"
+                aria-hidden="true"
+              ></span>
+              {{ isSubmitting ? "Submitting..." : "Submit" }}
             </button>
           </div>
           <div
